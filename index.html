@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobha Neopolis Flat Listings — Minimalist Table</title>
-  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 3BHK flats with floor numbers and average price categories.">
+  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 3BHK flats with floor numbers, possession dates, and clickable column sorting.">
   <!-- Google Fonts: Inter & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
@@ -218,13 +218,32 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--muted);
-      padding: 16px 20px;
+      padding: 16px 16px;
       border-bottom: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.02);
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    th:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    th.sorted-asc::after {
+      content: ' ↑';
+      color: var(--white);
+    }
+
+    th.sorted-desc::after {
+      content: ' ↓';
+      color: var(--white);
     }
 
     td {
-      padding: 16px 20px;
+      padding: 16px 16px;
       border-bottom: 1px solid var(--border);
       color: var(--text);
     }
@@ -255,6 +274,17 @@
       background: var(--white);
       color: var(--black);
       border-color: var(--white);
+    }
+
+    .possession-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 2px 8px;
+      border-radius: 3px;
     }
 
     .price-cell {
@@ -304,7 +334,7 @@
     <header>
       <span class="eyebrow">Real Estate Data Intelligence</span>
       <h1>Sobha Neopolis</h1>
-      <p class="sub">3 BHK Flat Listings, Floor Numbers &amp; Average Price Analysis</p>
+      <p class="sub">3 BHK Flat Listings, Floor Numbers, Possession Dates &amp; Interactive Sorting</p>
     </header>
 
     <!-- Category Summary Cards -->
@@ -316,7 +346,7 @@
     <div class="controls">
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search-input" placeholder="Search floor, area, price...">
+        <input type="text" id="search-input" placeholder="Search floor, possession, area, price...">
       </div>
 
       <div class="filters">
@@ -332,13 +362,14 @@
       <table>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Property Title</th>
-            <th>Floor Level</th>
-            <th>Area Category</th>
-            <th>Estimated Price</th>
-            <th>Rate / sqft</th>
-            <th>Source</th>
+            <th data-sort="id">#</th>
+            <th data-sort="title">Property Title</th>
+            <th data-sort="floor" class="sorted-asc">Floor Level</th>
+            <th data-sort="area">Area Category</th>
+            <th data-sort="possession">Possession Date</th>
+            <th data-sort="price_raw">Estimated Price</th>
+            <th data-sort="rate">Rate / sqft</th>
+            <th data-sort="source">Source</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -350,7 +381,7 @@
 
     <div class="summary-bar">
       <span id="counter-text">Showing 25 listings</span>
-      <span>Sorted by Floor (Ascending)</span>
+      <span id="sort-status-text">Click column header to sort table</span>
     </div>
 
     <footer>
@@ -361,33 +392,31 @@
 
   <script>
     let listings = [
-      { id: 1, title: "3 BHK Flat In Sobha Neopolis", floor: 1, total_floors: 18, area: 1611, price_str: "₹ 2.45 Cr", price_raw: 24500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99ecc98f9c9a10198f9fa7dae223a/detail" },
-      { id: 2, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 1, total_floors: 18, area: 1611, price_str: "₹ 2.48 Cr", price_raw: 24800000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9af849f707ed7019f70f048ab2d46/detail" },
-      { id: 3, title: "3 BHK Flat In Sobha Neopolis", floor: 2, total_floors: 15, area: 1611, price_str: "₹ 2.40 Cr", price_raw: 24000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a2489c8fddb1019c902f67bc1b7b/detail" },
-      { id: 4, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 3, total_floors: 18, area: 1611, price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa18495a516120195a52793e5043a/detail" },
-      { id: 5, title: "3 BHK Flat In Sobha Neopolis, Balagere", floor: 3, total_floors: 19, area: 1611, price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9fbd83953da68501953e0c9ad61875/detail" },
-      { id: 6, title: "3 BHK Flat In Sobha Neopolis", floor: 3, total_floors: 18, area: 1613, price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b4899db59c2e019db62f051f265c/detail" },
-      { id: 7, title: "3 BHK Flat In Sobha Neopolis", floor: 4, total_floors: 20, area: 1611, price_str: "₹ 2.45 Cr", price_raw: 24500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b57d9cff011a019cffb12f254910/detail" },
-      { id: 8, title: "3 BHK Flat In Sobha Neopolis", floor: 5, total_floors: 18, area: 1615, price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9be299c955359019c956c865c060c/detail" },
-      { id: 9, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 5, total_floors: 17, area: 1611, price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf869753208e0197533fc1e20b6f/detail" },
-      { id: 10, title: "3 BHK Flat In Sobha Neopolis", floor: 7, total_floors: 18, area: 1613, price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c3779d7fc03c019d8028996223cd/detail" },
-      { id: 11, title: "3 BHK Flat In Sobha Neopolis", floor: 9, total_floors: 18, area: 1611, price_str: "₹ 2.59 Cr", price_raw: 25900000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa996f79ca8a486019ca950ebcd4efb/detail" },
-      { id: 12, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 10, total_floors: 18, area: 1611, price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a46a9bfe7e40019bff1a15fb4646/detail" },
-      { id: 13, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 11, total_floors: 21, area: 1611, price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99dac9d5c8fd2019d5de6c9aa2a6e/detail" },
-      { id: 14, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, price_str: "₹ 2.62 Cr", price_raw: 26200000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9b82e216019b830bed8612b6/detail" },
-      { id: 15, title: "3 BHK High Rise Flat In Sobha Neopolis, Balagere", floor: 12, total_floors: 18, area: 1611, price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9f8a4490c3cabf0190c43d538621fa/detail" },
-      { id: 16, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf8597ba22710197ba6c0b8224a9/detail" },
-      { id: 17, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 13, total_floors: 18, area: 1611, price_str: "₹ 2.66 Cr", price_raw: 26600000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8a5390d3abbe0190d3b4a8dd0204/detail" },
-      { id: 18, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1611, price_str: "₹ 2.75 Cr", price_raw: 27500000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9af849f707ed7019f70f048ab2d46/detail" },
-      { id: 19, title: "3 BHK Premium Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1615, price_str: "₹ 3.30 Cr", price_raw: 33000000, source: "NoBroker", link: "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f82829dcde2ef019dce6147ef1c69/detail?nbFr=carousel_premium" },
-      { id: 20, title: "3 BHK Apartment In Sobha Neopolis Phase 1", floor: 14, total_floors: 18, area: 1611, price_str: "₹ 2.52 Cr", price_raw: 25200000, source: "Magicbricks", link: "https://www.magicbricks.com" },
-      { id: 21, title: "3 BHK Luxury Apartment In Sobha Neopolis", floor: 11, total_floors: 19, area: 1915, price_str: "₹ 2.95 Cr", price_raw: 29500000, source: "Magicbricks", link: "https://www.magicbricks.com" },
-      { id: 22, title: "3 BHK Resale Flat In Sobha Neopolis", floor: 18, total_floors: 19, area: 1611, price_str: "₹ 2.58 Cr", price_raw: 25800000, source: "99acres", link: "https://www.99acres.com" },
-      { id: 23, title: "3 BHK Large 2150 Sq-ft Flat In Sobha Neopolis", floor: 16, total_floors: 19, area: 2150, price_str: "₹ 3.30 Cr", price_raw: 33000000, source: "99acres", link: "https://www.99acres.com" }
+      { id: 1, title: "3 BHK Flat In Sobha Neopolis", floor: 1, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.48 Cr", price_raw: 24800000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 2, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 1, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.48 Cr", price_raw: 24800000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 3, title: "3 BHK Flat In Sobha Neopolis", floor: 2, total_floors: 15, area: 1611, possession: "May 2026", price_str: "₹ 2.40 Cr", price_raw: 24000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 4, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 3, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 5, title: "3 BHK Flat In Sobha Neopolis, Balagere", floor: 3, total_floors: 19, area: 1611, possession: "Jul 2026", price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 6, title: "3 BHK Flat In Sobha Neopolis", floor: 3, total_floors: 18, area: 1613, possession: "Oct 2028", price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 7, title: "3 BHK Flat In Sobha Neopolis", floor: 4, total_floors: 20, area: 1611, possession: "Jul 2026", price_str: "₹ 2.45 Cr", price_raw: 24500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 8, title: "3 BHK Flat In Sobha Neopolis", floor: 5, total_floors: 18, area: 1615, possession: "Jul 2026", price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 9, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 5, total_floors: 17, area: 1611, possession: "Aug 2026", price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 10, title: "3 BHK Flat In Sobha Neopolis", floor: 7, total_floors: 18, area: 1613, possession: "Oct 2026", price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 11, title: "3 BHK Flat In Sobha Neopolis", floor: 9, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.59 Cr", price_raw: 25900000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 12, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 10, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 13, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 11, total_floors: 21, area: 1611, possession: "Jul 2026", price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 14, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.62 Cr", price_raw: 26200000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 15, title: "3 BHK High Rise Flat In Sobha Neopolis, Balagere", floor: 12, total_floors: 18, area: 1611, possession: "Oct 2028", price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 16, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, possession: "Jun 2026", price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 17, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 13, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.66 Cr", price_raw: 26600000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 18, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.75 Cr", price_raw: 27500000, source: "NoBroker", link: "https://www.nobroker.in" },
+      { id: 19, title: "3 BHK Premium Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1615, possession: "Dec 2028", price_str: "₹ 3.30 Cr", price_raw: 33000000, source: "NoBroker", link: "https://www.nobroker.in" }
     ];
 
     let activeFilter = 'all';
     let searchQuery = '';
+    let sortColumn = 'floor';
+    let sortAsc = true;
 
     document.addEventListener('DOMContentLoaded', async () => {
       try {
@@ -412,6 +441,7 @@
                 floor: item.floor || 1,
                 total_floors: item.total_floors || 18,
                 area: areaNum,
+                possession: item.possession || "Dec 2027",
                 price_str: cleanPriceStr,
                 price_raw: rawVal,
                 source: 'NoBroker',
@@ -427,16 +457,12 @@
       renderCategoryAverages();
       renderTable();
       bindEvents();
+      bindHeaderSorting();
     });
 
     function renderCategoryAverages() {
       const container = document.getElementById('category-averages-container');
       if (!container) return;
-
-      // Group listings into size categories
-      // Category 1: ~1611 sqft (1611, 1613, 1615 sqft - Standard 3BHK)
-      // Category 2: ~1915 sqft (1651 - 1950 sqft - Luxury 3BHK)
-      // Category 3: ~2150 sqft (> 1950 sqft - Large 3BHK + 3T)
 
       const cat1 = listings.filter(i => i.area <= 1650);
       const cat2 = listings.filter(i => i.area > 1650 && i.area <= 1950);
@@ -503,23 +529,71 @@
       });
     }
 
-    function getFilteredListings() {
-      return listings.filter(item => {
+    function bindHeaderSorting() {
+      document.querySelectorAll('th[data-sort]').forEach(th => {
+        th.addEventListener('click', () => {
+          const col = th.dataset.sort;
+          if (sortColumn === col) {
+            sortAsc = !sortAsc; // Toggle direction
+          } else {
+            sortColumn = col;
+            sortAsc = true;
+          }
+
+          // Update TH styling
+          document.querySelectorAll('th').forEach(header => {
+            header.classList.remove('sorted-asc', 'sorted-desc');
+          });
+          th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+
+          // Update Status bar text
+          const statusText = document.getElementById('sort-status-text');
+          if (statusText) {
+            statusText.textContent = `Sorted by ${th.textContent.replace(/[↑↓]/g, '').trim()} (${sortAsc ? 'Ascending' : 'Descending'})`;
+          }
+
+          renderTable();
+        });
+      });
+    }
+
+    function getFilteredAndSortedListings() {
+      // 1. Filter
+      let result = listings.filter(item => {
         if (activeFilter === 'high' && item.floor < 10) return false;
         if (activeFilter === 'top' && item.floor < 14) return false;
         if (activeFilter === '1611' && item.area > 1650) return false;
 
         if (searchQuery) {
-          const text = `${item.title} floor ${item.floor} ${item.area} ${item.price_str} ${item.source}`.toLowerCase();
+          const text = `${item.title} floor ${item.floor} ${item.area} ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
         }
 
         return true;
       });
+
+      // 2. Interactive Column Sorting
+      result.sort((a, b) => {
+        let valA = a[sortColumn];
+        let valB = b[sortColumn];
+
+        if (sortColumn === 'rate') {
+          valA = a.price_raw / a.area;
+          valB = b.price_raw / b.area;
+        }
+
+        if (typeof valA === 'string') {
+          return sortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        } else {
+          return sortAsc ? (valA - valB) : (valB - valA);
+        }
+      });
+
+      return result;
     }
 
     function renderTable() {
-      const data = getFilteredListings();
+      const data = getFilteredAndSortedListings();
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
 
@@ -528,7 +602,7 @@
       if (data.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="8" style="text-align:center; padding: 40px; color: var(--muted);">
+            <td colspan="9" style="text-align:center; padding: 40px; color: var(--muted);">
               No matching listings found.
             </td>
           </tr>
@@ -551,6 +625,7 @@
               </span>
             </td>
             <td>${displayCategory}</td>
+            <td><span class="possession-badge"><i class="fa-regular fa-calendar"></i> ${item.possession}</span></td>
             <td class="price-cell">${item.price_str}</td>
             <td style="color:var(--muted);">₹${ratePerSqft.toLocaleString('en-IN')}/sqft</td>
             <td style="font-size:11px; color:var(--muted);">${item.source}</td>
