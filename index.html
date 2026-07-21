@@ -768,12 +768,38 @@
       `;
     }
 
+    let activeFilters = new Set(['all']);
+
     function bindEvents() {
       document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          e.target.classList.add('active');
-          activeFilter = e.target.dataset.filter;
+          const filter = e.currentTarget.dataset.filter;
+
+          if (filter === 'all') {
+            activeFilters.clear();
+            activeFilters.add('all');
+          } else {
+            activeFilters.delete('all');
+            if (activeFilters.has(filter)) {
+              activeFilters.delete(filter);
+            } else {
+              activeFilters.add(filter);
+            }
+            if (activeFilters.size === 0) {
+              activeFilters.add('all');
+            }
+          }
+
+          // Update button active state UI
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            const f = b.dataset.filter;
+            if (activeFilters.has(f)) {
+              b.classList.add('active');
+            } else {
+              b.classList.remove('active');
+            }
+          });
+
           renderTable();
         });
       });
@@ -811,28 +837,29 @@
     }
 
     function getFilteredAndSortedListings() {
-      // If delisted filter is active, show delisted listings
-      if (activeFilter === 'delisted') {
-        let result = [...delistedListings];
-        if (searchQuery) {
-          result = result.filter(item => {
-            const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${item.price_str}`.toLowerCase();
-            return text.includes(searchQuery);
-          });
-        }
-        return result;
+      let pool = listings;
+      if (activeFilters.has('delisted') && activeFilters.size === 1) {
+        pool = delistedListings;
+      } else if (activeFilters.has('delisted')) {
+        pool = [...listings, ...delistedListings];
       }
 
-      let result = listings.filter(item => {
-        const cat = getCategoryClass(item.area);
-        
-        if (activeFilter === '1bhk' && cat !== '1bhk') return false;
-        if (activeFilter === '1611' && cat !== '1611') return false;
-        if (activeFilter === '1915' && cat !== '1915') return false;
-        if (activeFilter === '2150' && cat !== '2150') return false;
-        if (activeFilter === '4bhk' && cat !== '4bhk') return false;
-        if (activeFilter === 'high' && item.floor < 10) return false;
+      const sizeFilters = ['1bhk', '1611', '1915', '2150', '4bhk'].filter(f => activeFilters.has(f));
 
+      let result = pool.filter(item => {
+        // If specific delisted filter is not selected, but pool has both, enforce status
+        if (!activeFilters.has('delisted') && item.status === 'delisted') return false;
+
+        // Size filter check
+        if (sizeFilters.length > 0) {
+          const cat = getCategoryClass(item.area);
+          if (!sizeFilters.includes(cat)) return false;
+        }
+
+        // High floor check
+        if (activeFilters.has('high') && item.floor < 10) return false;
+
+        // Search query check
         if (searchQuery) {
           const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.possession} ${item.price_str} ${item.source} ${item.first_seen}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
@@ -866,12 +893,12 @@
     }
 
     function renderTable() {
-      const isDelisted = activeFilter === 'delisted';
+      const isDelistedOnly = activeFilters.has('delisted') && activeFilters.size === 1;
       const data = getFilteredAndSortedListings();
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
 
-      if (isDelisted) {
+      if (isDelistedOnly) {
         counter.textContent = `Showing ${data.length} delisted / sold listings`;
       } else {
         counter.textContent = `Showing ${data.length} of ${listings.length} active Sobha Neopolis listings`;
@@ -881,7 +908,7 @@
         tbody.innerHTML = `
           <tr>
             <td colspan="10" style="text-align:center; padding: 40px; color: var(--muted);">
-              ${isDelisted ? 'No delisted listings yet. Check back after next weekly run!' : 'No matching listings found.'}
+              ${isDelistedOnly ? 'No delisted listings yet. Check back after next weekly run!' : 'No matching listings found.'}
             </td>
           </tr>
         `;
