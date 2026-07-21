@@ -15,7 +15,7 @@ headers = {
 all_properties = []
 seen_ids = set()
 
-print("Fetching ALL 800+ Sobha Neopolis flat listings across all pages from NoBroker API...\n")
+print("Fetching ALL 800+ Sobha Neopolis flat listings with EXACT prices from NoBroker API...\n")
 
 page = 1
 max_pages = 50
@@ -52,27 +52,25 @@ print(f"Total Unique Sobha Neopolis Flats Parsed: {len(all_properties)}")
 
 formatted_listings = []
 for idx, item in enumerate(all_properties):
-    title = item.get("propertyTitle") or "Sobha Neopolis 3 BHK Flat"
+    title = item.get("propertyTitle") or "Sobha Neopolis Flat"
     fl = int(item.get("floor") if item.get("floor") is not None else 1)
     tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
     sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1611)
-    price_str = item.get("formattedCost") or "₹ 2.48 Cr"
 
-    # Raw price
-    raw_val = 24800000
-    p_clean = price_str.replace("₹", "").strip()
-    if "Cr" in p_clean:
-        try:
-            num = float(p_clean.replace("Cr", "").strip())
-            raw_val = int(num * 10000000)
-        except: pass
-    elif "Lacs" in p_clean or "Lakh" in p_clean:
-        try:
-            num = float(p_clean.replace("Lacs", "").replace("Lakh", "").strip())
-            raw_val = int(num * 100000)
-        except: pass
+    raw_val = item.get("price") or item.get("propertyCost") or 24800000
+    fmt_p = item.get("formattedPrice") or item.get("formattedCost")
 
-    # Possession date
+    if not fmt_p:
+        if raw_val >= 10000000:
+            price_str = f"₹ {raw_val / 10000000:.2f} Cr"
+        else:
+            price_str = f"₹ {raw_val / 100000:.0f} Lacs"
+    else:
+        if not fmt_p.startswith("₹"):
+            price_str = f"₹ {fmt_p}"
+        else:
+            price_str = fmt_p
+
     possession = "Dec 2027"
     if item.get("availableFrom"):
         try:
@@ -93,7 +91,7 @@ for idx, item in enumerate(all_properties):
         "area": sz,
         "possession": possession,
         "price": price_str,
-        "price_raw": raw_val,
+        "price_raw": int(raw_val),
         "source": "NoBroker",
         "link": link or "https://www.nobroker.in"
     })
@@ -105,4 +103,4 @@ with open("sobha_listings.json", "w") as f:
 
 df = pd.DataFrame(formatted_listings)
 df.to_csv("sobha_listings.csv", index=False)
-print("Saved complete inventory to sobha_listings.json and sobha_listings.csv!")
+print("Saved complete inventory with exact prices to sobha_listings.json and sobha_listings.csv!")
