@@ -353,7 +353,7 @@
         <button class="filter-btn active" data-filter="all">All Floors</button>
         <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
         <button class="filter-btn" data-filter="top">Top Rise (&ge; 14)</button>
-        <button class="filter-btn" data-filter="1611">~1611 sqft</button>
+        <button class="filter-btn" data-filter="1611">1611 sqft</button>
       </div>
     </div>
 
@@ -365,7 +365,7 @@
             <th data-sort="id">#</th>
             <th data-sort="title">Property Title</th>
             <th data-sort="floor" class="sorted-asc">Floor Level</th>
-            <th data-sort="area">Area Category</th>
+            <th data-sort="display_area">Built-up Area</th>
             <th data-sort="possession">Possession Date</th>
             <th data-sort="price_raw">Estimated Price</th>
             <th data-sort="rate">Rate / sqft</th>
@@ -460,18 +460,23 @@
       bindHeaderSorting();
     });
 
+    function is1611Category(area) {
+      return area > 1500 && area < 1700;
+    }
+
     function renderCategoryAverages() {
       const container = document.getElementById('category-averages-container');
       if (!container) return;
 
-      const cat1 = listings.filter(i => i.area <= 1650);
-      const cat2 = listings.filter(i => i.area > 1650 && i.area <= 1950);
-      const cat3 = listings.filter(i => i.area > 1950);
+      // Rule: Anything > 1500 and < 1700 is classified as 1611 sqft
+      const cat1 = listings.filter(i => is1611Category(i.area));
+      const cat2 = listings.filter(i => i.area >= 1700 && i.area <= 2000);
+      const cat3 = listings.filter(i => i.area > 2000);
 
       function calcStats(items) {
         if (!items.length) return { avgPrice: 0, avgRate: 0, count: 0 };
         const sumPrice = items.reduce((acc, curr) => acc + curr.price_raw, 0);
-        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / curr.area), 0);
+        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / (is1611Category(curr.area) ? 1611 : curr.area)), 0);
         return {
           avgPrice: sumPrice / items.length,
           avgRate: sumRate / items.length,
@@ -485,7 +490,7 @@
 
       container.innerHTML = `
         <div class="avg-card">
-          <span class="avg-label">~1611 sqft Category (1611, 1613, 1615 sqft)</span>
+          <span class="avg-label">1611 sqft Category (1500 – 1700 sqft range)</span>
           <div class="avg-value">
             ₹ ${(stats1.avgPrice / 10000000).toFixed(2)} Cr
             <span class="avg-rate">· ₹${Math.round(stats1.avgRate).toLocaleString('en-IN')}/sqft</span>
@@ -494,7 +499,7 @@
         </div>
 
         <div class="avg-card">
-          <span class="avg-label">~1915 sqft Category (Luxury 3 BHK)</span>
+          <span class="avg-label">1915 sqft Category (Luxury 3 BHK)</span>
           <div class="avg-value">
             ${stats2.count ? '₹ ' + (stats2.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.95 Cr'}
             <span class="avg-rate">· ${stats2.count ? '₹' + Math.round(stats2.avgRate).toLocaleString('en-IN') : '₹15,405'}/sqft</span>
@@ -503,7 +508,7 @@
         </div>
 
         <div class="avg-card">
-          <span class="avg-label">~2150 sqft Category (Large 3 BHK + 3T)</span>
+          <span class="avg-label">2150 sqft Category (Large 3 BHK + 3T)</span>
           <div class="avg-value">
             ${stats3.count ? '₹ ' + (stats3.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.30 Cr'}
             <span class="avg-rate">· ${stats3.count ? '₹' + Math.round(stats3.avgRate).toLocaleString('en-IN') : '₹15,348'}/sqft</span>
@@ -559,10 +564,10 @@
       let result = listings.filter(item => {
         if (activeFilter === 'high' && item.floor < 10) return false;
         if (activeFilter === 'top' && item.floor < 14) return false;
-        if (activeFilter === '1611' && item.area > 1650) return false;
+        if (activeFilter === '1611' && !is1611Category(item.area)) return false;
 
         if (searchQuery) {
-          const text = `${item.title} floor ${item.floor} ${item.area} ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
+          const text = `${item.title} floor ${item.floor} ${item.area} 1611 sqft ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
         }
 
@@ -573,9 +578,16 @@
         let valA = a[sortColumn];
         let valB = b[sortColumn];
 
+        if (sortColumn === 'display_area') {
+          valA = is1611Category(a.area) ? 1611 : a.area;
+          valB = is1611Category(b.area) ? 1611 : b.area;
+        }
+
         if (sortColumn === 'rate') {
-          valA = a.price_raw / a.area;
-          valB = b.price_raw / b.area;
+          const effAreaA = is1611Category(a.area) ? 1611 : a.area;
+          const effAreaB = is1611Category(b.area) ? 1611 : b.area;
+          valA = a.price_raw / effAreaA;
+          valB = b.price_raw / effAreaB;
         }
 
         if (typeof valA === 'string') {
@@ -607,9 +619,10 @@
       }
 
       tbody.innerHTML = data.map((item, index) => {
-        const ratePerSqft = Math.round(item.price_raw / item.area);
+        const effArea = is1611Category(item.area) ? 1611 : item.area;
+        const ratePerSqft = Math.round(item.price_raw / effArea);
         const isHigh = item.floor >= 10;
-        const displayCategory = item.area <= 1650 ? `${item.area} sqft (~1611)` : `${item.area} sqft`;
+        const displayCategory = "1611 sqft";
         
         return `
           <tr>
