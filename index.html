@@ -334,7 +334,7 @@
     <header>
       <span class="eyebrow">Real Estate Data Intelligence</span>
       <h1>Sobha Neopolis</h1>
-      <p class="sub">Complete Flat Inventory, Built-up Sqft Classification, Possession Dates &amp; Interactive Sorting</p>
+      <p class="sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Interactive Sorting</p>
     </header>
 
     <!-- Category Summary Cards -->
@@ -406,24 +406,20 @@
         if (res.ok) {
           const freshData = await res.json();
           if (Array.isArray(freshData) && freshData.length > 0) {
-            listings = freshData.map((item, idx) => {
-              const cleanPriceStr = item.price || '₹ 2.48 Cr';
-              let rawVal = item.price_raw || 24800000;
-              const areaNum = parseInt(item.area) || 1611;
-
-              return {
+            listings = freshData
+              .filter(item => item.title.toLowerCase().includes('sobha neopolis') || item.title.toLowerCase().includes('shobha neopolis'))
+              .map((item, idx) => ({
                 id: idx + 1,
                 title: item.title,
-                floor: item.floor || 1,
+                floor: item.floor || 0,
                 total_floors: item.total_floors || 18,
-                area: areaNum,
+                area: parseInt(item.area) || 1611,
                 possession: item.possession || "Dec 2027",
-                price_str: cleanPriceStr,
-                price_raw: rawVal,
+                price_str: item.price.startsWith('₹') ? item.price : '₹ ' + item.price,
+                price_raw: item.price_raw || 24800000,
                 source: 'NoBroker',
                 link: item.link
-              };
-            });
+              }));
           }
         }
       } catch (e) {
@@ -435,13 +431,6 @@
       bindEvents();
       bindHeaderSorting();
     });
-
-    // Complete Classification Boundaries:
-    // < 1000 sqft       -> 1 BHK (660 sqft)
-    // 1000 - 1750 sqft -> 1611 sqft
-    // 1751 - 2049 sqft -> 1915 sqft
-    // 2050 - 2250 sqft -> 2150 sqft
-    // > 2250 sqft      -> 4 BHK (e.g. 2481 / 2933 sqft)
 
     function getCategoryClass(area) {
       if (area < 1000) return '1bhk';
@@ -505,10 +494,10 @@
         <div class="avg-card">
           <span class="avg-label">1 BHK Category (&lt;1000 sqft)</span>
           <div class="avg-value">
-            ${s1bhk.count ? formatPriceVal(s1bhk.avgPrice) : '₹ 95 Lacs'}
-            <span class="avg-rate">· ${s1bhk.count ? '₹' + Math.round(s1bhk.avgRate).toLocaleString('en-IN') : '₹14,393'}/sqft</span>
+            ${s1bhk.count ? formatPriceVal(s1bhk.avgPrice) : '₹ 1.20 Cr'}
+            <span class="avg-rate">· ${s1bhk.count ? '₹' + Math.round(s1bhk.avgRate).toLocaleString('en-IN') : '₹18,181'}/sqft</span>
           </div>
-          <span class="avg-count">${s1bhk.count} Units (Studio / 1 BHK)</span>
+          <span class="avg-count">${s1bhk.count} Units (1 BHK Layouts)</span>
         </div>
 
         <div class="avg-card">
@@ -523,8 +512,8 @@
         <div class="avg-card">
           <span class="avg-label">1915 sqft Category (1800–2000 sqft)</span>
           <div class="avg-value">
-            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.98 Cr'}
-            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,561'}/sqft</span>
+            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.94 Cr'}
+            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,352'}/sqft</span>
           </div>
           <span class="avg-count">${s1915.count} Units (Luxury 3 BHK)</span>
         </div>
@@ -532,8 +521,8 @@
         <div class="avg-card">
           <span class="avg-label">2150 sqft Category (2050–2250 sqft)</span>
           <div class="avg-value">
-            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.32 Cr'}
-            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹15,441'}/sqft</span>
+            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.50 Cr'}
+            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹16,279'}/sqft</span>
           </div>
           <span class="avg-count">${s2150.count} Units (Large 3 BHK + 3T)</span>
         </div>
@@ -541,8 +530,8 @@
         <div class="avg-card">
           <span class="avg-label">4 BHK Category (&gt; 2250 sqft)</span>
           <div class="avg-value">
-            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.96 Cr'}
-            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹15,961'}/sqft</span>
+            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.58 Cr'}
+            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹14,430'}/sqft</span>
           </div>
           <span class="avg-count">${s4bhk.count} Units (4 BHK / Penthouse)</span>
         </div>
@@ -639,7 +628,7 @@
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
 
-      counter.textContent = `Showing ${data.length} of ${listings.length} listings`;
+      counter.textContent = `Showing ${data.length} of ${listings.length} Sobha Neopolis listings`;
 
       if (data.length === 0) {
         tbody.innerHTML = `
