@@ -15,7 +15,7 @@ headers = {
 all_properties = []
 seen_ids = set()
 
-print("Fetching ALL 800+ Sobha Neopolis flat listings across all pages from NoBroker API...\n")
+print("Fetching ALL 900+ Sobha Neopolis flat listings across all pages from NoBroker API...\n")
 
 page = 1
 max_pages = 50
@@ -29,27 +29,38 @@ while page <= max_pages:
     }
     
     r = requests.get(api_url, params=params, headers=headers)
+    print(f"Page {page} Status: {r.status_code}", end=" | ")
+    
     if r.status_code != 200:
+        print("Stopped (Non-200 status)")
         break
         
     data = r.json()
     props = data.get("data", [])
     if not props or not isinstance(props, list):
+        print("No properties returned. Reached end of pagination.")
         break
         
+    added = 0
     for prop in props:
         pid = prop.get("id") or prop.get("propertyId")
         if pid and pid not in seen_ids:
             seen_ids.add(pid)
             all_properties.append(prop)
+            added += 1
             
+    print(f"Batch count: {len(props)}, New unique added: {added}, Total unique so far: {len(all_properties)}")
+    
     if len(props) == 0:
         break
         
     page += 1
 
-print(f"Total Unique Sobha Neopolis Flats Parsed: {len(all_properties)}")
+print(f"\n=======================================================")
+print(f"SUCCESS! Total Unique Sobha Neopolis Flats Parsed: {len(all_properties)}")
+print(f"=======================================================\n")
 
+# Format into clean json structure
 formatted_listings = []
 for idx, item in enumerate(all_properties):
     title = item.get("propertyTitle") or "Sobha Neopolis 3 BHK Flat"
@@ -100,9 +111,9 @@ for idx, item in enumerate(all_properties):
 
 formatted_listings.sort(key=lambda x: (x["floor"], x["price_raw"]))
 
-with open("sobha_listings.json", "w") as f:
+with open("/Users/priyanshuvarshney/Desktop/System Design/sobha-neopolis-tracker/sobha_listings.json", "w") as f:
     json.dump(formatted_listings, f, indent=2)
 
 df = pd.DataFrame(formatted_listings)
-df.to_csv("sobha_listings.csv", index=False)
+df.to_csv("/Users/priyanshuvarshney/Desktop/System Design/sobha-neopolis-tracker/sobha_listings.csv", index=False)
 print("Saved complete inventory to sobha_listings.json and sobha_listings.csv!")
