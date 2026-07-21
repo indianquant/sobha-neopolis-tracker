@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobha Neopolis Flat Listings — Minimalist Table</title>
-  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 3BHK and 4BHK flats with floor numbers, possession dates, and sqft category filters.">
+  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 1BHK, 3BHK, and 4BHK flats with floor numbers, possession dates, and sqft category filters.">
   <!-- Google Fonts: Inter & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
     /* Category Summary Cards */
     .category-averages {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
       margin-bottom: 32px;
     }
@@ -108,17 +108,17 @@
 
     .avg-value {
       font-family: var(--font-body);
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--white);
       display: flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .avg-rate {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
       color: var(--muted);
     }
@@ -143,7 +143,7 @@
     .search-box {
       position: relative;
       flex: 1;
-      min-width: 260px;
+      min-width: 240px;
     }
 
     .search-box input {
@@ -179,7 +179,7 @@
     }
 
     .filter-btn {
-      padding: 8px 14px;
+      padding: 8px 12px;
       background: transparent;
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -351,6 +351,7 @@
 
       <div class="filters">
         <button class="filter-btn active" data-filter="all">All Sizes</button>
+        <button class="filter-btn" data-filter="1bhk">1 BHK (&lt;1000 sqft)</button>
         <button class="filter-btn" data-filter="1611">1611 sqft</button>
         <button class="filter-btn" data-filter="1915">1915 sqft</button>
         <button class="filter-btn" data-filter="2150">2150 sqft</button>
@@ -435,7 +436,15 @@
       bindHeaderSorting();
     });
 
+    // Classification Rules:
+    // < 1000 sqft       -> 1 BHK (660 sqft)
+    // 1500 - 1700 sqft -> 1611 sqft
+    // 1800 - 2000 sqft -> 1915 sqft
+    // 2050 - 2250 sqft -> 2150 sqft
+    // > 2250 sqft      -> 4 BHK (e.g. 2481 / 2933 sqft)
+
     function getCategoryClass(area) {
+      if (area < 1000) return '1bhk';
       if (area > 1500 && area < 1700) return '1611';
       if (area >= 1800 && area <= 2000) return '1915';
       if (area >= 2050 && area <= 2250) return '2150';
@@ -444,6 +453,7 @@
     }
 
     function getDisplayArea(area) {
+      if (area < 1000) return `1 BHK (${area} sqft)`;
       if (area > 1500 && area < 1700) return '1611 sqft';
       if (area >= 1800 && area <= 2000) return '1915 sqft';
       if (area >= 2050 && area <= 2250) return '2150 sqft';
@@ -462,6 +472,7 @@
       const container = document.getElementById('category-averages-container');
       if (!container) return;
 
+      const cat1bhk = listings.filter(i => getCategoryClass(i.area) === '1bhk');
       const cat1611 = listings.filter(i => getCategoryClass(i.area) === '1611');
       const cat1915 = listings.filter(i => getCategoryClass(i.area) === '1915');
       const cat2150 = listings.filter(i => getCategoryClass(i.area) === '2150');
@@ -478,12 +489,27 @@
         };
       }
 
+      const s1bhk = calcStats(cat1bhk);
       const s1611 = calcStats(cat1611);
       const s1915 = calcStats(cat1915);
       const s2150 = calcStats(cat2150);
       const s4bhk = calcStats(cat4bhk);
 
+      function formatPriceVal(val) {
+        if (val >= 10000000) return '₹ ' + (val / 10000000).toFixed(2) + ' Cr';
+        return '₹ ' + Math.round(val / 100000) + ' Lacs';
+      }
+
       container.innerHTML = `
+        <div class="avg-card">
+          <span class="avg-label">1 BHK Category (&lt;1000 sqft)</span>
+          <div class="avg-value">
+            ${s1bhk.count ? formatPriceVal(s1bhk.avgPrice) : '₹ 95 Lacs'}
+            <span class="avg-rate">· ${s1bhk.count ? '₹' + Math.round(s1bhk.avgRate).toLocaleString('en-IN') : '₹14,393'}/sqft</span>
+          </div>
+          <span class="avg-count">${s1bhk.count} Units (Studio / 1 BHK)</span>
+        </div>
+
         <div class="avg-card">
           <span class="avg-label">1611 sqft Category (1500–1700 sqft)</span>
           <div class="avg-value">
@@ -568,6 +594,7 @@
       let result = listings.filter(item => {
         const cat = getCategoryClass(item.area);
         
+        if (activeFilter === '1bhk' && cat !== '1bhk') return false;
         if (activeFilter === '1611' && cat !== '1611') return false;
         if (activeFilter === '1915' && cat !== '1915') return false;
         if (activeFilter === '2150' && cat !== '2150') return false;
