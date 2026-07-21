@@ -380,6 +380,53 @@
       font-weight: 600;
     }
 
+    /* Countdown Timer */
+    .countdown-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(59,130,246,0.08));
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .countdown-strip .countdown-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .countdown-strip .countdown-timer {
+      display: flex;
+      gap: 8px;
+    }
+    .countdown-strip .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      min-width: 52px;
+    }
+    .countdown-strip .time-value {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .countdown-strip .time-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
     /* Counter Bar */
     .summary-bar {
       display: flex;
@@ -414,6 +461,20 @@
     <!-- Run Summary Strip -->
     <div class="run-summary" id="run-summary">
       <!-- Populated by JS -->
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-strip" id="countdown-strip">
+      <div class="countdown-label">
+        <i class="fa-solid fa-rotate" style="color:#22c55e"></i>
+        <span>Next data refresh:</span>
+      </div>
+      <div class="countdown-timer" id="countdown-timer">
+        <div class="time-unit"><span class="time-value" id="cd-days">--</span><span class="time-label">Days</span></div>
+        <div class="time-unit"><span class="time-value" id="cd-hours">--</span><span class="time-label">Hours</span></div>
+        <div class="time-unit"><span class="time-value" id="cd-mins">--</span><span class="time-label">Mins</span></div>
+        <div class="time-unit"><span class="time-value" id="cd-secs">--</span><span class="time-label">Secs</span></div>
+      </div>
     </div>
 
     <!-- Category Summary Cards -->
@@ -553,6 +614,53 @@
         <div class="run-item" style="color:#ef4444"><i class="fa-solid fa-xmark"></i> Delisted / Sold: <span class="run-value" style="color:#ef4444">${delistedCount}</span></div>
       `;
     }
+
+    // ── Countdown to next Friday 8 PM IST ──
+    function getNextFriday8pmIST() {
+      // IST is UTC+5:30. Friday 8 PM IST = Friday 14:30 UTC.
+      const now = new Date();
+      // Get current day of week in UTC
+      const utcDay = now.getUTCDay(); // 0=Sun, 5=Fri
+      const utcHour = now.getUTCHours();
+      const utcMin = now.getUTCMinutes();
+
+      // Find next Friday
+      let daysUntilFriday = (5 - utcDay + 7) % 7;
+
+      // If today is Friday, check if we've passed 14:30 UTC
+      if (daysUntilFriday === 0) {
+        if (utcHour > 14 || (utcHour === 14 && utcMin >= 30)) {
+          daysUntilFriday = 7; // Next week's Friday
+        }
+      }
+
+      const nextFri = new Date(now);
+      nextFri.setUTCDate(now.getUTCDate() + daysUntilFriday);
+      nextFri.setUTCHours(14, 30, 0, 0);
+      return nextFri;
+    }
+
+    function updateCountdown() {
+      const target = getNextFriday8pmIST();
+      const now = new Date();
+      let diff = target - now;
+
+      if (diff < 0) diff = 0;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('cd-days').textContent = pad(days);
+      document.getElementById('cd-hours').textContent = pad(hours);
+      document.getElementById('cd-mins').textContent = pad(mins);
+      document.getElementById('cd-secs').textContent = pad(secs);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     function getCategoryClass(area) {
       if (area < 1000) return '1bhk';
