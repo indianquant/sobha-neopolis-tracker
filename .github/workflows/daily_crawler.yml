@@ -34,5 +34,5 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sobha_listings.json sobha_listings.csv
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Sobha Neopolis listings [Weekly Friday 8 PM IST]" && git push)
+          git add sobha_listings.json sobha_listings.csv sobha_history.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Sobha Neopolis listings [Scheduled/Manual Run]" && git push)

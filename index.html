@@ -380,10 +380,11 @@
       font-weight: 600;
     }
 
-    /* Countdown Timer */
+    /* Countdown Timer & Force Update */
     .countdown-strip {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
       margin-bottom: 24px;
       padding: 14px 20px;
@@ -426,6 +427,35 @@
       letter-spacing: 0.1em;
       color: var(--muted);
     }
+    .force-update-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      color: var(--white);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .force-update-btn:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .force-update-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: rgba(255,255,255,0.03);
+    }
+    .force-msg {
+      font-size: 11px;
+      margin-top: 4px;
+      color: #eab308;
+      width: 100%;
+    }
 
     /* Counter Bar */
     .summary-bar {
@@ -463,18 +493,27 @@
       <!-- Populated by JS -->
     </div>
 
-    <!-- Countdown Timer -->
+    <!-- Countdown Timer & Force Update -->
     <div class="countdown-strip" id="countdown-strip">
-      <div class="countdown-label">
-        <i class="fa-solid fa-rotate" style="color:#22c55e"></i>
-        <span>Next data refresh:</span>
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <div class="countdown-label">
+          <i class="fa-solid fa-rotate" style="color:#22c55e"></i>
+          <span>Next scheduled refresh:</span>
+        </div>
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="time-unit"><span class="time-value" id="cd-days">--</span><span class="time-label">Days</span></div>
+          <div class="time-unit"><span class="time-value" id="cd-hours">--</span><span class="time-label">Hours</span></div>
+          <div class="time-unit"><span class="time-value" id="cd-mins">--</span><span class="time-label">Mins</span></div>
+          <div class="time-unit"><span class="time-value" id="cd-secs">--</span><span class="time-label">Secs</span></div>
+        </div>
       </div>
-      <div class="countdown-timer" id="countdown-timer">
-        <div class="time-unit"><span class="time-value" id="cd-days">--</span><span class="time-label">Days</span></div>
-        <div class="time-unit"><span class="time-value" id="cd-hours">--</span><span class="time-label">Hours</span></div>
-        <div class="time-unit"><span class="time-value" id="cd-mins">--</span><span class="time-label">Mins</span></div>
-        <div class="time-unit"><span class="time-value" id="cd-secs">--</span><span class="time-label">Secs</span></div>
+      <div>
+        <button class="force-update-btn" id="force-update-btn">
+          <i class="fa-solid fa-bolt" style="color:#eab308"></i>
+          <span>Force Update (1/day)</span>
+        </button>
       </div>
+      <div class="force-msg" id="force-msg" style="display:none;"></div>
     </div>
 
     <!-- Category Summary Cards -->
@@ -661,6 +700,73 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── Daily Force Update Logic (1 per 24 hours) ──
+    function setupForceUpdate() {
+      const btn = document.getElementById('force-update-btn');
+      const msg = document.getElementById('force-msg');
+      if (!btn || !msg) return;
+
+      const KEY = 'sobha_last_force_update';
+      const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+      function checkEligibility() {
+        const last = parseInt(localStorage.getItem(KEY) || '0');
+        const now = Date.now();
+        const diff = now - last;
+
+        if (diff < ONE_DAY_MS) {
+          const remainingMs = ONE_DAY_MS - diff;
+          const hrs = Math.floor(remainingMs / (1000 * 60 * 60));
+          const mins = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+          btn.disabled = true;
+          btn.style.opacity = '0.5';
+          msg.style.display = 'block';
+          msg.textContent = `⚡ Daily force update limit reached. Next force update available in ${hrs}h ${mins}m.`;
+        } else {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          msg.style.display = 'none';
+        }
+      }
+
+      checkEligibility();
+      setInterval(checkEligibility, 60000);
+
+      btn.addEventListener('click', async () => {
+        const last = parseInt(localStorage.getItem(KEY) || '0');
+        const now = Date.now();
+
+        if (now - last < ONE_DAY_MS) {
+          checkEligibility();
+          return;
+        }
+
+        // Record forced update timestamp
+        localStorage.setItem(KEY, now.toString());
+        checkEligibility();
+
+        msg.style.display = 'block';
+        msg.style.color = '#22c55e';
+        msg.textContent = '⚡ Force update initiated! Opening GitHub Actions to run manual crawler batch...';
+
+        // Open GitHub Actions workflow dispatch page in new tab
+        const githubActionUrl = 'https://github.com/indianquant/sobha-neopolis-tracker/actions/workflows/daily_crawler.yml';
+        window.open(githubActionUrl, '_blank');
+
+        // Re-fetch JSON in background
+        setTimeout(async () => {
+          try {
+            const res = await fetch('sobha_listings.json?v=' + Date.now());
+            if (res.ok) {
+              location.reload();
+            }
+          } catch(e) {}
+        }, 1500);
+      });
+    }
+
+    setupForceUpdate();
 
     function getCategoryClass(area) {
       if (area < 1000) return '1bhk';
