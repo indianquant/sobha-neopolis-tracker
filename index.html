@@ -306,6 +306,80 @@
       opacity: 0.7;
     }
 
+    .hash-tag {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 10px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    .first-seen-badge {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .new-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #22c55e;
+      color: #000;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-left: 4px;
+    }
+
+    tr.delisted td {
+      opacity: 0.45;
+      text-decoration: line-through;
+      text-decoration-color: rgba(255,255,255,0.3);
+    }
+    tr.delisted td.no-strike {
+      text-decoration: none;
+    }
+
+    .delisted-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: #ef4444;
+      color: #fff;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-left: 4px;
+    }
+
+    /* Run Summary Strip */
+    .run-summary {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .run-summary .run-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .run-summary .run-value {
+      color: var(--white);
+      font-weight: 600;
+    }
+
     /* Counter Bar */
     .summary-bar {
       display: flex;
@@ -337,6 +411,11 @@
       <p class="sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Interactive Sorting</p>
     </header>
 
+    <!-- Run Summary Strip -->
+    <div class="run-summary" id="run-summary">
+      <!-- Populated by JS -->
+    </div>
+
     <!-- Category Summary Cards -->
     <div class="category-averages" id="category-averages-container">
       <!-- Rendered dynamically by JS -->
@@ -357,6 +436,7 @@
         <button class="filter-btn" data-filter="2150">2150 sqft</button>
         <button class="filter-btn" data-filter="4bhk">4 BHK (&gt;2250 sqft)</button>
         <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
+        <button class="filter-btn" data-filter="delisted">Delisted / Sold</button>
       </div>
     </div>
 
@@ -366,13 +446,14 @@
         <thead>
           <tr>
             <th data-sort="id">#</th>
+            <th data-sort="hash">Hash</th>
             <th data-sort="title">Property Title</th>
             <th data-sort="floor" class="sorted-asc">Floor Level</th>
             <th data-sort="display_area">Built-up Area</th>
             <th data-sort="possession">Possession Date</th>
             <th data-sort="price_raw">Estimated Price</th>
             <th data-sort="rate">Rate / sqft</th>
-            <th data-sort="source">Source</th>
+            <th data-sort="first_seen">First Seen</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -384,7 +465,7 @@
 
     <div class="summary-bar">
       <span id="counter-text">Loading listings...</span>
-      <span id="sort-status-text">Click column header to sort table</span>
+      <span id="sort-status-text">Hash = unique ID per listing · Persists across weekly runs</span>
     </div>
 
     <footer>
@@ -395,6 +476,10 @@
 
   <script>
     let listings = [];
+    let delistedListings = [];
+    let lastUpdated = '';
+    let newCount = 0;
+    let delistedCount = 0;
     let activeFilter = 'all';
     let searchQuery = '';
     let sortColumn = 'floor';
@@ -405,32 +490,69 @@
         const res = await fetch('sobha_listings.json?v=' + Date.now());
         if (res.ok) {
           const freshData = await res.json();
-          if (Array.isArray(freshData) && freshData.length > 0) {
-            listings = freshData
-              .filter(item => item.title.toLowerCase().includes('sobha neopolis') || item.title.toLowerCase().includes('shobha neopolis'))
-              .map((item, idx) => ({
-                id: idx + 1,
-                title: item.title,
-                floor: item.floor || 0,
-                total_floors: item.total_floors || 18,
-                area: parseInt(item.area) || 1611,
-                possession: item.possession || "Dec 2027",
-                price_str: item.price.startsWith('₹') ? item.price : '₹ ' + item.price,
-                price_raw: item.price_raw || 24800000,
-                source: 'NoBroker',
-                link: item.link
-              }));
+
+          // New structure: { active: [...], delisted: [...], last_updated, ... }
+          if (freshData && freshData.active) {
+            lastUpdated = freshData.last_updated || '';
+            newCount = freshData.new_count || 0;
+            delistedCount = freshData.delisted_count || 0;
+
+            listings = freshData.active.map((item, idx) => ({
+              id: idx + 1,
+              hash: item.hash || '',
+              title: item.title,
+              floor: item.floor || 0,
+              total_floors: item.total_floors || 18,
+              area: parseInt(item.area) || 1611,
+              possession: item.possession || 'Dec 2027',
+              price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
+              price_raw: item.price_raw || 24800000,
+              source: 'NoBroker',
+              link: item.link,
+              first_seen: item.first_seen || lastUpdated,
+              last_seen: item.last_seen || lastUpdated,
+              status: 'active'
+            }));
+
+            delistedListings = (freshData.delisted || []).map((item, idx) => ({
+              id: idx + 1,
+              hash: item.hash || '',
+              title: item.title,
+              floor: item.floor || 0,
+              total_floors: item.total_floors || 18,
+              area: parseInt(item.area) || 1611,
+              possession: item.possession || 'Dec 2027',
+              price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
+              price_raw: item.price_raw || 24800000,
+              source: 'NoBroker',
+              link: item.link,
+              first_seen: item.first_seen || '',
+              last_seen: item.last_seen || '',
+              status: 'delisted'
+            }));
           }
         }
       } catch (e) {
         // Fallback
       }
 
+      renderRunSummary();
       renderCategoryAverages();
       renderTable();
       bindEvents();
       bindHeaderSorting();
     });
+
+    function renderRunSummary() {
+      const el = document.getElementById('run-summary');
+      if (!el) return;
+      el.innerHTML = `
+        <div class="run-item"><i class="fa-regular fa-clock" style="color:var(--muted)"></i> Last Updated: <span class="run-value">${lastUpdated || 'N/A'}</span></div>
+        <div class="run-item"><i class="fa-solid fa-building" style="color:var(--muted)"></i> Active Listings: <span class="run-value">${listings.length}</span></div>
+        <div class="run-item" style="color:#22c55e"><i class="fa-solid fa-plus"></i> New This Run: <span class="run-value" style="color:#22c55e">${newCount}</span></div>
+        <div class="run-item" style="color:#ef4444"><i class="fa-solid fa-xmark"></i> Delisted / Sold: <span class="run-value" style="color:#ef4444">${delistedCount}</span></div>
+      `;
+    }
 
     function getCategoryClass(area) {
       if (area < 1000) return '1bhk';
@@ -581,6 +703,18 @@
     }
 
     function getFilteredAndSortedListings() {
+      // If delisted filter is active, show delisted listings
+      if (activeFilter === 'delisted') {
+        let result = [...delistedListings];
+        if (searchQuery) {
+          result = result.filter(item => {
+            const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${item.price_str}`.toLowerCase();
+            return text.includes(searchQuery);
+          });
+        }
+        return result;
+      }
+
       let result = listings.filter(item => {
         const cat = getCategoryClass(item.area);
         
@@ -592,7 +726,7 @@
         if (activeFilter === 'high' && item.floor < 10) return false;
 
         if (searchQuery) {
-          const text = `${item.title} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
+          const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.possession} ${item.price_str} ${item.source} ${item.first_seen}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
         }
 
@@ -624,17 +758,22 @@
     }
 
     function renderTable() {
+      const isDelisted = activeFilter === 'delisted';
       const data = getFilteredAndSortedListings();
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
 
-      counter.textContent = `Showing ${data.length} of ${listings.length} Sobha Neopolis listings`;
+      if (isDelisted) {
+        counter.textContent = `Showing ${data.length} delisted / sold listings`;
+      } else {
+        counter.textContent = `Showing ${data.length} of ${listings.length} active Sobha Neopolis listings`;
+      }
 
       if (data.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="9" style="text-align:center; padding: 40px; color: var(--muted);">
-              No matching listings found.
+            <td colspan="10" style="text-align:center; padding: 40px; color: var(--muted);">
+              ${isDelisted ? 'No delisted listings yet. Check back after next weekly run!' : 'No matching listings found.'}
             </td>
           </tr>
         `;
@@ -646,11 +785,17 @@
         const ratePerSqft = Math.round(item.price_raw / effArea);
         const isHigh = item.floor >= 10;
         const displayCategory = getDisplayArea(item.area);
-        
+        const isNew = item.first_seen === lastUpdated && item.status === 'active';
+        const rowClass = item.status === 'delisted' ? 'delisted' : '';
+        const statusBadge = item.status === 'delisted'
+          ? '<span class="delisted-badge">Sold / Delisted</span>'
+          : (isNew ? '<span class="new-badge">New</span>' : '');
+
         return `
-          <tr>
+          <tr class="${rowClass}">
             <td style="color:var(--muted); font-size:11px;">${String(index + 1).padStart(2, '0')}</td>
-            <td class="title-cell">${item.title}</td>
+            <td class="no-strike"><span class="hash-tag">${item.hash}</span></td>
+            <td class="title-cell">${item.title}${statusBadge}</td>
             <td>
               <span class="floor-tag ${isHigh ? 'high' : ''}">
                 Floor ${item.floor} of ${item.total_floors}
@@ -660,8 +805,8 @@
             <td><span class="possession-badge"><i class="fa-regular fa-calendar"></i> ${item.possession}</span></td>
             <td class="price-cell">${item.price_str}</td>
             <td style="color:var(--muted);">₹${ratePerSqft.toLocaleString('en-IN')}/sqft</td>
-            <td style="font-size:11px; color:var(--muted);">${item.source}</td>
-            <td>
+            <td class="no-strike"><span class="first-seen-badge">${item.first_seen || '—'}</span></td>
+            <td class="no-strike">
               <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="link-btn">
                 View <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:10px;"></i>
               </a>

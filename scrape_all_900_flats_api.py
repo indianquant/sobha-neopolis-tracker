@@ -1,6 +1,8 @@
 import requests
 import json
+import hashlib
 import datetime
+import os
 import pandas as pd
 
 api_url = "https://www.nobroker.in/api/v3/multi/property/BUY/filter"
@@ -9,7 +11,6 @@ headers = {
     "Accept": "application/json, text/plain, */*",
 }
 
-# Two searchParams that together cover all Sobha Neopolis listings
 SEARCH_CONFIGS = [
     {
         "label": "User URL (locality search)",
@@ -31,6 +32,12 @@ SEARCH_CONFIGS = [
     },
 ]
 
+
+def make_hash(nobroker_id):
+    """Generate a short 8-char hex hash from the NoBroker property ID."""
+    return hashlib.sha256(nobroker_id.encode()).hexdigest()[:8]
+
+
 def is_sobha_neopolis(prop):
     """Filter: only keep Sobha Neopolis properties."""
     society = (prop.get("society") or "").lower()
@@ -38,9 +45,24 @@ def is_sobha_neopolis(prop):
     return ("sobha neopolis" in society or "shobha neopolis" in society or
             "sobha neopolis" in title or "shobha neopolis" in title)
 
-all_props = {}  # keyed by property ID
 
-print("Fetching ALL Sobha Neopolis listings from NoBroker (combined two search endpoints)...\n")
+# ── Load previous history ────────────────────────────────────────
+script_dir = os.path.dirname(os.path.abspath(__file__))
+history_path = os.path.join(script_dir, "sobha_history.json")
+listings_path = os.path.join(script_dir, "sobha_listings.json")
+csv_path = os.path.join(script_dir, "sobha_listings.csv")
+
+history = {}
+if os.path.exists(history_path):
+    with open(history_path) as f:
+        history = json.load(f)
+
+today = datetime.date.today().isoformat()  # e.g. "2026-07-21"
+
+# ── Fetch all listings ───────────────────────────────────────────
+all_props = {}  # keyed by NoBroker property ID
+
+print("Fetching ALL Sobha Neopolis listings from NoBroker...\n")
 
 for config in SEARCH_CONFIGS:
     print(f"--- {config['label']} ---")
@@ -64,16 +86,20 @@ for config in SEARCH_CONFIGS:
 
         print(f"  Page {page}: batch={len(props)}, new Neopolis={added}, total={len(all_props)}")
         page += 1
-
     print()
 
 print(f"{'='*60}")
 print(f"TOTAL UNIQUE Sobha Neopolis Flats: {len(all_props)}")
 print(f"{'='*60}\n")
 
-# Format into clean JSON
+# ── Build formatted listings with hashes ─────────────────────────
+current_hashes = set()
 formatted = []
+
 for idx, (pid, item) in enumerate(all_props.items()):
+    uid = make_hash(pid)
+    current_hashes.add(uid)
+
     title = item.get("propertyTitle") or "Sobha Neopolis Flat"
     fl = int(item.get("floor") if item.get("floor") is not None else 0)
     tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
@@ -102,8 +128,15 @@ for idx, (pid, item) in enumerate(all_props.items()):
     detail_url = item.get("detailUrl") or ""
     link = f"https://www.nobroker.in{detail_url}" if detail_url and not detail_url.startswith("http") else detail_url
 
+    # ── History tracking ──
+    if uid in history:
+        first_seen = history[uid]["first_seen"]
+    else:
+        first_seen = today
+
     formatted.append({
         "id": idx + 1,
+        "hash": uid,
         "title": title,
         "floor": fl,
         "total_floors": tf,
@@ -112,18 +145,76 @@ for idx, (pid, item) in enumerate(all_props.items()):
         "price": price_str,
         "price_raw": raw_val,
         "source": "NoBroker",
-        "link": link or "https://www.nobroker.in"
+        "link": link or "https://www.nobroker.in",
+        "first_seen": first_seen,
+        "last_seen": today,
+        "status": "active"
     })
 
 formatted.sort(key=lambda x: (x["floor"], x["price_raw"]))
 for idx, item in enumerate(formatted):
     item["id"] = idx + 1
 
-with open("sobha_listings.json", "w") as f:
-    json.dump(formatted, f, indent=2)
+# ── Diff against previous run ───────────────────────────────────
+prev_hashes = {h for h, v in history.items() if v.get("status") == "active"}
+new_hashes = current_hashes - prev_hashes
+delisted_hashes = prev_hashes - current_hashes
+
+print(f"Listings diff vs previous run:")
+print(f"  ✅ Still active:  {len(current_hashes & prev_hashes)}")
+print(f"  🆕 Newly added:   {len(new_hashes)}")
+print(f"  ❌ Delisted/Sold: {len(delisted_hashes)}")
+
+# ── Build delisted entries from history ──────────────────────────
+delisted_entries = []
+for uid in delisted_hashes:
+    entry = history[uid].copy()
+    entry["status"] = "delisted"
+    entry["last_seen"] = history[uid].get("last_seen", today)
+    delisted_entries.append(entry)
+
+# ── Update history ──────────────────────────────────────────────
+# Update active listings in history
+for item in formatted:
+    uid = item["hash"]
+    history[uid] = {
+        "hash": uid,
+        "title": item["title"],
+        "floor": item["floor"],
+        "total_floors": item["total_floors"],
+        "area": item["area"],
+        "possession": item["possession"],
+        "price": item["price"],
+        "price_raw": item["price_raw"],
+        "link": item["link"],
+        "first_seen": item["first_seen"],
+        "last_seen": today,
+        "status": "active"
+    }
+
+# Mark delisted ones
+for uid in delisted_hashes:
+    if uid in history:
+        history[uid]["status"] = "delisted"
+
+with open(history_path, "w") as f:
+    json.dump(history, f, indent=2)
+
+# ── Save listings JSON (active + delisted section) ──────────────
+output = {
+    "last_updated": today,
+    "active_count": len(formatted),
+    "delisted_count": len(delisted_entries),
+    "new_count": len(new_hashes),
+    "active": formatted,
+    "delisted": delisted_entries
+}
+
+with open(listings_path, "w") as f:
+    json.dump(output, f, indent=2)
 
 df = pd.DataFrame(formatted)
-df.to_csv("sobha_listings.csv", index=False)
+df.to_csv(csv_path, index=False)
 
 # Category breakdown
 bhk1 = [i for i in formatted if i["area"] < 1000]
@@ -132,10 +223,10 @@ c1915 = [i for i in formatted if 1750 < i["area"] <= 2049]
 c2150 = [i for i in formatted if 2050 <= i["area"] <= 2250]
 c4bhk = [i for i in formatted if i["area"] > 2250]
 
-print(f"1 BHK (<1000 sqft):     {len(bhk1)} units")
+print(f"\n1 BHK (<1000 sqft):     {len(bhk1)} units")
 print(f"1611 sqft (1000-1750):  {len(c1611)} units")
 print(f"1915 sqft (1751-2049):  {len(c1915)} units")
 print(f"2150 sqft (2050-2250):  {len(c2150)} units")
 print(f"4 BHK (>2250 sqft):    {len(c4bhk)} units")
 print(f"TOTAL:                  {len(formatted)} units")
-print("\nSaved to sobha_listings.json and sobha_listings.csv!")
+print(f"\nSaved sobha_listings.json, sobha_history.json, and sobha_listings.csv!")
