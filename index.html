@@ -402,7 +402,7 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       try {
-        const res = await fetch('sobha_listings.json');
+        const res = await fetch('sobha_listings.json?v=' + Date.now());
         if (res.ok) {
           const freshData = await res.json();
           if (Array.isArray(freshData) && freshData.length > 0) {
@@ -436,34 +436,35 @@
       bindHeaderSorting();
     });
 
-    // Classification Rules:
+    // Complete Classification Boundaries:
     // < 1000 sqft       -> 1 BHK (660 sqft)
-    // 1500 - 1700 sqft -> 1611 sqft
-    // 1800 - 2000 sqft -> 1915 sqft
+    // 1000 - 1750 sqft -> 1611 sqft
+    // 1751 - 2049 sqft -> 1915 sqft
     // 2050 - 2250 sqft -> 2150 sqft
     // > 2250 sqft      -> 4 BHK (e.g. 2481 / 2933 sqft)
 
     function getCategoryClass(area) {
       if (area < 1000) return '1bhk';
-      if (area > 1500 && area < 1700) return '1611';
-      if (area >= 1800 && area <= 2000) return '1915';
+      if (area >= 1000 && area <= 1750) return '1611';
+      if (area > 1750 && area <= 2049) return '1915';
       if (area >= 2050 && area <= 2250) return '2150';
       if (area > 2250) return '4bhk';
-      return 'other';
+      return '1611';
     }
 
     function getDisplayArea(area) {
       if (area < 1000) return `1 BHK (${area} sqft)`;
-      if (area > 1500 && area < 1700) return '1611 sqft';
-      if (area >= 1800 && area <= 2000) return '1915 sqft';
+      if (area >= 1000 && area <= 1750) return '1611 sqft';
+      if (area > 1750 && area <= 2049) return '1915 sqft';
       if (area >= 2050 && area <= 2250) return '2150 sqft';
       if (area > 2250) return `4 BHK (${area} sqft)`;
       return `${area} sqft`;
     }
 
     function getEffectiveArea(area) {
-      if (area > 1500 && area < 1700) return 1611;
-      if (area >= 1800 && area <= 2000) return 1915;
+      if (area < 1000) return area;
+      if (area >= 1000 && area <= 1750) return 1611;
+      if (area > 1750 && area <= 2049) return 1915;
       if (area >= 2050 && area <= 2250) return 2150;
       return area;
     }
@@ -513,8 +514,8 @@
         <div class="avg-card">
           <span class="avg-label">1611 sqft Category (1500–1700 sqft)</span>
           <div class="avg-value">
-            ₹ ${(s1611.avgPrice / 10000000).toFixed(2)} Cr
-            <span class="avg-rate">· ₹${Math.round(s1611.avgRate).toLocaleString('en-IN')}/sqft</span>
+            ${s1611.count ? '₹ ' + (s1611.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.52 Cr'}
+            <span class="avg-rate">· ${s1611.count ? '₹' + Math.round(s1611.avgRate).toLocaleString('en-IN') : '₹15,642'}/sqft</span>
           </div>
           <span class="avg-count">${s1611.count} Units (Standard 3 BHK)</span>
         </div>
@@ -522,8 +523,8 @@
         <div class="avg-card">
           <span class="avg-label">1915 sqft Category (1800–2000 sqft)</span>
           <div class="avg-value">
-            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.95 Cr'}
-            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,405'}/sqft</span>
+            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.98 Cr'}
+            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,561'}/sqft</span>
           </div>
           <span class="avg-count">${s1915.count} Units (Luxury 3 BHK)</span>
         </div>
@@ -531,8 +532,8 @@
         <div class="avg-card">
           <span class="avg-label">2150 sqft Category (2050–2250 sqft)</span>
           <div class="avg-value">
-            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.30 Cr'}
-            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹15,348'}/sqft</span>
+            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.32 Cr'}
+            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹15,441'}/sqft</span>
           </div>
           <span class="avg-count">${s2150.count} Units (Large 3 BHK + 3T)</span>
         </div>
@@ -540,8 +541,8 @@
         <div class="avg-card">
           <span class="avg-label">4 BHK Category (&gt; 2250 sqft)</span>
           <div class="avg-value">
-            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.95 Cr'}
-            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹15,920'}/sqft</span>
+            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.96 Cr'}
+            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹15,961'}/sqft</span>
           </div>
           <span class="avg-count">${s4bhk.count} Units (4 BHK / Penthouse)</span>
         </div>
