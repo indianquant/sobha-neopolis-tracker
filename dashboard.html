@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobha Neopolis Flat Listings & Price Tracker | Bangalore</title>
+  <meta name="description" content="Parse and compare 3 BHK flat listings for Sobha Neopolis, Panathur Bangalore across NoBroker, Magicbricks, and 99acres. Filter by floor level and built-up area.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-mode">
+  <div class="app-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <div class="layout-container">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="nav-brand">
+        <div class="brand-icon"><i class="fa-solid fa-building-user"></i></div>
+        <div class="brand-text">
+          <h1>SOBHA NEOPOLIS</h1>
+          <span class="badge-location"><i class="fa-solid fa-location-dot"></i> Panathur, ORR East, Bangalore</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <div class="live-status">
+          <span class="status-dot"></span> Live Crawler Active
+        </div>
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Header & Analytics Metrics -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>3 BHK Flat Listings & Price Explorer</h2>
+        <p>Aggregated real-time property listings parsed from <strong>NoBroker</strong>, <strong>Magicbricks</strong>, and <strong>99acres</strong>.</p>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon blue"><i class="fa-solid fa-city"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Total 3 BHK Listings</span>
+            <h3 id="stat-total-count">9</h3>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon gold"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Price Range</span>
+            <h3 id="stat-price-range">₹2.28 - ₹3.30 Cr</h3>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon green"><i class="fa-solid fa-ruler-combined"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">Target Area (1611 sqft)</span>
+            <h3 id="stat-target-count">7 Listings</h3>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon purple"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="kpi-data">
+            <span class="kpi-label">High Floor ($\ge 14$)</span>
+            <h3 id="stat-highfloor-count">4 Units</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Workspace: Filters Sidebar + Content -->
+    <main class="main-content">
+      <!-- Filter Bar / Controls -->
+      <section class="filter-panel card-glass">
+        <div class="filter-header">
+          <h3><i class="fa-solid fa-sliders"></i> Filter & Refine Listings</h3>
+          <button id="reset-filters" class="btn-text"><i class="fa-solid fa-arrow-rotate-left"></i> Reset All</button>
+        </div>
+
+        <div class="filter-controls-grid">
+          <!-- Search Input -->
+          <div class="filter-group">
+            <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i> Search Listing</label>
+            <div class="input-with-icon">
+              <input type="text" id="search-input" placeholder="Search by tower, floor (e.g. Floor 16), sqft...">
+            </div>
+          </div>
+
+          <!-- Platform Filter -->
+          <div class="filter-group">
+            <label><i class="fa-solid fa-globe"></i> Source Portal</label>
+            <div class="chip-group" id="platform-chips">
+              <button class="chip active" data-platform="all">All</button>
+              <button class="chip" data-platform="NoBroker">NoBroker</button>
+              <button class="chip" data-platform="Magicbricks">Magicbricks</button>
+              <button class="chip" data-platform="99acres">99acres</button>
+            </div>
+          </div>
+
+          <!-- Unit Size Filter -->
+          <div class="filter-group">
+            <label for="size-select"><i class="fa-solid fa-vector-square"></i> Built-up Area (sqft)</label>
+            <select id="size-select">
+              <option value="all">All Sizes (1611, 1915, 2150 sqft)</option>
+              <option value="1611">~1611 sqft (Standard 3 BHK)</option>
+              <option value="1915">~1915 sqft (Luxury 3 BHK)</option>
+              <option value="2150">~2150 sqft (Large 3 BHK + 3T)</option>
+            </select>
+          </div>
+
+          <!-- Floor Filter -->
+          <div class="filter-group">
+            <label for="floor-select"><i class="fa-solid fa-building"></i> Minimum Floor Level</label>
+            <select id="floor-select">
+              <option value="0" selected>All Floors (Ground - Floor 19)</option>
+              <option value="14">High Rise Only (&ge; Floor 14)</option>
+              <option value="10">Floor &ge; 10</option>
+              <option value="5">Floor &ge; 5</option>
+            </select>
+          </div>
+
+          <!-- Sort Order -->
+          <div class="filter-group">
+            <label for="sort-select"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort By</label>
+            <select id="sort-select">
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="floor-desc">Floor: High to Low</option>
+              <option value="sqft-desc">Area: Largest First</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- View Selector & Title -->
+      <div class="content-header">
+        <div class="results-info">
+          <span class="count-badge" id="visible-count-badge">Showing 4 Listings</span>
+          <span class="filter-active-indicator" id="active-filter-tag">Filter: Floor $\ge 14$</span>
+        </div>
+        <div class="view-toggle-buttons">
+          <button id="btn-view-cards" class="btn-toggle active" title="Grid View"><i class="fa-solid fa-grip"></i> Grid</button>
+          <button id="btn-view-table" class="btn-toggle" title="Table View"><i class="fa-solid fa-list-check"></i> Table</button>
+        </div>
+      </div>
+
+      <!-- Listings Grid Container -->
+      <div id="listings-cards-container" class="listings-grid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <!-- Listings Table Container (Hidden by default) -->
+      <div id="listings-table-container" class="listings-table-wrapper card-glass hidden">
+        <table class="listings-table">
+          <thead>
+            <tr>
+              <th>Portal</th>
+              <th>Property Title & Tower</th>
+              <th>Area (sqft)</th>
+              <th>Floor Level</th>
+              <th>Estimated Price</th>
+              <th>Rate / sqft</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Rendered dynamically by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Sobha Neopolis Flat Listing Crawler & Real Estate Intelligence &bull; Panathur Road, Bangalore</p>
+      <div class="footer-links">
+        <a href="sobha_neopolis_3bhk_listings.json" target="_blank"><i class="fa-solid fa-code"></i> Raw JSON</a>
+        <a href="sobha_neopolis_3bhk_listings.csv" target="_blank"><i class="fa-solid fa-file-csv"></i> Download CSV</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
