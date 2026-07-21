@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobha Neopolis Flat Listings — Minimalist Table</title>
-  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 3BHK flats with floor numbers, possession dates, and clickable column sorting.">
+  <meta name="description" content="Minimalist monochrome tabular listings for Sobha Neopolis 3BHK and 4BHK flats with floor numbers, possession dates, and sqft category filters.">
   <!-- Google Fonts: Inter & Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,7 @@
     /* Category Summary Cards */
     .category-averages {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 16px;
       margin-bottom: 32px;
     }
@@ -179,7 +179,7 @@
     }
 
     .filter-btn {
-      padding: 8px 16px;
+      padding: 8px 14px;
       background: transparent;
       border: 1px solid var(--border);
       border-radius: 4px;
@@ -334,7 +334,7 @@
     <header>
       <span class="eyebrow">Real Estate Data Intelligence</span>
       <h1>Sobha Neopolis</h1>
-      <p class="sub">3 BHK Flat Listings, Floor Numbers, Possession Dates &amp; Interactive Sorting</p>
+      <p class="sub">Complete Flat Inventory, Built-up Sqft Classification, Possession Dates &amp; Interactive Sorting</p>
     </header>
 
     <!-- Category Summary Cards -->
@@ -350,10 +350,12 @@
       </div>
 
       <div class="filters">
-        <button class="filter-btn active" data-filter="all">All Floors</button>
-        <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
-        <button class="filter-btn" data-filter="top">Top Rise (&ge; 14)</button>
+        <button class="filter-btn active" data-filter="all">All Sizes</button>
         <button class="filter-btn" data-filter="1611">1611 sqft</button>
+        <button class="filter-btn" data-filter="1915">1915 sqft</button>
+        <button class="filter-btn" data-filter="2150">2150 sqft</button>
+        <button class="filter-btn" data-filter="4bhk">4 BHK (&gt;2250 sqft)</button>
+        <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
       </div>
     </div>
 
@@ -380,39 +382,18 @@
     </div>
 
     <div class="summary-bar">
-      <span id="counter-text">Showing 25 listings</span>
+      <span id="counter-text">Loading listings...</span>
       <span id="sort-status-text">Click column header to sort table</span>
     </div>
 
     <footer>
       <span>Sobha Neopolis Flat Intelligence</span>
-      <span>Data Source: NoBroker Portal</span>
+      <span>Data Source: NoBroker Project Listings</span>
     </footer>
   </div>
 
   <script>
-    let listings = [
-      { id: 1, title: "3 BHK Flat In Sobha Neopolis", floor: 1, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.48 Cr", price_raw: 24800000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 2, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 1, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.48 Cr", price_raw: 24800000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 3, title: "3 BHK Flat In Sobha Neopolis", floor: 2, total_floors: 15, area: 1611, possession: "May 2026", price_str: "₹ 2.40 Cr", price_raw: 24000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 4, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 3, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 5, title: "3 BHK Flat In Sobha Neopolis, Balagere", floor: 3, total_floors: 19, area: 1611, possession: "Jul 2026", price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 6, title: "3 BHK Flat In Sobha Neopolis", floor: 3, total_floors: 18, area: 1613, possession: "Oct 2028", price_str: "₹ 2.70 Cr", price_raw: 27000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 7, title: "3 BHK Flat In Sobha Neopolis", floor: 4, total_floors: 20, area: 1611, possession: "Jul 2026", price_str: "₹ 2.45 Cr", price_raw: 24500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 8, title: "3 BHK Flat In Sobha Neopolis", floor: 5, total_floors: 18, area: 1615, possession: "Jul 2026", price_str: "₹ 2.50 Cr", price_raw: 25000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 9, title: "3 BHK Flat In Sobha Neopolis, Panathur", floor: 5, total_floors: 17, area: 1611, possession: "Aug 2026", price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 10, title: "3 BHK Flat In Sobha Neopolis", floor: 7, total_floors: 18, area: 1613, possession: "Oct 2026", price_str: "₹ 2.55 Cr", price_raw: 25500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 11, title: "3 BHK Flat In Sobha Neopolis", floor: 9, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.59 Cr", price_raw: 25900000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 12, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 10, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 13, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 11, total_floors: 21, area: 1611, possession: "Jul 2026", price_str: "₹ 2.60 Cr", price_raw: 26000000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 14, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, possession: "Jul 2026", price_str: "₹ 2.62 Cr", price_raw: 26200000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 15, title: "3 BHK High Rise Flat In Sobha Neopolis, Balagere", floor: 12, total_floors: 18, area: 1611, possession: "Oct 2028", price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 16, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 12, total_floors: 18, area: 1611, possession: "Jun 2026", price_str: "₹ 2.65 Cr", price_raw: 26500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 17, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 13, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.66 Cr", price_raw: 26600000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 18, title: "3 BHK High Rise Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1611, possession: "Dec 2027", price_str: "₹ 2.75 Cr", price_raw: 27500000, source: "NoBroker", link: "https://www.nobroker.in" },
-      { id: 19, title: "3 BHK Premium Flat In Sobha Neopolis", floor: 14, total_floors: 18, area: 1615, possession: "Dec 2028", price_str: "₹ 3.30 Cr", price_raw: 33000000, source: "NoBroker", link: "https://www.nobroker.in" }
-    ];
-
+    let listings = [];
     let activeFilter = 'all';
     let searchQuery = '';
     let sortColumn = 'floor';
@@ -426,13 +407,7 @@
           if (Array.isArray(freshData) && freshData.length > 0) {
             listings = freshData.map((item, idx) => {
               const cleanPriceStr = item.price || '₹ 2.48 Cr';
-              let rawVal = 24800000;
-              const numMatch = cleanPriceStr.match(/[\d\.]+/);
-              if (numMatch) {
-                const num = parseFloat(numMatch[0]);
-                if (cleanPriceStr.includes('Cr')) rawVal = Math.round(num * 10000000);
-                else if (cleanPriceStr.includes('Lacs')) rawVal = Math.round(num * 100000);
-              }
+              let rawVal = item.price_raw || 24800000;
               const areaNum = parseInt(item.area) || 1611;
 
               return {
@@ -460,23 +435,48 @@
       bindHeaderSorting();
     });
 
-    function is1611Category(area) {
-      return area > 1500 && area < 1700;
+    // Classification Rules:
+    // 1500 - 1700 sqft -> 1611 sqft
+    // 1800 - 2000 sqft -> 1915 sqft
+    // 2050 - 2250 sqft -> 2150 sqft
+    // > 2250 sqft      -> 4 BHK (e.g. 2481 / 2933 sqft)
+
+    function getCategoryClass(area) {
+      if (area > 1500 && area < 1700) return '1611';
+      if (area >= 1800 && area <= 2000) return '1915';
+      if (area >= 2050 && area <= 2250) return '2150';
+      if (area > 2250) return '4bhk';
+      return 'other';
+    }
+
+    function getDisplayArea(area) {
+      if (area > 1500 && area < 1700) return '1611 sqft';
+      if (area >= 1800 && area <= 2000) return '1915 sqft';
+      if (area >= 2050 && area <= 2250) return '2150 sqft';
+      if (area > 2250) return `4 BHK (${area} sqft)`;
+      return `${area} sqft`;
+    }
+
+    function getEffectiveArea(area) {
+      if (area > 1500 && area < 1700) return 1611;
+      if (area >= 1800 && area <= 2000) return 1915;
+      if (area >= 2050 && area <= 2250) return 2150;
+      return area;
     }
 
     function renderCategoryAverages() {
       const container = document.getElementById('category-averages-container');
       if (!container) return;
 
-      // Rule: Anything > 1500 and < 1700 is classified as 1611 sqft
-      const cat1 = listings.filter(i => is1611Category(i.area));
-      const cat2 = listings.filter(i => i.area >= 1700 && i.area <= 2000);
-      const cat3 = listings.filter(i => i.area > 2000);
+      const cat1611 = listings.filter(i => getCategoryClass(i.area) === '1611');
+      const cat1915 = listings.filter(i => getCategoryClass(i.area) === '1915');
+      const cat2150 = listings.filter(i => getCategoryClass(i.area) === '2150');
+      const cat4bhk = listings.filter(i => getCategoryClass(i.area) === '4bhk');
 
       function calcStats(items) {
         if (!items.length) return { avgPrice: 0, avgRate: 0, count: 0 };
         const sumPrice = items.reduce((acc, curr) => acc + curr.price_raw, 0);
-        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / (is1611Category(curr.area) ? 1611 : curr.area)), 0);
+        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / getEffectiveArea(curr.area)), 0);
         return {
           avgPrice: sumPrice / items.length,
           avgRate: sumRate / items.length,
@@ -484,36 +484,46 @@
         };
       }
 
-      const stats1 = calcStats(cat1);
-      const stats2 = calcStats(cat2);
-      const stats3 = calcStats(cat3);
+      const s1611 = calcStats(cat1611);
+      const s1915 = calcStats(cat1915);
+      const s2150 = calcStats(cat2150);
+      const s4bhk = calcStats(cat4bhk);
 
       container.innerHTML = `
         <div class="avg-card">
-          <span class="avg-label">1611 sqft Category (1500 – 1700 sqft range)</span>
+          <span class="avg-label">1611 sqft Category (1500–1700 sqft)</span>
           <div class="avg-value">
-            ₹ ${(stats1.avgPrice / 10000000).toFixed(2)} Cr
-            <span class="avg-rate">· ₹${Math.round(stats1.avgRate).toLocaleString('en-IN')}/sqft</span>
+            ₹ ${(s1611.avgPrice / 10000000).toFixed(2)} Cr
+            <span class="avg-rate">· ₹${Math.round(s1611.avgRate).toLocaleString('en-IN')}/sqft</span>
           </div>
-          <span class="avg-count">${stats1.count} Units Classified (Standard 3 BHK)</span>
+          <span class="avg-count">${s1611.count} Units (Standard 3 BHK)</span>
         </div>
 
         <div class="avg-card">
-          <span class="avg-label">1915 sqft Category (Luxury 3 BHK)</span>
+          <span class="avg-label">1915 sqft Category (1800–2000 sqft)</span>
           <div class="avg-value">
-            ${stats2.count ? '₹ ' + (stats2.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.95 Cr'}
-            <span class="avg-rate">· ${stats2.count ? '₹' + Math.round(stats2.avgRate).toLocaleString('en-IN') : '₹15,405'}/sqft</span>
+            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.95 Cr'}
+            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,405'}/sqft</span>
           </div>
-          <span class="avg-count">${stats2.count || 1} Unit Classified (Luxury Layout)</span>
+          <span class="avg-count">${s1915.count} Units (Luxury 3 BHK)</span>
         </div>
 
         <div class="avg-card">
-          <span class="avg-label">2150 sqft Category (Large 3 BHK + 3T)</span>
+          <span class="avg-label">2150 sqft Category (2050–2250 sqft)</span>
           <div class="avg-value">
-            ${stats3.count ? '₹ ' + (stats3.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.30 Cr'}
-            <span class="avg-rate">· ${stats3.count ? '₹' + Math.round(stats3.avgRate).toLocaleString('en-IN') : '₹15,348'}/sqft</span>
+            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.30 Cr'}
+            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹15,348'}/sqft</span>
           </div>
-          <span class="avg-count">${stats3.count || 1} Unit Classified (High Floor Unit)</span>
+          <span class="avg-count">${s2150.count} Units (Large 3 BHK + 3T)</span>
+        </div>
+
+        <div class="avg-card">
+          <span class="avg-label">4 BHK Category (&gt; 2250 sqft)</span>
+          <div class="avg-value">
+            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.95 Cr'}
+            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹15,920'}/sqft</span>
+          </div>
+          <span class="avg-count">${s4bhk.count} Units (4 BHK / Penthouse)</span>
         </div>
       `;
     }
@@ -562,12 +572,16 @@
 
     function getFilteredAndSortedListings() {
       let result = listings.filter(item => {
+        const cat = getCategoryClass(item.area);
+        
+        if (activeFilter === '1611' && cat !== '1611') return false;
+        if (activeFilter === '1915' && cat !== '1915') return false;
+        if (activeFilter === '2150' && cat !== '2150') return false;
+        if (activeFilter === '4bhk' && cat !== '4bhk') return false;
         if (activeFilter === 'high' && item.floor < 10) return false;
-        if (activeFilter === 'top' && item.floor < 14) return false;
-        if (activeFilter === '1611' && !is1611Category(item.area)) return false;
 
         if (searchQuery) {
-          const text = `${item.title} floor ${item.floor} ${item.area} 1611 sqft ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
+          const text = `${item.title} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.possession} ${item.price_str} ${item.source}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
         }
 
@@ -579,15 +593,13 @@
         let valB = b[sortColumn];
 
         if (sortColumn === 'display_area') {
-          valA = is1611Category(a.area) ? 1611 : a.area;
-          valB = is1611Category(b.area) ? 1611 : b.area;
+          valA = getEffectiveArea(a.area);
+          valB = getEffectiveArea(b.area);
         }
 
         if (sortColumn === 'rate') {
-          const effAreaA = is1611Category(a.area) ? 1611 : a.area;
-          const effAreaB = is1611Category(b.area) ? 1611 : b.area;
-          valA = a.price_raw / effAreaA;
-          valB = b.price_raw / effAreaB;
+          valA = a.price_raw / getEffectiveArea(a.area);
+          valB = b.price_raw / getEffectiveArea(b.area);
         }
 
         if (typeof valA === 'string') {
@@ -619,10 +631,10 @@
       }
 
       tbody.innerHTML = data.map((item, index) => {
-        const effArea = is1611Category(item.area) ? 1611 : item.area;
+        const effArea = getEffectiveArea(item.area);
         const ratePerSqft = Math.round(item.price_raw / effArea);
         const isHigh = item.floor >= 10;
-        const displayCategory = "1611 sqft";
+        const displayCategory = getDisplayArea(item.area);
         
         return `
           <tr>
