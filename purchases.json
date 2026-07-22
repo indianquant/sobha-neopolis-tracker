@@ -34,5 +34,17 @@
     "order_url": "https://www.amazon.in/gp/your-account/order-details/ref=dp_iou_view_order_details?ie=UTF8&orderID=404-6502876-9300364",
     "notes": "wall clock by craftel",
     "bill_file": "bills/mrwce5oqgnoj-clockinvoice.pdf"
+  },
+  {
+    "id": "mrwcgxa8602x",
+    "name": "Plantex Ladder Foldable",
+    "category": "Appliances",
+    "amount": "",
+    "purchase_date": "2026-07-04",
+    "warranty_date": "2031-07-04",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/gp/your-account/order-details/ref=dp_iou_view_order_details?ie=UTF8&orderID=404-5979052-8206769",
+    "notes": "",
+    "bill_file": "bills/mrwcgvlwaz17-ladderinvoice.pdf"
   }
 ]
