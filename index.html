@@ -334,6 +334,24 @@
       margin-left: 4px;
     }
 
+    .facing-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .facing-badge i {
+      color: #38bdf8;
+      font-size: 10px;
+    }
+
     tr.delisted td {
       opacity: 0.45;
       text-decoration: line-through;
@@ -535,6 +553,9 @@
         <button class="filter-btn" data-filter="1915">1915 sqft</button>
         <button class="filter-btn" data-filter="2150">2150 sqft</button>
         <button class="filter-btn" data-filter="4bhk">4 BHK (&gt;2250 sqft)</button>
+        <button class="filter-btn" data-filter="facing_east">🧭 East Facing</button>
+        <button class="filter-btn" data-filter="facing_north">🧭 North Facing</button>
+        <button class="filter-btn" data-filter="facing_west">🧭 West Facing</button>
         <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
         <button class="filter-btn" data-filter="delisted">Delisted / Sold</button>
       </div>
@@ -550,6 +571,7 @@
             <th data-sort="title">Property Title</th>
             <th data-sort="floor" class="sorted-asc">Floor Level</th>
             <th data-sort="display_area">Built-up Area</th>
+            <th data-sort="facing">Facing</th>
             <th data-sort="possession">Possession Date</th>
             <th data-sort="price_raw">Estimated Price</th>
             <th data-sort="rate">Rate / sqft</th>
@@ -604,6 +626,7 @@
               floor: item.floor || 0,
               total_floors: item.total_floors || 18,
               area: parseInt(item.area) || 1611,
+              facing: item.facing || 'N/A',
               possession: item.possession || 'Dec 2027',
               price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
               price_raw: item.price_raw || 24800000,
@@ -621,6 +644,7 @@
               floor: item.floor || 0,
               total_floors: item.total_floors || 18,
               area: parseInt(item.area) || 1611,
+              facing: item.facing || 'N/A',
               possession: item.possession || 'Dec 2027',
               price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
               price_raw: item.price_raw || 24800000,
@@ -951,6 +975,7 @@
       }
 
       const sizeFilters = ['1bhk', '1611', '1915', '2150', '4bhk'].filter(f => activeFilters.has(f));
+      const facingFilters = ['facing_east', 'facing_north', 'facing_west'].filter(f => activeFilters.has(f));
 
       let result = pool.filter(item => {
         // If specific delisted filter is not selected, but pool has both, enforce status
@@ -962,12 +987,22 @@
           if (!sizeFilters.includes(cat)) return false;
         }
 
+        // Facing filter check
+        if (facingFilters.length > 0) {
+          const facingLower = (item.facing || '').toLowerCase();
+          const matches = facingFilters.some(f => {
+            const dir = f.replace('facing_', '');
+            return facingLower.includes(dir);
+          });
+          if (!matches) return false;
+        }
+
         // High floor check
         if (activeFilters.has('high') && item.floor < 10) return false;
 
         // Search query check
         if (searchQuery) {
-          const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.possession} ${item.price_str} ${item.source} ${item.first_seen}`.toLowerCase();
+          const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.facing} ${item.possession} ${item.price_str} ${item.source} ${item.first_seen}`.toLowerCase();
           if (!text.includes(searchQuery)) return false;
         }
 
@@ -989,7 +1024,7 @@
         }
 
         if (typeof valA === 'string') {
-          return sortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          return sortAsc ? (valA || '').localeCompare(valB || '') : (valB || '').localeCompare(valA || '');
         } else {
           return sortAsc ? (valA - valB) : (valB - valA);
         }
@@ -1013,7 +1048,7 @@
       if (data.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="10" style="text-align:center; padding: 40px; color: var(--muted);">
+            <td colspan="11" style="text-align:center; padding: 40px; color: var(--muted);">
               ${isDelistedOnly ? 'No delisted listings yet. Check back after next weekly run!' : 'No matching listings found.'}
             </td>
           </tr>
@@ -1043,6 +1078,7 @@
               </span>
             </td>
             <td>${displayCategory}</td>
+            <td><span class="facing-badge"><i class="fa-solid fa-compass"></i> ${item.facing}</span></td>
             <td><span class="possession-badge"><i class="fa-regular fa-calendar"></i> ${item.possession}</span></td>
             <td class="price-cell">${item.price_str}</td>
             <td style="color:var(--muted);">₹${ratePerSqft.toLocaleString('en-IN')}/sqft</td>

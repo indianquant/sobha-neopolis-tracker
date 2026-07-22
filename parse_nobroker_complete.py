@@ -174,6 +174,19 @@ current_hashes = set()
 hash_to_pid = {}
 formatted = []
 
+def get_facing(item):
+    """Extract and normalize facing direction (e.g., East, West, North, South, North-East)."""
+    f = item.get("facingDesc") or item.get("facing") or ""
+    f = str(f).strip().title()
+    if not f or f.lower() in ["none", "null", "undefined", "n/a", "0"]:
+        return "N/A"
+    map_letters = {
+        "N": "North", "S": "South", "E": "East", "W": "West",
+        "Ne": "North-East", "Nw": "North-West", "Se": "South-East", "Sw": "South-West"
+    }
+    return map_letters.get(f, f)
+
+
 for idx, (pid, item) in enumerate(all_props.items()):
     uid = make_hash(pid)
     current_hashes.add(uid)
@@ -183,6 +196,7 @@ for idx, (pid, item) in enumerate(all_props.items()):
     fl = int(item.get("floor") if item.get("floor") is not None else 0)
     tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
     sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1611)
+    facing = get_facing(item)
 
     raw_val = int(item.get("price") or item.get("propertyCost") or 24800000)
     fmt_p = item.get("formattedPrice") or item.get("formattedCost")
@@ -220,6 +234,7 @@ for idx, (pid, item) in enumerate(all_props.items()):
         "floor": fl,
         "total_floors": tf,
         "area": sz,
+        "facing": facing,
         "possession": possession,
         "price": price_str,
         "price_raw": raw_val,
@@ -303,6 +318,7 @@ for uid in still_alive_but_missing:
         "floor": entry.get("floor", 0),
         "total_floors": entry.get("total_floors", 18),
         "area": entry.get("area", 1611),
+        "facing": entry.get("facing", "N/A"),
         "possession": entry.get("possession", "Dec 2027"),
         "price": entry.get("price", "₹ 2.50 Cr"),
         "price_raw": entry.get("price_raw", 25000000),
@@ -342,6 +358,7 @@ for item in formatted:
         "floor": item["floor"],
         "total_floors": item["total_floors"],
         "area": item["area"],
+        "facing": item["facing"],
         "possession": item["possession"],
         "price": item["price"],
         "price_raw": item["price_raw"],
