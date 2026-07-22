@@ -878,6 +878,164 @@
       letter-spacing: 0.1em;
       color: var(--muted);
     }
+
+    /* ── Page Tabs ── */
+    .page-tabs {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 16px;
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .page-tab-btn:hover { color: var(--white); }
+    .page-tab-btn.active {
+      color: var(--white);
+      border-bottom-color: var(--white);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Purchases Tab ── */
+    .purchases-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .purchases-header h2 { font-size: 16px; font-weight: 600; color: var(--white); }
+    .purchases-header p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .btn-add-item {
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: opacity 0.15s;
+    }
+    .btn-add-item:hover { opacity: 0.85; }
+    .purchases-stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .pstat {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 18px;
+      min-width: 140px;
+    }
+    .pstat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .pstat-val { font-size: 20px; font-weight: 700; color: var(--white); margin-top: 2px; font-family: 'SF Mono', 'Fira Code', monospace; }
+    .purchases-filters {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .purchases-filters input {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 12px;
+      padding: 6px 12px;
+      outline: none;
+      width: 220px;
+    }
+    .purchases-filters input::placeholder { color: var(--muted); }
+    .purchases-filters select {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 12px;
+      padding: 6px 10px;
+      outline: none;
+      cursor: pointer;
+    }
+    .purchases-filters select option { background: #1a1a1a; }
+    .ptable-wrapper { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; }
+    .ptable { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .ptable th {
+      padding: 10px 14px;
+      text-align: left;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+      background: var(--card-bg);
+    }
+    .ptable td { padding: 10px 14px; color: var(--text); border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: middle; }
+    .ptable tr:last-child td { border-bottom: none; }
+    .ptable tr:hover td { background: rgba(255,255,255,0.025); }
+    .ptable .mono { font-family: 'SF Mono', 'Fira Code', monospace; }
+    .ptable .cat-badge { background: rgba(255,255,255,0.07); border: 1px solid var(--border); border-radius: 3px; padding: 2px 7px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+    .ptable .warranty-ok { color: #4ade80; font-size: 11px; }
+    .ptable .warranty-exp { color: #f87171; font-size: 11px; }
+    .ptable .warranty-soon { color: #fbbf24; font-size: 11px; }
+    .ptable .order-link { color: var(--muted); text-decoration: none; font-size: 11px; display: flex; align-items: center; gap: 4px; }
+    .ptable .order-link:hover { color: var(--white); }
+    .ptable .empty-state { text-align: center; padding: 48px 0; color: var(--muted); }
+    .ptable .empty-state i { font-size: 24px; margin-bottom: 10px; display: block; }
+    .ptable .row-actions { display: flex; gap: 6px; }
+    .ptable .row-btn { background: none; border: none; color: var(--muted); cursor: pointer; padding: 4px; font-size: 12px; border-radius: 3px; transition: color 0.15s, background 0.15s; }
+    .ptable .row-btn:hover { color: var(--white); background: rgba(255,255,255,0.07); }
+    .ptable .row-btn.del:hover { color: #f87171; }
+
+    /* ── Add / Edit Modal ── */
+    .purchase-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9999; align-items: center; justify-content: center; }
+    .purchase-modal-overlay.open { display: flex; }
+    .purchase-modal { background: #161616; border: 1px solid var(--border); border-radius: 8px; width: 540px; max-width: 96vw; max-height: 90vh; overflow-y: auto; padding: 28px; }
+    .pm-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .pm-header h3 { font-size: 15px; font-weight: 600; color: var(--white); }
+    .pm-close { background: none; border: none; color: var(--muted); font-size: 16px; cursor: pointer; }
+    .pm-close:hover { color: var(--white); }
+    .pm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .pm-field { display: flex; flex-direction: column; gap: 5px; }
+    .pm-field.full { grid-column: 1 / -1; }
+    .pm-field label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 500; }
+    .pm-field input, .pm-field select, .pm-field textarea { background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 4px; color: var(--white); font-family: var(--font-body); font-size: 13px; padding: 8px 10px; outline: none; transition: border-color 0.15s; }
+    .pm-field input:focus, .pm-field select:focus, .pm-field textarea:focus { border-color: rgba(255,255,255,0.35); }
+    .pm-field input::placeholder, .pm-field textarea::placeholder { color: var(--muted); }
+    .pm-field select option { background: #1a1a1a; }
+    .pm-field textarea { resize: vertical; min-height: 60px; }
+    .pm-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 22px; }
+    .pm-btn-cancel { background: none; border: 1px solid var(--border); color: var(--muted); font-family: var(--font-body); font-size: 12px; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+    .pm-btn-cancel:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
+    .pm-btn-save { background: var(--white); border: none; color: var(--black); font-family: var(--font-body); font-size: 12px; font-weight: 600; padding: 8px 20px; border-radius: 4px; cursor: pointer; }
+    .pm-btn-save:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -920,6 +1078,15 @@
         </div>
       </div>
     </header>
+
+    <!-- Page Tab Nav -->
+    <div class="page-tabs">
+      <button class="page-tab-btn active" data-tab="market"><i class="fa-solid fa-chart-line"></i> Market Tracker</button>
+      <button class="page-tab-btn" data-tab="purchases"><i class="fa-solid fa-box-open"></i> Home Purchases</button>
+    </div>
+
+    <!-- Tab: Market Tracker -->
+    <div id="tab-market" class="tab-panel active">
 
     <!-- Minimalist Flat Possession Countdown Strip -->
     <div class="possession-countdown-strip" id="possession-countdown-strip">
@@ -1022,6 +1189,122 @@
     <div class="summary-bar">
       <span id="counter-text">Loading listings...</span>
       <span id="sort-status-text">Hash = unique ID per listing · Persists across weekly runs</span>
+    </div>
+
+    </div><!-- /tab-market -->
+
+    <!-- Tab: Home Purchases -->
+    <div id="tab-purchases" class="tab-panel">
+      <div class="purchases-header">
+        <div>
+          <h2>Home Purchases & Equipment</h2>
+          <p>Track all purchases for your Sobha Neopolis flat — appliances, furniture, fixtures, and more.</p>
+        </div>
+        <button class="btn-add-item" id="btn-add-purchase"><i class="fa-solid fa-plus"></i> Add Item</button>
+      </div>
+
+      <div class="purchases-stats">
+        <div class="pstat"><div class="pstat-label">Total Items</div><div class="pstat-val" id="pstat-count">0</div></div>
+        <div class="pstat"><div class="pstat-label">Total Spent</div><div class="pstat-val" id="pstat-total">₹0</div></div>
+        <div class="pstat"><div class="pstat-label">Under Warranty</div><div class="pstat-val" id="pstat-warranty">0</div></div>
+        <div class="pstat"><div class="pstat-label">Expiring Soon</div><div class="pstat-val" id="pstat-expiring">0</div></div>
+      </div>
+
+      <div class="purchases-filters">
+        <input type="text" id="purchase-search" placeholder="Search items...">
+        <select id="purchase-cat-filter">
+          <option value="">All Categories</option>
+          <option>Appliances</option>
+          <option>Furniture</option>
+          <option>Fixtures & Fittings</option>
+          <option>Electronics</option>
+          <option>Kitchen</option>
+          <option>Bedroom</option>
+          <option>Bathroom</option>
+          <option>Lighting</option>
+          <option>Flooring</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="ptable-wrapper">
+        <table class="ptable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Item</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Purchase Date</th>
+              <th>Warranty Expiry</th>
+              <th>Bought From</th>
+              <th>Order</th>
+              <th>Notes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="purchases-tbody"></tbody>
+        </table>
+      </div>
+    </div><!-- /tab-purchases -->
+
+    <!-- Add / Edit Purchase Modal -->
+    <div class="purchase-modal-overlay" id="purchase-modal-overlay">
+      <div class="purchase-modal">
+        <div class="pm-header">
+          <h3 id="pm-title">Add Item</h3>
+          <button class="pm-close" id="pm-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="pm-grid">
+          <div class="pm-field full">
+            <label>Item Name *</label>
+            <input type="text" id="pm-name" placeholder="e.g. Samsung 653L Refrigerator">
+          </div>
+          <div class="pm-field">
+            <label>Category</label>
+            <select id="pm-category">
+              <option>Appliances</option>
+              <option>Furniture</option>
+              <option>Fixtures & Fittings</option>
+              <option>Electronics</option>
+              <option>Kitchen</option>
+              <option>Bedroom</option>
+              <option>Bathroom</option>
+              <option>Lighting</option>
+              <option>Flooring</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="pm-field">
+            <label>Amount (₹)</label>
+            <input type="number" id="pm-amount" placeholder="e.g. 85000">
+          </div>
+          <div class="pm-field">
+            <label>Purchase Date</label>
+            <input type="date" id="pm-purchase-date">
+          </div>
+          <div class="pm-field">
+            <label>Warranty Expiry</label>
+            <input type="date" id="pm-warranty-date">
+          </div>
+          <div class="pm-field">
+            <label>Bought From</label>
+            <input type="text" id="pm-store" placeholder="e.g. Amazon, Croma, Flipkart">
+          </div>
+          <div class="pm-field full">
+            <label>Order URL</label>
+            <input type="url" id="pm-order-url" placeholder="https://amazon.in/order/...">
+          </div>
+          <div class="pm-field full">
+            <label>Notes</label>
+            <textarea id="pm-notes" placeholder="e.g. Model no, colour, serial number, installation notes..."></textarea>
+          </div>
+        </div>
+        <div class="pm-actions">
+          <button class="pm-btn-cancel" id="pm-cancel">Cancel</button>
+          <button class="pm-btn-save" id="pm-save">Save Item</button>
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -1882,6 +2165,203 @@
         `;
       }).join('');
     }
+
+    // ── Tab Switching ──────────────────────────────────────────────────
+    document.querySelectorAll('.page-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.page-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        if (btn.dataset.tab === 'purchases') renderPurchases();
+      });
+    });
+
+    // ── Purchases CRUD (localStorage) ─────────────────────────────────
+    const PURCHASES_KEY = 'sobha_home_purchases';
+
+    function loadPurchases() {
+      try { return JSON.parse(localStorage.getItem(PURCHASES_KEY) || '[]'); } catch { return []; }
+    }
+
+    function savePurchases(data) {
+      localStorage.setItem(PURCHASES_KEY, JSON.stringify(data));
+    }
+
+    function fmtAmount(n) {
+      if (!n) return '—';
+      const num = parseFloat(n);
+      if (isNaN(num)) return '—';
+      if (num >= 100000) return '₹' + (num / 100000).toFixed(2).replace(/\.?0+$/, '') + 'L';
+      return '₹' + num.toLocaleString('en-IN');
+    }
+
+    function fmtDate(d) {
+      if (!d) return '—';
+      const dt = new Date(d + 'T00:00:00');
+      return dt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function warrantyStatus(dateStr) {
+      if (!dateStr) return { cls: '', text: '—' };
+      const exp = new Date(dateStr + 'T00:00:00');
+      const now = new Date();
+      const daysLeft = Math.round((exp - now) / 86400000);
+      if (daysLeft < 0) return { cls: 'warranty-exp', text: 'Expired' };
+      if (daysLeft <= 90) return { cls: 'warranty-soon', text: `${daysLeft}d left` };
+      const months = Math.round(daysLeft / 30);
+      return { cls: 'warranty-ok', text: `${months}mo left` };
+    }
+
+    function renderPurchases() {
+      const all = loadPurchases();
+      const search = (document.getElementById('purchase-search')?.value || '').toLowerCase();
+      const cat = document.getElementById('purchase-cat-filter')?.value || '';
+
+      const filtered = all.filter(p => {
+        const txt = (p.name + p.category + p.store + p.notes).toLowerCase();
+        const matchSearch = !search || txt.includes(search);
+        const matchCat = !cat || p.category === cat;
+        return matchSearch && matchCat;
+      });
+
+      // Stats
+      const totalSpent = all.reduce((s, p) => s + (parseFloat(p.amount) || 0), 0);
+      const now = new Date();
+      const underWarranty = all.filter(p => p.warranty_date && new Date(p.warranty_date) > now).length;
+      const expiringSoon = all.filter(p => {
+        if (!p.warranty_date) return false;
+        const d = new Date(p.warranty_date);
+        const days = Math.round((d - now) / 86400000);
+        return days >= 0 && days <= 90;
+      }).length;
+
+      document.getElementById('pstat-count').textContent = all.length;
+      document.getElementById('pstat-total').textContent = fmtAmount(totalSpent);
+      document.getElementById('pstat-warranty').textContent = underWarranty;
+      document.getElementById('pstat-expiring').textContent = expiringSoon;
+
+      // Table
+      const tbody = document.getElementById('purchases-tbody');
+      if (!tbody) return;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10"><div class="empty-state"><i class="fa-solid fa-box-open"></i>${all.length === 0 ? 'No items yet. Click <strong>Add Item</strong> to get started.' : 'No items match your search.'}</div></td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((p, i) => {
+        const ws = warrantyStatus(p.warranty_date);
+        const orderBtn = p.order_url
+          ? `<a href="${p.order_url}" target="_blank" rel="noopener" class="order-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>`
+          : `<span style="color:var(--muted)">—</span>`;
+        const notes = p.notes ? `<span title="${p.notes.replace(/"/g,"'")}" style="color:var(--muted);cursor:help;" title="${p.notes}">…</span>` : '—';
+        return `<tr data-id="${p.id}">
+          <td style="color:var(--muted);font-size:11px">${i + 1}</td>
+          <td style="font-weight:500;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${p.name}">${p.name}</td>
+          <td><span class="cat-badge">${p.category || '—'}</span></td>
+          <td class="mono">${fmtAmount(p.amount)}</td>
+          <td style="white-space:nowrap">${fmtDate(p.purchase_date)}</td>
+          <td><span class="${ws.cls}">${ws.text}</span></td>
+          <td style="color:var(--muted)">${p.store || '—'}</td>
+          <td>${orderBtn}</td>
+          <td>${p.notes ? `<span style="color:var(--muted);cursor:help;font-size:11px" title="${p.notes.replace(/"/g, "'")}">${p.notes.slice(0,28)}${p.notes.length > 28 ? '…' : ''}</span>` : '—'}</td>
+          <td><div class="row-actions">
+            <button class="row-btn edit-purchase-btn" data-id="${p.id}" title="Edit"><i class="fa-solid fa-pencil"></i></button>
+            <button class="row-btn del delete-purchase-btn" data-id="${p.id}" title="Delete"><i class="fa-solid fa-trash"></i></button>
+          </div></td>
+        </tr>`;
+      }).join('');
+
+      // Bind row actions
+      tbody.querySelectorAll('.edit-purchase-btn').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.id));
+      });
+      tbody.querySelectorAll('.delete-purchase-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (confirm('Delete this item?')) {
+            const data = loadPurchases().filter(p => p.id !== btn.dataset.id);
+            savePurchases(data);
+            renderPurchases();
+          }
+        });
+      });
+    }
+
+    // ── Modal ──────────────────────────────────────────────────────────
+    let editingId = null;
+
+    function openModal(id = null) {
+      editingId = id;
+      const overlay = document.getElementById('purchase-modal-overlay');
+      document.getElementById('pm-title').textContent = id ? 'Edit Item' : 'Add Item';
+      document.getElementById('pm-save').textContent = id ? 'Save Changes' : 'Save Item';
+
+      if (id) {
+        const p = loadPurchases().find(x => x.id === id);
+        if (p) {
+          document.getElementById('pm-name').value = p.name || '';
+          document.getElementById('pm-category').value = p.category || 'Appliances';
+          document.getElementById('pm-amount').value = p.amount || '';
+          document.getElementById('pm-purchase-date').value = p.purchase_date || '';
+          document.getElementById('pm-warranty-date').value = p.warranty_date || '';
+          document.getElementById('pm-store').value = p.store || '';
+          document.getElementById('pm-order-url').value = p.order_url || '';
+          document.getElementById('pm-notes').value = p.notes || '';
+        }
+      } else {
+        document.getElementById('pm-name').value = '';
+        document.getElementById('pm-category').value = 'Appliances';
+        document.getElementById('pm-amount').value = '';
+        document.getElementById('pm-purchase-date').value = '';
+        document.getElementById('pm-warranty-date').value = '';
+        document.getElementById('pm-store').value = '';
+        document.getElementById('pm-order-url').value = '';
+        document.getElementById('pm-notes').value = '';
+      }
+      overlay.classList.add('open');
+      document.getElementById('pm-name').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('purchase-modal-overlay').classList.remove('open');
+      editingId = null;
+    }
+
+    document.getElementById('btn-add-purchase')?.addEventListener('click', () => openModal());
+    document.getElementById('pm-close')?.addEventListener('click', closeModal);
+    document.getElementById('pm-cancel')?.addEventListener('click', closeModal);
+    document.getElementById('purchase-modal-overlay')?.addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+
+    document.getElementById('pm-save')?.addEventListener('click', () => {
+      const name = document.getElementById('pm-name').value.trim();
+      if (!name) { document.getElementById('pm-name').focus(); return; }
+      const item = {
+        id: editingId || Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+        name,
+        category: document.getElementById('pm-category').value,
+        amount: document.getElementById('pm-amount').value,
+        purchase_date: document.getElementById('pm-purchase-date').value,
+        warranty_date: document.getElementById('pm-warranty-date').value,
+        store: document.getElementById('pm-store').value.trim(),
+        order_url: document.getElementById('pm-order-url').value.trim(),
+        notes: document.getElementById('pm-notes').value.trim(),
+      };
+      let data = loadPurchases();
+      if (editingId) {
+        data = data.map(p => p.id === editingId ? item : p);
+      } else {
+        data.push(item);
+      }
+      savePurchases(data);
+      closeModal();
+      renderPurchases();
+    });
+
+    document.getElementById('purchase-search')?.addEventListener('input', renderPurchases);
+    document.getElementById('purchase-cat-filter')?.addEventListener('change', renderPurchases);
   </script>
 </body>
 </html>
