@@ -94,5 +94,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=402-9513635-6154745&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_3",
     "notes": "Ibell induction cooktop",
     "bill_file": "bills/mrwd2zl9dxzl-inductioninvoice.pdf"
+  },
+  {
+    "id": "mrwd97xx7mqr",
+    "name": "Resonate UPS Wifi",
+    "category": "Appliances",
+    "amount": "1010",
+    "purchase_date": "2026-05-23",
+    "warranty_date": "2027-07-23",
+    "store": "Zepto",
+    "order_url": "https://www.zepto.com/order/019e48e0-50f0-7b1b-84bf-7cbb40df3fb3?isArchived=false",
+    "notes": "bought from 6395432881 zepto number also have email : Re:[## 119382 ##] Welcome to Resonate Family (seqr.ai)",
+    "bill_file": "bills/mrwd96i9yk6u-zepto_invoice_019e48e0_50f0_7b1b_84bf_7cbb40df3fb3_1779727843685__1_.pdf"
   }
 ]
