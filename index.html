@@ -825,14 +825,14 @@
       <form id="auth-form" onsubmit="return false;">
         <div class="auth-form-group">
           <label for="auth-user">Username</label>
-          <input type="text" id="auth-user" class="auth-input" placeholder="Enter username..." autocomplete="username" required>
+          <input type="email" id="auth-user" class="auth-input" placeholder="quantindian@gmail.com" autocomplete="username" required autofocus>
         </div>
         <div class="auth-form-group">
           <label for="auth-pass">Password</label>
-          <input type="password" id="auth-pass" class="auth-input" placeholder="••••••••••••" autocomplete="current-password" required autofocus>
+          <input type="password" id="auth-pass" class="auth-input" placeholder="••••••••••••" autocomplete="current-password" required>
         </div>
         <button type="submit" class="auth-btn" id="auth-submit-btn">Unlock Dashboard &rarr;</button>
-        <div class="auth-error" id="auth-error">Invalid password. Please try again.</div>
+        <div class="auth-error" id="auth-error">Invalid username or password. Please try again.</div>
       </form>
     </div>
   </div>
@@ -946,6 +946,7 @@
   </div>
 
   <script>
+    const AUTH_USER = 'quantindian@gmail.com';
     const AUTH_PASS = 'doraemon!12';
     const AUTH_KEY = 'sobha_auth_passed';
 
@@ -1045,9 +1046,10 @@
 
         if (checkLockout()) return;
 
+        const u = userIn.value.trim();
         const p = passIn.value.trim();
 
-        if (p === AUTH_PASS) {
+        if (u === AUTH_USER && p === AUTH_PASS) {
           localStorage.setItem(ATTEMPTS_KEY, '0');
           localStorage.removeItem(LOCKOUT_KEY);
           errorMsg.style.display = 'none';
@@ -1064,7 +1066,7 @@
             const remaining = MAX_ATTEMPTS - attempts;
             errorMsg.style.display = 'block';
             errorMsg.style.color = '#ef4444';
-            errorMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Invalid password. ${remaining} attempt${remaining > 1 ? 's' : ''} remaining before lockout.`;
+            errorMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Invalid username or password. ${remaining} attempt${remaining > 1 ? 's' : ''} remaining before lockout.`;
           }
 
           authCard.classList.remove('shake');
