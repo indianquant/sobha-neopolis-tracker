@@ -825,14 +825,14 @@
       <form id="auth-form" onsubmit="return false;">
         <div class="auth-form-group">
           <label for="auth-user">Username</label>
-          <input type="text" id="auth-user" class="auth-input" placeholder="admin" value="admin" autocomplete="username" required>
+          <input type="text" id="auth-user" class="auth-input" placeholder="Enter username..." autocomplete="username" required>
         </div>
         <div class="auth-form-group">
           <label for="auth-pass">Password</label>
           <input type="password" id="auth-pass" class="auth-input" placeholder="••••••••••••" autocomplete="current-password" required autofocus>
         </div>
         <button type="submit" class="auth-btn" id="auth-submit-btn">Unlock Dashboard &rarr;</button>
-        <div class="auth-error" id="auth-error">Invalid username or password. Please try again.</div>
+        <div class="auth-error" id="auth-error">Invalid password. Please try again.</div>
       </form>
     </div>
   </div>
@@ -946,7 +946,6 @@
   </div>
 
   <script>
-    const AUTH_USER = 'admin';
     const AUTH_PASS = 'doraemon!12';
     const AUTH_KEY = 'sobha_auth_passed';
 
@@ -998,10 +997,9 @@
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const u = userIn.value.trim();
         const p = passIn.value.trim();
 
-        if (u === AUTH_USER && p === AUTH_PASS) {
+        if (p === AUTH_PASS) {
           errorMsg.style.display = 'none';
           unlock();
         } else {
