@@ -683,6 +683,132 @@
       color: var(--white);
       border-color: var(--white);
     }
+
+    /* Portfolio & Gain Tracker Card */
+    .portfolio-card {
+      background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .portfolio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .portfolio-title-group .eyebrow-blue {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #38bdf8;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-title-group h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin: 0;
+    }
+
+    .portfolio-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .portfolio-stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+
+    .portfolio-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .portfolio-stat-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      font-family: var(--font-body);
+    }
+
+    .portfolio-stat-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .gain-positive {
+      color: #22c55e !important;
+    }
+
+    .gain-negative {
+      color: #f43f5e !important;
+    }
+
+    .breakdown-toggle-btn {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #38bdf8;
+      padding: 7px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .breakdown-toggle-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+    }
+
+    .expense-breakdown-drawer {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    .expense-breakdown-drawer.open {
+      display: block;
+    }
+
+    .expense-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .expense-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .expense-table tr.total-row td {
+      border-bottom: none;
+      font-weight: 700;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
@@ -753,6 +879,9 @@
       </div>
       <div class="force-msg" id="force-msg" style="display:none;"></div>
     </div>
+
+    <!-- Portfolio Investment & Gain Intelligence Card -->
+    <div id="portfolio-container"></div>
 
     <!-- Category Summary Cards -->
     <div class="category-averages" id="category-averages-container">
@@ -941,10 +1070,159 @@
       }
 
       renderRunSummary();
+      renderPortfolioCard();
       renderCategoryAverages();
       renderTable();
       bindEvents();
       bindHeaderSorting();
+    }
+
+    function renderPortfolioCard() {
+      const container = document.getElementById('portfolio-container');
+      if (!container) return;
+
+      // Purchase cost components:
+      const BASE_PRICE = 24500000;   // 2.45 Cr
+      const BROKERAGE = 500000;       // 5.00 Lacs
+      const BANK_MOTD = 100000;      // 1.00 Lac
+      const REGISTRY = 1650000;      // 16.50 Lacs
+      const INTERIOR = 1600000;      // 16.00 Lacs
+      const TOTAL_INVESTMENT = BASE_PRICE + BROKERAGE + BANK_MOTD + REGISTRY + INTERIOR; // 28,350,000 (2.835 Cr)
+
+      // Calculate market average for 1611 sqft units from active listings
+      const cat1611 = listings.filter(i => getCategoryClass(i.area) === '1611');
+      let mktAvgPrice = 0;
+      let mktAvgRate = 0;
+
+      if (cat1611.length > 0) {
+        const sumP = cat1611.reduce((acc, curr) => acc + curr.price_raw, 0);
+        const sumR = cat1611.reduce((acc, curr) => acc + (curr.price_raw / 1611), 0);
+        mktAvgPrice = sumP / cat1611.length;
+        mktAvgRate = sumR / cat1611.length;
+      } else {
+        mktAvgPrice = 25200000;
+        mktAvgRate = 15642;
+      }
+
+      // Base flat savings vs 1611 sqft market avg base price
+      const baseSavings = mktAvgPrice - BASE_PRICE;
+      const baseSavingsPct = (baseSavings / mktAvgPrice) * 100;
+
+      // All-in investment value comparison vs market avg base price
+      const netVsMarketAvg = mktAvgPrice - TOTAL_INVESTMENT;
+
+      function fmtCr(val) {
+        const absVal = Math.abs(val);
+        if (absVal >= 10000000) {
+          return (val / 10000000).toFixed(2) + ' Cr';
+        }
+        return Math.round(val / 100000) + ' Lacs';
+      }
+
+      container.innerHTML = `
+        <div class="portfolio-card">
+          <div class="portfolio-header">
+            <div class="portfolio-title-group">
+              <span class="eyebrow-blue"><i class="fa-solid fa-chart-line"></i> Portfolio Investment &amp; Market Benchmark</span>
+              <h2>Your 1611 sqft Flat Benchmark &amp; Purchase Savings</h2>
+            </div>
+            <button class="breakdown-toggle-btn" id="toggle-expense-btn">
+              <i class="fa-solid fa-receipt"></i>
+              <span>Itemized Purchase Breakdown (₹ 2.835 Cr)</span>
+              <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
+            </button>
+          </div>
+
+          <div class="portfolio-stats-grid">
+            <div class="portfolio-stat-box">
+              <span class="portfolio-stat-label">Base Flat Purchase Price</span>
+              <div class="portfolio-stat-val">₹ 2.45 Cr</div>
+              <div class="portfolio-stat-sub">Agreement Price</div>
+            </div>
+
+            <div class="portfolio-stat-box">
+              <span class="portfolio-stat-label">Total All-In Investment</span>
+              <div class="portfolio-stat-val">₹ 2.835 Cr</div>
+              <div class="portfolio-stat-sub">Base + Reg + Interior + Fees</div>
+            </div>
+
+            <div class="portfolio-stat-box">
+              <span class="portfolio-stat-label">1611 sqft Market Avg (Base)</span>
+              <div class="portfolio-stat-val">₹ ${fmtCr(mktAvgPrice)}</div>
+              <div class="portfolio-stat-sub">Avg of ${cat1611.length} Listings (₹${Math.round(mktAvgRate).toLocaleString('en-IN')}/sqft)</div>
+            </div>
+
+            <div class="portfolio-stat-box" style="background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25);">
+              <span class="portfolio-stat-label" style="color: #38bdf8; font-weight:600;">Base Flat Purchase Savings</span>
+              <div class="portfolio-stat-val ${baseSavings >= 0 ? 'gain-positive' : 'gain-negative'}">
+                ${baseSavings >= 0 ? '+' : ''}₹ ${fmtCr(baseSavings)}
+              </div>
+              <div class="portfolio-stat-sub">
+                ${baseSavings >= 0 ? `Bought ${baseSavingsPct.toFixed(1)}% below current 1611 market average!` : 'Market Avg comparison'}
+              </div>
+            </div>
+          </div>
+
+          <!-- Itemized Purchase Expense Drawer -->
+          <div class="expense-breakdown-drawer" id="expense-drawer">
+            <div style="font-size:12px; font-weight:600; color:var(--white); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center;">
+              <span><i class="fa-solid fa-receipt" style="color:#38bdf8"></i> Complete Itemized Purchase Expenses:</span>
+              <span style="color:var(--muted); font-weight:400; font-size:11px;">Property: 1611 sqft Unit</span>
+            </div>
+            <table class="expense-table">
+              <tbody>
+                <tr>
+                  <td>1. Base Flat Agreement Price (1611 sqft)</td>
+                  <td style="text-align:right; font-weight:600;">₹ 2,45,00,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 2.45 Cr</td>
+                </tr>
+                <tr>
+                  <td>2. Registration &amp; Stamp Duty</td>
+                  <td style="text-align:right; font-weight:600;">₹ 16,50,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 16.50 Lacs</td>
+                </tr>
+                <tr>
+                  <td>3. Interior &amp; Woodwork</td>
+                  <td style="text-align:right; font-weight:600;">₹ 16,00,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 16.00 Lacs</td>
+                </tr>
+                <tr>
+                  <td>4. Brokerage Charges</td>
+                  <td style="text-align:right; font-weight:600;">₹ 5,00,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 5.00 Lacs</td>
+                </tr>
+                <tr>
+                  <td>5. Bank MOTD Fees</td>
+                  <td style="text-align:right; font-weight:600;">₹ 1,00,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 1.00 Lac</td>
+                </tr>
+                <tr class="total-row">
+                  <td>TOTAL ALL-IN CAPITAL INVESTMENT</td>
+                  <td style="text-align:right;">₹ 2,83,50,000</td>
+                  <td style="text-align:right; color:#38bdf8;">₹ 2.835 Cr</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      // Toggle drawer listener
+      const toggleBtn = document.getElementById('toggle-expense-btn');
+      const drawer = document.getElementById('expense-drawer');
+      if (toggleBtn && drawer) {
+        toggleBtn.addEventListener('click', () => {
+          const isOpen = drawer.classList.contains('open');
+          const icon = toggleBtn.querySelector('.fa-chevron-down, .fa-chevron-up');
+          if (isOpen) {
+            drawer.classList.remove('open');
+            if (icon) icon.className = 'fa-solid fa-chevron-down';
+          } else {
+            drawer.classList.add('open');
+            if (icon) icon.className = 'fa-solid fa-chevron-up';
+          }
+        });
+      }
     }
 
     function renderRunSummary() {
