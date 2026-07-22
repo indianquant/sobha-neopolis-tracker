@@ -22,5 +22,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-9894806-8164337&ref=ppx_yo2ov_dt_b_fed_order_details",
     "notes": "Narwal Order",
     "bill_file": "bills/mrwcake8eir9-narwal-invoice.pdf"
+  },
+  {
+    "id": "mrwce7cmofnt",
+    "name": "Vintage Wall Clock",
+    "category": "Furniture",
+    "amount": "1732",
+    "purchase_date": "2026-07-04",
+    "warranty_date": "2027-07-04",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/gp/your-account/order-details/ref=dp_iou_view_order_details?ie=UTF8&orderID=404-6502876-9300364",
+    "notes": "wall clock by craftel",
+    "bill_file": "bills/mrwce5oqgnoj-clockinvoice.pdf"
   }
 ]
