@@ -555,25 +555,175 @@
       color: var(--muted);
     }
 
-    footer {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--muted);
+    /* Auth Overlay */
+    .auth-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0A0A0A;
+      z-index: 99999;
       display: flex;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .auth-card {
+      background: #121212;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+      text-align: center;
+    }
+
+    .auth-card .auth-icon {
+      font-size: 32px;
+      color: #38bdf8;
+      margin-bottom: 16px;
+    }
+
+    .auth-card h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .auth-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .auth-form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .auth-form-group label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .auth-input:focus {
+      border-color: #38bdf8;
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .auth-btn:hover {
+      opacity: 0.9;
+    }
+
+    .auth-error {
+      color: #ef4444;
+      font-size: 12px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .shake {
+      animation: shake 0.4s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+
+    .lock-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lock-btn:hover {
+      color: var(--white);
+      border-color: var(--white);
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- Auth Overlay -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-card" id="auth-card">
+      <div class="auth-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2>Restricted Access</h2>
+      <p>Enter administrative credentials to access Sobha Neopolis Real Estate Intelligence.</p>
+      
+      <form id="auth-form" onsubmit="return false;">
+        <div class="auth-form-group">
+          <label for="auth-user">Username</label>
+          <input type="text" id="auth-user" class="auth-input" placeholder="admin" value="admin" autocomplete="username" required>
+        </div>
+        <div class="auth-form-group">
+          <label for="auth-pass">Password</label>
+          <input type="password" id="auth-pass" class="auth-input" placeholder="••••••••••••" autocomplete="current-password" required autofocus>
+        </div>
+        <button type="submit" class="auth-btn" id="auth-submit-btn">Unlock Dashboard &rarr;</button>
+        <div class="auth-error" id="auth-error">Invalid username or password. Please try again.</div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" id="main-container" style="display:none;">
     <!-- Header -->
     <header>
-      <span class="eyebrow">Real Estate Data Intelligence</span>
-      <h1>Sobha Neopolis</h1>
-      <p class="sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Interactive Sorting</p>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+        <div>
+          <span class="eyebrow">Real Estate Data Intelligence</span>
+          <h1>Sobha Neopolis</h1>
+          <p class="sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Interactive Sorting</p>
+        </div>
+        <div>
+          <button id="lock-btn" class="lock-btn"><i class="fa-solid fa-lock"></i> Lock Dashboard</button>
+        </div>
+      </div>
     </header>
 
     <!-- Run Summary Strip -->
@@ -667,6 +817,10 @@
   </div>
 
   <script>
+    const AUTH_USER = 'admin';
+    const AUTH_PASS = 'doraemon!12';
+    const AUTH_KEY = 'sobha_auth_passed';
+
     let listings = [];
     let delistedListings = [];
     let lastUpdated = '';
@@ -677,13 +831,69 @@
     let sortColumn = 'floor';
     let sortAsc = true;
 
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', () => {
+      initAuth();
+    });
+
+    function initAuth() {
+      const overlay = document.getElementById('auth-overlay');
+      const mainContainer = document.getElementById('main-container');
+      const form = document.getElementById('auth-form');
+      const userIn = document.getElementById('auth-user');
+      const passIn = document.getElementById('auth-pass');
+      const errorMsg = document.getElementById('auth-error');
+      const authCard = document.getElementById('auth-card');
+      const lockBtn = document.getElementById('lock-btn');
+
+      function unlock() {
+        sessionStorage.setItem(AUTH_KEY, 'true');
+        overlay.style.display = 'none';
+        mainContainer.style.display = 'block';
+        fetchDataAndRender();
+      }
+
+      function lock() {
+        sessionStorage.removeItem(AUTH_KEY);
+        mainContainer.style.display = 'none';
+        overlay.style.display = 'flex';
+        passIn.value = '';
+        errorMsg.style.display = 'none';
+      }
+
+      if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+        unlock();
+      } else {
+        overlay.style.display = 'flex';
+        mainContainer.style.display = 'none';
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const u = userIn.value.trim();
+        const p = passIn.value.trim();
+
+        if (u === AUTH_USER && p === AUTH_PASS) {
+          errorMsg.style.display = 'none';
+          unlock();
+        } else {
+          errorMsg.style.display = 'block';
+          authCard.classList.remove('shake');
+          void authCard.offsetWidth; // trigger reflow
+          authCard.classList.add('shake');
+        }
+      });
+
+      if (lockBtn) {
+        lockBtn.addEventListener('click', lock);
+      }
+    }
+
+    async function fetchDataAndRender() {
       try {
         const res = await fetch('sobha_listings.json?v=' + Date.now());
         if (res.ok) {
           const freshData = await res.json();
 
-          // New structure: { active: [...], delisted: [...], last_updated, ... }
           if (freshData && freshData.active) {
             lastUpdated = freshData.last_updated || '';
             newCount = freshData.new_count || 0;
@@ -735,7 +945,7 @@
       renderTable();
       bindEvents();
       bindHeaderSorting();
-    });
+    }
 
     function renderRunSummary() {
       const el = document.getElementById('run-summary');
