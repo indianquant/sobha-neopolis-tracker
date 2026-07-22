@@ -130,6 +130,76 @@
       display: block;
     }
 
+    .details-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #38bdf8;
+      background: transparent;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .details-btn:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    .facing-dissection {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .facing-dissection.open {
+      display: flex;
+    }
+
+    .facing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      padding: 5px 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .facing-item:hover {
+      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .facing-item-title {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .facing-item-stats {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .facing-item-stats strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
     /* Controls Bar */
     .controls {
       display: flex;
@@ -822,11 +892,19 @@
       const container = document.getElementById('category-averages-container');
       if (!container) return;
 
-      const cat1bhk = listings.filter(i => getCategoryClass(i.area) === '1bhk');
-      const cat1611 = listings.filter(i => getCategoryClass(i.area) === '1611');
-      const cat1915 = listings.filter(i => getCategoryClass(i.area) === '1915');
-      const cat2150 = listings.filter(i => getCategoryClass(i.area) === '2150');
-      const cat4bhk = listings.filter(i => getCategoryClass(i.area) === '4bhk');
+      const categories = [
+        { id: '1bhk', label: '1 BHK Category (<1000 sqft)', desc: '1 BHK Layouts', items: listings.filter(i => getCategoryClass(i.area) === '1bhk') },
+        { id: '1611', label: '1611 sqft Category (1500–1700 sqft)', desc: 'Standard 3 BHK', items: listings.filter(i => getCategoryClass(i.area) === '1611') },
+        { id: '1915', label: '1915 sqft Category (1800–2000 sqft)', desc: 'Luxury 3 BHK', items: listings.filter(i => getCategoryClass(i.area) === '1915') },
+        { id: '2150', label: '2150 sqft Category (2050–2250 sqft)', desc: 'Large 3 BHK + 3T', items: listings.filter(i => getCategoryClass(i.area) === '2150') },
+        { id: '4bhk', label: '4 BHK Category (> 2250 sqft)', desc: '4 BHK / Penthouse', items: listings.filter(i => getCategoryClass(i.area) === '4bhk') }
+      ];
+
+      function formatPriceVal(val) {
+        if (!val) return '₹ 0';
+        if (val >= 10000000) return '₹ ' + (val / 10000000).toFixed(2) + ' Cr';
+        return '₹ ' + Math.round(val / 100000) + ' Lacs';
+      }
 
       function calcStats(items) {
         if (!items.length) return { avgPrice: 0, avgRate: 0, count: 0 };
@@ -839,63 +917,115 @@
         };
       }
 
-      const s1bhk = calcStats(cat1bhk);
-      const s1611 = calcStats(cat1611);
-      const s1915 = calcStats(cat1915);
-      const s2150 = calcStats(cat2150);
-      const s4bhk = calcStats(cat4bhk);
+      function calcFacingBreakdown(items) {
+        const groups = {};
+        items.forEach(item => {
+          const f = item.facing || 'N/A';
+          if (!groups[f]) groups[f] = [];
+          groups[f].push(item);
+        });
 
-      function formatPriceVal(val) {
-        if (val >= 10000000) return '₹ ' + (val / 10000000).toFixed(2) + ' Cr';
-        return '₹ ' + Math.round(val / 100000) + ' Lacs';
+        const list = Object.keys(groups).map(f => {
+          const groupItems = groups[f];
+          const stats = calcStats(groupItems);
+          return {
+            facing: f,
+            count: groupItems.length,
+            avgPrice: stats.avgPrice,
+            avgRate: stats.avgRate
+          };
+        });
+
+        list.sort((a, b) => b.count - a.count);
+        return list;
       }
 
-      container.innerHTML = `
-        <div class="avg-card">
-          <span class="avg-label">1 BHK Category (&lt;1000 sqft)</span>
-          <div class="avg-value">
-            ${s1bhk.count ? formatPriceVal(s1bhk.avgPrice) : '₹ 1.20 Cr'}
-            <span class="avg-rate">· ${s1bhk.count ? '₹' + Math.round(s1bhk.avgRate).toLocaleString('en-IN') : '₹18,181'}/sqft</span>
-          </div>
-          <span class="avg-count">${s1bhk.count} Units (1 BHK Layouts)</span>
-        </div>
+      container.innerHTML = categories.map(cat => {
+        const stats = calcStats(cat.items);
+        const facingList = calcFacingBreakdown(cat.items);
 
-        <div class="avg-card">
-          <span class="avg-label">1611 sqft Category (1500–1700 sqft)</span>
-          <div class="avg-value">
-            ${s1611.count ? '₹ ' + (s1611.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.52 Cr'}
-            <span class="avg-rate">· ${s1611.count ? '₹' + Math.round(s1611.avgRate).toLocaleString('en-IN') : '₹15,642'}/sqft</span>
+        const facingRowsHtml = facingList.map(f => `
+          <div class="facing-item" data-cat="${cat.id}" data-facing="${f.facing}">
+            <div class="facing-item-title">
+              <i class="fa-solid fa-compass" style="color:#38bdf8"></i>
+              <span>${f.facing}</span>
+              <span style="color:var(--muted); font-size:10px;">(${f.count} ${f.count === 1 ? 'unit' : 'units'})</span>
+            </div>
+            <div class="facing-item-stats">
+              <strong>${formatPriceVal(f.avgPrice)}</strong>
+              <span>· ₹${Math.round(f.avgRate).toLocaleString('en-IN')}/sqft</span>
+            </div>
           </div>
-          <span class="avg-count">${s1611.count} Units (Standard 3 BHK)</span>
-        </div>
+        `).join('');
 
-        <div class="avg-card">
-          <span class="avg-label">1915 sqft Category (1800–2000 sqft)</span>
-          <div class="avg-value">
-            ${s1915.count ? '₹ ' + (s1915.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 2.94 Cr'}
-            <span class="avg-rate">· ${s1915.count ? '₹' + Math.round(s1915.avgRate).toLocaleString('en-IN') : '₹15,352'}/sqft</span>
+        return `
+          <div class="avg-card">
+            <span class="avg-label">${cat.label}</span>
+            <div class="avg-value">
+              ${formatPriceVal(stats.avgPrice)}
+              <span class="avg-rate">· ₹${Math.round(stats.avgRate).toLocaleString('en-IN')}/sqft</span>
+            </div>
+            <span class="avg-count">${stats.count} Units (${cat.desc})</span>
+            
+            ${facingList.length > 0 ? `
+              <button class="details-btn" data-target="facing-${cat.id}">
+                <span>Facing Dissection (${facingList.length})</span>
+                <i class="fa-solid fa-chevron-down" style="font-size:9px;"></i>
+              </button>
+              <div class="facing-dissection" id="facing-${cat.id}">
+                ${facingRowsHtml}
+              </div>
+            ` : ''}
           </div>
-          <span class="avg-count">${s1915.count} Units (Luxury 3 BHK)</span>
-        </div>
+        `;
+      }).join('');
 
-        <div class="avg-card">
-          <span class="avg-label">2150 sqft Category (2050–2250 sqft)</span>
-          <div class="avg-value">
-            ${s2150.count ? '₹ ' + (s2150.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.50 Cr'}
-            <span class="avg-rate">· ${s2150.count ? '₹' + Math.round(s2150.avgRate).toLocaleString('en-IN') : '₹16,279'}/sqft</span>
-          </div>
-          <span class="avg-count">${s2150.count} Units (Large 3 BHK + 3T)</span>
-        </div>
+      // Bind toggle event for Facing Dissection drawers
+      container.querySelectorAll('.details-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetId = btn.dataset.target;
+          const drawer = document.getElementById(targetId);
+          const icon = btn.querySelector('i');
+          if (drawer) {
+            const isOpen = drawer.classList.contains('open');
+            if (isOpen) {
+              drawer.classList.remove('open');
+              if (icon) icon.className = 'fa-solid fa-chevron-down';
+            } else {
+              drawer.classList.add('open');
+              if (icon) icon.className = 'fa-solid fa-chevron-up';
+            }
+          }
+        });
+      });
 
-        <div class="avg-card">
-          <span class="avg-label">4 BHK Category (&gt; 2250 sqft)</span>
-          <div class="avg-value">
-            ${s4bhk.count ? '₹ ' + (s4bhk.avgPrice / 10000000).toFixed(2) + ' Cr' : '₹ 3.58 Cr'}
-            <span class="avg-rate">· ${s4bhk.count ? '₹' + Math.round(s4bhk.avgRate).toLocaleString('en-IN') : '₹14,430'}/sqft</span>
-          </div>
-          <span class="avg-count">${s4bhk.count} Units (4 BHK / Penthouse)</span>
-        </div>
-      `;
+      // Bind click on individual facing row to filter table
+      container.querySelectorAll('.facing-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          const cat = item.dataset.cat;
+          const facing = item.dataset.facing;
+
+          activeFilters.clear();
+          if (cat) activeFilters.add(cat);
+          if (facing && facing !== 'N/A') {
+            const facingFilterKey = 'facing_' + facing.toLowerCase().replace('-', '');
+            activeFilters.add(facingFilterKey);
+          }
+
+          // Update filter buttons UI
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            const f = b.dataset.filter;
+            if (activeFilters.has(f)) {
+              b.classList.add('active');
+            } else {
+              b.classList.remove('active');
+            }
+          });
+
+          renderTable();
+        });
+      });
     }
 
     let activeFilters = new Set(['all']);
