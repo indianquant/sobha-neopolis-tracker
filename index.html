@@ -809,6 +809,90 @@
       background: rgba(255, 255, 255, 0.04);
       font-size: 13px;
     }
+
+    /* Flat Possession Countdown */
+    .possession-countdown-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 18px 24px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(234, 179, 8, 0.05));
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      flex-wrap: wrap;
+    }
+
+    .possession-label-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .possession-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: rgba(245, 158, 11, 0.2);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #f59e0b;
+    }
+
+    .possession-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .possession-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      display: block;
+    }
+    .possession-subtitle strong {
+      color: #fbbf24;
+    }
+
+    .possession-timer-boxes {
+      display: flex;
+      gap: 10px;
+    }
+
+    .possession-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 6px;
+      padding: 6px 14px;
+      min-width: 64px;
+    }
+
+    .possession-val {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fbbf24;
+      line-height: 1.1;
+    }
+
+    .possession-unit-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-top: 2px;
+    }
   </style>
 </head>
 <body>
@@ -851,6 +935,26 @@
         </div>
       </div>
     </header>
+
+    <!-- Flat Possession Countdown Strip -->
+    <div class="possession-countdown-strip" id="possession-countdown-strip">
+      <div class="possession-label-group">
+        <div class="possession-icon">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <div>
+          <span class="possession-title">Flat Possession Countdown</span>
+          <span class="possession-subtitle">Target Possession Date: <strong>1st October 2027</strong></span>
+        </div>
+      </div>
+
+      <div class="possession-timer-boxes" id="possession-timer-boxes">
+        <div class="possession-unit"><span class="possession-val" id="pos-days">---</span><span class="possession-unit-label">Days</span></div>
+        <div class="possession-unit"><span class="possession-val" id="pos-hours">--</span><span class="possession-unit-label">Hours</span></div>
+        <div class="possession-unit"><span class="possession-val" id="pos-mins">--</span><span class="possession-unit-label">Mins</span></div>
+        <div class="possession-unit"><span class="possession-val" id="pos-secs">--</span><span class="possession-unit-label">Secs</span></div>
+      </div>
+    </div>
 
     <!-- Run Summary Strip -->
     <div class="run-summary" id="run-summary">
@@ -1345,6 +1449,30 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── Flat Possession Countdown to 1st October 2027 ──
+    function updatePossessionCountdown() {
+      // Target: 1st October 2027 (00:00:00 local time)
+      const targetDate = new Date(2027, 9, 1, 0, 0, 0); // Month 9 is October (0-indexed)
+      const now = new Date();
+      let diff = targetDate - now;
+
+      if (diff < 0) diff = 0;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('pos-days').textContent = days;
+      document.getElementById('pos-hours').textContent = pad(hours);
+      document.getElementById('pos-mins').textContent = pad(mins);
+      document.getElementById('pos-secs').textContent = pad(secs);
+    }
+
+    updatePossessionCountdown();
+    setInterval(updatePossessionCountdown, 1000);
 
     // ── Daily Force Update Logic (1 per 24 hours) ──
     function setupForceUpdate() {
