@@ -963,6 +963,11 @@
       initAuth();
     });
 
+    const MAX_ATTEMPTS = 3;
+    const LOCKOUT_MS = 15 * 60 * 1000; // 15 minutes lockout
+    const ATTEMPTS_KEY = 'sobha_failed_attempts';
+    const LOCKOUT_KEY = 'sobha_lockout_until';
+
     function initAuth() {
       const overlay = document.getElementById('auth-overlay');
       const mainContainer = document.getElementById('main-container');
@@ -970,8 +975,40 @@
       const userIn = document.getElementById('auth-user');
       const passIn = document.getElementById('auth-pass');
       const errorMsg = document.getElementById('auth-error');
+      const submitBtn = document.getElementById('auth-submit-btn');
       const authCard = document.getElementById('auth-card');
       const lockBtn = document.getElementById('lock-btn');
+
+      function checkLockout() {
+        const lockoutUntil = parseInt(localStorage.getItem(LOCKOUT_KEY) || '0');
+        const now = Date.now();
+
+        if (now < lockoutUntil) {
+          const remainingMs = lockoutUntil - now;
+          const mins = Math.floor(remainingMs / (1000 * 60));
+          const secs = Math.floor((remainingMs % (1000 * 60)) / 1000);
+
+          userIn.disabled = true;
+          passIn.disabled = true;
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.5';
+
+          errorMsg.style.display = 'block';
+          errorMsg.style.color = '#ef4444';
+          errorMsg.innerHTML = `<i class="fa-solid fa-ban"></i> Too many failed attempts (3/3). Dashboard locked for <strong>${mins}m ${secs}s</strong>.`;
+          return true;
+        } else {
+          if (lockoutUntil > 0) {
+            localStorage.removeItem(LOCKOUT_KEY);
+            localStorage.setItem(ATTEMPTS_KEY, '0');
+          }
+          userIn.disabled = false;
+          passIn.disabled = false;
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          return false;
+        }
+      }
 
       function unlock() {
         sessionStorage.setItem(AUTH_KEY, 'true');
@@ -986,6 +1023,7 @@
         overlay.style.display = 'flex';
         passIn.value = '';
         errorMsg.style.display = 'none';
+        checkLockout();
       }
 
       if (sessionStorage.getItem(AUTH_KEY) === 'true') {
@@ -993,17 +1031,42 @@
       } else {
         overlay.style.display = 'flex';
         mainContainer.style.display = 'none';
+        checkLockout();
       }
+
+      setInterval(() => {
+        if (sessionStorage.getItem(AUTH_KEY) !== 'true') {
+          checkLockout();
+        }
+      }, 1000);
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        if (checkLockout()) return;
+
         const p = passIn.value.trim();
 
         if (p === AUTH_PASS) {
+          localStorage.setItem(ATTEMPTS_KEY, '0');
+          localStorage.removeItem(LOCKOUT_KEY);
           errorMsg.style.display = 'none';
           unlock();
         } else {
-          errorMsg.style.display = 'block';
+          let attempts = parseInt(localStorage.getItem(ATTEMPTS_KEY) || '0') + 1;
+          localStorage.setItem(ATTEMPTS_KEY, attempts.toString());
+
+          if (attempts >= MAX_ATTEMPTS) {
+            const lockoutTime = Date.now() + LOCKOUT_MS;
+            localStorage.setItem(LOCKOUT_KEY, lockoutTime.toString());
+            checkLockout();
+          } else {
+            const remaining = MAX_ATTEMPTS - attempts;
+            errorMsg.style.display = 'block';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Invalid password. ${remaining} attempt${remaining > 1 ? 's' : ''} remaining before lockout.`;
+          }
+
           authCard.classList.remove('shake');
           void authCard.offsetWidth; // trigger reflow
           authCard.classList.add('shake');
