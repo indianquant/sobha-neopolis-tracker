@@ -82,5 +82,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=405-3277412-4549945&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_4",
     "notes": "Philips mixer bought in 401 SVR Residency",
     "bill_file": "bills/mrwczrjegyf6-mixerinvoice.pdf"
+  },
+  {
+    "id": "mrwd312qc7de",
+    "name": "IBELL Induction Cooktop",
+    "category": "Kitchen",
+    "amount": "1396",
+    "purchase_date": "2024-07-30",
+    "warranty_date": "2026-07-30",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=402-9513635-6154745&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_3",
+    "notes": "Ibell induction cooktop",
+    "bill_file": "bills/mrwd2zl9dxzl-inductioninvoice.pdf"
   }
 ]
