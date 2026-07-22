@@ -1197,10 +1197,14 @@
     <div id="tab-purchases" class="tab-panel">
       <div class="purchases-header">
         <div>
-          <h2>Home Purchases & Equipment</h2>
-          <p>Track all purchases for your Sobha Neopolis flat — appliances, furniture, fixtures, and more.</p>
+          <h2>Home Purchases &amp; Equipment</h2>
+          <p>Stored in <code style="font-size:11px;background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px">purchases.json</code> on GitHub · accessible from any device.</p>
         </div>
-        <button class="btn-add-item" id="btn-add-purchase"><i class="fa-solid fa-plus"></i> Add Item</button>
+        <div style="display:flex;gap:8px;align-items:center">
+          <span id="sync-status" style="font-size:11px;color:var(--muted)"></span>
+          <button class="btn-add-item" style="background:rgba(255,255,255,0.07);color:var(--white);border:1px solid var(--border)" id="btn-gh-token" title="Set GitHub Token"><i class="fa-solid fa-key"></i></button>
+          <button class="btn-add-item" id="btn-add-purchase"><i class="fa-solid fa-plus"></i> Add Item</button>
+        </div>
       </div>
 
       <div class="purchases-stats">
@@ -2173,21 +2177,80 @@
         document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
         btn.classList.add('active');
         document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-        if (btn.dataset.tab === 'purchases') renderPurchases();
+        if (btn.dataset.tab === 'purchases') initPurchasesTab();
       });
     });
 
-    // ── Purchases CRUD (localStorage) ─────────────────────────────────
-    const PURCHASES_KEY = 'sobha_home_purchases';
+    // ── Purchases — GitHub JSON persistence ───────────────────────────
+    const GH_OWNER  = 'indianquant';
+    const GH_REPO   = 'sobha-neopolis-tracker';
+    const GH_FILE   = 'purchases.json';
+    const GH_TOKEN_KEY = 'sobha_gh_pat';
 
-    function loadPurchases() {
-      try { return JSON.parse(localStorage.getItem(PURCHASES_KEY) || '[]'); } catch { return []; }
+    // In-memory cache so UI stays snappy
+    let purchasesCache = null;
+
+    function getToken() { return localStorage.getItem(GH_TOKEN_KEY) || ''; }
+
+    function setSyncStatus(msg, ok = true) {
+      const el = document.getElementById('sync-status');
+      if (el) { el.textContent = msg; el.style.color = ok ? '#4ade80' : '#f87171'; }
     }
 
-    function savePurchases(data) {
-      localStorage.setItem(PURCHASES_KEY, JSON.stringify(data));
+    // Read: public raw GitHub URL — no auth, always fresh
+    async function ghRead() {
+      const url = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_FILE}?t=${Date.now()}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Could not read purchases.json from GitHub');
+      return res.json();
     }
 
+    // Write: GitHub Contents API — requires PAT with public_repo scope
+    async function ghWrite(data) {
+      const token = getToken();
+      if (!token) { showTokenModal(); return false; }
+
+      const apiUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
+      const headers = { Authorization: `token ${token}`, 'Content-Type': 'application/json' };
+
+      // Get current sha (needed for update)
+      let sha = null;
+      try {
+        const info = await (await fetch(apiUrl, { headers })).json();
+        sha = info.sha || null;
+      } catch {}
+
+      const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+      const body = { message: `Update purchases (${new Date().toISOString().slice(0,10)})`, content, ...(sha ? { sha } : {}) };
+
+      const res = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.message || `GitHub API error ${res.status}`);
+      }
+      return true;
+    }
+
+    // ── Token Modal ────────────────────────────────────────────────────
+    function showTokenModal() {
+      const existing = getToken();
+      const val = prompt(
+        'Enter your GitHub Personal Access Token (PAT)\n\nScope needed: public_repo\nCreate at: github.com/settings/tokens\n\nCurrent token: ' + (existing ? existing.slice(0,8) + '...' : 'none'),
+        existing || ''
+      );
+      if (val === null) return;
+      if (val.trim()) {
+        localStorage.setItem(GH_TOKEN_KEY, val.trim());
+        setSyncStatus('Token saved', true);
+      } else {
+        localStorage.removeItem(GH_TOKEN_KEY);
+        setSyncStatus('Token cleared', false);
+      }
+    }
+
+    document.getElementById('btn-gh-token')?.addEventListener('click', showTokenModal);
+
+    // ── Purchases helpers ──────────────────────────────────────────────
     function fmtAmount(n) {
       if (!n) return '—';
       const num = parseFloat(n);
@@ -2198,55 +2261,41 @@
 
     function fmtDate(d) {
       if (!d) return '—';
-      const dt = new Date(d + 'T00:00:00');
-      return dt.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+      return new Date(d + 'T00:00:00').toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
     }
 
     function warrantyStatus(dateStr) {
       if (!dateStr) return { cls: '', text: '—' };
-      const exp = new Date(dateStr + 'T00:00:00');
-      const now = new Date();
-      const daysLeft = Math.round((exp - now) / 86400000);
+      const daysLeft = Math.round((new Date(dateStr + 'T00:00:00') - new Date()) / 86400000);
       if (daysLeft < 0) return { cls: 'warranty-exp', text: 'Expired' };
       if (daysLeft <= 90) return { cls: 'warranty-soon', text: `${daysLeft}d left` };
-      const months = Math.round(daysLeft / 30);
-      return { cls: 'warranty-ok', text: `${months}mo left` };
+      return { cls: 'warranty-ok', text: `${Math.round(daysLeft/30)}mo left` };
     }
 
-    function renderPurchases() {
-      const all = loadPurchases();
+    function renderPurchasesUI(all) {
       const search = (document.getElementById('purchase-search')?.value || '').toLowerCase();
       const cat = document.getElementById('purchase-cat-filter')?.value || '';
-
       const filtered = all.filter(p => {
-        const txt = (p.name + p.category + p.store + p.notes).toLowerCase();
-        const matchSearch = !search || txt.includes(search);
-        const matchCat = !cat || p.category === cat;
-        return matchSearch && matchCat;
+        const txt = ((p.name||'') + (p.category||'') + (p.store||'') + (p.notes||'')).toLowerCase();
+        return (!search || txt.includes(search)) && (!cat || p.category === cat);
       });
 
       // Stats
-      const totalSpent = all.reduce((s, p) => s + (parseFloat(p.amount) || 0), 0);
       const now = new Date();
-      const underWarranty = all.filter(p => p.warranty_date && new Date(p.warranty_date) > now).length;
-      const expiringSoon = all.filter(p => {
+      document.getElementById('pstat-count').textContent = all.length;
+      document.getElementById('pstat-total').textContent = fmtAmount(all.reduce((s,p) => s + (parseFloat(p.amount)||0), 0));
+      document.getElementById('pstat-warranty').textContent = all.filter(p => p.warranty_date && new Date(p.warranty_date) > now).length;
+      document.getElementById('pstat-expiring').textContent = all.filter(p => {
         if (!p.warranty_date) return false;
-        const d = new Date(p.warranty_date);
-        const days = Math.round((d - now) / 86400000);
-        return days >= 0 && days <= 90;
+        const d = Math.round((new Date(p.warranty_date) - now) / 86400000);
+        return d >= 0 && d <= 90;
       }).length;
 
-      document.getElementById('pstat-count').textContent = all.length;
-      document.getElementById('pstat-total').textContent = fmtAmount(totalSpent);
-      document.getElementById('pstat-warranty').textContent = underWarranty;
-      document.getElementById('pstat-expiring').textContent = expiringSoon;
-
-      // Table
       const tbody = document.getElementById('purchases-tbody');
       if (!tbody) return;
 
       if (filtered.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="10"><div class="empty-state"><i class="fa-solid fa-box-open"></i>${all.length === 0 ? 'No items yet. Click <strong>Add Item</strong> to get started.' : 'No items match your search.'}</div></td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="10"><div class="empty-state"><i class="fa-solid fa-box-open"></i>${all.length === 0 ? 'No items yet — click <strong>Add Item</strong> to get started.' : 'No items match your search.'}</div></td></tr>`;
         return;
       }
 
@@ -2255,17 +2304,16 @@
         const orderBtn = p.order_url
           ? `<a href="${p.order_url}" target="_blank" rel="noopener" class="order-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View</a>`
           : `<span style="color:var(--muted)">—</span>`;
-        const notes = p.notes ? `<span title="${p.notes.replace(/"/g,"'")}" style="color:var(--muted);cursor:help;" title="${p.notes}">…</span>` : '—';
         return `<tr data-id="${p.id}">
-          <td style="color:var(--muted);font-size:11px">${i + 1}</td>
-          <td style="font-weight:500;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${p.name}">${p.name}</td>
-          <td><span class="cat-badge">${p.category || '—'}</span></td>
+          <td style="color:var(--muted);font-size:11px">${i+1}</td>
+          <td style="font-weight:500;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${(p.name||'').replace(/"/g,"'")}">${p.name}</td>
+          <td><span class="cat-badge">${p.category||'—'}</span></td>
           <td class="mono">${fmtAmount(p.amount)}</td>
           <td style="white-space:nowrap">${fmtDate(p.purchase_date)}</td>
           <td><span class="${ws.cls}">${ws.text}</span></td>
-          <td style="color:var(--muted)">${p.store || '—'}</td>
+          <td style="color:var(--muted);white-space:nowrap">${p.store||'—'}</td>
           <td>${orderBtn}</td>
-          <td>${p.notes ? `<span style="color:var(--muted);cursor:help;font-size:11px" title="${p.notes.replace(/"/g, "'")}">${p.notes.slice(0,28)}${p.notes.length > 28 ? '…' : ''}</span>` : '—'}</td>
+          <td>${p.notes ? `<span style="color:var(--muted);font-size:11px" title="${(p.notes||'').replace(/"/g,"'")}">${p.notes.slice(0,30)}${p.notes.length>30?'…':''}</span>` : '—'}</td>
           <td><div class="row-actions">
             <button class="row-btn edit-purchase-btn" data-id="${p.id}" title="Edit"><i class="fa-solid fa-pencil"></i></button>
             <button class="row-btn del delete-purchase-btn" data-id="${p.id}" title="Delete"><i class="fa-solid fa-trash"></i></button>
@@ -2273,53 +2321,60 @@
         </tr>`;
       }).join('');
 
-      // Bind row actions
-      tbody.querySelectorAll('.edit-purchase-btn').forEach(btn => {
-        btn.addEventListener('click', () => openModal(btn.dataset.id));
-      });
-      tbody.querySelectorAll('.delete-purchase-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (confirm('Delete this item?')) {
-            const data = loadPurchases().filter(p => p.id !== btn.dataset.id);
-            savePurchases(data);
-            renderPurchases();
-          }
-        });
-      });
+      tbody.querySelectorAll('.edit-purchase-btn').forEach(btn => btn.addEventListener('click', () => openPurchaseModal(btn.dataset.id)));
+      tbody.querySelectorAll('.delete-purchase-btn').forEach(btn => btn.addEventListener('click', () => deletePurchase(btn.dataset.id)));
     }
 
-    // ── Modal ──────────────────────────────────────────────────────────
+    async function initPurchasesTab() {
+      if (!getToken()) setSyncStatus('⚠ No GitHub token set — click 🔑 to add', false);
+      const tbody = document.getElementById('purchases-tbody');
+      if (tbody) tbody.innerHTML = `<tr><td colspan="10"><div class="empty-state"><i class="fa-solid fa-rotate fa-spin"></i>Loading from GitHub...</div></td></tr>`;
+      try {
+        purchasesCache = await ghRead();
+        setSyncStatus(`Synced ${new Date().toLocaleTimeString()}`, true);
+        renderPurchasesUI(purchasesCache);
+      } catch(e) {
+        setSyncStatus('Read error: ' + e.message, false);
+        if (!purchasesCache) purchasesCache = [];
+        renderPurchasesUI(purchasesCache);
+      }
+    }
+
+    async function savePurchases(data) {
+      purchasesCache = data;
+      renderPurchasesUI(data);
+      setSyncStatus('Saving…', true);
+      try {
+        await ghWrite(data);
+        setSyncStatus(`Saved ${new Date().toLocaleTimeString()}`, true);
+      } catch(e) {
+        setSyncStatus('Save failed: ' + e.message, false);
+      }
+    }
+
+    async function deletePurchase(id) {
+      if (!confirm('Delete this item?')) return;
+      const data = (purchasesCache || []).filter(p => p.id !== id);
+      await savePurchases(data);
+    }
+
+    // ── Purchase Modal ─────────────────────────────────────────────────
     let editingId = null;
 
-    function openModal(id = null) {
+    function openPurchaseModal(id = null) {
       editingId = id;
-      const overlay = document.getElementById('purchase-modal-overlay');
       document.getElementById('pm-title').textContent = id ? 'Edit Item' : 'Add Item';
       document.getElementById('pm-save').textContent = id ? 'Save Changes' : 'Save Item';
-
-      if (id) {
-        const p = loadPurchases().find(x => x.id === id);
-        if (p) {
-          document.getElementById('pm-name').value = p.name || '';
-          document.getElementById('pm-category').value = p.category || 'Appliances';
-          document.getElementById('pm-amount').value = p.amount || '';
-          document.getElementById('pm-purchase-date').value = p.purchase_date || '';
-          document.getElementById('pm-warranty-date').value = p.warranty_date || '';
-          document.getElementById('pm-store').value = p.store || '';
-          document.getElementById('pm-order-url').value = p.order_url || '';
-          document.getElementById('pm-notes').value = p.notes || '';
-        }
-      } else {
-        document.getElementById('pm-name').value = '';
-        document.getElementById('pm-category').value = 'Appliances';
-        document.getElementById('pm-amount').value = '';
-        document.getElementById('pm-purchase-date').value = '';
-        document.getElementById('pm-warranty-date').value = '';
-        document.getElementById('pm-store').value = '';
-        document.getElementById('pm-order-url').value = '';
-        document.getElementById('pm-notes').value = '';
-      }
-      overlay.classList.add('open');
+      const p = id ? (purchasesCache||[]).find(x => x.id === id) : null;
+      document.getElementById('pm-name').value = p?.name || '';
+      document.getElementById('pm-category').value = p?.category || 'Appliances';
+      document.getElementById('pm-amount').value = p?.amount || '';
+      document.getElementById('pm-purchase-date').value = p?.purchase_date || '';
+      document.getElementById('pm-warranty-date').value = p?.warranty_date || '';
+      document.getElementById('pm-store').value = p?.store || '';
+      document.getElementById('pm-order-url').value = p?.order_url || '';
+      document.getElementById('pm-notes').value = p?.notes || '';
+      document.getElementById('purchase-modal-overlay').classList.add('open');
       document.getElementById('pm-name').focus();
     }
 
@@ -2328,40 +2383,34 @@
       editingId = null;
     }
 
-    document.getElementById('btn-add-purchase')?.addEventListener('click', () => openModal());
+    document.getElementById('btn-add-purchase')?.addEventListener('click', () => openPurchaseModal());
     document.getElementById('pm-close')?.addEventListener('click', closeModal);
     document.getElementById('pm-cancel')?.addEventListener('click', closeModal);
-    document.getElementById('purchase-modal-overlay')?.addEventListener('click', e => {
-      if (e.target === e.currentTarget) closeModal();
-    });
+    document.getElementById('purchase-modal-overlay')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
-    document.getElementById('pm-save')?.addEventListener('click', () => {
+    document.getElementById('pm-save')?.addEventListener('click', async () => {
       const name = document.getElementById('pm-name').value.trim();
       if (!name) { document.getElementById('pm-name').focus(); return; }
       const item = {
-        id: editingId || Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+        id: editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2,6)),
         name,
-        category: document.getElementById('pm-category').value,
-        amount: document.getElementById('pm-amount').value,
+        category:      document.getElementById('pm-category').value,
+        amount:        document.getElementById('pm-amount').value,
         purchase_date: document.getElementById('pm-purchase-date').value,
         warranty_date: document.getElementById('pm-warranty-date').value,
-        store: document.getElementById('pm-store').value.trim(),
-        order_url: document.getElementById('pm-order-url').value.trim(),
-        notes: document.getElementById('pm-notes').value.trim(),
+        store:         document.getElementById('pm-store').value.trim(),
+        order_url:     document.getElementById('pm-order-url').value.trim(),
+        notes:         document.getElementById('pm-notes').value.trim(),
       };
-      let data = loadPurchases();
-      if (editingId) {
-        data = data.map(p => p.id === editingId ? item : p);
-      } else {
-        data.push(item);
-      }
-      savePurchases(data);
+      let data = purchasesCache ? [...purchasesCache] : [];
+      if (editingId) data = data.map(p => p.id === editingId ? item : p);
+      else data.push(item);
       closeModal();
-      renderPurchases();
+      await savePurchases(data);
     });
 
-    document.getElementById('purchase-search')?.addEventListener('input', renderPurchases);
-    document.getElementById('purchase-cat-filter')?.addEventListener('change', renderPurchases);
+    document.getElementById('purchase-search')?.addEventListener('input', () => purchasesCache && renderPurchasesUI(purchasesCache));
+    document.getElementById('purchase-cat-filter')?.addEventListener('change', () => purchasesCache && renderPurchasesUI(purchasesCache));
   </script>
 </body>
 </html>
