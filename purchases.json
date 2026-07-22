@@ -10,5 +10,17 @@
     "order_url": "NA",
     "notes": "Bought from swiggy instamart in 401 SVR Residence.",
     "bill_file": "bills/mrwc2ruzhyoq-8222.pdf"
+  },
+  {
+    "id": "mrwcalygzo4w",
+    "name": "Narwal Robo Vaccum Freo X Plus",
+    "category": "Electronics",
+    "amount": "",
+    "purchase_date": "2026-07-05",
+    "warranty_date": "2027-07-05",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-9894806-8164337&ref=ppx_yo2ov_dt_b_fed_order_details",
+    "notes": "Narwal Order",
+    "bill_file": "bills/mrwcake8eir9-narwal-invoice.pdf"
   }
 ]
