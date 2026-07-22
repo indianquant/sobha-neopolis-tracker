@@ -58,5 +58,17 @@
     "order_url": "https://www.amazon.in/tez/browse/orderTracking?qcbrand=qqfsWw9RkO&orderID=404-5956362-5580348&ref_=ppx_hzsearch_conn_dt_b_fed_wwgs_yo_odp_A21TJRUUN4KGV_1&ref=tz_yo_wwgs_odp",
     "notes": "registered it on Agaro W590239",
     "bill_file": "bills/mrwcrfe7afmb-frotherinvoice.pdf"
+  },
+  {
+    "id": "mrwcx11hyhf7",
+    "name": "Midea Microwave",
+    "category": "Kitchen",
+    "amount": "4995",
+    "purchase_date": "2025-08-26",
+    "warranty_date": "2027-08-26",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-1393617-2017945&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_1",
+    "notes": "It has 10 years magnetron warranty",
+    "bill_file": "bills/mrwcwzopg1yg-microwaveinvoice.pdf"
   }
 ]
