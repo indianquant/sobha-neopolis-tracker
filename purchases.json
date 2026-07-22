@@ -70,5 +70,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-1393617-2017945&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_1",
     "notes": "It has 10 years magnetron warranty",
     "bill_file": "bills/mrwcwzopg1yg-microwaveinvoice.pdf"
+  },
+  {
+    "id": "mrwczsxhz9ve",
+    "name": "Philips Mixer",
+    "category": "Kitchen",
+    "amount": "2999",
+    "purchase_date": "2024-12-07",
+    "warranty_date": "2026-12-07",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=405-3277412-4549945&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_4",
+    "notes": "Philips mixer bought in 401 SVR Residency",
+    "bill_file": "bills/mrwczrjegyf6-mixerinvoice.pdf"
   }
 ]
