@@ -1036,6 +1036,40 @@
     .pm-btn-cancel:hover { color: var(--white); border-color: rgba(255,255,255,0.25); }
     .pm-btn-save { background: var(--white); border: none; color: var(--black); font-family: var(--font-body); font-size: 12px; font-weight: 600; padding: 8px 20px; border-radius: 4px; cursor: pointer; }
     .pm-btn-save:hover { opacity: 0.85; }
+
+    /* Bill upload field */
+    .bill-upload-area {
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      padding: 12px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .bill-upload-area:hover { border-color: rgba(255,255,255,0.3); color: var(--white); }
+    .bill-upload-area i { font-size: 15px; }
+    .bill-existing {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .bill-existing a { color: #4ade80; text-decoration: none; }
+    .bill-existing a:hover { text-decoration: underline; }
+    .bill-clear-btn {
+      background: none;
+      border: none;
+      color: #f87171;
+      cursor: pointer;
+      font-size: 11px;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
@@ -1242,6 +1276,7 @@
               <th>Purchase Date</th>
               <th>Warranty Expiry</th>
               <th>Bought From</th>
+              <th>Bill</th>
               <th>Order</th>
               <th>Notes</th>
               <th></th>
@@ -1302,6 +1337,20 @@
           <div class="pm-field full">
             <label>Notes</label>
             <textarea id="pm-notes" placeholder="e.g. Model no, colour, serial number, installation notes..."></textarea>
+          </div>
+          <div class="pm-field full">
+            <label>Bill / Invoice</label>
+            <div class="bill-upload-area" id="bill-upload-area" onclick="document.getElementById('pm-bill-file').click()">
+              <i class="fa-solid fa-file-arrow-up"></i>
+              <span id="bill-upload-label">Click to attach PDF or image (invoice, bill, warranty card)</span>
+            </div>
+            <input type="file" id="pm-bill-file" accept=".pdf,.jpg,.jpeg,.png,.webp" style="display:none">
+            <div class="bill-existing" id="bill-existing" style="display:none">
+              <i class="fa-solid fa-file-lines"></i>
+              <a id="bill-existing-link" href="#" target="_blank">Current bill</a>
+              <span style="color:var(--muted)">·</span>
+              <button class="bill-clear-btn" id="bill-clear-btn">Remove</button>
+            </div>
           </div>
         </div>
         <div class="pm-actions">
@@ -2231,6 +2280,34 @@
       return true;
     }
 
+    // Upload any file to bills/ folder in repo
+    async function ghUploadFile(path, base64Content) {
+      const token = getToken();
+      if (!token) throw new Error('No token');
+      const apiUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`;
+      const headers = { Authorization: `token ${token}`, 'Content-Type': 'application/json' };
+      // Check if file already exists (get sha)
+      let sha = null;
+      try { const info = await (await fetch(apiUrl, { headers })).json(); sha = info.sha || null; } catch {}
+      const body = { message: `Upload bill: ${path}`, content: base64Content, ...(sha ? { sha } : {}) };
+      const res = await fetch(apiUrl, { method: 'PUT', headers, body: JSON.stringify(body) });
+      if (!res.ok) { const err = await res.json().catch(()=>({})); throw new Error(err.message || `Upload failed ${res.status}`); }
+    }
+
+    // Read a file as base64
+    function readFileAsBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result.split(',')[1]); // strip data URL prefix
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function billRawUrl(billFile) {
+      return `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${billFile}`;
+    }
+
     // ── Token Modal ────────────────────────────────────────────────────
     function showTokenModal() {
       const existing = getToken();
@@ -2312,6 +2389,9 @@
           <td style="white-space:nowrap">${fmtDate(p.purchase_date)}</td>
           <td><span class="${ws.cls}">${ws.text}</span></td>
           <td style="color:var(--muted);white-space:nowrap">${p.store||'—'}</td>
+          <td>${p.bill_file
+            ? `<a href="${billRawUrl(p.bill_file)}" target="_blank" rel="noopener" class="order-link" title="${p.bill_file}"><i class="fa-solid fa-file-lines"></i> View</a>`
+            : `<span style="color:var(--muted)">—</span>`}</td>
           <td>${orderBtn}</td>
           <td>${p.notes ? `<span style="color:var(--muted);font-size:11px" title="${(p.notes||'').replace(/"/g,"'")}">${p.notes.slice(0,30)}${p.notes.length>30?'…':''}</span>` : '—'}</td>
           <td><div class="row-actions">
@@ -2374,6 +2454,18 @@
       document.getElementById('pm-store').value = p?.store || '';
       document.getElementById('pm-order-url').value = p?.order_url || '';
       document.getElementById('pm-notes').value = p?.notes || '';
+      // Bill UI
+      document.getElementById('pm-bill-file').value = '';
+      document.getElementById('bill-upload-label').textContent = 'Click to attach PDF or image (invoice, bill, warranty card)';
+      const existingDiv = document.getElementById('bill-existing');
+      const existingLink = document.getElementById('bill-existing-link');
+      if (p?.bill_file) {
+        existingDiv.style.display = 'flex';
+        existingLink.href = billRawUrl(p.bill_file);
+        existingLink.textContent = p.bill_file.split('/').pop();
+      } else {
+        existingDiv.style.display = 'none';
+      }
       document.getElementById('purchase-modal-overlay').classList.add('open');
       document.getElementById('pm-name').focus();
     }
@@ -2388,9 +2480,55 @@
     document.getElementById('pm-cancel')?.addEventListener('click', closeModal);
     document.getElementById('purchase-modal-overlay')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
+    // File picker label update
+    document.getElementById('pm-bill-file')?.addEventListener('change', e => {
+      const file = e.target.files[0];
+      const label = document.getElementById('bill-upload-label');
+      if (file) label.textContent = `📄 ${file.name} (${(file.size/1024).toFixed(0)} KB)`;
+      else label.textContent = 'Click to attach PDF or image (invoice, bill, warranty card)';
+    });
+
+    // Remove existing bill
+    document.getElementById('bill-clear-btn')?.addEventListener('click', () => {
+      const p = editingId ? (purchasesCache||[]).find(x => x.id === editingId) : null;
+      if (p) p._bill_cleared = true; // flag to remove on save
+      document.getElementById('bill-existing').style.display = 'none';
+    });
+
     document.getElementById('pm-save')?.addEventListener('click', async () => {
       const name = document.getElementById('pm-name').value.trim();
       if (!name) { document.getElementById('pm-name').focus(); return; }
+
+      const saveBtn = document.getElementById('pm-save');
+      saveBtn.textContent = 'Saving…';
+      saveBtn.disabled = true;
+
+      let bill_file = editingId ? (purchasesCache||[]).find(x=>x.id===editingId)?.bill_file || null : null;
+
+      // Handle bill removal
+      const existingP = editingId ? (purchasesCache||[]).find(x=>x.id===editingId) : null;
+      if (existingP?._bill_cleared) bill_file = null;
+
+      // Upload new bill if selected
+      const fileInput = document.getElementById('pm-bill-file');
+      const file = fileInput?.files?.[0];
+      if (file) {
+        try {
+          setSyncStatus('Uploading bill…', true);
+          const itemId = editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2,6));
+          const safeFilename = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+          const path = `bills/${itemId}-${safeFilename}`;
+          const base64 = await readFileAsBase64(file);
+          await ghUploadFile(path, base64);
+          bill_file = path;
+        } catch(e) {
+          setSyncStatus('Bill upload failed: ' + e.message, false);
+          saveBtn.textContent = editingId ? 'Save Changes' : 'Save Item';
+          saveBtn.disabled = false;
+          return;
+        }
+      }
+
       const item = {
         id: editingId || (Date.now().toString(36) + Math.random().toString(36).slice(2,6)),
         name,
@@ -2401,12 +2539,16 @@
         store:         document.getElementById('pm-store').value.trim(),
         order_url:     document.getElementById('pm-order-url').value.trim(),
         notes:         document.getElementById('pm-notes').value.trim(),
+        bill_file,
       };
       let data = purchasesCache ? [...purchasesCache] : [];
       if (editingId) data = data.map(p => p.id === editingId ? item : p);
       else data.push(item);
       closeModal();
       await savePurchases(data);
+
+      saveBtn.textContent = editingId ? 'Save Changes' : 'Save Item';
+      saveBtn.disabled = false;
     });
 
     document.getElementById('purchase-search')?.addEventListener('input', () => purchasesCache && renderPurchasesUI(purchasesCache));
