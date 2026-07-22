@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": "mrwc2tl5xvb1",
+    "name": "Philips Air Fryer 4L",
+    "category": "Appliances",
+    "amount": "4537",
+    "purchase_date": "2026-06-26",
+    "warranty_date": "2028-06-26",
+    "store": "Swiggy Instamart",
+    "order_url": "NA",
+    "notes": "Bought from swiggy instamart in 401 SVR Residence.",
+    "bill_file": "bills/mrwc2ruzhyoq-8222.pdf"
+  }
+]
