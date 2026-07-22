@@ -944,7 +944,7 @@
         </div>
         <div>
           <span class="possession-title">Flat Possession Countdown</span>
-          <span class="possession-subtitle">Target Possession Date: <strong>1st October 2027</strong></span>
+          <span class="possession-subtitle">Target Possession Date: <strong>1st October 2026</strong></span>
         </div>
       </div>
 
@@ -1450,10 +1450,10 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ── Flat Possession Countdown to 1st October 2027 ──
+    // ── Flat Possession Countdown to 1st October 2026 ──
     function updatePossessionCountdown() {
-      // Target: 1st October 2027 (00:00:00 local time)
-      const targetDate = new Date(2027, 9, 1, 0, 0, 0); // Month 9 is October (0-indexed)
+      // Target: 1st October 2026 (00:00:00 local time)
+      const targetDate = new Date(2026, 9, 1, 0, 0, 0); // Month 9 is October (0-indexed)
       const now = new Date();
       let diff = targetDate - now;
 
