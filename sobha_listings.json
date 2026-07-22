@@ -17,7 +17,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb209c284e4f019c28569bfb023b/detail",
       "first_seen": "2026-07-21",
-      "last_seen": "2026-07-21",
+      "last_seen": "2026-07-22",
       "status": "active"
     },
     {
@@ -59,7 +59,7 @@
       "floor": 1,
       "total_floors": 18,
       "area": 1611,
-      "possession": "Dec 2027",
+      "possession": "Nov 2027",
       "price": "\u20b9 2.75 Crores",
       "price_raw": 27500000,
       "source": "NoBroker",
@@ -133,7 +133,7 @@
       "status": "active"
     },
     {
-      "id": 9,
+      "id": 8,
       "hash": "a38dc2ac",
       "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
       "floor": 2,
@@ -149,7 +149,7 @@
       "status": "active"
     },
     {
-      "id": 10,
+      "id": 9,
       "hash": "c4cbb0eb",
       "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Sobha Neopolis",
       "floor": 2,
@@ -165,13 +165,13 @@
       "status": "active"
     },
     {
-      "id": 11,
+      "id": 10,
       "hash": "b4330173",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 3,
       "total_floors": 17,
       "area": 1500,
-      "possession": "Jan 2027",
+      "possession": "Dec 2026",
       "price": "\u20b9 2.3 Crores",
       "price_raw": 23000000,
       "source": "NoBroker",
@@ -181,13 +181,13 @@
       "status": "active"
     },
     {
-      "id": 12,
+      "id": 11,
       "hash": "a167829c",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 3,
       "total_floors": 18,
       "area": 1613,
-      "possession": "Oct 2028",
+      "possession": "Sep 2028",
       "price": "\u20b9 2.4 Crores",
       "price_raw": 24000000,
       "source": "NoBroker",
@@ -197,7 +197,7 @@
       "status": "active"
     },
     {
-      "id": 13,
+      "id": 12,
       "hash": "a0eea4bf",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 3,
@@ -235,7 +235,7 @@
       "floor": 3,
       "total_floors": 18,
       "area": 1611,
-      "possession": "Mar 2026",
+      "possession": "Feb 2026",
       "price": "\u20b9 2.59 Crores",
       "price_raw": 25900000,
       "source": "NoBroker",
@@ -245,7 +245,7 @@
       "status": "active"
     },
     {
-      "id": 16,
+      "id": 14,
       "hash": "caadb55e",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Balagere",
       "floor": 3,
@@ -261,7 +261,7 @@
       "status": "active"
     },
     {
-      "id": 17,
+      "id": 15,
       "hash": "cbdfb277",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 3,
@@ -277,13 +277,13 @@
       "status": "active"
     },
     {
-      "id": 18,
+      "id": 16,
       "hash": "9cb4043d",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 3,
       "total_floors": 14,
       "area": 1915,
-      "possession": "Oct 2026",
+      "possession": "Sep 2026",
       "price": "\u20b9 3.15 Crores",
       "price_raw": 31500000,
       "source": "NoBroker",
@@ -293,7 +293,7 @@
       "status": "active"
     },
     {
-      "id": 19,
+      "id": 17,
       "hash": "20e5f9b3",
       "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
@@ -309,7 +309,7 @@
       "status": "active"
     },
     {
-      "id": 20,
+      "id": 18,
       "hash": "cb85e3ef",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
@@ -325,7 +325,7 @@
       "status": "active"
     },
     {
-      "id": 21,
+      "id": 19,
       "hash": "8cd8233e",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
@@ -341,7 +341,7 @@
       "status": "active"
     },
     {
-      "id": 22,
+      "id": 20,
       "hash": "0919f622",
       "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Sobha Neopolis",
       "floor": 4,
@@ -357,13 +357,13 @@
       "status": "active"
     },
     {
-      "id": 23,
+      "id": 21,
       "hash": "5506e2c3",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Jan 2027",
+      "possession": "Dec 2026",
       "price": "\u20b9 3.2 Crores",
       "price_raw": 32000000,
       "source": "NoBroker",
@@ -373,7 +373,7 @@
       "status": "active"
     },
     {
-      "id": 24,
+      "id": 22,
       "hash": "091ffdb0",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
@@ -389,7 +389,7 @@
       "status": "active"
     },
     {
-      "id": 25,
+      "id": 23,
       "hash": "659a30e0",
       "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 5,
@@ -405,7 +405,7 @@
       "status": "active"
     },
     {
-      "id": 26,
+      "id": 24,
       "hash": "77a44344",
       "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 5,
@@ -421,13 +421,29 @@
       "status": "active"
     },
     {
-      "id": 27,
+      "id": 25,
+      "hash": "277716ac",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 1611,
+      "possession": "Dec 2026",
+      "price": "\u20b9 2.55 Crores",
+      "price_raw": 25500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf869753208e0197533fc1e20b6f/detail",
+      "first_seen": "2026-07-22",
+      "last_seen": "2026-07-22",
+      "status": "active"
+    },
+    {
+      "id": 26,
       "hash": "d02de479",
       "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
       "floor": 5,
       "total_floors": 17,
       "area": 1611,
-      "possession": "Oct 2026",
+      "possession": "Sep 2026",
       "price": "\u20b9 2.55 Crores",
       "price_raw": 25500000,
       "source": "NoBroker",
@@ -437,13 +453,13 @@
       "status": "active"
     },
     {
-      "id": 28,
+      "id": 27,
       "hash": "332d438d",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 5,
       "total_floors": 18,
       "area": 1615,
-      "possession": "Jun 2027",
+      "possession": "May 2027",
       "price": "\u20b9 2.55 Crores",
       "price_raw": 25500000,
       "source": "NoBroker",
@@ -555,7 +571,7 @@
       "floor": 6,
       "total_floors": 19,
       "area": 2481,
-      "possession": "Jul 2026",
+      "possession": "Jun 2026",
       "price": "\u20b9 3.96 Crores",
       "price_raw": 39600000,
       "source": "NoBroker",
@@ -779,7 +795,7 @@
       "floor": 10,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Dec 2027",
+      "possession": "Nov 2027",
       "price": "\u20b9 3.3 Crores",
       "price_raw": 33000000,
       "source": "NoBroker",
@@ -811,7 +827,7 @@
       "floor": 10,
       "total_floors": 18,
       "area": 2481,
-      "possession": "Sep 2027",
+      "possession": "Aug 2027",
       "price": "\u20b9 4 Crores",
       "price_raw": 40000000,
       "source": "NoBroker",
@@ -891,7 +907,7 @@
       "floor": 11,
       "total_floors": 18,
       "area": 2481,
-      "possession": "Dec 2027",
+      "possession": "Nov 2027",
       "price": "\u20b9 4.15 Crores",
       "price_raw": 41500000,
       "source": "NoBroker",
@@ -907,7 +923,7 @@
       "floor": 12,
       "total_floors": 18,
       "area": 660,
-      "possession": "Oct 2026",
+      "possession": "Sep 2026",
       "price": "\u20b9 1.25 Crores",
       "price_raw": 12500000,
       "source": "NoBroker",
@@ -1019,7 +1035,7 @@
       "floor": 12,
       "total_floors": 16,
       "area": 1650,
-      "possession": "Apr 2026",
+      "possession": "Mar 2026",
       "price": "\u20b9 2.8 Crores",
       "price_raw": 28000000,
       "source": "NoBroker",
@@ -1051,7 +1067,7 @@
       "floor": 12,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Sep 2026",
+      "possession": "Aug 2026",
       "price": "\u20b9 3 Crores",
       "price_raw": 30000000,
       "source": "NoBroker",
@@ -1067,7 +1083,7 @@
       "floor": 12,
       "total_floors": 19,
       "area": 1611,
-      "possession": "Mar 2027",
+      "possession": "Feb 2027",
       "price": "\u20b9 3.01 Crores",
       "price_raw": 30100000,
       "source": "NoBroker",
@@ -1147,7 +1163,7 @@
       "floor": 13,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Sep 2026",
+      "possession": "Aug 2026",
       "price": "\u20b9 3.33 Crores",
       "price_raw": 33300000,
       "source": "NoBroker",
@@ -1387,7 +1403,7 @@
       "floor": 16,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Apr 2027",
+      "possession": "Mar 2027",
       "price": "\u20b9 3.25 Crores",
       "price_raw": 32500000,
       "source": "NoBroker",
@@ -1483,7 +1499,7 @@
       "floor": 17,
       "total_floors": 18,
       "area": 1915,
-      "possession": "Mar 2027",
+      "possession": "Feb 2027",
       "price": "\u20b9 3.65 Crores",
       "price_raw": 36500000,
       "source": "NoBroker",
@@ -1515,7 +1531,7 @@
       "floor": 17,
       "total_floors": 18,
       "area": 2450,
-      "possession": "Mar 2028",
+      "possession": "Feb 2028",
       "price": "\u20b9 4.4 Crores",
       "price_raw": 44000000,
       "source": "NoBroker",
@@ -1605,5 +1621,90 @@
       "status": "active"
     }
   ],
-  "delisted": []
+  "delisted": [
+    {
+      "hash": "3844e819",
+      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
+      "floor": 3,
+      "total_floors": 18,
+      "area": 1611,
+      "possession": "Jul 2026",
+      "price": "\u20b9 2.5 Crores",
+      "price_raw": 25000000,
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9be299c955359019c956c865c060c/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    },
+    {
+      "hash": "94bf0da7",
+      "title": "4 BHK Flat In Shobha Neopolis For Sale  In Sobha Neopolis",
+      "floor": 10,
+      "total_floors": 18,
+      "area": 2481,
+      "possession": "Jul 2026",
+      "price": "\u20b9 4 Crores",
+      "price_raw": 40000000,
+      "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8a9f878c98a6892d0198a6ff071b1c9c/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    },
+    {
+      "hash": "4c3503c8",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 2,
+      "total_floors": 14,
+      "area": 661,
+      "possession": "Jul 2026",
+      "price": "\u20b9 1.35 Crores",
+      "price_raw": 13500000,
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a1939c3c472f019c3cc250d2368f/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    },
+    {
+      "hash": "dff09843",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 14,
+      "total_floors": 16,
+      "area": 1915,
+      "possession": "Aug 2026",
+      "price": "\u20b9 3.25 Crores",
+      "price_raw": 32500000,
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa1839520e23801952106727e01a6/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    },
+    {
+      "hash": "bdd66f65",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 11,
+      "total_floors": 18,
+      "area": 660,
+      "possession": "Jul 2026",
+      "price": "\u20b9 1.1 Crores",
+      "price_raw": 11000000,
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f85c3915f940d01915fd30c9f1e89/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    },
+    {
+      "hash": "2463a465",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 6,
+      "total_floors": 15,
+      "area": 1915,
+      "possession": "Aug 2026",
+      "price": "\u20b9 3.55 Crores",
+      "price_raw": 35500000,
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99f219c6b2f00019c6bb4fdda3b15/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-07-21",
+      "status": "delisted"
+    }
+  ]
 }
