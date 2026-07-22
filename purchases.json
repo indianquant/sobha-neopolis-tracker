@@ -46,5 +46,17 @@
     "order_url": "https://www.amazon.in/gp/your-account/order-details/ref=dp_iou_view_order_details?ie=UTF8&orderID=404-5979052-8206769",
     "notes": "PS-1306-APEX-whit-5-step",
     "bill_file": "bills/mrwcgvlwaz17-ladderinvoice.pdf"
+  },
+  {
+    "id": "mrwcrfe7afmb",
+    "name": "AGARO Milk Frother",
+    "category": "Kitchen",
+    "amount": "599",
+    "purchase_date": "2026-05-05",
+    "warranty_date": "2027-11-05",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/tez/browse/orderTracking?qcbrand=qqfsWw9RkO&orderID=404-5956362-5580348&ref_=ppx_hzsearch_conn_dt_b_fed_wwgs_yo_odp_A21TJRUUN4KGV_1&ref=tz_yo_wwgs_odp",
+    "notes": "Can't find it's product invoice but registered it on Agaro W590239",
+    "bill_file": null
   }
 ]
