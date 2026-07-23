@@ -11,7 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <!-- PDF.js for Client-Side Invoice Auto-Parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+
   <style>
     :root {
       --bg: #0A0A0A;
@@ -1070,6 +1077,37 @@
       font-size: 11px;
       padding: 0;
     }
+
+    /* Auto-parse invoice banner */
+    .parse-status-banner {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+      border-radius: 4px;
+      padding: 9px 14px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .parse-status-banner.error {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+    .parse-status-banner.info {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+    }
+    .autofilled-flash {
+      animation: greenPulse 1.8s ease-out;
+    }
+    @keyframes greenPulse {
+      0% { border-color: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.4); }
+      100% { border-color: var(--border); box-shadow: none; }
+    }
   </style>
 </head>
 <body>
@@ -1294,6 +1332,8 @@
           <h3 id="pm-title">Add Item</h3>
           <button class="pm-close" id="pm-close"><i class="fa-solid fa-xmark"></i></button>
         </div>
+
+        <div id="pm-parse-banner" class="parse-status-banner" style="display:none;"></div>
         <div class="pm-grid">
           <div class="pm-field full">
             <label>Item Name *</label>
@@ -2438,6 +2478,143 @@
       await savePurchases(data);
     }
 
+    // ── Client-Side PDF Invoice Parser ──────────────────────────────────
+    async function parseInvoicePDF(file) {
+      if (!window.pdfjsLib) return null;
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let fullText = '';
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          const pageText = content.items.map(item => item.str).join(' ');
+          fullText += pageText + '\n';
+        }
+
+        const parsed = {
+          name: '',
+          amount: '',
+          purchase_date: '',
+          warranty_date: '',
+          store: '',
+          order_url: '',
+          notes: '',
+          category: ''
+        };
+
+        const textLower = fullText.toLowerCase();
+
+        // 1. Store detection
+        if (textLower.includes('amazon') || textLower.includes('appario') || textLower.includes('cocoblu') || textLower.includes('cloudtail')) {
+          parsed.store = 'Amazon';
+        } else if (textLower.includes('flipkart')) {
+          parsed.store = 'Flipkart';
+        } else if (textLower.includes('croma')) {
+          parsed.store = 'Croma';
+        } else if (textLower.includes('ikea')) {
+          parsed.store = 'IKEA';
+        } else if (textLower.includes('reliance digital')) {
+          parsed.store = 'Reliance Digital';
+        }
+
+        // 2. Order ID & URL (Amazon format: 3-7-7 digits)
+        const amzMatch = fullText.match(/\b\d{3}-\d{7}-\d{7}\b/);
+        if (amzMatch) {
+          const orderId = amzMatch[0];
+          parsed.order_url = `https://www.amazon.in/gp/your-account/order-details?orderID=${orderId}`;
+          if (!parsed.store) parsed.store = 'Amazon';
+          parsed.notes = `Amazon Order ID: ${orderId}`;
+        }
+
+        // 3. Date detection (Order Date / Invoice Date)
+        const dateRegex = /(?:order\s*date|invoice\s*date|date)[:\s]*([0-3]?\d[\.\/\-][0-1]?\d[\.\/\-]\d{4}|[0-3]?\d\s+(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+\d{4})/i;
+        const dateMatch = fullText.match(dateRegex);
+        let pDateObj = null;
+
+        if (dateMatch) {
+          const rawDateStr = dateMatch[1].trim();
+          const ddmmyyyyMatch = rawDateStr.match(/^(\d{1,2})[\.\/\-](\d{1,2})[\.\/\-](\d{4})$/);
+          if (ddmmyyyyMatch) {
+            const day = ddmmyyyyMatch[1].padStart(2, '0');
+            const month = ddmmyyyyMatch[2].padStart(2, '0');
+            const year = ddmmyyyyMatch[3];
+            parsed.purchase_date = `${year}-${month}-${day}`;
+            pDateObj = new Date(`${year}-${month}-${day}T00:00:00`);
+          } else {
+            const d = new Date(rawDateStr);
+            if (!isNaN(d.getTime())) {
+              parsed.purchase_date = d.toISOString().slice(0, 10);
+              pDateObj = d;
+            }
+          }
+        }
+
+        // Pre-fill Warranty Expiry
+        if (pDateObj) {
+          let warrantyYears = 1;
+          const wMatch = fullText.match(/(\d+)\s*(?:year|yr)s?\s*(?:comprehensive\s*)?warranty/i);
+          if (wMatch) warrantyYears = parseInt(wMatch[1], 10) || 1;
+          const wDateObj = new Date(pDateObj);
+          wDateObj.setFullYear(wDateObj.getFullYear() + warrantyYears);
+          parsed.warranty_date = wDateObj.toISOString().slice(0, 10);
+        }
+
+        // 4. Amount detection
+        const amountRegex = /(?:total|grand\s*total|amount\s*paid|total\s*amount)[:\s]*(?:₹|rs\.?|inr)?\s*([\d,]+\.?\d*)/i;
+        const amountMatch = fullText.match(amountRegex);
+        if (amountMatch) {
+          const cleanAmtStr = amountMatch[1].replace(/,/g, '');
+          const amtNum = parseFloat(cleanAmtStr);
+          if (!isNaN(amtNum) && amtNum > 0) parsed.amount = amtNum.toString();
+        }
+
+        // 5. Item Title / Name extraction
+        const lines = fullText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+        let titleCandidate = '';
+        for (let line of lines) {
+          if (line.match(/tax invoice|bill of supply|sold by|shipping address|billing address|order date|invoice date|gstin|pan no|invoice number|hsn\/sac|total|page \d+/i)) {
+            continue;
+          }
+          if (line.length >= 10 && !line.match(/\b(bangalore|karnataka|india|pincode|road|street|invoic|return|authorised|signatory)\b/i)) {
+            let clean = line.replace(/^\d+\s+/, '').replace(/^description[:\s]*/i, '').trim();
+            if (clean.length >= 8 && !clean.match(/^\d+$/)) {
+              titleCandidate = clean;
+              break;
+            }
+          }
+        }
+        if (titleCandidate) {
+          if (titleCandidate.length > 100) titleCandidate = titleCandidate.slice(0, 97) + '...';
+          parsed.name = titleCandidate;
+        }
+
+        // 6. Category Auto-Suggest
+        const catText = (parsed.name + ' ' + fullText).toLowerCase();
+        if (catText.match(/refrigerator|fridge|washing machine|dryer|television|\btv\b|oled|qled|air conditioner|\bac\b|microwave|oven|dishwasher|chimney|water purifier|geyser|water heater/)) {
+          parsed.category = 'Appliances';
+        } else if (catText.match(/sofa|table|chair|desk|bed|mattress|cabinet|wardrobe|bookshelf|recliner|couch|furniture/)) {
+          parsed.category = 'Furniture';
+        } else if (catText.match(/tap|faucet|sink|shower|mixer|lock|knob|mirror|towel rack|hanger|fixtures/)) {
+          parsed.category = 'Fixtures & Fittings';
+        } else if (catText.match(/laptop|computer|monitor|keyboard|mouse|headphone|speaker|soundbar|router|tablet|phone|iphone|ipad|apple watch|smartwatch|camera|electronics/)) {
+          parsed.category = 'Electronics';
+        } else if (catText.match(/pan|cookware|blender|mixer grinder|juicer|toaster|kettle|air fryer|pressure cooker|knife|kitchenware/)) {
+          parsed.category = 'Kitchen';
+        } else if (catText.match(/light|lamp|bulb|led strip|ceiling light|chandelier|lighting/)) {
+          parsed.category = 'Lighting';
+        } else if (catText.match(/curtain|blind|carpet|rug|bedsheet|pillow|blanket/)) {
+          parsed.category = 'Bedroom';
+        }
+
+        return parsed;
+      } catch (err) {
+        console.error('Invoice parse error:', err);
+        return null;
+      }
+    }
+
     // ── Purchase Modal ─────────────────────────────────────────────────
     let editingId = null;
 
@@ -2445,6 +2622,9 @@
       editingId = id;
       document.getElementById('pm-title').textContent = id ? 'Edit Item' : 'Add Item';
       document.getElementById('pm-save').textContent = id ? 'Save Changes' : 'Save Item';
+      const banner = document.getElementById('pm-parse-banner');
+      if (banner) banner.style.display = 'none';
+
       const p = id ? (purchasesCache||[]).find(x => x.id === id) : null;
       document.getElementById('pm-name').value = p?.name || '';
       document.getElementById('pm-category').value = p?.category || 'Appliances';
@@ -2473,6 +2653,8 @@
     function closeModal() {
       document.getElementById('purchase-modal-overlay').classList.remove('open');
       editingId = null;
+      const banner = document.getElementById('pm-parse-banner');
+      if (banner) banner.style.display = 'none';
     }
 
     document.getElementById('btn-add-purchase')?.addEventListener('click', () => openPurchaseModal());
@@ -2480,12 +2662,103 @@
     document.getElementById('pm-cancel')?.addEventListener('click', closeModal);
     document.getElementById('purchase-modal-overlay')?.addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
 
-    // File picker label update
-    document.getElementById('pm-bill-file')?.addEventListener('change', e => {
+    // File picker label update & Auto-Parsing
+    document.getElementById('pm-bill-file')?.addEventListener('change', async e => {
       const file = e.target.files[0];
       const label = document.getElementById('bill-upload-label');
-      if (file) label.textContent = `📄 ${file.name} (${(file.size/1024).toFixed(0)} KB)`;
-      else label.textContent = 'Click to attach PDF or image (invoice, bill, warranty card)';
+      const banner = document.getElementById('pm-parse-banner');
+
+      if (!file) {
+        label.textContent = 'Click to attach PDF or image (invoice, bill, warranty card)';
+        if (banner) banner.style.display = 'none';
+        return;
+      }
+
+      label.textContent = `📄 ${file.name} (${(file.size/1024).toFixed(0)} KB)`;
+
+      // Auto-parse if PDF file
+      if (file.name.toLowerCase().endsWith('.pdf')) {
+        if (banner) {
+          banner.className = 'parse-status-banner info';
+          banner.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Auto-parsing invoice details from PDF...`;
+          banner.style.display = 'flex';
+        }
+
+        const parsed = await parseInvoicePDF(file);
+
+        if (parsed) {
+          let filledCount = 0;
+          const fieldsToFlash = [];
+
+          if (parsed.name && !document.getElementById('pm-name').value.trim()) {
+            document.getElementById('pm-name').value = parsed.name;
+            fieldsToFlash.push('pm-name');
+            filledCount++;
+          }
+          if (parsed.amount && !document.getElementById('pm-amount').value) {
+            document.getElementById('pm-amount').value = parsed.amount;
+            fieldsToFlash.push('pm-amount');
+            filledCount++;
+          }
+          if (parsed.purchase_date && !document.getElementById('pm-purchase-date').value) {
+            document.getElementById('pm-purchase-date').value = parsed.purchase_date;
+            fieldsToFlash.push('pm-purchase-date');
+            filledCount++;
+          }
+          if (parsed.warranty_date && !document.getElementById('pm-warranty-date').value) {
+            document.getElementById('pm-warranty-date').value = parsed.warranty_date;
+            fieldsToFlash.push('pm-warranty-date');
+            filledCount++;
+          }
+          if (parsed.store && !document.getElementById('pm-store').value.trim()) {
+            document.getElementById('pm-store').value = parsed.store;
+            fieldsToFlash.push('pm-store');
+            filledCount++;
+          }
+          if (parsed.order_url && !document.getElementById('pm-order-url').value.trim()) {
+            document.getElementById('pm-order-url').value = parsed.order_url;
+            fieldsToFlash.push('pm-order-url');
+            filledCount++;
+          }
+          if (parsed.notes && !document.getElementById('pm-notes').value.trim()) {
+            document.getElementById('pm-notes').value = parsed.notes;
+            fieldsToFlash.push('pm-notes');
+            filledCount++;
+          }
+          if (parsed.category) {
+            document.getElementById('pm-category').value = parsed.category;
+            fieldsToFlash.push('pm-category');
+            filledCount++;
+          }
+
+          // Visual feedback pulse for filled fields
+          fieldsToFlash.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+              el.classList.remove('autofilled-flash');
+              void el.offsetWidth; // trigger reflow
+              el.classList.add('autofilled-flash');
+            }
+          });
+
+          if (banner) {
+            if (filledCount > 0) {
+              banner.className = 'parse-status-banner';
+              banner.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Auto-filled <strong>${filledCount} fields</strong> from ${parsed.store || 'invoice'}! Please review before saving.`;
+            } else {
+              banner.className = 'parse-status-banner info';
+              banner.innerHTML = `<i class="fa-solid fa-circle-info"></i> Invoice parsed. Existing fields retained.`;
+            }
+            banner.style.display = 'flex';
+          }
+        } else {
+          if (banner) {
+            banner.className = 'parse-status-banner error';
+            banner.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Could not extract text from PDF. You can enter details manually.`;
+            banner.style.display = 'flex';
+          }
+        }
+      }
     });
 
     // Remove existing bill
