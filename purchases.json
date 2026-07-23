@@ -142,5 +142,17 @@
     "order_url": "https://www.amazon.in/gp/your-account/order-details?orderID=404-4298903-7055502",
     "notes": "Amazon Order ID: 404-4298903-7055502",
     "bill_file": "bills/mrxlozccwzy0-s24invoice.pdf"
+  },
+  {
+    "id": "mrxlqvau0xy4",
+    "name": "JioBharat",
+    "category": "Electronics",
+    "amount": "1",
+    "purchase_date": "2025-11-13",
+    "warranty_date": "2026-11-12",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/gp/your-account/order-details?orderID=404-5343542-1511503",
+    "notes": "Amazon Order ID: 404-5343542-1511503",
+    "bill_file": "bills/mrxlqslovzki-jiobharat.pdf"
   }
 ]
