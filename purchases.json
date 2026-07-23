@@ -118,5 +118,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-2519369-9972339&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_1",
     "notes": "papa ka monitor",
     "bill_file": "bills/mrxlc05r4eog-monitorInvoice.pdf"
+  },
+  {
+    "id": "mrxlmq45lidn",
+    "name": "Samsung Monitor 24''",
+    "category": "Appliances",
+    "amount": "5899",
+    "purchase_date": "2024-09-30",
+    "warranty_date": "2027-09-30",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=406-8253360-5633159&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_3",
+    "notes": "Amazon Order ID: 406-8253360-5633159",
+    "bill_file": "bills/mrxlmoecmf6x-monitor2024invoice.pdf"
   }
 ]
