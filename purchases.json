@@ -106,5 +106,17 @@
     "order_url": "https://www.zepto.com/order/019e48e0-50f0-7b1b-84bf-7cbb40df3fb3?isArchived=false",
     "notes": "bought from 6395432881 zepto number also have email : Re:[## 119382 ##] Welcome to Resonate Family (seqr.ai)",
     "bill_file": "bills/mrwd96i9yk6u-zepto_invoice_019e48e0_50f0_7b1b_84bf_7cbb40df3fb3_1779727843685__1_.pdf"
+  },
+  {
+    "id": "mrxlc1vjg5ae",
+    "name": "Samsung Monitor 24''",
+    "category": "Electronics",
+    "amount": "6132",
+    "purchase_date": "2025-09-24",
+    "warranty_date": "2028-09-24",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/your-orders/order-details?orderID=404-2519369-9972339&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_1",
+    "notes": "Gudda ka monitor",
+    "bill_file": "bills/mrxlc05r4eog-monitorInvoice.pdf"
   }
 ]
