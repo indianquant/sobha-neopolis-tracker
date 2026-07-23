@@ -130,5 +130,17 @@
     "order_url": "https://www.amazon.in/your-orders/order-details?orderID=406-8253360-5633159&ref_=ppx_hzsearch_conn_dt_b_fed_order_details_3",
     "notes": "Amazon Order ID: 406-8253360-5633159\ngudda ka monitor",
     "bill_file": "bills/mrxlmoecmf6x-monitor2024invoice.pdf"
+  },
+  {
+    "id": "mrxlp0vohvdu",
+    "name": "Samsung S24 Ultra",
+    "category": "Electronics",
+    "amount": "69000",
+    "purchase_date": "2025-09-22",
+    "warranty_date": "2026-09-21",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/gp/your-account/order-details?orderID=404-4298903-7055502",
+    "notes": "Amazon Order ID: 404-4298903-7055502",
+    "bill_file": "bills/mrxlozccwzy0-s24invoice.pdf"
   }
 ]
