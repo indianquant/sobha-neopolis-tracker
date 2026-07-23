@@ -2485,13 +2485,31 @@
         const arrayBuffer = await file.arrayBuffer();
         const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
         let fullText = '';
+        let allLines = [];
 
         for (let i = 1; i <= pdf.numPages; i++) {
           const page = await pdf.getPage(i);
           const content = await page.getTextContent();
-          const pageText = content.items.map(item => item.str).join(' ');
-          fullText += pageText + '\n';
+          let lastY = null;
+          let currentLine = '';
+
+          for (const item of content.items) {
+            const y = item.transform ? item.transform[5] : null;
+            const isNewLine = item.hasEOL || (lastY !== null && y !== null && Math.abs(y - lastY) > 4);
+            if (isNewLine && currentLine.trim()) {
+              allLines.push(currentLine.trim());
+              currentLine = '';
+            }
+            currentLine += item.str + ' ';
+            if (y !== null) lastY = y;
+          }
+          if (currentLine.trim()) {
+            allLines.push(currentLine.trim());
+          }
         }
+
+        fullText = allLines.join('\n');
+        const textLower = fullText.toLowerCase();
 
         const parsed = {
           name: '',
@@ -2503,8 +2521,6 @@
           notes: '',
           category: ''
         };
-
-        const textLower = fullText.toLowerCase();
 
         // 1. Store detection
         if (textLower.includes('amazon') || textLower.includes('appario') || textLower.includes('cocoblu') || textLower.includes('cloudtail')) {
@@ -2561,31 +2577,84 @@
           parsed.warranty_date = wDateObj.toISOString().slice(0, 10);
         }
 
-        // 4. Amount detection
-        const amountRegex = /(?:total|grand\s*total|amount\s*paid|total\s*amount)[:\s]*(?:₹|rs\.?|inr)?\s*([\d,]+\.?\d*)/i;
-        const amountMatch = fullText.match(amountRegex);
-        if (amountMatch) {
-          const cleanAmtStr = amountMatch[1].replace(/,/g, '');
-          const amtNum = parseFloat(cleanAmtStr);
-          if (!isNaN(amtNum) && amtNum > 0) parsed.amount = amtNum.toString();
+        // 4. Amount detection (Labeled Total OR Max Currency Match)
+        let extractedAmount = '';
+        const totalLineRegex = /(?:grand\s*total|total\s*amount|amount\s*payable|amount\s*paid|\btotal\b)[:\s]*(?:₹|rs\.?|inr)?\s*([\d,]+\.?\d*)/i;
+        for (let idx = 0; idx < allLines.length; idx++) {
+          const line = allLines[idx];
+          const match = line.match(totalLineRegex);
+          if (match && match[1]) {
+            const numStr = match[1].replace(/,/g, '');
+            const num = parseFloat(numStr);
+            if (!isNaN(num) && num > 0) {
+              extractedAmount = num.toString();
+              break;
+            }
+          }
+          if (line.match(/^(?:grand\s*total|total\s*amount|amount\s*payable|\btotal\b)[:\s]*$/i)) {
+            if (idx + 1 < allLines.length) {
+              const nextLine = allLines[idx + 1];
+              const nextMatch = nextLine.match(/(?:₹|rs\.?|inr)?\s*([\d,]+\.?\d*)/i);
+              if (nextMatch && nextMatch[1]) {
+                const numStr = nextMatch[1].replace(/,/g, '');
+                const num = parseFloat(numStr);
+                if (!isNaN(num) && num > 0) {
+                  extractedAmount = num.toString();
+                  break;
+                }
+              }
+            }
+          }
         }
 
-        // 5. Item Title / Name extraction
-        const lines = fullText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-        let titleCandidate = '';
-        for (let line of lines) {
-          if (line.match(/tax invoice|bill of supply|sold by|shipping address|billing address|order date|invoice date|gstin|pan no|invoice number|hsn\/sac|total|page \d+/i)) {
-            continue;
+        if (!extractedAmount) {
+          const currencyMatches = [...fullText.matchAll(/(?:₹|rs\.?|inr)\s*([\d,]+\.?\d*)/gi)];
+          let maxAmt = 0;
+          for (const cm of currencyMatches) {
+            const val = parseFloat(cm[1].replace(/,/g, ''));
+            if (!isNaN(val) && val > maxAmt) {
+              maxAmt = val;
+            }
           }
-          if (line.length >= 10 && !line.match(/\b(bangalore|karnataka|india|pincode|road|street|invoic|return|authorised|signatory)\b/i)) {
-            let clean = line.replace(/^\d+\s+/, '').replace(/^description[:\s]*/i, '').trim();
-            if (clean.length >= 8 && !clean.match(/^\d+$/)) {
+          if (maxAmt > 0) extractedAmount = maxAmt.toString();
+        }
+
+        parsed.amount = extractedAmount;
+
+        // 5. Item Title / Name extraction
+        let titleCandidate = '';
+
+        for (let i = 0; i < allLines.length; i++) {
+          const line = allLines[i];
+          if (line.match(/^description\b/i) || line.match(/sl\.\s*no.*description/i)) {
+            if (i + 1 < allLines.length) {
+              let nextL = allLines[i + 1].replace(/^\d+[\.\s]+/, '').replace(/^description[:\s]*/i, '').trim();
+              if (nextL.length > 5 && !nextL.match(/tax invoice|sold by|total/i)) {
+                titleCandidate = nextL;
+                break;
+              }
+            }
+          }
+        }
+
+        if (!titleCandidate) {
+          for (let line of allLines) {
+            if (line.match(/tax invoice|bill of supply|sold by|shipping address|billing address|order date|invoice date|gstin|pan no|invoice number|hsn\/sac|total|page \d+|authorised|signatory|amount in words|unit price|gross amount|cgst|sgst|igst|declaration|conditions/i)) {
+              continue;
+            }
+            if (line.match(/\b(bangalore|karnataka|india|pincode|road|street|invoic|return|company|limited|private|ltd|pvt|address|order id|order number)\b/i)) {
+              continue;
+            }
+            let clean = line.replace(/^\d+[\.\s]+/, '').trim();
+            if (clean.length >= 10 && !clean.match(/^\d+$/) && !clean.match(/^[₹\d\.,\s]+$/)) {
               titleCandidate = clean;
               break;
             }
           }
         }
+
         if (titleCandidate) {
+          titleCandidate = titleCandidate.replace(/\s*(?:₹|rs\.?|inr)?\s*[\d,]+\.\d{2}.*$/i, '').trim();
           if (titleCandidate.length > 100) titleCandidate = titleCandidate.slice(0, 97) + '...';
           parsed.name = titleCandidate;
         }
@@ -2690,37 +2759,37 @@
           let filledCount = 0;
           const fieldsToFlash = [];
 
-          if (parsed.name && !document.getElementById('pm-name').value.trim()) {
+          if (parsed.name) {
             document.getElementById('pm-name').value = parsed.name;
             fieldsToFlash.push('pm-name');
             filledCount++;
           }
-          if (parsed.amount && !document.getElementById('pm-amount').value) {
+          if (parsed.amount) {
             document.getElementById('pm-amount').value = parsed.amount;
             fieldsToFlash.push('pm-amount');
             filledCount++;
           }
-          if (parsed.purchase_date && !document.getElementById('pm-purchase-date').value) {
+          if (parsed.purchase_date) {
             document.getElementById('pm-purchase-date').value = parsed.purchase_date;
             fieldsToFlash.push('pm-purchase-date');
             filledCount++;
           }
-          if (parsed.warranty_date && !document.getElementById('pm-warranty-date').value) {
+          if (parsed.warranty_date) {
             document.getElementById('pm-warranty-date').value = parsed.warranty_date;
             fieldsToFlash.push('pm-warranty-date');
             filledCount++;
           }
-          if (parsed.store && !document.getElementById('pm-store').value.trim()) {
+          if (parsed.store) {
             document.getElementById('pm-store').value = parsed.store;
             fieldsToFlash.push('pm-store');
             filledCount++;
           }
-          if (parsed.order_url && !document.getElementById('pm-order-url').value.trim()) {
+          if (parsed.order_url) {
             document.getElementById('pm-order-url').value = parsed.order_url;
             fieldsToFlash.push('pm-order-url');
             filledCount++;
           }
-          if (parsed.notes && !document.getElementById('pm-notes').value.trim()) {
+          if (parsed.notes) {
             document.getElementById('pm-notes').value = parsed.notes;
             fieldsToFlash.push('pm-notes');
             filledCount++;
@@ -2747,7 +2816,7 @@
               banner.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Auto-filled <strong>${filledCount} fields</strong> from ${parsed.store || 'invoice'}! Please review before saving.`;
             } else {
               banner.className = 'parse-status-banner info';
-              banner.innerHTML = `<i class="fa-solid fa-circle-info"></i> Invoice parsed. Existing fields retained.`;
+              banner.innerHTML = `<i class="fa-solid fa-circle-info"></i> Invoice parsed. Please review details.`;
             }
             banner.style.display = 'flex';
           }
