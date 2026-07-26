@@ -154,5 +154,17 @@
     "order_url": "https://www.amazon.in/gp/your-account/order-details?orderID=404-5343542-1511503",
     "notes": "Amazon Order ID: 404-5343542-1511503",
     "bill_file": "bills/mrxlqslovzki-jiobharat.pdf"
+  },
+  {
+    "id": "ms23hlg74oup",
+    "name": "Agro Electric Flosser",
+    "category": "Electronics",
+    "amount": "1399",
+    "purchase_date": "2025-10-10",
+    "warranty_date": "2026-10-09",
+    "store": "Amazon",
+    "order_url": "https://www.amazon.in/gp/your-account/order-details?orderID=404-9978226-2293149",
+    "notes": "Amazon Order ID: 404-9978226-2293149",
+    "bill_file": "bills/ms23hjtoqzwp-agaroflosser.pdf"
   }
 ]
