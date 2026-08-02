@@ -1601,7 +1601,7 @@
       bindHeaderSorting();
     }
 
-    function renderPortfolioCard() {
+    function renderPortfolioCard(targetListings = listings) {
       const container = document.getElementById('portfolio-container');
       if (!container) return;
 
@@ -1613,14 +1613,14 @@
       const INTERIOR = 1600000;      // 16.00 Lacs
       const TOTAL_INVESTMENT = BASE_PRICE + BROKERAGE + BANK_MOTD + REGISTRY + INTERIOR; // 28,350,000 (2.835 Cr)
 
-      // Calculate market average for 1611 sqft units from active listings
-      const cat1611 = listings.filter(i => getCategoryClass(i.area) === '1611');
+      // Calculate market average for 1611 sqft units from target listings pool
+      const cat1611 = (targetListings || listings).filter(i => getCategoryClass(i.area) === '1611' && i.status !== 'delisted');
       let mktAvgPrice = 0;
       let mktAvgRate = 0;
 
       if (cat1611.length > 0) {
         const sumP = cat1611.reduce((acc, curr) => acc + curr.price_raw, 0);
-        const sumR = cat1611.reduce((acc, curr) => acc + (curr.price_raw / 1611), 0);
+        const sumR = cat1611.reduce((acc, curr) => acc + (curr.price_raw / (curr.area || 1611)), 0);
         mktAvgPrice = sumP / cat1611.length;
         mktAvgRate = sumR / cat1611.length;
       } else {
@@ -1924,16 +1924,18 @@
       return area;
     }
 
-    function renderCategoryAverages() {
+    function renderCategoryAverages(targetListings = listings) {
       const container = document.getElementById('category-averages-container');
       if (!container) return;
 
+      const pool = (targetListings || listings).filter(i => i.status !== 'delisted');
+
       const categories = [
-        { id: '1bhk', label: '1 BHK Category (<1000 sqft)', desc: '1 BHK Layouts', items: listings.filter(i => getCategoryClass(i.area) === '1bhk') },
-        { id: '1611', label: '1611 sqft Category (1500–1700 sqft)', desc: 'Standard 3 BHK', items: listings.filter(i => getCategoryClass(i.area) === '1611') },
-        { id: '1915', label: '1915 sqft Category (1800–2000 sqft)', desc: 'Luxury 3 BHK', items: listings.filter(i => getCategoryClass(i.area) === '1915') },
-        { id: '2150', label: '2150 sqft Category (2050–2250 sqft)', desc: 'Large 3 BHK + 3T', items: listings.filter(i => getCategoryClass(i.area) === '2150') },
-        { id: '4bhk', label: '4 BHK Category (> 2250 sqft)', desc: '4 BHK / Penthouse', items: listings.filter(i => getCategoryClass(i.area) === '4bhk') }
+        { id: '1bhk', label: '1 BHK Category (<1000 sqft)', desc: '1 BHK Layouts', items: pool.filter(i => getCategoryClass(i.area) === '1bhk') },
+        { id: '1611', label: '1611 sqft Category (1500–1700 sqft)', desc: 'Standard 3 BHK', items: pool.filter(i => getCategoryClass(i.area) === '1611') },
+        { id: '1915', label: '1915 sqft Category (1800–2000 sqft)', desc: 'Luxury 3 BHK', items: pool.filter(i => getCategoryClass(i.area) === '1915') },
+        { id: '2150', label: '2150 sqft Category (2050–2250 sqft)', desc: 'Large 3 BHK + 3T', items: pool.filter(i => getCategoryClass(i.area) === '2150') },
+        { id: '4bhk', label: '4 BHK Category (> 2250 sqft)', desc: '4 BHK / Penthouse', items: pool.filter(i => getCategoryClass(i.area) === '4bhk') }
       ];
 
       function formatPriceVal(val) {
@@ -1945,7 +1947,7 @@
       function calcStats(items) {
         if (!items.length) return { avgPrice: 0, avgRate: 0, count: 0 };
         const sumPrice = items.reduce((acc, curr) => acc + curr.price_raw, 0);
-        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / getEffectiveArea(curr.area)), 0);
+        const sumRate = items.reduce((acc, curr) => acc + (curr.price_raw / (curr.area || 1611)), 0);
         return {
           avgPrice: sumPrice / items.length,
           avgRate: sumRate / items.length,
@@ -2204,6 +2206,9 @@
       const data = getFilteredAndSortedListings();
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
+
+      renderPortfolioCard(data);
+      renderCategoryAverages(data);
 
       if (isDelistedOnly) {
         counter.textContent = `Showing ${data.length} delisted / sold listings`;
