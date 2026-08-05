@@ -37,7 +37,7 @@ SEARCH_CONFIGS = [
 # A listing must be missing from API results for MISS_THRESHOLD consecutive
 # runs before we even bother checking the detail URL.  This prevents
 # premature verification calls caused by NoBroker pagination jitter.
-MISS_THRESHOLD = 2
+MISS_THRESHOLD = 1
 
 
 def make_hash(nobroker_id):
@@ -58,12 +58,7 @@ def verify_listing_alive(detail_url):
     Verify whether a NoBroker listing is still live by fetching
     its detail page HTML.
 
-    Returns True if still alive, False if confirmed dead/expired.
-
-    Verification signals:
-      - Live listing HTML is typically >100KB and contains project name
-      - Dead/expired listing HTML is typically <50KB, may contain '404',
-        or redirects to a different page
+    Returns True if still alive, False if confirmed dead/expired/inactive.
     """
     if not detail_url or "nobroker.in" not in detail_url:
         return True  # Can't verify → assume alive (safe default)
@@ -80,38 +75,39 @@ def verify_listing_alive(detail_url):
         html_len = len(html)
         html_lower = html.lower()
 
-        # Signal 1: Tiny page = error / 404 page
-        if html_len < 50000:
-            # Check for explicit 404/error signals in the small page
-            dead_signals = [
-                "page not found",
-                "404",
-                "this property is currently unavailable",
-                "listing has expired",
-                "no longer available",
-                "property has been removed",
-                "deactivated",
-            ]
-            for signal in dead_signals:
-                if signal in html_lower:
-                    return False  # Confirmed dead
-            # Small page without clear signals — still suspicious
-            # but we'll assume alive as a safe default
-            return True
+        # Signal 1: Check for explicit dead/inactive/sold signals anywhere in HTML
+        dead_signals = [
+            "property inactive",
+            "has been inactive",
+            "currently inactive",
+            "property is inactive",
+            "this property is inactive",
+            "listing is inactive",
+            "sold out",
+            "page not found",
+            "404",
+            "this property is currently unavailable",
+            "listing has expired",
+            "no longer available",
+            "property has been removed",
+            "deactivated",
+        ]
+        for signal in dead_signals:
+            if signal in html_lower:
+                return False  # Confirmed dead / inactive / sold out
 
-        # Signal 2: Large page but redirected away from the detail URL
+        # Signal 2: Redirected away from detail URL
         if "/detail" not in r.url:
             return False  # Redirected away from detail page
 
-        # Signal 3: Large page with the project name = definitely alive
-        if "sobha neopolis" in html_lower or "shobha neopolis" in html_lower:
+        # Signal 3: Tiny page = error / missing content
+        if html_len < 50000:
+            return False
+
+        # Signal 4: Large page with project name or property markers = alive
+        if "sobha neopolis" in html_lower or "shobha neopolis" in html_lower or "propertytitle" in html_lower:
             return True
 
-        # Signal 4: Large page with property detail markers
-        if "propertytitle" in html_lower or "property-detail" in html_lower:
-            return True
-
-        # Default: large page, no clear dead signals → assume alive
         return True
 
     except requests.RequestException:
