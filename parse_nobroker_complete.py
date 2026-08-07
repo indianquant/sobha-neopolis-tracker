@@ -37,7 +37,7 @@ SEARCH_CONFIGS = [
 # A listing must be missing from API results for MISS_THRESHOLD consecutive
 # runs before we even bother checking the detail URL.  This prevents
 # premature verification calls caused by NoBroker pagination jitter.
-MISS_THRESHOLD = 1
+MISS_THRESHOLD = 2
 
 
 def make_hash(nobroker_id):
@@ -72,41 +72,27 @@ def verify_listing_alive(detail_url):
         )
 
         html = r.text
-        html_len = len(html)
         html_lower = html.lower()
 
-        # Signal 1: Check for explicit dead/inactive/sold signals anywhere in HTML
-        dead_signals = [
-            "property inactive",
-            "has been inactive",
-            "currently inactive",
-            "property is inactive",
-            "this property is inactive",
-            "listing is inactive",
-            "sold out",
-            "page not found",
-            "404",
-            "this property is currently unavailable",
-            "listing has expired",
-            "no longer available",
-            "property has been removed",
-            "deactivated",
-        ]
-        for signal in dead_signals:
-            if signal in html_lower:
-                return False  # Confirmed dead / inactive / sold out
-
-        # Signal 2: Redirected away from detail URL
-        if "/detail" not in r.url:
-            return False  # Redirected away from detail page
-
-        # Signal 3: Tiny page = error / missing content
-        if html_len < 50000:
+        # Signal 1: NoBroker exact DOM overlay / banner for inactive flats
+        if "rented-out-text" in html or "rentedoutproperty" in html or 'id="rentedout"' in html or "id='rentedout'" in html:
             return False
 
-        # Signal 4: Large page with project name or property markers = alive
-        if "sobha neopolis" in html_lower or "shobha neopolis" in html_lower or "propertytitle" in html_lower:
-            return True
+        # Signal 2: Check for explicit "has been inactive" text banner
+        if "has been inactive" in html_lower or "this property is inactive" in html_lower:
+            return False
+
+        # Signal 3: Redirected away from the property detail page
+        if "/detail" not in r.url:
+            return False
+
+        # Signal 4: HTTP 404 or explicit page not found
+        if r.status_code == 404 or "page not found" in html_lower:
+            return False
+
+        # Signal 5: Tiny page (<50KB) without property title
+        if len(html) < 50000:
+            return False
 
         return True
 
