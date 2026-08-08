@@ -61,3 +61,11 @@ test('Frontend Unit Tests — index.html contains required DOM containers', () =
   assert.ok(htmlContent.includes('id="purchases-tbody"'), 'purchases-tbody must exist in index.html');
   assert.ok(htmlContent.includes('id="pm-parse-banner"'), 'pm-parse-banner must exist in index.html');
 });
+
+test('Frontend Unit Tests — Multi-Project Switcher Bar markup present', () => {
+  assert.ok(htmlContent.includes('id="project-switcher-bar"'), 'project-switcher-bar must exist in index.html');
+  assert.ok(htmlContent.includes('data-project="sobha-neopolis"'), 'Sobha Neopolis tab button must exist');
+  assert.ok(htmlContent.includes('data-project="sobha-royal-pavilion"'), 'Sobha Royal Pavilion tab button must exist');
+  assert.ok(htmlContent.includes('data-project="sobha-windsor"'), 'Sobha Windsor tab button must exist');
+  assert.ok(htmlContent.includes('data-project="sobha-sentosa"'), 'Sobha Sentosa tab button must exist');
+});

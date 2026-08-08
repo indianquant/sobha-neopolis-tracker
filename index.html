@@ -886,6 +886,62 @@
       color: var(--muted);
     }
 
+    /* ── Project Switcher Bar ── */
+    .project-switcher-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .project-tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+    .project-tab-btn:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .project-tab-btn.active {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(56, 189, 248, 0.12));
+      border-color: #38bdf8;
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+    }
+    .project-tab-btn i {
+      font-size: 18px;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .project-tab-btn.active i {
+      color: #38bdf8;
+    }
+    .project-tab-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .project-tab-name {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+    .project-tab-loc {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
     /* ── Page Tabs ── */
     .page-tabs {
       display: flex;
@@ -1142,14 +1198,46 @@
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
         <div>
           <span class="eyebrow">Real Estate Data Intelligence</span>
-          <h1>Sobha Neopolis</h1>
-          <p class="sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Interactive Sorting</p>
+          <h1 id="header-project-title">Sobha Neopolis</h1>
+          <p class="sub" id="header-project-sub">Sobha Neopolis Flat Inventory, Accurate NoBroker Prices, Possession Dates &amp; Analytics</p>
         </div>
         <div>
           <button id="lock-btn" class="lock-btn"><i class="fa-solid fa-lock"></i> Lock Dashboard</button>
         </div>
       </div>
     </header>
+
+    <!-- Project Switcher Bar -->
+    <div class="project-switcher-bar" id="project-switcher-bar">
+      <button class="project-tab-btn active" data-project="sobha-neopolis">
+        <i class="fa-solid fa-building-user"></i>
+        <div class="project-tab-info">
+          <span class="project-tab-name">Sobha Neopolis</span>
+          <span class="project-tab-loc">Panathur, East Bangalore</span>
+        </div>
+      </button>
+      <button class="project-tab-btn" data-project="sobha-royal-pavilion">
+        <i class="fa-solid fa-crown"></i>
+        <div class="project-tab-info">
+          <span class="project-tab-name">Sobha Royal Pavilion</span>
+          <span class="project-tab-loc">Sarjapur Road</span>
+        </div>
+      </button>
+      <button class="project-tab-btn" data-project="sobha-windsor">
+        <i class="fa-solid fa-chess-rook"></i>
+        <div class="project-tab-info">
+          <span class="project-tab-name">Sobha Windsor</span>
+          <span class="project-tab-loc">Whitefield</span>
+        </div>
+      </button>
+      <button class="project-tab-btn" data-project="sobha-sentosa">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <div class="project-tab-info">
+          <span class="project-tab-name">Sobha Sentosa</span>
+          <span class="project-tab-loc">Panathur / Balagere</span>
+        </div>
+      </button>
+    </div>
 
     <!-- Page Tab Nav -->
     <div class="page-tabs">
@@ -1541,9 +1629,25 @@
       }
     }
 
-    async function fetchDataAndRender() {
+    let currentProjectKey = 'sobha-neopolis';
+    const projectPaths = {
+      'sobha-neopolis': 'sobha_listings.json',
+      'sobha-royal-pavilion': 'data/sobha_royal_pavilion_listings.json',
+      'sobha-windsor': 'data/sobha_windsor_listings.json',
+      'sobha-sentosa': 'data/sobha_sentosa_listings.json'
+    };
+
+    async function fetchDataAndRender(projectKey = currentProjectKey) {
+      currentProjectKey = projectKey;
+
+      document.querySelectorAll('.project-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.project === projectKey);
+      });
+
+      const targetPath = projectPaths[projectKey] || 'sobha_listings.json';
+
       try {
-        const res = await fetch('sobha_listings.json?v=' + Date.now());
+        const res = await fetch(targetPath + '?v=' + Date.now());
         if (res.ok) {
           const freshData = await res.json();
 
@@ -1551,6 +1655,11 @@
             lastUpdated = freshData.last_updated || '';
             newCount = freshData.new_count || 0;
             delistedCount = freshData.delisted_count || 0;
+
+            const titleEl = document.getElementById('header-project-title');
+            const subEl = document.getElementById('header-project-sub');
+            if (titleEl) titleEl.textContent = freshData.project_name || 'Sobha Neopolis';
+            if (subEl) subEl.textContent = `${freshData.project_name || 'Sobha'} Inventory (${freshData.location || 'Bangalore'}), Accurate NoBroker Prices & Analytics`;
 
             listings = freshData.active.map((item, idx) => ({
               id: idx + 1,
@@ -1590,7 +1699,7 @@
           }
         }
       } catch (e) {
-        // Fallback
+        console.error('Error fetching project data:', e);
       }
 
       renderRunSummary();
@@ -1599,6 +1708,18 @@
       renderTable();
       bindEvents();
       bindHeaderSorting();
+      bindProjectTabEvents();
+    }
+
+    function bindProjectTabEvents() {
+      document.querySelectorAll('.project-tab-btn').forEach(btn => {
+        btn.onclick = () => {
+          const pkey = btn.dataset.project;
+          if (pkey && pkey !== currentProjectKey) {
+            fetchDataAndRender(pkey);
+          }
+        };
+      });
     }
 
     function renderPortfolioCard(targetListings = listings) {
