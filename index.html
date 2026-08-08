@@ -2146,8 +2146,10 @@
           <div class="avg-card">
             <span class="avg-label">${cat.label}</span>
             <div class="avg-value">
-              ${formatPriceVal(stats.avgPrice)}
-              <span class="avg-rate">· ₹${Math.round(stats.avgRate).toLocaleString('en-IN')}/sqft</span>
+              ${stats.count > 0 ? `
+                ${formatPriceVal(stats.avgPrice)}
+                <span class="avg-rate">· ₹${Math.round(stats.avgRate).toLocaleString('en-IN')}/sqft</span>
+              ` : '<span style="color:var(--muted); font-size:13px; font-weight:400;">No Units</span>'}
             </div>
             <span class="avg-count">${stats.count} Units (${cat.desc})</span>
             
@@ -2289,24 +2291,25 @@
       }
 
       const sizeFilters = ['1bhk', '1611', '1915', '2150', '4bhk'].filter(f => activeFilters.has(f));
-      const facingFilters = ['facing_east', 'facing_north', 'facing_west'].filter(f => activeFilters.has(f));
+      const facingFilters = Array.from(activeFilters).filter(f => f.startsWith('facing_'));
+      const sourceFilters = Array.from(activeFilters).filter(f => f.startsWith('source_'));
 
       let result = pool.filter(item => {
         // If specific delisted filter is not selected, but pool has both, enforce status
         if (!activeFilters.has('delisted') && item.status === 'delisted') return false;
 
-        // Size filter check
+        // Size filter check (OR-logic for selected sizes)
         if (sizeFilters.length > 0) {
           const cat = getCategoryClass(item.area);
           if (!sizeFilters.includes(cat)) return false;
         }
 
-        // Facing filter check
+        // Facing filter check (OR-logic for selected directions)
         if (facingFilters.length > 0) {
-          const facingLower = (item.facing || '').toLowerCase();
+          const facingRaw = (item.facing || '').toLowerCase().replace(/[^a-z]/g, '');
           const matches = facingFilters.some(f => {
-            const dir = f.replace('facing_', '');
-            return facingLower.includes(dir);
+            const dir = f.replace('facing_', '').replace(/[^a-z]/g, '');
+            return facingRaw.includes(dir);
           });
           if (!matches) return false;
         }
@@ -2314,9 +2317,15 @@
         // High floor check
         if (activeFilters.has('high') && item.floor < 10) return false;
 
-        // Source platform filters
-        if (activeFilters.has('source_nobroker') && item.source !== 'NoBroker') return false;
-        if (activeFilters.has('source_magicbricks') && item.source !== 'MagicBricks') return false;
+        // Source platform filters (OR-logic for selected platforms)
+        if (sourceFilters.length > 0) {
+          const matchesSource = sourceFilters.some(sf => {
+            if (sf === 'source_nobroker') return item.source === 'NoBroker';
+            if (sf === 'source_magicbricks') return item.source === 'MagicBricks';
+            return false;
+          });
+          if (!matchesSource) return false;
+        }
 
         // Search query check
         if (searchQuery) {
