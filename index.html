@@ -451,6 +451,29 @@
       margin-left: 4px;
     }
 
+    .source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+    .source-badge.nobroker {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .source-badge.magicbricks {
+      background: rgba(234, 179, 8, 0.15);
+      color: #eab308;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+    }
+
     /* Run Summary Strip */
     .run-summary {
       display: flex;
@@ -1318,6 +1341,8 @@
         <button class="filter-btn" data-filter="facing_north">🧭 North Facing</button>
         <button class="filter-btn" data-filter="facing_west">🧭 West Facing</button>
         <button class="filter-btn" data-filter="high">High Floor (&ge; 10)</button>
+        <button class="filter-btn" data-filter="source_nobroker">🏠 NoBroker</button>
+        <button class="filter-btn" data-filter="source_magicbricks">✨ MagicBricks</button>
         <button class="filter-btn" data-filter="delisted">Delisted / Sold</button>
       </div>
     </div>
@@ -2289,6 +2314,10 @@
         // High floor check
         if (activeFilters.has('high') && item.floor < 10) return false;
 
+        // Source platform filters
+        if (activeFilters.has('source_nobroker') && item.source !== 'NoBroker') return false;
+        if (activeFilters.has('source_magicbricks') && item.source !== 'MagicBricks') return false;
+
         // Search query check
         if (searchQuery) {
           const text = `${item.title} ${item.hash} floor ${item.floor} ${item.area} ${getDisplayArea(item.area)} ${item.facing} ${item.possession} ${item.price_str} ${item.source} ${item.first_seen}`.toLowerCase();
@@ -2331,10 +2360,12 @@
       renderPortfolioCard(data);
       renderCategoryAverages(data);
 
+      const projectName = listings.length > 0 ? (listings[0].project_name || 'Sobha') : 'Sobha';
+
       if (isDelistedOnly) {
         counter.textContent = `Showing ${data.length} delisted / sold listings`;
       } else {
-        counter.textContent = `Showing ${data.length} of ${listings.length} active Sobha Neopolis listings`;
+        counter.textContent = `Showing ${data.length} of ${listings.length} active ${projectName} listings`;
       }
 
       if (data.length === 0) {
@@ -2358,12 +2389,16 @@
         const statusBadge = item.status === 'delisted'
           ? '<span class="delisted-badge">Sold / Delisted</span>'
           : (isNew ? '<span class="new-badge">New</span>' : '');
+        
+        const sourceBadge = item.source === 'MagicBricks'
+          ? '<span class="source-badge magicbricks"><i class="fa-solid fa-wand-magic-sparkles"></i> MagicBricks</span>'
+          : '<span class="source-badge nobroker"><i class="fa-solid fa-house"></i> NoBroker</span>';
 
         return `
           <tr class="${rowClass}">
             <td style="color:var(--muted); font-size:11px;">${String(index + 1).padStart(2, '0')}</td>
             <td class="no-strike"><span class="hash-tag">${item.hash}</span></td>
-            <td class="title-cell">${item.title}${statusBadge}</td>
+            <td class="title-cell">${item.title}${statusBadge}${sourceBadge}</td>
             <td>
               <span class="floor-tag ${isHigh ? 'high' : ''}">
                 Floor ${item.floor} of ${item.total_floors}

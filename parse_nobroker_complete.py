@@ -4,7 +4,9 @@ import hashlib
 import datetime
 import os
 import time
+import re
 import pandas as pd
+from bs4 import BeautifulSoup
 
 api_url = "https://www.nobroker.in/api/v3/multi/property/BUY/filter"
 headers = {
@@ -20,7 +22,7 @@ PROJECTS = {
         "name": "Sobha Neopolis",
         "location": "Panathur, East Bangalore",
         "possession": "Oct 2026",
-        "keywords": ["sobha neopolis", "shobha neopolis"],
+        "keywords": ["sobha neopolis", "shobha neopolis", "neopolis"],
         "search_configs": [
             {
                 "label": "Sobha Neopolis Locality",
@@ -40,6 +42,10 @@ PROJECTS = {
                     "propType": "AP",
                 }
             }
+        ],
+        "magicbricks_urls": [
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Panathur&cityName=Bangalore",
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Varthur-Road&cityName=Bangalore"
         ]
     },
     "sobha-royal-pavilion": {
@@ -67,6 +73,10 @@ PROJECTS = {
                     "propType": "AP",
                 }
             }
+        ],
+        "magicbricks_urls": [
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Sarjapur-Road&cityName=Bangalore",
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Hadosiddapura&cityName=Bangalore"
         ]
     },
     "sobha-windsor": {
@@ -74,7 +84,7 @@ PROJECTS = {
         "name": "Sobha Windsor",
         "location": "Whitefield, Bangalore",
         "possession": "Dec 2025",
-        "keywords": ["sobha windsor"],
+        "keywords": ["sobha windsor", "windsor"],
         "search_configs": [
             {
                 "label": "Whitefield Locality",
@@ -85,6 +95,10 @@ PROJECTS = {
                     "propType": "AP",
                 }
             }
+        ],
+        "magicbricks_urls": [
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Whitefield&cityName=Bangalore",
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Nagondanahalli&cityName=Bangalore"
         ]
     },
     "sobha-sentosa": {
@@ -103,14 +117,37 @@ PROJECTS = {
                     "propType": "AP",
                 }
             }
+        ],
+        "magicbricks_urls": [
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Panathur-Road&cityName=Bangalore",
+            "https://www.magicbricks.com/property-for-sale/residential-real-estate?proptype=Multistorey-Apartment&localityName=Balagere&cityName=Bangalore"
         ]
     }
 }
 
 
 def make_hash(nobroker_id):
-    """Generate a short 8-char hex hash from the NoBroker property ID."""
+    """Generate a short 8-char hex hash from property ID."""
     return hashlib.sha256(nobroker_id.encode()).hexdigest()[:8]
+
+
+def parse_mb_price(price_str):
+    """Convert MagicBricks price string (e.g. ₹3.67 Cr, ₹85 Lac) to raw integer."""
+    if not price_str:
+        return 0
+    p = price_str.replace('₹', '').replace(',', '').strip()
+    val_match = re.search(r'([\d\.]+)\s*(Cr|Lac|Lacs|Lakh|Lakhs|k)?', p, re.IGNORECASE)
+    if not val_match:
+        return 0
+    val = float(val_match.group(1))
+    unit = (val_match.group(2) or '').lower()
+    if 'cr' in unit:
+        return int(val * 10000000)
+    elif 'lac' in unit or 'lakh' in unit:
+        return int(val * 100000)
+    elif 'k' in unit:
+        return int(val * 1000)
+    return int(val)
 
 
 def is_project_match(prop, project_config):
@@ -127,7 +164,7 @@ def is_sobha_neopolis(prop):
 
 
 def get_facing(item):
-    """Extract and normalize facing direction (e.g., East, West, North, South, North-East)."""
+    """Extract and normalize facing direction."""
     f = item.get("facingDesc") or item.get("facing") or ""
     f = str(f).strip().title()
     if not f or f.lower() in ["none", "null", "undefined", "n/a", "0"]:
@@ -140,62 +177,117 @@ def get_facing(item):
 
 
 def verify_listing_alive(detail_url):
-    """
-    Verify whether a NoBroker listing is still live by fetching its detail page HTML.
-    Returns True if still alive, False if confirmed dead/expired/inactive.
-    """
-    if not detail_url or "nobroker.in" not in detail_url:
+    """Verify whether a listing URL is still live."""
+    if not detail_url:
         return True
 
-    try:
-        r = requests.get(
-            detail_url,
-            headers=headers,
-            timeout=15,
-            allow_redirects=True,
-        )
-        html = r.text
-        html_lower = html.lower()
+    if "nobroker.in" in detail_url:
+        try:
+            r = requests.get(detail_url, headers=headers, timeout=15, allow_redirects=True)
+            html = r.text
+            html_lower = html.lower()
 
-        # Signal 1: NoBroker exact DOM overlay / banner for inactive flats
-        if "rented-out-text" in html or "rentedoutproperty" in html or 'id="rentedout"' in html or "id='rentedout'" in html:
-            return False
+            if "rented-out-text" in html or "rentedoutproperty" in html or 'id="rentedout"' in html or "id='rentedout'" in html:
+                return False
+            if "has been inactive" in html_lower or "this property is inactive" in html_lower:
+                return False
+            if "/detail" not in r.url:
+                return False
+            if r.status_code == 404 or "page not found" in html_lower:
+                return False
+            if len(html) < 50000:
+                return False
+            return True
+        except requests.RequestException:
+            return True
 
-        # Signal 2: Check for explicit "has been inactive" text banner
-        if "has been inactive" in html_lower or "this property is inactive" in html_lower:
-            return False
+    elif "magicbricks.com" in detail_url:
+        try:
+            r = requests.get(detail_url, headers=headers, timeout=15, allow_redirects=True)
+            if r.status_code == 404 or "page not found" in r.text.lower() or "property no longer available" in r.text.lower():
+                return False
+            return True
+        except requests.RequestException:
+            return True
 
-        # Signal 3: Redirected away from the property detail page
-        if "/detail" not in r.url:
-            return False
+    return True
 
-        # Signal 4: HTTP 404 or explicit page not found
-        if r.status_code == 404 or "page not found" in html_lower:
-            return False
 
-        # Signal 5: Tiny page (<50KB) without property title
-        if len(html) < 50000:
-            return False
+def crawl_magicbricks_listings(project_key, project_config):
+    """Crawl MagicBricks SRP pages for a specific Sobha project."""
+    mb_props = []
+    urls = project_config.get("magicbricks_urls", [])
+    keywords = project_config.get("keywords", [])
 
-        return True
+    print(f"\n--- MagicBricks Crawl for {project_config['name']} ---")
 
-    except requests.RequestException:
-        return True
+    for url in urls:
+        try:
+            r = requests.get(url, headers=headers, timeout=15)
+            if r.status_code != 200:
+                continue
+
+            soup = BeautifulSoup(r.text, 'html.parser')
+            cards = soup.select('.mb-srp__card')
+
+            for idx, c in enumerate(cards):
+                card_text = c.text.lower()
+                if not any(k in card_text for k in keywords):
+                    continue
+
+                card_html = str(c)
+                id_match = re.search(r'&amp;id=([a-f0-9]+)|&id=([a-f0-9]+)|data-id=[\"\']([a-f0-9]+)[\"\']', card_html)
+                mb_id = (id_match.group(1) or id_match.group(2) or id_match.group(3)) if id_match else f"mb_{hashlib.md5(c.text.encode()).hexdigest()[:8]}"
+
+                title_el = c.select_one('.mb-srp__card--title') or c.select_one('h2')
+                title = title_el.text.strip() if title_el else f"{project_config['name']} Flat"
+
+                price_el = c.select_one('.mb-srp__card__price--amount') or c.select_one('.mb-srp__card--price')
+                price_text = price_el.text.strip() if price_el else ''
+                raw_val = parse_mb_price(price_text)
+
+                area_match = re.search(r'(\d+)\s*(sq-ft|sqft|sq ft)', card_html, re.IGNORECASE)
+                sz = int(area_match.group(1)) if area_match else 1600
+
+                floor_match = re.search(r'floor\s*(\d+)', card_text)
+                fl = int(floor_match.group(1)) if floor_match else 0
+
+                link_el = c.select_one('a[href*="/propertyDetails/"]') or c.select_one('a')
+                link = link_el.get('href') if link_el else ''
+                if link and not link.startswith('http'):
+                    link = 'https://www.magicbricks.com' + link
+
+                mb_props.append({
+                    "id": mb_id,
+                    "title": title,
+                    "floor": fl,
+                    "total_floors": 18,
+                    "area": sz,
+                    "facing": "N/A",
+                    "price_text": price_text if price_text.startswith("₹") else f"₹ {price_text}",
+                    "price_raw": raw_val,
+                    "link": link or url,
+                    "source": "MagicBricks"
+                })
+
+        except Exception as e:
+            print(f"  Error crawling MB URL {url}: {e}")
+
+    print(f"  MagicBricks unique properties found: {len(mb_props)}")
+    return mb_props
 
 
 def run_single_project_crawler(project_key, project_config):
-    """Run full crawler pipeline for a single Sobha project."""
+    """Run full crawler pipeline (NoBroker + MagicBricks) for a single Sobha project."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(script_dir, "data")
     os.makedirs(data_dir, exist_ok=True)
 
-    # File paths
     safe_key = project_key.replace("-", "_")
     history_path = os.path.join(data_dir, f"{safe_key}_history.json")
     listings_path = os.path.join(data_dir, f"{safe_key}_listings.json")
     csv_path = os.path.join(data_dir, f"{safe_key}_listings.csv")
 
-    # Maintain root paths for sobha-neopolis backward compatibility
     root_history_path = os.path.join(script_dir, "sobha_history.json") if project_key == "sobha-neopolis" else None
     root_listings_path = os.path.join(script_dir, "sobha_listings.json") if project_key == "sobha-neopolis" else None
     root_csv_path = os.path.join(script_dir, "sobha_listings.csv") if project_key == "sobha-neopolis" else None
@@ -215,6 +307,7 @@ def run_single_project_crawler(project_key, project_config):
     print(f" Crawling {project_config['name']} ({project_config['location']})")
     print(f"============================================================")
 
+    # 1. NoBroker Search
     for config in project_config["search_configs"]:
         print(f"--- {config['label']} ---")
         page = 1
@@ -236,11 +329,28 @@ def run_single_project_crawler(project_key, project_config):
             for prop in props:
                 pid = prop.get("id") or prop.get("propertyId")
                 if pid and pid not in all_props and is_project_match(prop, project_config):
-                    all_props[pid] = prop
+                    all_props[pid] = {**prop, "_source": "NoBroker"}
                     added += 1
 
             print(f"  Page {page}: batch={len(props)}, new match={added}, total={len(all_props)}")
             page += 1
+
+    # 2. MagicBricks Search
+    mb_listings = crawl_magicbricks_listings(project_key, project_config)
+    for mb_item in mb_listings:
+        mb_pid = mb_item["id"]
+        if mb_pid and mb_pid not in all_props:
+            all_props[mb_pid] = {
+                "propertyTitle": mb_item["title"],
+                "floor": mb_item["floor"],
+                "totalFloor": mb_item["total_floors"],
+                "propertySize": mb_item["area"],
+                "facing": mb_item["facing"],
+                "price": mb_item["price_raw"],
+                "formattedPrice": mb_item["price_text"],
+                "detailUrl": mb_item["link"],
+                "_source": "MagicBricks"
+            }
 
     current_hashes = set()
     hash_to_pid = {}
@@ -251,6 +361,7 @@ def run_single_project_crawler(project_key, project_config):
         current_hashes.add(uid)
         hash_to_pid[uid] = pid
 
+        source = item.get("_source", "NoBroker")
         title = item.get("propertyTitle") or f"{project_config['name']} Flat"
         fl = int(item.get("floor") if item.get("floor") is not None else 0)
         tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
@@ -278,7 +389,7 @@ def run_single_project_crawler(project_key, project_config):
                 pass
 
         detail_url = item.get("detailUrl") or ""
-        link = f"https://www.nobroker.in{detail_url}" if detail_url and not detail_url.startswith("http") else detail_url
+        link = detail_url if detail_url.startswith("http") else f"https://www.nobroker.in{detail_url}"
 
         first_seen = history[uid]["first_seen"] if uid in history else today
 
@@ -295,7 +406,7 @@ def run_single_project_crawler(project_key, project_config):
             "possession": possession,
             "price": price_str,
             "price_raw": raw_val,
-            "source": "NoBroker",
+            "source": source,
             "link": link or "https://www.nobroker.in",
             "first_seen": first_seen,
             "last_seen": today,
@@ -352,7 +463,7 @@ def run_single_project_crawler(project_key, project_config):
             "possession": entry.get("possession", project_config.get("possession", "Dec 2026")),
             "price": entry.get("price", "₹ 2.50 Cr"),
             "price_raw": entry.get("price_raw", 25000000),
-            "source": "NoBroker",
+            "source": entry.get("source", "NoBroker"),
             "link": entry.get("link", "https://www.nobroker.in"),
             "first_seen": entry.get("first_seen", today),
             "last_seen": entry.get("last_seen", today),
@@ -387,6 +498,7 @@ def run_single_project_crawler(project_key, project_config):
             "possession": item["possession"],
             "price": item["price"],
             "price_raw": item["price_raw"],
+            "source": item["source"],
             "link": item["link"],
             "first_seen": item["first_seen"],
             "last_seen": today,
@@ -411,7 +523,6 @@ def run_single_project_crawler(project_key, project_config):
         "delisted": delisted_entries
     }
 
-    # Save to data directory
     with open(history_path, "w") as f:
         json.dump(history, f, indent=2)
 
@@ -421,7 +532,6 @@ def run_single_project_crawler(project_key, project_config):
     df = pd.DataFrame(formatted)
     df.to_csv(csv_path, index=False)
 
-    # If sobha-neopolis, also save to root files for backward compatibility
     if root_history_path:
         with open(root_history_path, "w") as f:
             json.dump(history, f, indent=2)
@@ -431,7 +541,10 @@ def run_single_project_crawler(project_key, project_config):
     if root_csv_path:
         df.to_csv(root_csv_path, index=False)
 
-    print(f"Summary for {project_config['name']}: {len(formatted)} Active | {len(delisted_entries)} Delisted")
+    nobroker_cnt = len([i for i in formatted if i.get("source") == "NoBroker"])
+    mb_cnt = len([i for i in formatted if i.get("source") == "MagicBricks"])
+
+    print(f"Summary for {project_config['name']}: {len(formatted)} Active (NoBroker: {nobroker_cnt}, MagicBricks: {mb_cnt}) | {len(delisted_entries)} Delisted")
     return output
 
 
@@ -453,7 +566,7 @@ def run_crawler():
         json.dump(summary, f, indent=2)
 
     print("\n============================================================")
-    print(" ALL PROJECTS CRAWLED SUCCESSFULLY!")
+    print(" ALL PROJECTS & SOURCES (NoBroker + MagicBricks) CRAWLED SUCCESSFULLY!")
     print("============================================================")
     for pkey, s in summary.items():
         print(f" - {s['name']}: {s['active_count']} Active units ({s['location']})")

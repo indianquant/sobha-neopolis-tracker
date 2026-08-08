@@ -69,3 +69,10 @@ test('Frontend Unit Tests — Multi-Project Switcher Bar markup present', () => 
   assert.ok(htmlContent.includes('data-project="sobha-windsor"'), 'Sobha Windsor tab button must exist');
   assert.ok(htmlContent.includes('data-project="sobha-sentosa"'), 'Sobha Sentosa tab button must exist');
 });
+
+test('Frontend Unit Tests — Multi-Source Platform Filter buttons & Badges present', () => {
+  assert.ok(htmlContent.includes('data-filter="source_nobroker"'), 'NoBroker filter button must exist');
+  assert.ok(htmlContent.includes('data-filter="source_magicbricks"'), 'MagicBricks filter button must exist');
+  assert.ok(htmlContent.includes('source-badge magicbricks'), 'MagicBricks badge CSS style must exist');
+  assert.ok(htmlContent.includes('source-badge nobroker'), 'NoBroker badge CSS style must exist');
+});

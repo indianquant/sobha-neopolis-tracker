@@ -8,17 +8,27 @@ from parse_nobroker_complete import (
     is_project_match,
     get_facing,
     verify_listing_alive,
+    parse_mb_price,
     PROJECTS
 )
 
 class TestSobhaCrawler(unittest.TestCase):
     
     def test_make_hash(self):
-        """Test SHA-256 hash generation for NoBroker property IDs."""
+        """Test SHA-256 hash generation for property IDs."""
         pid = "8aa99ecc98f9c9a10198f9fa7dae223a"
         expected_hash = hashlib.sha256(pid.encode()).hexdigest()[:8]
         self.assertEqual(make_hash(pid), expected_hash)
         self.assertEqual(len(make_hash(pid)), 8)
+
+    def test_parse_mb_price(self):
+        """Test MagicBricks price string conversion to integer."""
+        self.assertEqual(parse_mb_price("₹3.67 Cr"), 36700000)
+        self.assertEqual(parse_mb_price("₹ 2.45 Cr"), 24500000)
+        self.assertEqual(parse_mb_price("₹ 85 Lac"), 8500000)
+        self.assertEqual(parse_mb_price("₹ 95 Lakhs"), 9500000)
+        self.assertEqual(parse_mb_price("₹ 50 k"), 50000)
+        self.assertEqual(parse_mb_price(""), 0)
 
     def test_project_matchers(self):
         """Test project filter matchers for all 4 Sobha projects."""
@@ -46,7 +56,7 @@ class TestSobhaCrawler(unittest.TestCase):
         self.assertTrue(verify_listing_alive("https://invalid-url-domain.com/123"))
 
     def test_all_multi_project_data_files(self):
-        """Validate schema integrity for all 4 Sobha project JSON files in data/."""
+        """Validate schema integrity & multi-source support for all 4 project JSON files."""
         script_dir = os.path.dirname(__file__)
         data_dir = os.path.join(script_dir, "data")
         self.assertTrue(os.path.exists(data_dir), "data/ directory must exist")
@@ -73,6 +83,7 @@ class TestSobhaCrawler(unittest.TestCase):
             for item in data["active"]:
                 for key in required_keys:
                     self.assertIn(key, item, f"Missing key '{key}' in {pkey} item {item.get('hash')}")
+                self.assertIn(item["source"], ["NoBroker", "MagicBricks"], f"Invalid source '{item['source']}' in {pkey} item {item['hash']}")
                 self.assertGreater(item["price_raw"], 0, f"price_raw should be > 0 in {pkey} item {item['hash']}")
                 self.assertGreater(item["area"], 0, f"area should be > 0 in {pkey} item {item['hash']}")
 
