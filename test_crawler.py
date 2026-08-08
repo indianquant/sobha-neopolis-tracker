@@ -2,6 +2,7 @@ import unittest
 import json
 import os
 import hashlib
+from bs4 import BeautifulSoup
 from parse_nobroker_complete import (
     make_hash,
     is_sobha_neopolis,
@@ -9,6 +10,8 @@ from parse_nobroker_complete import (
     get_facing,
     verify_listing_alive,
     parse_mb_price,
+    normalize_property_area,
+    _parse_mb_card,
     PROJECTS
 )
 
@@ -29,6 +32,71 @@ class TestSobhaCrawler(unittest.TestCase):
         self.assertEqual(parse_mb_price("₹ 95 Lakhs"), 9500000)
         self.assertEqual(parse_mb_price("₹ 50 k"), 50000)
         self.assertEqual(parse_mb_price(""), 0)
+
+    def test_normalize_property_area_sba_passthrough(self):
+        """Known SBA values (from the whitelist) are returned unchanged."""
+        self.assertEqual(normalize_property_area("Any Flat", 1611), 1611)
+        self.assertEqual(normalize_property_area("Any Flat", 2481), 2481)
+        self.assertEqual(normalize_property_area("Any Flat", 1915), 1915)
+        self.assertEqual(normalize_property_area("Any Flat", 2150), 2150)
+
+    def test_normalize_property_area_carpet_to_sba_4bhk(self):
+        """4 BHK with carpet area < 2000 must be converted to SBA 2481.
+
+        Root cause of the reported bug: MagicBricks shows 1617 sqft as
+        Carpet Area for Sobha Neopolis 4 BHK; the actual SBA is 2481.
+        """
+        # Typical Sobha Neopolis 4BHK: ~1617 sqft carpet → 2481 sqft SBA
+        self.assertEqual(normalize_property_area("4 BHK Flat for Sale in Panathur, Bangalore", 1617), 2481)
+        # Any other 4BHK carpet area below 2000
+        self.assertEqual(normalize_property_area("4 BHK Flat", 1800), 2481)
+        # Actual SBA value for 4BHK is preserved
+        self.assertEqual(normalize_property_area("4 BHK Flat", 2481), 2481)
+
+    def test_normalize_property_area_carpet_to_sba_3bhk(self):
+        """3 BHK carpet area ranges map to the correct SBA tier."""
+        # Small carpet area → Neopolis 3BHK SBA (1611)
+        self.assertEqual(normalize_property_area("3 BHK Flat", 1100), 1611)
+        # Mid carpet area → Prestige Lavender size (1915)
+        self.assertEqual(normalize_property_area("3 BHK Flat", 1350), 1915)
+        # Known SBA value passes through unchanged
+        self.assertEqual(normalize_property_area("3 BHK Flat", 1611), 1611)
+
+    def test_parse_mb_card_super_area_no_conversion(self):
+        """Card labelled 'Super Area' should store the value as-is (no carpet conversion)."""
+        html = '''
+        <div class="mb-srp__card">
+          <h2 class="mb-srp__card--title">4 BHK Flat for Sale in Panathur, Bangalore</h2>
+          <div class="mb-srp__card__summary__list--item">
+            <span class="mb-srp__card__summary--label">Super Area</span>
+            <span class="mb-srp__card__summary--value">2481 sqft</span>
+          </div>
+          <span class="mb-srp__card__price--amount">₹4.10 Cr</span>
+          <a href="https://www.magicbricks.com/propertyDetails/test&id=abc123">Link</a>
+        </div>'''
+        c = BeautifulSoup(html, 'html.parser').select_one('.mb-srp__card')
+        result = _parse_mb_card(c, PROJECTS['sobha-neopolis'], 'https://www.magicbricks.com')
+        self.assertEqual(result['area'], 2481, "Super Area 2481 should be stored as-is")
+        self.assertEqual(result['source'], 'MagicBricks')
+        self.assertEqual(result['price_raw'], 41000000)
+
+    def test_parse_mb_card_carpet_area_converted(self):
+        """Card labelled 'Carpet Area' with 1617 sqft must convert to 2481 SBA for 4 BHK."""
+        html = '''
+        <div class="mb-srp__card">
+          <h2 class="mb-srp__card--title">4 BHK Flat for Sale in Panathur, Bangalore</h2>
+          <div class="mb-srp__card__summary__list--item">
+            <span class="mb-srp__card__summary--label">Carpet Area</span>
+            <span class="mb-srp__card__summary--value">1617 sqft</span>
+          </div>
+          <span class="mb-srp__card__price--amount">₹4.10 Cr</span>
+          <a href="https://www.magicbricks.com/propertyDetails/test&id=abc456">Link</a>
+        </div>'''
+        c = BeautifulSoup(html, 'html.parser').select_one('.mb-srp__card')
+        result = _parse_mb_card(c, PROJECTS['sobha-neopolis'], 'https://www.magicbricks.com')
+        self.assertEqual(result['area'], 2481,
+            "Carpet Area 1617 sqft for 4 BHK must be converted to SBA 2481")
+        self.assertEqual(result['source'], 'MagicBricks')
 
     def test_project_matchers(self):
         """Test project filter matchers for all 4 Sobha projects."""
@@ -86,6 +154,10 @@ class TestSobhaCrawler(unittest.TestCase):
                 self.assertIn(item["source"], ["NoBroker", "MagicBricks"], f"Invalid source '{item['source']}' in {pkey} item {item['hash']}")
                 self.assertGreater(item["price_raw"], 0, f"price_raw should be > 0 in {pkey} item {item['hash']}")
                 self.assertGreater(item["area"], 0, f"area should be > 0 in {pkey} item {item['hash']}")
+                # A 4 BHK must never be stored with Neopolis 3BHK area (1611) — catches carpet/SBA mismatch
+                if "4 bhk" in item["title"].lower() or "4bhk" in item["title"].lower():
+                    self.assertGreaterEqual(item["area"], 2000,
+                        f"4 BHK area {item['area']} sqft is suspiciously small (carpet area bug?) in {pkey} item {item['hash']}")
 
     def test_summary_json_file(self):
         """Validate all_projects_summary.json contains all 4 projects."""

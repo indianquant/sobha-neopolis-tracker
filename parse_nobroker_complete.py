@@ -150,6 +150,44 @@ def parse_mb_price(price_str):
     return int(val)
 
 
+def normalize_property_area(title, area_raw):
+    """
+    Normalizes listing area to Super Built-Up Area (SBA).
+    Handles cases where Carpet Area is specified on MagicBricks/NoBroker instead of SBA.
+    (e.g., 4 BHK with 1617 sqft Carpet Area -> 2481 sqft SBA).
+    """
+    if not area_raw:
+        return 1611
+
+    title_lower = (title or "").lower()
+
+    is_4bhk = "4 bhk" in title_lower or "4bhk" in title_lower or "4 bedroom" in title_lower
+    is_3bhk = "3 bhk" in title_lower or "3bhk" in title_lower or "3 bedroom" in title_lower
+    is_1bhk = "1 bhk" in title_lower or "1bhk" in title_lower or "1 bedroom" in title_lower
+
+    if area_raw in [660, 1611, 1915, 2150, 2481, 2488]:
+        return area_raw
+
+    if is_4bhk:
+        if area_raw < 2000:
+            return 2481
+        return area_raw
+
+    if is_3bhk:
+        if area_raw <= 1250:
+            return 1611
+        elif 1251 <= area_raw <= 1450:
+            return 1915
+        elif 1451 <= area_raw <= 1650 and area_raw != 1611:
+            return 2150
+        return area_raw
+
+    if is_1bhk and area_raw < 600:
+        return 660
+
+    return area_raw
+
+
 def is_project_match(prop, project_config):
     """Filter property against project keywords."""
     society = (prop.get("society") or "").lower()
@@ -213,65 +251,119 @@ def verify_listing_alive(detail_url):
     return True
 
 
-def crawl_magicbricks_listings(project_key, project_config):
-    """Crawl MagicBricks SRP pages for a specific Sobha project."""
+def _parse_mb_card(c, project_config, base_url):
+    """Parse a single MagicBricks card element into a property dict."""
+    card_html = str(c)
+    card_text = c.text.lower()
+
+    # --- Title ---
+    title_el = c.select_one('.mb-srp__card--title') or c.select_one('h2')
+    title = title_el.text.strip() if title_el else f"{project_config['name']} Flat"
+
+    # --- Price ---
+    price_el = c.select_one('.mb-srp__card__price--amount') or c.select_one('.mb-srp__card--price')
+    price_text = price_el.text.strip() if price_el else ''
+    raw_val = parse_mb_price(price_text)
+
+    # --- Area with type detection (Super Area vs Carpet Area) ---
+    sz = 1600
+    is_carpet = False
+    for si in c.select('.mb-srp__card__summary__list--item'):
+        lbl_el = si.select_one('.mb-srp__card__summary--label')
+        val_el = si.select_one('.mb-srp__card__summary--value')
+        if lbl_el and val_el:
+            lbl = lbl_el.text.strip().lower()
+            val_str = val_el.text.strip()
+            area_m = re.search(r'(\d+)', val_str.replace(',', ''))
+            if area_m and ('area' in lbl or 'sqft' in lbl):
+                sz = int(area_m.group(1))
+                is_carpet = 'carpet' in lbl
+                break  # first area field wins
+
+    # If carpet area found, convert to SBA using normalize helper
+    if is_carpet:
+        sz = normalize_property_area(title, sz)
+
+    # --- Floor ---
+    floor_match = re.search(r'floor\s*(\d+)', card_text)
+    fl = int(floor_match.group(1)) if floor_match else 0
+
+    # --- Link & ID ---
+    link_el = c.select_one('a[href*="/propertyDetails/"]') or c.select_one('a[href*="magicbricks"]') or c.select_one('a')
+    link = (link_el.get('href') or '') if link_el else ''
+    if link and not link.startswith('http'):
+        link = 'https://www.magicbricks.com' + link
+
+    # Derive stable ID from the full link (more reliable than card HTML pattern matching)
+    id_from_link = re.search(r'id=([a-zA-Z0-9]+)', link)
+    if id_from_link:
+        mb_id = f"mb_{id_from_link.group(1)}"
+    else:
+        # Fallback: hash of (title + price) for stability across pages
+        mb_id = f"mb_{hashlib.md5((title + price_text).encode()).hexdigest()[:8]}"
+
+    return {
+        "id": mb_id,
+        "title": title,
+        "floor": fl,
+        "total_floors": 18,
+        "area": sz,
+        "facing": "N/A",
+        "price_text": price_text if price_text.startswith("₹") else f"₹ {price_text}",
+        "price_raw": raw_val,
+        "link": link or base_url,
+        "source": "MagicBricks"
+    }
+
+
+def crawl_magicbricks_listings(project_key, project_config, max_pages=8):
+    """Crawl MagicBricks SRP pages (with pagination) for a specific Sobha project."""
+    seen_ids = set()
     mb_props = []
     urls = project_config.get("magicbricks_urls", [])
     keywords = project_config.get("keywords", [])
 
     print(f"\n--- MagicBricks Crawl for {project_config['name']} ---")
 
-    for url in urls:
-        try:
-            r = requests.get(url, headers=headers, timeout=15)
-            if r.status_code != 200:
-                continue
+    for base_url in urls:
+        consecutive_empty = 0
+        for page in range(1, max_pages + 1):
+            url = f"{base_url}&page={page}" if page > 1 else base_url
+            try:
+                r = requests.get(url, headers=headers, timeout=15)
+                if r.status_code != 200:
+                    break
 
-            soup = BeautifulSoup(r.text, 'html.parser')
-            cards = soup.select('.mb-srp__card')
+                soup = BeautifulSoup(r.text, 'html.parser')
+                cards = soup.select('.mb-srp__card')
+                if not cards:
+                    break
 
-            for idx, c in enumerate(cards):
-                card_text = c.text.lower()
-                if not any(k in card_text for k in keywords):
-                    continue
+                page_matches = 0
+                for c in cards:
+                    card_text = c.text.lower()
+                    if not any(k in card_text for k in keywords):
+                        continue
 
-                card_html = str(c)
-                id_match = re.search(r'&amp;id=([a-f0-9]+)|&id=([a-f0-9]+)|data-id=[\"\']([a-f0-9]+)[\"\']', card_html)
-                mb_id = (id_match.group(1) or id_match.group(2) or id_match.group(3)) if id_match else f"mb_{hashlib.md5(c.text.encode()).hexdigest()[:8]}"
+                    prop = _parse_mb_card(c, project_config, base_url)
+                    if prop["id"] not in seen_ids:
+                        seen_ids.add(prop["id"])
+                        mb_props.append(prop)
+                        page_matches += 1
 
-                title_el = c.select_one('.mb-srp__card--title') or c.select_one('h2')
-                title = title_el.text.strip() if title_el else f"{project_config['name']} Flat"
+                print(f"  [MB] {base_url[-50:]} page={page}: {len(cards)} cards, {page_matches} new Sobha matches")
 
-                price_el = c.select_one('.mb-srp__card__price--amount') or c.select_one('.mb-srp__card--price')
-                price_text = price_el.text.strip() if price_el else ''
-                raw_val = parse_mb_price(price_text)
+                if page_matches == 0:
+                    consecutive_empty += 1
+                    if consecutive_empty >= 2:
+                        # Two consecutive pages with zero matches – stop early
+                        break
+                else:
+                    consecutive_empty = 0
 
-                area_match = re.search(r'(\d+)\s*(sq-ft|sqft|sq ft)', card_html, re.IGNORECASE)
-                sz = int(area_match.group(1)) if area_match else 1600
-
-                floor_match = re.search(r'floor\s*(\d+)', card_text)
-                fl = int(floor_match.group(1)) if floor_match else 0
-
-                link_el = c.select_one('a[href*="/propertyDetails/"]') or c.select_one('a')
-                link = link_el.get('href') if link_el else ''
-                if link and not link.startswith('http'):
-                    link = 'https://www.magicbricks.com' + link
-
-                mb_props.append({
-                    "id": mb_id,
-                    "title": title,
-                    "floor": fl,
-                    "total_floors": 18,
-                    "area": sz,
-                    "facing": "N/A",
-                    "price_text": price_text if price_text.startswith("₹") else f"₹ {price_text}",
-                    "price_raw": raw_val,
-                    "link": link or url,
-                    "source": "MagicBricks"
-                })
-
-        except Exception as e:
-            print(f"  Error crawling MB URL {url}: {e}")
+            except Exception as e:
+                print(f"  Error crawling MB URL {url}: {e}")
+                break
 
     print(f"  MagicBricks unique properties found: {len(mb_props)}")
     return mb_props
@@ -365,7 +457,8 @@ def run_single_project_crawler(project_key, project_config):
         title = item.get("propertyTitle") or f"{project_config['name']} Flat"
         fl = int(item.get("floor") if item.get("floor") is not None else 0)
         tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
-        sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1600)
+        raw_sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1600)
+        sz = normalize_property_area(title, raw_sz)
         facing = get_facing(item)
 
         raw_val = int(item.get("price") or item.get("propertyCost") or 25000000)

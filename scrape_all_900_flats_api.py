@@ -150,6 +150,44 @@ def parse_mb_price(price_str):
     return int(val)
 
 
+def normalize_property_area(title, area_raw):
+    """
+    Normalizes listing area to Super Built-Up Area (SBA).
+    Handles cases where Carpet Area is specified on MagicBricks/NoBroker instead of SBA.
+    (e.g., 4 BHK with 1617 sqft Carpet Area -> 2481 sqft SBA).
+    """
+    if not area_raw:
+        return 1611
+
+    title_lower = (title or "").lower()
+
+    is_4bhk = "4 bhk" in title_lower or "4bhk" in title_lower or "4 bedroom" in title_lower
+    is_3bhk = "3 bhk" in title_lower or "3bhk" in title_lower or "3 bedroom" in title_lower
+    is_1bhk = "1 bhk" in title_lower or "1bhk" in title_lower or "1 bedroom" in title_lower
+
+    if area_raw in [660, 1611, 1915, 2150, 2481, 2488]:
+        return area_raw
+
+    if is_4bhk:
+        if area_raw < 2000:
+            return 2481
+        return area_raw
+
+    if is_3bhk:
+        if area_raw <= 1250:
+            return 1611
+        elif 1251 <= area_raw <= 1450:
+            return 1915
+        elif 1451 <= area_raw <= 1650 and area_raw != 1611:
+            return 2150
+        return area_raw
+
+    if is_1bhk and area_raw < 600:
+        return 660
+
+    return area_raw
+
+
 def is_project_match(prop, project_config):
     """Filter property against project keywords."""
     society = (prop.get("society") or "").lower()
@@ -365,7 +403,8 @@ def run_single_project_crawler(project_key, project_config):
         title = item.get("propertyTitle") or f"{project_config['name']} Flat"
         fl = int(item.get("floor") if item.get("floor") is not None else 0)
         tf = int(item.get("totalFloor") if item.get("totalFloor") is not None else 18)
-        sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1600)
+        raw_sz = int(item.get("propertySize") if item.get("propertySize") is not None else 1600)
+        sz = normalize_property_area(title, raw_sz)
         facing = get_facing(item)
 
         raw_val = int(item.get("price") or item.get("propertyCost") or 25000000)

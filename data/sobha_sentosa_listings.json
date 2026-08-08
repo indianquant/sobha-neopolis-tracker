@@ -3,7 +3,7 @@
   "project_name": "Sobha Sentosa",
   "location": "Panathur / Balagere, Bangalore",
   "last_updated": "2026-08-08",
-  "active_count": 32,
+  "active_count": 36,
   "delisted_count": 0,
   "new_count": 4,
   "active": [
@@ -15,7 +15,7 @@
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 0,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "West",
       "possession": "Jun 2026",
       "price": "\u20b9 2.1 Crores",
@@ -72,7 +72,7 @@
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 1,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "East",
       "possession": "Aug 2026",
       "price": "\u20b9 2.17 Crores",
@@ -91,7 +91,7 @@
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 4,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "East",
       "possession": "Jul 2026",
       "price": "\u20b9 1.95 Crores",
@@ -104,13 +104,13 @@
     },
     {
       "id": 6,
-      "hash": "8a159ae9",
+      "hash": "8910bed3",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat for Sale in Balagere, Bangalore",
       "floor": 4,
       "total_floors": 18,
-      "area": 1500,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Jun 2026",
       "price": "\u20b92.30 Cr",
@@ -123,6 +123,25 @@
     },
     {
       "id": 7,
+      "hash": "8a159ae9",
+      "project_key": "sobha-sentosa",
+      "project_name": "Sobha Sentosa",
+      "title": "3 BHK Flat for Sale in Balagere, Bangalore",
+      "floor": 4,
+      "total_floors": 18,
+      "area": 2150,
+      "facing": "N/A",
+      "possession": "Jun 2026",
+      "price": "\u20b92.30 Cr",
+      "price_raw": 23000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Balagere-in-Bangalore&id=4d423733363833343739",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-08-08",
+      "status": "active"
+    },
+    {
+      "id": 8,
       "hash": "82feffec",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -141,7 +160,7 @@
       "status": "active"
     },
     {
-      "id": 8,
+      "id": 9,
       "hash": "8c88c45e",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -160,7 +179,7 @@
       "status": "active"
     },
     {
-      "id": 9,
+      "id": 10,
       "hash": "125bdbfb",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -179,14 +198,14 @@
       "status": "active"
     },
     {
-      "id": 10,
-      "hash": "b75d14a0",
+      "id": 11,
+      "hash": "60bf4a71",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat for Sale in Balagere, Bangalore",
       "floor": 5,
       "total_floors": 18,
-      "area": 1400,
+      "area": 1915,
       "facing": "N/A",
       "possession": "Jun 2026",
       "price": "\u20b91.92 Cr",
@@ -198,14 +217,33 @@
       "status": "active"
     },
     {
-      "id": 11,
+      "id": 12,
+      "hash": "b75d14a0",
+      "project_key": "sobha-sentosa",
+      "project_name": "Sobha Sentosa",
+      "title": "3 BHK Flat for Sale in Balagere, Bangalore",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Jun 2026",
+      "price": "\u20b91.92 Cr",
+      "price_raw": 19200000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1607-Sq-ft-Multistorey-Apartment-FOR-Sale-Balagere-in-Bangalore&id=4d423736313431353037",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-08-08",
+      "status": "active"
+    },
+    {
+      "id": 13,
       "hash": "3c6c417b",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 5,
       "total_floors": 18,
-      "area": 1500,
+      "area": 2150,
       "facing": "East",
       "possession": "Jun 2026",
       "price": "\u20b9 1.98 Crores",
@@ -217,14 +255,14 @@
       "status": "active"
     },
     {
-      "id": 12,
+      "id": 14,
       "hash": "ecbdcf48",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Varthur",
       "floor": 5,
       "total_floors": 18,
-      "area": 1500,
+      "area": 2150,
       "facing": "Don'T Know",
       "possession": "Apr 2024",
       "price": "\u20b9 2.52 Crores",
@@ -236,7 +274,7 @@
       "status": "active"
     },
     {
-      "id": 13,
+      "id": 15,
       "hash": "19827e52",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -255,7 +293,7 @@
       "status": "active"
     },
     {
-      "id": 14,
+      "id": 16,
       "hash": "1de5b943",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -274,14 +312,14 @@
       "status": "active"
     },
     {
-      "id": 15,
+      "id": 17,
       "hash": "cd41f1c4",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 7,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "East",
       "possession": "Aug 2026",
       "price": "\u20b9 2.4 Crores",
@@ -293,7 +331,7 @@
       "status": "active"
     },
     {
-      "id": 16,
+      "id": 18,
       "hash": "7da68bd3",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -312,7 +350,7 @@
       "status": "active"
     },
     {
-      "id": 17,
+      "id": 19,
       "hash": "bce94e8b",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -331,14 +369,14 @@
       "status": "active"
     },
     {
-      "id": 18,
-      "hash": "10628a97",
+      "id": 20,
+      "hash": "e6e25b64",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat for Sale in Balagere, Bangalore",
       "floor": 9,
       "total_floors": 18,
-      "area": 1180,
+      "area": 1611,
       "facing": "N/A",
       "possession": "Jun 2026",
       "price": "\u20b92.62 Cr",
@@ -350,7 +388,26 @@
       "status": "active"
     },
     {
-      "id": 19,
+      "id": 21,
+      "hash": "10628a97",
+      "project_key": "sobha-sentosa",
+      "project_name": "Sobha Sentosa",
+      "title": "3 BHK Flat for Sale in Balagere, Bangalore",
+      "floor": 9,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "N/A",
+      "possession": "Jun 2026",
+      "price": "\u20b92.62 Cr",
+      "price_raw": 26200000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1801-Sq-ft-Multistorey-Apartment-FOR-Sale-Balagere-in-Bangalore&id=4d423833303632363433",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-08-08",
+      "status": "active"
+    },
+    {
+      "id": 22,
       "hash": "024f0662",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -369,14 +426,14 @@
       "status": "active"
     },
     {
-      "id": 20,
+      "id": 23,
       "hash": "d9241694",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 12,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "West",
       "possession": "Feb 2026",
       "price": "\u20b9 2.2 Crores",
@@ -388,7 +445,7 @@
       "status": "active"
     },
     {
-      "id": 21,
+      "id": 24,
       "hash": "a817d642",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -407,7 +464,7 @@
       "status": "active"
     },
     {
-      "id": 22,
+      "id": 25,
       "hash": "39421078",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -426,7 +483,7 @@
       "status": "active"
     },
     {
-      "id": 23,
+      "id": 26,
       "hash": "fb4a50b8",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -445,7 +502,7 @@
       "status": "active"
     },
     {
-      "id": 24,
+      "id": 27,
       "hash": "af17e527",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -464,7 +521,7 @@
       "status": "active"
     },
     {
-      "id": 25,
+      "id": 28,
       "hash": "a0f016db",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -483,14 +540,14 @@
       "status": "active"
     },
     {
-      "id": 26,
+      "id": 29,
       "hash": "2014d4e0",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Varthur",
       "floor": 16,
       "total_floors": 17,
-      "area": 1506,
+      "area": 2150,
       "facing": "East",
       "possession": "Aug 2026",
       "price": "\u20b9 2.35 Crores",
@@ -502,7 +559,7 @@
       "status": "active"
     },
     {
-      "id": 27,
+      "id": 30,
       "hash": "b510d055",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -521,7 +578,7 @@
       "status": "active"
     },
     {
-      "id": 28,
+      "id": 31,
       "hash": "d71b0f0a",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
@@ -540,14 +597,14 @@
       "status": "active"
     },
     {
-      "id": 29,
+      "id": 32,
       "hash": "b5ac01b4",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 17,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "North-West",
       "possession": "Mar 2026",
       "price": "\u20b9 1.99 Crores",
@@ -559,14 +616,14 @@
       "status": "active"
     },
     {
-      "id": 30,
-      "hash": "f894055f",
+      "id": 33,
+      "hash": "67b1a0fc",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat for Sale in Balagere, Bangalore",
       "floor": 17,
       "total_floors": 18,
-      "area": 1091,
+      "area": 1611,
       "facing": "N/A",
       "possession": "Jun 2026",
       "price": "\u20b92.05 Cr",
@@ -578,14 +635,33 @@
       "status": "active"
     },
     {
-      "id": 31,
+      "id": 34,
+      "hash": "f894055f",
+      "project_key": "sobha-sentosa",
+      "project_name": "Sobha Sentosa",
+      "title": "3 BHK Flat for Sale in Balagere, Bangalore",
+      "floor": 17,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "N/A",
+      "possession": "Jun 2026",
+      "price": "\u20b92.05 Cr",
+      "price_raw": 20500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Balagere-in-Bangalore&id=4d423832383136383231",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-08-08",
+      "status": "active"
+    },
+    {
+      "id": 35,
       "hash": "5451cbb3",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
       "title": "3 BHK Flat In Sobha Sentosa For Sale  In Balagere",
       "floor": 17,
       "total_floors": 17,
-      "area": 1507,
+      "area": 2150,
       "facing": "West",
       "possession": "Aug 2026",
       "price": "\u20b9 2.42 Crores",
@@ -597,7 +673,7 @@
       "status": "active"
     },
     {
-      "id": 32,
+      "id": 36,
       "hash": "d782f612",
       "project_key": "sobha-sentosa",
       "project_name": "Sobha Sentosa",
