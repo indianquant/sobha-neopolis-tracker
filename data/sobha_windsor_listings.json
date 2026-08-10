@@ -2,10 +2,10 @@
   "project_key": "sobha-windsor",
   "project_name": "Sobha Windsor",
   "location": "Whitefield, Bangalore",
-  "last_updated": "2026-08-08",
-  "active_count": 16,
+  "last_updated": "2026-08-10",
+  "active_count": 18,
   "delisted_count": 0,
-  "new_count": 3,
+  "new_count": 2,
   "active": [
     {
       "id": 1,
@@ -23,7 +23,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-sobha-windsor-bangalore/8aa99c319d47f5c7019d4867f1053815/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -42,7 +42,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9b96e9bdbee76019bdc70131a1e87/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -61,7 +61,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8a9fa98377ce5b830177cefb4ab44bfe/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -80,7 +80,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9a06d9bdbee2d019bdc7005521e3b/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -99,7 +99,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9b6899bdbee24019bdc701dea1fbb/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -118,7 +118,7 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8a9f968277ce5b670177cefd4cc54f09/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
@@ -137,11 +137,30 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8a9faa84971693ba0197170421c72ddf/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
       "id": 8,
+      "hash": "25596527",
+      "project_key": "sobha-windsor",
+      "project_name": "Sobha Windsor",
+      "title": "3 BHK Flat for Sale in Whitefield, Bangalore",
+      "floor": 1,
+      "total_floors": 18,
+      "area": 3132,
+      "facing": "N/A",
+      "possession": "Dec 2025",
+      "price": "\u20b95.91 Cr",
+      "price_raw": 59100000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-3132-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835343435383135",
+      "first_seen": "2026-08-10",
+      "last_seen": "2026-08-10",
+      "status": "active"
+    },
+    {
+      "id": 9,
       "hash": "a19ba936",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -156,11 +175,11 @@
       "source": "MagicBricks",
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1740-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835363136323531",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
-      "id": 9,
+      "id": 10,
       "hash": "ff726e96",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -179,7 +198,26 @@
       "status": "active"
     },
     {
-      "id": 10,
+      "id": 11,
+      "hash": "d07c3abe",
+      "project_key": "sobha-windsor",
+      "project_name": "Sobha Windsor",
+      "title": "4 BHK Flat for Sale in Whitefield, Bangalore",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 2204,
+      "facing": "N/A",
+      "possession": "Dec 2025",
+      "price": "\u20b93.89 Cr",
+      "price_raw": 38900000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2204-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423834363331333337",
+      "first_seen": "2026-08-10",
+      "last_seen": "2026-08-10",
+      "status": "active"
+    },
+    {
+      "id": 12,
       "hash": "5651c53f",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -194,11 +232,11 @@
       "source": "MagicBricks",
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1645-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835363136323235",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
-      "id": 11,
+      "id": 13,
       "hash": "9a1eba6c",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -217,7 +255,7 @@
       "status": "active"
     },
     {
-      "id": 12,
+      "id": 14,
       "hash": "e9c058a8",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -232,11 +270,11 @@
       "source": "MagicBricks",
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1785-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835363136323839",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
-      "id": 13,
+      "id": 15,
       "hash": "4a0e3028",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -255,7 +293,7 @@
       "status": "active"
     },
     {
-      "id": 14,
+      "id": 16,
       "hash": "4d68d29f",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -270,11 +308,11 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-sobha-windsor-bangalore/8aa9a85a9b489fbf019b492a1f5e0876/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
-      "id": 15,
+      "id": 17,
       "hash": "e9e1c510",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -289,11 +327,11 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8a9fc582827867ae0182787149d70381/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     },
     {
-      "id": 16,
+      "id": 18,
       "hash": "5f8d6f39",
       "project_key": "sobha-windsor",
       "project_name": "Sobha Windsor",
@@ -302,13 +340,13 @@
       "total_floors": 24,
       "area": 2250,
       "facing": "West",
-      "possession": "Apr 2026",
+      "possession": "Mar 2026",
       "price": "\u20b9 5.2 Crores",
       "price_raw": 52000000,
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-whitefield-bangalore/ff80818152f81ba60152f93da1f01925/detail",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-08-08",
+      "last_seen": "2026-08-10",
       "status": "active"
     }
   ],
