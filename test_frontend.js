@@ -76,3 +76,9 @@ test('Frontend Unit Tests — Multi-Source Platform Filter buttons & Badges pres
   assert.ok(htmlContent.includes('source-badge magicbricks'), 'MagicBricks badge CSS style must exist');
   assert.ok(htmlContent.includes('source-badge nobroker'), 'NoBroker badge CSS style must exist');
 });
+
+test('Frontend Unit Tests — Manual Category Reclassification UI & Persistence markup present', () => {
+  assert.ok(htmlContent.includes('id="override-notice-bar"'), 'override-notice-bar container must exist in index.html');
+  assert.ok(htmlContent.includes('class="area-override-select'), 'area-override-select dropdown markup must exist');
+  assert.ok(htmlContent.includes('sobha_category_overrides'), 'localStorage persistence key sobha_category_overrides must exist');
+});

@@ -273,6 +273,93 @@
       border-color: var(--white);
     }
 
+    /* Manual Classification Override Styles */
+    .override-notice-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(234, 179, 8, 0.1);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #fef08a;
+    }
+
+    .override-notice-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reset-all-btn {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .reset-all-btn:hover {
+      background: rgba(239, 68, 68, 0.3);
+      color: #ffffff;
+      border-color: #ef4444;
+    }
+
+    .area-cell-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .area-override-select {
+      background: #141416;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 3px 6px;
+      font-size: 11px;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .area-override-select:hover, .area-override-select:focus {
+      border-color: #38bdf8;
+      background: #1f1f23;
+      outline: none;
+    }
+
+    .area-override-select.overridden {
+      border-color: rgba(234, 179, 8, 0.7);
+      background: rgba(234, 179, 8, 0.18);
+      color: #fef08a;
+      font-weight: 600;
+    }
+
+    .reset-override-btn {
+      background: transparent;
+      border: none;
+      color: #ef4444;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: all 0.2s;
+    }
+
+    .reset-override-btn:hover {
+      background: rgba(239, 68, 68, 0.25);
+    }
+
     /* Minimalist Table */
     .table-wrapper {
       width: 100%;
@@ -1323,6 +1410,9 @@
       <!-- Rendered dynamically by JS -->
     </div>
 
+    <!-- Manual Classification Override Notice Bar -->
+    <div class="override-notice-bar" id="override-notice-bar"></div>
+
     <!-- Controls Bar -->
     <div class="controls">
       <div class="search-box">
@@ -1686,41 +1776,55 @@
             if (titleEl) titleEl.textContent = freshData.project_name || 'Sobha Neopolis';
             if (subEl) subEl.textContent = `${freshData.project_name || 'Sobha'} Inventory (${freshData.location || 'Bangalore'}), Accurate NoBroker Prices & Analytics`;
 
-            listings = freshData.active.map((item, idx) => ({
-              id: idx + 1,
-              hash: item.hash || '',
-              title: item.title,
-              floor: item.floor || 0,
-              total_floors: item.total_floors || 18,
-              area: parseInt(item.area) || 1611,
-              facing: item.facing || 'N/A',
-              possession: item.possession || 'Dec 2027',
-              price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
-              price_raw: item.price_raw || 24800000,
-              source: item.source || 'NoBroker',
-              link: item.link,
-              first_seen: item.first_seen || lastUpdated,
-              last_seen: item.last_seen || lastUpdated,
-              status: 'active'
-            }));
+            const savedOverrides = JSON.parse(localStorage.getItem('sobha_category_overrides') || '{}');
 
-            delistedListings = (freshData.delisted || []).map((item, idx) => ({
-              id: idx + 1,
-              hash: item.hash || '',
-              title: item.title,
-              floor: item.floor || 0,
-              total_floors: item.total_floors || 18,
-              area: parseInt(item.area) || 1611,
-              facing: item.facing || 'N/A',
-              possession: item.possession || 'Dec 2027',
-              price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
-              price_raw: item.price_raw || 24800000,
-              source: item.source || 'NoBroker',
-              link: item.link,
-              first_seen: item.first_seen || '',
-              last_seen: item.last_seen || '',
-              status: 'delisted'
-            }));
+            listings = freshData.active.map((item, idx) => {
+              const origArea = parseInt(item.area) || 1611;
+              const userArea = savedOverrides[item.hash] !== undefined ? parseInt(savedOverrides[item.hash]) : origArea;
+              return {
+                id: idx + 1,
+                hash: item.hash || '',
+                title: item.title,
+                floor: item.floor || 0,
+                total_floors: item.total_floors || 18,
+                area: userArea,
+                original_area: origArea,
+                is_overridden: savedOverrides[item.hash] !== undefined,
+                facing: item.facing || 'N/A',
+                possession: item.possession || 'Dec 2027',
+                price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
+                price_raw: item.price_raw || 24800000,
+                source: item.source || 'NoBroker',
+                link: item.link,
+                first_seen: item.first_seen || lastUpdated,
+                last_seen: item.last_seen || lastUpdated,
+                status: 'active'
+              };
+            });
+
+            delistedListings = (freshData.delisted || []).map((item, idx) => {
+              const origArea = parseInt(item.area) || 1611;
+              const userArea = savedOverrides[item.hash] !== undefined ? parseInt(savedOverrides[item.hash]) : origArea;
+              return {
+                id: idx + 1,
+                hash: item.hash || '',
+                title: item.title,
+                floor: item.floor || 0,
+                total_floors: item.total_floors || 18,
+                area: userArea,
+                original_area: origArea,
+                is_overridden: savedOverrides[item.hash] !== undefined,
+                facing: item.facing || 'N/A',
+                possession: item.possession || 'Dec 2027',
+                price_str: (item.price || '').startsWith('₹') ? item.price : '₹ ' + item.price,
+                price_raw: item.price_raw || 24800000,
+                source: item.source || 'NoBroker',
+                link: item.link,
+                first_seen: item.first_seen || '',
+                last_seen: item.last_seen || '',
+                status: 'delisted'
+              };
+            });
           }
         }
       } catch (e) {
@@ -2360,12 +2464,54 @@
       return result;
     }
 
+    function renderOverrideNoticeBar() {
+      const container = document.getElementById('override-notice-bar');
+      if (!container) return;
+
+      const savedOverrides = JSON.parse(localStorage.getItem('sobha_category_overrides') || '{}');
+      const count = Object.keys(savedOverrides).length;
+
+      if (count === 0) {
+        container.style.display = 'none';
+        container.innerHTML = '';
+        return;
+      }
+
+      container.style.display = 'flex';
+      container.innerHTML = `
+        <div class="override-notice-content">
+          <i class="fa-solid fa-pen-to-square" style="color: #eab308; font-size:14px;"></i>
+          <span><strong>${count} Listing${count > 1 ? 's' : ''} Manually Reclassified:</strong> Category metrics, averages, rates, &amp; cards dynamically adjusted.</span>
+        </div>
+        <button id="reset-all-overrides-btn" class="reset-all-btn">
+          <i class="fa-solid fa-rotate-left"></i> Reset All Overrides
+        </button>
+      `;
+
+      const resetAllBtn = document.getElementById('reset-all-overrides-btn');
+      if (resetAllBtn) {
+        resetAllBtn.addEventListener('click', () => {
+          localStorage.removeItem('sobha_category_overrides');
+          listings.forEach(l => {
+            l.area = l.original_area || l.area;
+            l.is_overridden = false;
+          });
+          delistedListings.forEach(l => {
+            l.area = l.original_area || l.area;
+            l.is_overridden = false;
+          });
+          renderTable();
+        });
+      }
+    }
+
     function renderTable() {
       const isDelistedOnly = activeFilters.has('delisted') && activeFilters.size === 1;
       const data = getFilteredAndSortedListings();
       const tbody = document.getElementById('table-body');
       const counter = document.getElementById('counter-text');
 
+      renderOverrideNoticeBar();
       renderPortfolioCard(data);
       renderCategoryAverages(data);
 
@@ -2392,7 +2538,6 @@
         const effArea = getEffectiveArea(item.area);
         const ratePerSqft = Math.round(item.price_raw / effArea);
         const isHigh = item.floor >= 10;
-        const displayCategory = getDisplayArea(item.area);
         const isNew = item.first_seen === lastUpdated && item.status === 'active';
         const rowClass = item.status === 'delisted' ? 'delisted' : '';
         const statusBadge = item.status === 'delisted'
@@ -2402,6 +2547,39 @@
         const sourceBadge = item.source === 'MagicBricks'
           ? '<span class="source-badge magicbricks"><i class="fa-solid fa-wand-magic-sparkles"></i> MagicBricks</span>'
           : '<span class="source-badge nobroker"><i class="fa-solid fa-house"></i> NoBroker</span>';
+
+        const areaOptions = [
+          { val: 660, label: '1 BHK (660 sqft)' },
+          { val: 1611, label: '3 BHK (1611 sqft)' },
+          { val: 1915, label: '3 BHK (1915 sqft)' },
+          { val: 2150, label: '3 BHK (2150 sqft)' },
+          { val: 2481, label: '4 BHK (2481 sqft)' }
+        ];
+
+        const isOverridden = item.is_overridden;
+        const currentCategory = getCategoryClass(item.area);
+
+        let optionHtml = areaOptions.map(opt => {
+          const isSelected = getCategoryClass(opt.val) === currentCategory || opt.val === item.area;
+          return `<option value="${opt.val}" ${isSelected ? 'selected' : ''}>${opt.label}</option>`;
+        }).join('');
+
+        if (!areaOptions.some(opt => opt.val === item.area)) {
+          optionHtml += `<option value="${item.area}" selected>Custom (${item.area} sqft)</option>`;
+        }
+
+        const areaCellHtml = `
+          <div class="area-cell-wrapper">
+            <select class="area-override-select ${isOverridden ? 'overridden' : ''}" data-hash="${item.hash}" title="Click to manually reclassify listing sqft">
+              ${optionHtml}
+            </select>
+            ${isOverridden ? `
+              <button class="reset-override-btn" data-hash="${item.hash}" title="Reset to original (${item.original_area} sqft)">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+            ` : ''}
+          </div>
+        `;
 
         return `
           <tr class="${rowClass}">
@@ -2413,7 +2591,7 @@
                 Floor ${item.floor} of ${item.total_floors}
               </span>
             </td>
-            <td>${displayCategory}</td>
+            <td>${areaCellHtml}</td>
             <td><span class="facing-badge"><i class="fa-solid fa-compass"></i> ${item.facing}</span></td>
             <td><span class="possession-badge"><i class="fa-regular fa-calendar"></i> ${item.possession}</span></td>
             <td class="price-cell">${item.price_str}</td>
@@ -2427,6 +2605,47 @@
           </tr>
         `;
       }).join('');
+
+      // Bind Area Override Select Dropdowns
+      tbody.querySelectorAll('.area-override-select').forEach(select => {
+        select.addEventListener('change', (e) => {
+          e.stopPropagation();
+          const hash = select.dataset.hash;
+          const newArea = parseInt(select.value);
+
+          const savedOverrides = JSON.parse(localStorage.getItem('sobha_category_overrides') || '{}');
+          savedOverrides[hash] = newArea;
+          localStorage.setItem('sobha_category_overrides', JSON.stringify(savedOverrides));
+
+          const targetItem = listings.find(l => l.hash === hash) || delistedListings.find(l => l.hash === hash);
+          if (targetItem) {
+            targetItem.area = newArea;
+            targetItem.is_overridden = true;
+          }
+
+          renderTable();
+        });
+      });
+
+      // Bind Reset Override Buttons
+      tbody.querySelectorAll('.reset-override-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const hash = btn.dataset.hash;
+
+          const savedOverrides = JSON.parse(localStorage.getItem('sobha_category_overrides') || '{}');
+          delete savedOverrides[hash];
+          localStorage.setItem('sobha_category_overrides', JSON.stringify(savedOverrides));
+
+          const targetItem = listings.find(l => l.hash === hash) || delistedListings.find(l => l.hash === hash);
+          if (targetItem) {
+            targetItem.area = targetItem.original_area || targetItem.area;
+            targetItem.is_overridden = false;
+          }
+
+          renderTable();
+        });
+      });
     }
 
     // ── Tab Switching ──────────────────────────────────────────────────
