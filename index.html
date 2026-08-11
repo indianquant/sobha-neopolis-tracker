@@ -1856,12 +1856,13 @@
       if (!container) return;
 
       // Purchase cost components:
-      const BASE_PRICE = 24500000;   // 2.45 Cr
-      const BROKERAGE = 500000;       // 5.00 Lacs
-      const BANK_MOTD = 100000;      // 1.00 Lac
-      const REGISTRY = 1650000;      // 16.50 Lacs
-      const INTERIOR = 1600000;      // 16.00 Lacs
-      const TOTAL_INVESTMENT = BASE_PRICE + BROKERAGE + BANK_MOTD + REGISTRY + INTERIOR; // 28,350,000 (2.835 Cr)
+      const BASE_PRICE = 24500000;             // 2.45 Cr
+      const BROKERAGE = 500000;                 // 5.00 Lacs
+      const BANK_MOTD = 100000;                // 1.00 Lac
+      const REGISTRY = 1650000;                // 16.50 Lacs
+      const INTERIOR = 1600000;                // 16.00 Lacs
+      const ASSIGNMENT_STAMP_DUTY = 108000;   // 1.08 Lacs
+      const TOTAL_INVESTMENT = BASE_PRICE + BROKERAGE + BANK_MOTD + REGISTRY + INTERIOR + ASSIGNMENT_STAMP_DUTY; // 28,458,000 (2.8458 Cr)
 
       // Calculate market average for 1611 sqft units from target listings pool
       const cat1611 = (targetListings || listings).filter(i => getCategoryClass(i.area) === '1611' && i.status !== 'delisted');
@@ -1902,7 +1903,7 @@
             </div>
             <button class="breakdown-toggle-btn" id="toggle-expense-btn">
               <i class="fa-solid fa-receipt"></i>
-              <span>Itemized Purchase Breakdown (₹ 2.835 Cr)</span>
+              <span>Itemized Purchase Breakdown (₹ 2.8458 Cr)</span>
               <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
             </button>
           </div>
@@ -1916,7 +1917,7 @@
 
             <div class="portfolio-stat-box">
               <span class="portfolio-stat-label">Total All-In Investment</span>
-              <div class="portfolio-stat-val">₹ 2.835 Cr</div>
+              <div class="portfolio-stat-val">₹ 2.8458 Cr</div>
               <div class="portfolio-stat-sub">Base + Reg + Interior + Fees</div>
             </div>
 
@@ -1966,14 +1967,19 @@
                   <td style="text-align:right; color:var(--muted);">₹ 5.00 Lacs</td>
                 </tr>
                 <tr>
-                  <td>5. Bank MOTD Fees</td>
+                  <td>5. Assignment Agreement Stamp Duty</td>
+                  <td style="text-align:right; font-weight:600;">₹ 1,08,000</td>
+                  <td style="text-align:right; color:var(--muted);">₹ 1.08 Lacs</td>
+                </tr>
+                <tr>
+                  <td>6. Bank MOTD Fees</td>
                   <td style="text-align:right; font-weight:600;">₹ 1,00,000</td>
                   <td style="text-align:right; color:var(--muted);">₹ 1.00 Lac</td>
                 </tr>
                 <tr class="total-row">
                   <td>TOTAL ALL-IN CAPITAL INVESTMENT</td>
-                  <td style="text-align:right;">₹ 2,83,50,000</td>
-                  <td style="text-align:right; color:#38bdf8;">₹ 2.835 Cr</td>
+                  <td style="text-align:right;">₹ 2,84,58,000</td>
+                  <td style="text-align:right; color:#38bdf8;">₹ 2.8458 Cr</td>
                 </tr>
               </tbody>
             </table>
