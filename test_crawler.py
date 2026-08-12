@@ -54,13 +54,21 @@ class TestSobhaCrawler(unittest.TestCase):
         self.assertEqual(normalize_property_area("4 BHK Flat", 2481), 2481)
 
     def test_normalize_property_area_carpet_to_sba_3bhk(self):
-        """3 BHK carpet area ranges map to the correct SBA tier."""
-        # Small carpet area → Neopolis 3BHK SBA (1611)
+        """3 BHK carpet area ranges (~0.65 carpet-to-SBA ratio) map to the correct SBA tier."""
+        # 1040 sqft carpet area (~1040 / 0.65 = 1600) -> Neopolis 3BHK Standard SBA (1611)
+        self.assertEqual(normalize_property_area("3 BHK Flat for Sale in Panathur, Bangalore", 1040), 1611)
         self.assertEqual(normalize_property_area("3 BHK Flat", 1100), 1611)
-        # Mid carpet area → Prestige Lavender size (1915)
-        self.assertEqual(normalize_property_area("3 BHK Flat", 1350), 1915)
-        # Known SBA value passes through unchanged
+
+        # 1240 sqft carpet area (~1240 / 0.65 = 1907) -> Neopolis 3BHK Luxury SBA (1915)
+        self.assertEqual(normalize_property_area("3 BHK Flat for Sale in Panathur, Bangalore", 1240), 1915)
+
+        # 1400 sqft carpet area (~1400 / 0.65 = 2153) -> Neopolis 3BHK Large SBA (2150)
+        self.assertEqual(normalize_property_area("3 BHK Flat for Sale in Panathur, Bangalore", 1400), 2150)
+
+        # Known SBA values pass through unchanged
         self.assertEqual(normalize_property_area("3 BHK Flat", 1611), 1611)
+        self.assertEqual(normalize_property_area("3 BHK Flat", 1915), 1915)
+        self.assertEqual(normalize_property_area("3 BHK Flat", 2150), 2150)
 
     def test_parse_mb_card_super_area_no_conversion(self):
         """Card labelled 'Super Area' should store the value as-is (no carpet conversion)."""
