@@ -195,7 +195,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "9a1eba6c": {
     "hash": "9a1eba6c",
@@ -213,7 +213,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "4a0e3028": {
     "hash": "4a0e3028",
@@ -231,7 +231,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a19ba936": {
     "hash": "a19ba936",
@@ -249,7 +249,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "5651c53f": {
     "hash": "5651c53f",
@@ -267,7 +267,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "e9c058a8": {
     "hash": "e9c058a8",
@@ -285,7 +285,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "25596527": {
     "hash": "25596527",
@@ -303,7 +303,7 @@
     "first_seen": "2026-08-10",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "d07c3abe": {
     "hash": "d07c3abe",
@@ -321,7 +321,7 @@
     "first_seen": "2026-08-10",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "16819924": {
     "hash": "16819924",
@@ -339,7 +339,7 @@
     "first_seen": "2026-08-12",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "d9f4acb0": {
     "hash": "d9f4acb0",
@@ -357,7 +357,7 @@
     "first_seen": "2026-08-12",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "55839f0f": {
     "hash": "55839f0f",
@@ -375,6 +375,6 @@
     "first_seen": "2026-08-12",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   }
 }

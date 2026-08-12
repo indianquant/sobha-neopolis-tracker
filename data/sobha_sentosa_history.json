@@ -50,8 +50,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8aa99da09e4dbe8e019e4e63ec6b4f3d/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-12"
   },
   "623834bb": {
     "hash": "623834bb",
@@ -212,8 +213,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9f8bc39043e90c0190443e6962272c/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-12"
   },
   "cd41f1c4": {
     "hash": "cd41f1c4",
@@ -302,8 +304,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9f8b438cdf1fb0018cdf5850972233/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-12"
   },
   "a817d642": {
     "hash": "a817d642",
@@ -500,8 +503,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9fa2849643793d019643d70116216d/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-12"
   },
   "8a159ae9": {
     "hash": "8a159ae9",
@@ -519,7 +523,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "b75d14a0": {
     "hash": "b75d14a0",
@@ -537,7 +541,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "10628a97": {
     "hash": "10628a97",
@@ -555,7 +559,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "f894055f": {
     "hash": "f894055f",
@@ -573,7 +577,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "8910bed3": {
     "hash": "8910bed3",

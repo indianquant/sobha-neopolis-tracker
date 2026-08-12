@@ -122,8 +122,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-chikkakannalli-bangalore/8a9f93849a3b3fde019a3b722a460e6b/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-12"
   },
   "360e21ac": {
     "hash": "360e21ac",
@@ -141,7 +142,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "00d7cf90": {
     "hash": "00d7cf90",
@@ -159,7 +160,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "bb7dee1f": {
     "hash": "bb7dee1f",
@@ -177,7 +178,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "7ebf7704": {
     "hash": "7ebf7704",
@@ -195,7 +196,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "2e7911ef": {
     "hash": "2e7911ef",
@@ -213,7 +214,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "6bc654f1": {
     "hash": "6bc654f1",
@@ -231,7 +232,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "e0400ad2": {
     "hash": "e0400ad2",
@@ -249,7 +250,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "58e7f65e": {
     "hash": "58e7f65e",
@@ -267,7 +268,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "468ebb60": {
     "hash": "468ebb60",
@@ -285,7 +286,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "20571a5b": {
     "hash": "20571a5b",
@@ -303,7 +304,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "7c60b8db": {
     "hash": "7c60b8db",
@@ -321,7 +322,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "6baa5311": {
     "hash": "6baa5311",
@@ -339,7 +340,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "531b6bca": {
     "hash": "531b6bca",
@@ -357,7 +358,7 @@
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "e83b268b": {
     "hash": "e83b268b",
@@ -753,7 +754,7 @@
     "first_seen": "2026-08-10",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "70ea75f0": {
     "hash": "70ea75f0",
@@ -771,7 +772,7 @@
     "first_seen": "2026-08-10",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "125ea95e": {
     "hash": "125ea95e",
@@ -789,7 +790,7 @@
     "first_seen": "2026-08-11",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "34c49d0e": {
     "hash": "34c49d0e",
@@ -807,6 +808,6 @@
     "first_seen": "2026-08-11",
     "last_seen": "2026-08-12",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   }
 }
