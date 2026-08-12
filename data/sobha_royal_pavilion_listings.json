@@ -3,9 +3,9 @@
   "project_name": "Sobha Royal Pavilion",
   "location": "Sarjapur Road, Bangalore",
   "last_updated": "2026-08-12",
-  "active_count": 47,
+  "active_count": 45,
   "delisted_count": 0,
-  "new_count": 2,
+  "new_count": 0,
   "active": [
     {
       "id": 1,
@@ -15,7 +15,7 @@
       "title": "2 BHK Flat In Sobha Royal Pavilion For Sale  In Chikkakannalli",
       "floor": 0,
       "total_floors": 18,
-      "area": 1350,
+      "area": 2150,
       "facing": "Don'T Know",
       "possession": "Jun 2026",
       "price": "\u20b9 2.7 Crores",
@@ -34,7 +34,7 @@
       "title": "2 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 0,
       "total_floors": 18,
-      "area": 1350,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b92.75 Cr",
@@ -72,9 +72,9 @@
       "title": "2 BHK Flat In Sobha Royal Pavilion For Sale  In Chikkakannalli",
       "floor": 1,
       "total_floors": 10,
-      "area": 1170,
+      "area": 1915,
       "facing": "North",
-      "possession": "Aug 2023",
+      "possession": "Sep 2023",
       "price": "\u20b9 2.83 Crores",
       "price_raw": 28300000,
       "source": "NoBroker",
@@ -110,7 +110,7 @@
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 1,
       "total_floors": 18,
-      "area": 1804,
+      "area": 1915,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b93.35 Cr",
@@ -167,7 +167,7 @@
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 2,
       "total_floors": 18,
-      "area": 1915,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b93.35 Cr",
@@ -207,7 +207,7 @@
       "total_floors": 18,
       "area": 2210,
       "facing": "East",
-      "possession": "Jun 2026",
+      "possession": "Jul 2026",
       "price": "\u20b9 4.37 Crores",
       "price_raw": 43700000,
       "source": "NoBroker",
@@ -357,7 +357,7 @@
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 5,
       "total_floors": 18,
-      "area": 1884,
+      "area": 1915,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b93.60 Cr",
@@ -452,7 +452,7 @@
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 9,
       "total_floors": 18,
-      "area": 1915,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b92.95 Cr",
@@ -528,7 +528,7 @@
       "title": "3 BHK Flat In Sobha Royal Pavilion, Chikkakannalli For Sale  In Chikkakannalli",
       "floor": 9,
       "total_floors": 18,
-      "area": 1884,
+      "area": 1915,
       "facing": "West",
       "possession": "Mar 2026",
       "price": "\u20b9 4.75 Crores",
@@ -541,25 +541,6 @@
     },
     {
       "id": 29,
-      "hash": "1e52b933",
-      "project_key": "sobha-royal-pavilion",
-      "project_name": "Sobha Royal Pavilion",
-      "title": "3 BHK Flat for Sale in Sarjapur Road, Bangalore",
-      "floor": 10,
-      "total_floors": 18,
-      "area": 2150,
-      "facing": "N/A",
-      "possession": "Ready / Dec 2025",
-      "price": "\u20b92.60 Cr",
-      "price_raw": 26000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Carmelaram-in-Bangalore&id=4d423731343737363633",
-      "first_seen": "2026-08-12",
-      "last_seen": "2026-08-12",
-      "status": "active"
-    },
-    {
-      "id": 30,
       "hash": "125ea95e",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -578,7 +559,7 @@
       "status": "active"
     },
     {
-      "id": 31,
+      "id": 30,
       "hash": "d63dbb9c",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -597,7 +578,7 @@
       "status": "active"
     },
     {
-      "id": 32,
+      "id": 31,
       "hash": "468ebb60",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -616,7 +597,7 @@
       "status": "active"
     },
     {
-      "id": 33,
+      "id": 32,
       "hash": "a6add04c",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -635,14 +616,14 @@
       "status": "active"
     },
     {
-      "id": 34,
+      "id": 33,
       "hash": "61495dd5",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 12,
       "total_floors": 18,
-      "area": 1915,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b93.04 Cr",
@@ -654,7 +635,7 @@
       "status": "active"
     },
     {
-      "id": 35,
+      "id": 34,
       "hash": "20571a5b",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -673,7 +654,7 @@
       "status": "active"
     },
     {
-      "id": 36,
+      "id": 35,
       "hash": "db78c5c6",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -692,7 +673,7 @@
       "status": "active"
     },
     {
-      "id": 37,
+      "id": 36,
       "hash": "9b6e57f7",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -711,7 +692,7 @@
       "status": "active"
     },
     {
-      "id": 38,
+      "id": 37,
       "hash": "a70276dd",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -730,7 +711,7 @@
       "status": "active"
     },
     {
-      "id": 39,
+      "id": 38,
       "hash": "7c60b8db",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -749,7 +730,7 @@
       "status": "active"
     },
     {
-      "id": 40,
+      "id": 39,
       "hash": "dde75d06",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -768,33 +749,14 @@
       "status": "active"
     },
     {
-      "id": 41,
-      "hash": "4dee46fe",
-      "project_key": "sobha-royal-pavilion",
-      "project_name": "Sobha Royal Pavilion",
-      "title": "3 BHK Flat for Sale in Sarjapur Road, Bangalore",
-      "floor": 16,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Ready / Dec 2025",
-      "price": "\u20b92.65 Cr",
-      "price_raw": 26500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-Road-in-Bangalore&id=4d423832333230383939",
-      "first_seen": "2026-08-12",
-      "last_seen": "2026-08-12",
-      "status": "active"
-    },
-    {
-      "id": 42,
+      "id": 40,
       "hash": "c1003ceb",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
       "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
       "floor": 16,
       "total_floors": 18,
-      "area": 1881,
+      "area": 1915,
       "facing": "N/A",
       "possession": "Ready / Dec 2025",
       "price": "\u20b92.90 Cr",
@@ -806,7 +768,7 @@
       "status": "active"
     },
     {
-      "id": 43,
+      "id": 41,
       "hash": "6baa5311",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -825,7 +787,7 @@
       "status": "active"
     },
     {
-      "id": 44,
+      "id": 42,
       "hash": "34c49d0e",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -844,7 +806,7 @@
       "status": "active"
     },
     {
-      "id": 45,
+      "id": 43,
       "hash": "fb373e01",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -863,7 +825,7 @@
       "status": "active"
     },
     {
-      "id": 46,
+      "id": 44,
       "hash": "63c395b9",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
@@ -882,7 +844,7 @@
       "status": "active"
     },
     {
-      "id": 47,
+      "id": 45,
       "hash": "531b6bca",
       "project_key": "sobha-royal-pavilion",
       "project_name": "Sobha Royal Pavilion",
