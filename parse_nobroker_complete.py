@@ -233,14 +233,30 @@ def verify_listing_alive(detail_url):
             html = r.text
             html_lower = html.lower()
 
-            if "rented-out-text" in html or "rentedoutproperty" in html or 'id="rentedout"' in html or "id='rentedout'" in html:
+            if r.status_code == 404 or "page not found" in html_lower or "/detail" not in r.url:
                 return False
-            if "has been inactive" in html_lower or "this property is inactive" in html_lower:
+
+            inactive_indicators = [
+                "overlay-rented-out",
+                "rented-out-text",
+                "rentedoutproperty",
+                'id="rentedout"',
+                "id='rentedout'",
+                "inactive-property-container",
+                "property inactive",
+                "this property is inactive",
+                "has been inactive",
+                "property no longer available"
+            ]
+
+            if any(ind in html_lower for ind in inactive_indicators):
                 return False
-            if "/detail" not in r.url:
+
+            soup = BeautifulSoup(html, "html.parser")
+            page_title = (soup.title.text if soup.title else "").strip().lower()
+            if page_title.endswith("-inactive") or page_title.endswith("inactive") or "-inactive" in page_title:
                 return False
-            if r.status_code == 404 or "page not found" in html_lower:
-                return False
+
             if len(html) < 50000:
                 return False
             return True
@@ -250,7 +266,8 @@ def verify_listing_alive(detail_url):
     elif "magicbricks.com" in detail_url:
         try:
             r = requests.get(detail_url, headers=headers, timeout=15, allow_redirects=True)
-            if r.status_code == 404 or "page not found" in r.text.lower() or "property no longer available" in r.text.lower():
+            html_lower = r.text.lower()
+            if r.status_code == 404 or "page not found" in html_lower or "property no longer available" in html_lower or "sold out" in html_lower:
                 return False
             return True
         except requests.RequestException:
@@ -528,24 +545,21 @@ def run_single_project_crawler(project_key, project_config):
 
     for uid in potentially_missing:
         entry = history.get(uid, {})
-        miss_count = entry.get("consecutive_misses", 0) + 1
-
-        if miss_count < MISS_THRESHOLD:
-            still_alive_but_missing.add(uid)
-            history[uid]["consecutive_misses"] = miss_count
-            history[uid]["last_seen"] = entry.get("last_seen", today)
-            continue
-
         link = entry.get("link", "")
-        is_alive = verify_listing_alive(link)
-        time.sleep(0.3)
 
-        if is_alive:
-            still_alive_but_missing.add(uid)
-            history[uid]["consecutive_misses"] = 0
-            history[uid]["last_seen"] = today
-        else:
+        # 1. Immediate URL Verification: Check if detail URL indicates property is inactive/sold
+        is_alive = verify_listing_alive(link)
+        time.sleep(0.2)
+
+        if not is_alive:
             confirmed_delisted.add(uid)
+        else:
+            miss_count = entry.get("consecutive_misses", 0) + 1
+            if miss_count >= MISS_THRESHOLD:
+                confirmed_delisted.add(uid)
+            else:
+                still_alive_but_missing.add(uid)
+                history[uid]["consecutive_misses"] = miss_count
 
     for uid in still_alive_but_missing:
         entry = history[uid]
@@ -580,6 +594,7 @@ def run_single_project_crawler(project_key, project_config):
         entry = history[uid].copy()
         entry["status"] = "delisted"
         entry["delisted_on"] = today
+        entry["consecutive_misses"] = 0
         delisted_entries.append(entry)
 
     for uid, entry in history.items():
@@ -588,6 +603,7 @@ def run_single_project_crawler(project_key, project_config):
 
     for item in formatted:
         uid = item["hash"]
+        prev_misses = history.get(uid, {}).get("consecutive_misses", 0)
         history[uid] = {
             "hash": uid,
             "project_key": project_key,
@@ -604,7 +620,7 @@ def run_single_project_crawler(project_key, project_config):
             "first_seen": item["first_seen"],
             "last_seen": today,
             "status": "active",
-            "consecutive_misses": 0,
+            "consecutive_misses": prev_misses if uid in potentially_missing else 0,
         }
 
     for uid in confirmed_delisted:

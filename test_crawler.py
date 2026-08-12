@@ -131,6 +131,11 @@ class TestSobhaCrawler(unittest.TestCase):
         self.assertTrue(verify_listing_alive(""))
         self.assertTrue(verify_listing_alive("https://invalid-url-domain.com/123"))
 
+    def test_verify_listing_alive_inactive_nobroker(self):
+        """Verify that NoBroker inactive/sold listings (with -Inactive title or overlay-rented-out class) are detected as dead."""
+        # The user's provided inactive URL must return False (delisted/inactive)
+        self.assertFalse(verify_listing_alive("https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8aa9b3249cf506e8019cf52284310a54/detail"))
+
     def test_all_multi_project_data_files(self):
         """Validate schema integrity & multi-source support for all 4 project JSON files."""
         script_dir = os.path.dirname(__file__)
