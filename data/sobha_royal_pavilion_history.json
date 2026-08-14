@@ -13,7 +13,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-chikkakannalli-bangalore/8aa9aef49d2569e9019d27a15c8d55ac/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -31,7 +31,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-chikkakannalli-bangalore/ff8081816937b26e01693819227e336c/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -49,7 +49,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-chikkakannalli-bangalore/ff8081816937ad0d0169381d20d23872/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -67,7 +67,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-chikkakannalli-bangalore/ff8081816937ad0d016938207a123a61/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -105,8 +105,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-chikkakannalli-bangalore/8a9f8b8499462dac0199466cb9910e46/detail",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-13",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-08-14"
   },
   "9b6e57f7": {
     "hash": "9b6e57f7",
@@ -388,7 +389,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/2-BHK-1350-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423635333431333039",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -406,7 +407,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423831363335373631",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -424,7 +425,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423738343336323335",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -442,7 +443,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423639343931323737",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -460,7 +461,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1490-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423732313036343931",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -478,7 +479,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1490-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423834343534313233",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -496,7 +497,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1490-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423835303931343037",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -515,13 +516,14 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1490-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423835313335363335",
     "first_seen": "2026-08-08",
     "last_seen": "2026-08-13",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-08-14"
   },
   "efc45e24": {
     "hash": "efc45e24",
     "project_key": "sobha-royal-pavilion",
-    "title": "3 BHK Flat for Sale in Sarjapur Road, Bangalore",
+    "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
     "floor": 5,
     "total_floors": 18,
     "area": 1915,
@@ -532,7 +534,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1884-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423730373336363039",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -550,7 +552,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423833343730333439",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -568,7 +570,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1738-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423832363131303831",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -586,7 +588,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423739353937303339",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -604,7 +606,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1884-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423735333534303437",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -622,7 +624,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423735333533373435",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -640,7 +642,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423835333833313331",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -658,7 +660,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423834343437393839",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -676,7 +678,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423835373636373733",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -694,7 +696,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423834323439373437",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -712,7 +714,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1881-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423832353233343335",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -730,14 +732,14 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423834343534323531",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
   "63c395b9": {
     "hash": "63c395b9",
     "project_key": "sobha-royal-pavilion",
-    "title": "3 BHK Flat for Sale in Sarjapur Road, Bangalore",
+    "title": "3 BHK Flat for Sale in Hadosiddapura, Bangalore",
     "floor": 17,
     "total_floors": 18,
     "area": 1611,
@@ -748,7 +750,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1507-Sq-ft-Multistorey-Apartment-FOR-Sale-Hadosiddapura-in-Bangalore&id=4d423833343731313239",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -842,7 +844,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1521-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-Road-in-Bangalore&id=4d423833323131313137",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -860,9 +862,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-in-Bangalore&id=4d423834363339313839",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "f12326ab": {
     "hash": "f12326ab",
@@ -878,9 +880,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1804-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-Road-in-Bangalore&id=4d423835333236383933",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "315087cd": {
     "hash": "315087cd",
@@ -896,9 +898,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-Road-in-Bangalore&id=4d423835373034313235",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "9ad3e1fb": {
     "hash": "9ad3e1fb",
@@ -914,8 +916,8 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-Sarjapur-Road-in-Bangalore&id=4d423733393431333635",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-13",
+    "last_seen": "2026-08-14",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   }
 }
