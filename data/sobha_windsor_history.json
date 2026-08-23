@@ -13,7 +13,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-sobha-windsor-bangalore/8aa99c319d47f5c7019d4867f1053815/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -31,7 +31,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9b96e9bdbee76019bdc70131a1e87/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -49,7 +49,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8a9fa98377ce5b830177cefb4ab44bfe/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -67,7 +67,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9a06d9bdbee2d019bdc7005521e3b/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -85,7 +85,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8aa9b6899bdbee24019bdc701dea1fbb/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -103,7 +103,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8a9f968277ce5b670177cefd4cc54f09/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -121,7 +121,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-whitefield-bangalore/8a9faa84971693ba0197170421c72ddf/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -139,7 +139,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-sobha-windsor-bangalore/8aa9a85a9b489fbf019b492a1f5e0876/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -157,7 +157,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-whitefield-bangalore/8a9fc582827867ae0182787149d70381/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -365,9 +365,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2207-Sq-ft-Multistorey-Apartment-FOR-Sale-Varthur-in-Bangalore&id=4d423731323536363339",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "55839f0f": {
     "hash": "55839f0f",
@@ -391,7 +391,7 @@
   "f8c34716": {
     "hash": "f8c34716",
     "project_key": "sobha-windsor",
-    "title": "3 BHK Flat for Sale in Whitefield, Bangalore",
+    "title": "3 BHK Flat for Sale in Immadihalli, Whitefield Bangalore",
     "floor": 0,
     "total_floors": 18,
     "area": 2150,
@@ -402,14 +402,14 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1628-Sq-ft-Multistorey-Apartment-FOR-Sale-Immadihalli-in-Bangalore&id=4d423835353535343837",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "54a04ffd": {
     "hash": "54a04ffd",
     "project_key": "sobha-windsor",
-    "title": "3 BHK Flat for Sale in Whitefield, Bangalore",
+    "title": "3 BHK Flat for Sale in Whitefield Bangalore",
     "floor": 1,
     "total_floors": 18,
     "area": 1915,
@@ -420,9 +420,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423832393033303235",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "65620335": {
     "hash": "65620335",
@@ -438,10 +438,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1991-Sq-ft-Builder-Floor-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835383435383235",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "9dddb468": {
     "hash": "9dddb468",
@@ -476,10 +475,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Builder-Floor-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835383435393737",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "65a9363f": {
     "hash": "65a9363f",
@@ -579,7 +577,7 @@
   "f8036a51": {
     "hash": "f8036a51",
     "project_key": "sobha-windsor",
-    "title": "4 BHK Flat for Sale in Whitefield Bangalore",
+    "title": "4 BHK Flat for Sale in Whitefield, Bangalore",
     "floor": 9,
     "total_floors": 18,
     "area": 2264,
@@ -590,10 +588,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2264-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393238393033",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "e88ec089": {
     "hash": "e88ec089",
@@ -609,10 +606,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/2-BHK-1288-Sq-ft-Multistorey-Apartment-FOR-Sale-Hagadur-in-Bangalore&id=4d423835363136303331",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-15",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-18"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "99582be1": {
     "hash": "99582be1",
@@ -628,10 +624,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1841-Sq-ft-Multistorey-Apartment-FOR-Sale-Hagadur-in-Bangalore&id=4d423835363136303739",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-15",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-18"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "bcabf846": {
     "hash": "bcabf846",
@@ -666,10 +661,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-Ambedkar-Nagar-Whitefield-in-Bangalore&id=4d423833373637343831",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-15",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-18"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "61a38393": {
     "hash": "61a38393",
@@ -685,10 +679,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2200-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423832393336363231",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "389c8894": {
     "hash": "389c8894",
@@ -704,10 +697,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2245-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393239313231",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-08-18",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-20"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "85686ddb": {
     "hash": "85686ddb",
@@ -742,15 +734,14 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393231393937",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "a4955402": {
     "hash": "a4955402",
     "project_key": "sobha-windsor",
-    "title": "4 BHK Flat for Sale in Whitefield, Bangalore",
+    "title": "4 BHK Flat for Sale in Whitefield Bangalore",
     "floor": 8,
     "total_floors": 18,
     "area": 2481,
@@ -761,15 +752,14 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2245-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835373531353433",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-20",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-21"
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "7e3541aa": {
     "hash": "7e3541aa",
     "project_key": "sobha-windsor",
-    "title": "3 BHK Flat for Sale in Whitefield, Bangalore",
+    "title": "3 BHK Flat for Sale in Channasandra Bangalore",
     "floor": 9,
     "total_floors": 18,
     "area": 1611,
@@ -780,9 +770,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1875-Sq-ft-Multistorey-Apartment-FOR-Sale-Channasandra-in-Bangalore&id=4d423833363630383437",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "8bd42904": {
     "hash": "8bd42904",
@@ -798,9 +788,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1550-Sq-ft-Multistorey-Apartment-FOR-Sale-Vijayanagara-in-Bangalore&id=4d423835393838313537",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "ca5e35f4": {
     "hash": "ca5e35f4",
@@ -854,9 +844,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423833363435323537",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "0be595df": {
     "hash": "0be595df",
@@ -872,9 +862,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1550-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373539",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "fd5619b2": {
     "hash": "fd5619b2",
@@ -890,9 +880,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1551-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393037",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "69001ceb": {
     "hash": "69001ceb",
@@ -908,9 +898,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1551-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373731",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "b88324db": {
     "hash": "b88324db",
@@ -926,9 +916,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1574-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373635",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "28c5c675": {
     "hash": "28c5c675",
@@ -944,9 +934,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1574-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393031",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "70d859b0": {
     "hash": "70d859b0",
@@ -962,9 +952,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393035",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "14ead9d8": {
     "hash": "14ead9d8",
@@ -980,9 +970,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373639",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a246709e": {
     "hash": "a246709e",
@@ -998,9 +988,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737383937",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "b57e0249": {
     "hash": "b57e0249",
@@ -1016,9 +1006,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1817-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373631",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a02e0881": {
     "hash": "a02e0881",
@@ -1034,9 +1024,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2027-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393133",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "555517e0": {
     "hash": "555517e0",
@@ -1052,9 +1042,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2027-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373737",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "1796d7cf": {
     "hash": "1796d7cf",
@@ -1070,9 +1060,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2207-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373633",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "f87a7022": {
     "hash": "f87a7022",
@@ -1088,9 +1078,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2207-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737383939",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "650039ee": {
     "hash": "650039ee",
@@ -1106,9 +1096,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373637",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a9f622e6": {
     "hash": "a9f622e6",
@@ -1124,9 +1114,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2232-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393033",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "ca29cb79": {
     "hash": "ca29cb79",
@@ -1142,9 +1132,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2244-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373537",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "07e820ac": {
     "hash": "07e820ac",
@@ -1160,9 +1150,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2244-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737383933",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "2da4ad63": {
     "hash": "2da4ad63",
@@ -1178,9 +1168,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2245-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393135",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "da2802f4": {
     "hash": "da2802f4",
@@ -1196,9 +1186,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2245-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373739",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "04cfa531": {
     "hash": "04cfa531",
@@ -1214,9 +1204,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2400-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393039",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "60e172ca": {
     "hash": "60e172ca",
@@ -1232,9 +1222,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2400-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373733",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "4d542959": {
     "hash": "4d542959",
@@ -1250,9 +1240,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2800-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737393131",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "657140bc": {
     "hash": "657140bc",
@@ -1268,9 +1258,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2800-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835393836373735",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "3193683f": {
     "hash": "3193683f",
@@ -1287,8 +1277,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1550-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303530363337",
     "first_seen": "2026-08-20",
     "last_seen": "2026-08-21",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-08-23"
   },
   "f194132d": {
     "hash": "f194132d",
@@ -1304,7 +1295,43 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1550-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423836303737383935",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-08-21",
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 1
+  },
+  "c84278a0": {
+    "hash": "c84278a0",
+    "project_key": "sobha-windsor",
+    "title": "3 BHK Flat for Sale in Panathur Bangalore",
+    "floor": 2,
+    "total_floors": 18,
+    "area": 2150,
+    "facing": "N/A",
+    "possession": "Dec 2025",
+    "price": "\u20b92.88 Cr",
+    "price_raw": 28800000,
+    "source": "MagicBricks",
+    "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1811-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836303933303133",
+    "first_seen": "2026-08-23",
+    "last_seen": "2026-08-23",
+    "status": "active",
+    "consecutive_misses": 0
+  },
+  "b09a6235": {
+    "hash": "b09a6235",
+    "project_key": "sobha-windsor",
+    "title": "2 BHK Flat for Sale in Whitefield, Bangalore",
+    "floor": 10,
+    "total_floors": 18,
+    "area": 1611,
+    "facing": "N/A",
+    "possession": "Dec 2025",
+    "price": "\u20b91.38 Cr",
+    "price_raw": 13799999,
+    "source": "MagicBricks",
+    "link": "https://www.magicbricks.com/propertyDetails/2-BHK-1225-Sq-ft-Multistorey-Apartment-FOR-Sale-whitefield-in-Bangalore&id=4d423835363136343031",
+    "first_seen": "2026-08-23",
+    "last_seen": "2026-08-23",
     "status": "active",
     "consecutive_misses": 0
   }

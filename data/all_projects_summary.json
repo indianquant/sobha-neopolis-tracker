@@ -2,29 +2,29 @@
   "sobha-neopolis": {
     "name": "Sobha Neopolis",
     "location": "Panathur, East Bangalore",
-    "active_count": 197,
-    "delisted_count": 87,
-    "last_updated": "2026-08-21"
+    "active_count": 204,
+    "delisted_count": 92,
+    "last_updated": "2026-08-23"
   },
   "sobha-royal-pavilion": {
     "name": "Sobha Royal Pavilion",
     "location": "Sarjapur Road, Bangalore",
-    "active_count": 33,
-    "delisted_count": 26,
-    "last_updated": "2026-08-21"
+    "active_count": 24,
+    "delisted_count": 35,
+    "last_updated": "2026-08-23"
   },
   "sobha-windsor": {
     "name": "Sobha Windsor",
     "location": "Whitefield, Bangalore",
-    "active_count": 40,
-    "delisted_count": 31,
-    "last_updated": "2026-08-21"
+    "active_count": 51,
+    "delisted_count": 32,
+    "last_updated": "2026-08-23"
   },
   "sobha-sentosa": {
     "name": "Sobha Sentosa",
     "location": "Panathur / Balagere, Bangalore",
-    "active_count": 31,
-    "delisted_count": 12,
-    "last_updated": "2026-08-21"
+    "active_count": 29,
+    "delisted_count": 14,
+    "last_updated": "2026-08-23"
   }
 }
