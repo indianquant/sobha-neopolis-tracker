@@ -107,14 +107,9 @@ class TestSobhaCrawler(unittest.TestCase):
         self.assertEqual(result['source'], 'MagicBricks')
 
     def test_project_matchers(self):
-        """Test project filter matchers for all 4 Sobha projects."""
+        """Test project filter matchers for Sobha Neopolis."""
         self.assertTrue(is_project_match({"society": "Sobha Neopolis"}, PROJECTS["sobha-neopolis"]))
-        self.assertTrue(is_project_match({"propertyTitle": "3 BHK In Sobha Royal Pavilion"}, PROJECTS["sobha-royal-pavilion"]))
-        self.assertTrue(is_project_match({"society": "Sobha Windsor"}, PROJECTS["sobha-windsor"]))
-        self.assertTrue(is_project_match({"propertyTitle": "2 BHK Flat In Sobha Sentosa"}, PROJECTS["sobha-sentosa"]))
-        
         self.assertFalse(is_project_match({"society": "Prestige Lavender Fields"}, PROJECTS["sobha-neopolis"]))
-        self.assertFalse(is_project_match({"propertyTitle": "Brigade Utopia"}, PROJECTS["sobha-royal-pavilion"]))
 
     def test_get_facing(self):
         """Test direction string normalization."""

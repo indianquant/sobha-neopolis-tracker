@@ -1317,37 +1317,7 @@
       </div>
     </header>
 
-    <!-- Project Switcher Bar -->
-    <div class="project-switcher-bar" id="project-switcher-bar">
-      <button class="project-tab-btn active" data-project="sobha-neopolis">
-        <i class="fa-solid fa-building-user"></i>
-        <div class="project-tab-info">
-          <span class="project-tab-name">Sobha Neopolis</span>
-          <span class="project-tab-loc">Panathur, East Bangalore</span>
-        </div>
-      </button>
-      <button class="project-tab-btn" data-project="sobha-royal-pavilion">
-        <i class="fa-solid fa-crown"></i>
-        <div class="project-tab-info">
-          <span class="project-tab-name">Sobha Royal Pavilion</span>
-          <span class="project-tab-loc">Sarjapur Road</span>
-        </div>
-      </button>
-      <button class="project-tab-btn" data-project="sobha-windsor">
-        <i class="fa-solid fa-chess-rook"></i>
-        <div class="project-tab-info">
-          <span class="project-tab-name">Sobha Windsor</span>
-          <span class="project-tab-loc">Whitefield</span>
-        </div>
-      </button>
-      <button class="project-tab-btn" data-project="sobha-sentosa">
-        <i class="fa-solid fa-umbrella-beach"></i>
-        <div class="project-tab-info">
-          <span class="project-tab-name">Sobha Sentosa</span>
-          <span class="project-tab-loc">Panathur / Balagere</span>
-        </div>
-      </button>
-    </div>
+
 
     <!-- Page Tab Nav -->
     <div class="page-tabs">
@@ -1746,10 +1716,7 @@
 
     let currentProjectKey = 'sobha-neopolis';
     const projectPaths = {
-      'sobha-neopolis': 'sobha_listings.json',
-      'sobha-royal-pavilion': 'data/sobha_royal_pavilion_listings.json',
-      'sobha-windsor': 'data/sobha_windsor_listings.json',
-      'sobha-sentosa': 'data/sobha_sentosa_listings.json'
+      'sobha-neopolis': 'sobha_listings.json'
     };
 
     async function fetchDataAndRender(projectKey = currentProjectKey) {
