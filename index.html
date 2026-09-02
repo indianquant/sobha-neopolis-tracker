@@ -1433,7 +1433,7 @@
 
     <div class="summary-bar">
       <span id="counter-text">Loading listings...</span>
-      <span id="sort-status-text">Hash = unique ID per listing · Persists across weekly runs</span>
+      <span id="sort-status-text">Hash = unique ID per listing · Persists across daily runs</span>
     </div>
 
     </div><!-- /tab-market -->
@@ -1983,33 +1983,23 @@
       `;
     }
 
-    // ── Countdown to next Friday 8 PM IST ──
-    function getNextFriday8pmIST() {
-      // IST is UTC+5:30. Friday 8 PM IST = Friday 14:30 UTC.
+    // ── Countdown to next Daily 8 PM IST ──
+    function getNextDaily8pmIST() {
+      // IST is UTC+5:30. 8 PM IST = 14:30 UTC.
       const now = new Date();
-      // Get current day of week in UTC
-      const utcDay = now.getUTCDay(); // 0=Sun, 5=Fri
       const utcHour = now.getUTCHours();
       const utcMin = now.getUTCMinutes();
 
-      // Find next Friday
-      let daysUntilFriday = (5 - utcDay + 7) % 7;
-
-      // If today is Friday, check if we've passed 14:30 UTC
-      if (daysUntilFriday === 0) {
-        if (utcHour > 14 || (utcHour === 14 && utcMin >= 30)) {
-          daysUntilFriday = 7; // Next week's Friday
-        }
+      const nextRun = new Date(now);
+      if (utcHour > 14 || (utcHour === 14 && utcMin >= 30)) {
+        nextRun.setUTCDate(now.getUTCDate() + 1);
       }
-
-      const nextFri = new Date(now);
-      nextFri.setUTCDate(now.getUTCDate() + daysUntilFriday);
-      nextFri.setUTCHours(14, 30, 0, 0);
-      return nextFri;
+      nextRun.setUTCHours(14, 30, 0, 0);
+      return nextRun;
     }
 
     function updateCountdown() {
-      const target = getNextFriday8pmIST();
+      const target = getNextDaily8pmIST();
       const now = new Date();
       let diff = target - now;
 
@@ -2500,7 +2490,7 @@
         tbody.innerHTML = `
           <tr>
             <td colspan="11" style="text-align:center; padding: 40px; color: var(--muted);">
-              ${isDelistedOnly ? 'No delisted listings yet. Check back after next weekly run!' : 'No matching listings found.'}
+              ${isDelistedOnly ? 'No delisted listings yet. Check back after next daily run!' : 'No matching listings found.'}
             </td>
           </tr>
         `;
