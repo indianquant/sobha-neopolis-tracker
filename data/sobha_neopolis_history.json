@@ -13,7 +13,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb209c284e4f019c28569bfb023b/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -31,7 +31,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9990e9f45cc0d019f46c73091259e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -49,7 +49,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a46a9bfe7e40019bff1a15fb4646/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -67,7 +67,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9af849f707ed7019f70f048ab2d46/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -85,7 +85,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9acc09e4dbe5e019e4e4beecc4265/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -103,7 +103,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fae8e977498db019774a9ed12054b/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -121,7 +121,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a1939c3c472f019c3cc250d2368f/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -158,7 +158,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8a98986f2ce001986f704bed1f63/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -176,7 +176,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bd609d7cf65b019d7d95fd3137cf/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -245,7 +245,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9be299c955359019c956c865c060c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -282,7 +282,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9fbd83953da68501953e0c9ad61875/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -319,7 +319,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ba2f9df58d8c019df5e9a6060648/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -338,8 +338,9 @@
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9db579e10d43f019e120da0fc16a3/detail",
     "first_seen": "2026-07-21",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "cb85e3ef": {
     "hash": "cb85e3ef",
@@ -355,7 +356,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9b82e216019b830bed8612b6/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -373,7 +374,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf8597ba22710197ba6c0b8224a9/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -391,7 +392,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8aa9b3249cf506e8019cf52284310a54/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -409,7 +410,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f91829f1c98b7019f1cbe95cb0889/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -427,7 +428,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b0349f553eb8019f5563ad461af0/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -445,7 +446,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa2839589c2bc019589e7cddf0cb5/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -463,7 +464,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9fb28499b39d240199b3ac3151047c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -481,7 +482,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c3779d7fc03c019d8028996223cd/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -518,7 +519,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa284998adb9b01998ae4b4a9021e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -536,7 +537,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c5ad9dd9d61c019dd9ed98eb050e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -554,7 +555,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb299ae95628019ae9a869962053/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -572,7 +573,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99f219c6b2f00019c6bb4fdda3b15/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -591,8 +592,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f878597b717640197b733ec6708ce/detail",
     "first_seen": "2026-07-21",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "cc949be7": {
     "hash": "cc949be7",
@@ -608,7 +610,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9afa29e489863019e4925861e4098/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -626,7 +628,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6959bf31afd019bf3ff198f61dc/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -644,7 +646,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b4899db59c2e019db62f051f265c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -662,7 +664,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9d1569dc50f16019dc520f3b104bb/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -699,7 +701,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6c69e4dbe9a019e4e2632822bdf/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -717,7 +719,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb7b9eb9e416019eb9fe351b071e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -735,7 +737,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8aa9d5ab9e016506019e017c930d0950/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -753,7 +755,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9fad84993d9bf601993e09bfce2a96/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -771,7 +773,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa98d099cdb475a019cdbc3fdf13f0f/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -789,7 +791,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8b8496c2e1150196c34285292aed/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -807,7 +809,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b4bf9f21c398019f22796ec262f4/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -825,7 +827,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9d9019e20420f019e205d499a0c95/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -843,7 +845,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b57d9cff011a019cffb12f254910/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -861,7 +863,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f82829dcde2ef019dce6147ef1c69/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -898,7 +900,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8a9f878c98a6892d0198a6ff071b1c9c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -935,10 +937,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f85c3915f940d01915fd30c9f1e89/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-04"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "0cbfa734": {
     "hash": "0cbfa734",
@@ -954,7 +955,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99ecc98f9c9a10198f9fa7dae223a/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -972,7 +973,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8b839681adaa019681e6a9a8118c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -990,7 +991,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c76f9ea10007019ea1cfa0776aa3/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1008,7 +1009,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9dab99e151eb2019e164fba7f044e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1026,7 +1027,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa990769f69d848019f6a7c810366de/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1044,7 +1045,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa9dcac9e34db03019e35a2450068fd/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1062,7 +1063,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fbb83959f0dc101959f26fccf0912/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1118,7 +1119,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8a5390d3abbe0190d3b4a8dd0204/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1155,7 +1156,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9d3ad9d9bb2a0019d9be0d1ce0e68/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1190,7 +1191,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa991869ef88c42019ef898c335046d/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1208,7 +1209,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9aebd9c66fa3a019c67b9c75531a7/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1226,7 +1227,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f9387976744930197676258d5052f/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1263,7 +1264,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa18495a516120195a52793e5043a/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1281,7 +1282,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bae69cf5e2c4019cf704f94406af/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1300,8 +1301,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6ec9ccbd40c019ccc2376a12e2b/detail",
     "first_seen": "2026-07-21",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "4a93a355": {
     "hash": "4a93a355",
@@ -1317,7 +1319,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99dac9d5c8fd2019d5de6c9aa2a6e/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1335,7 +1337,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a74c9e77cd39019e7906a6721961/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1353,7 +1355,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c4be9dca357d019dcaa8615322be/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1371,7 +1373,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa1839520e23801952106727e01a6/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1390,8 +1392,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6029f2c0ba2019f2c5a16602fc6/detail",
     "first_seen": "2026-07-21",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "8d545c72": {
     "hash": "8d545c72",
@@ -1441,7 +1444,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f95827854e57f0178552090e0170a/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1476,7 +1479,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8a9f158286e9fd9b0186ea31aa4e1c15/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1495,8 +1498,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b51b9f2767a2019f27a14d841ff9/detail",
     "first_seen": "2026-07-21",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "56b4fbc3": {
     "hash": "56b4fbc3",
@@ -1512,7 +1516,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bab69f7424c4019f7534e690442f/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1530,7 +1534,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ac409cd652c9019cd685a1871a14/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1548,7 +1552,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a9189b5ed554019b5f4b1b873031/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1566,7 +1570,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c7d89dbe689e019dbef430d435ad/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1584,7 +1588,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8a9f8586985eeaab01985f5340ae2cc8/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1602,7 +1606,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7c99f7424b3019f7538f88f4632/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1620,7 +1624,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c5859daa19f3019daa7b32de2931/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1638,7 +1642,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f9083963cfc1a01963d4d87cc2221/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1656,7 +1660,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-wpm8%2bcmw-silver-oaks-main-rd-balagere-bengaluru-karnataka-560087-india-bangalore/8a9fb88894dfb2750194e12bf13a7efd/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1674,7 +1678,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8a9faa8495f556900195f5688d520652/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1711,7 +1715,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8b4391d4bcb70191d51d40de106c/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1729,7 +1733,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf8897583f2e019759408e797121/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1747,7 +1751,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ace09c0a479c019c0ad5f05025dc/detail",
     "first_seen": "2026-07-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1820,7 +1824,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8984970866cc0197089c09c80953/detail",
     "first_seen": "2026-07-22",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1838,7 +1842,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6849fb1f0aa019fb32fa07f60d3/detail",
     "first_seen": "2026-07-30",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1856,7 +1860,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa98496ee390b0196ee62ce4c0b6e/detail",
     "first_seen": "2026-07-30",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1874,7 +1878,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa993dc9fb63c57019fb70322f903d0/detail",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1892,7 +1896,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b71d9fb63c6d019fb7053ab207f3/detail",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1910,7 +1914,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa982609fbc3dd5019fbc485d990585/detail",
     "first_seen": "2026-08-02",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1928,7 +1932,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8cd9fcbb0db019fcbf10cf82c9c/detail",
     "first_seen": "2026-08-05",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1946,7 +1950,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-balagere-bangalore/8a9f918496579d4c019657f94a1426d7/detail",
     "first_seen": "2026-08-05",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -1964,10 +1968,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a30f9fdb2d21019fdbc9fde9717f/detail",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-04"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "3809dff9": {
     "hash": "3809dff9",
@@ -2002,7 +2005,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7019e6f00ea019e7105dd4d5e37/detail",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2077,7 +2080,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834333339353533",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2190,9 +2193,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834323230313631",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "2de8175b": {
     "hash": "2de8175b",
@@ -2208,7 +2211,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834303236373937",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2226,10 +2229,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834313139373739",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "040a9701": {
     "hash": "040a9701",
@@ -2245,7 +2247,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423737363531363137",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2264,8 +2266,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393035333531",
     "first_seen": "2026-08-08",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "58f335f3": {
     "hash": "58f335f3",
@@ -2281,7 +2284,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/1-BHK-660-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834383134383733",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2299,9 +2302,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731343338393133",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a3241181": {
     "hash": "a3241181",
@@ -2336,7 +2339,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423735323939393331",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2392,7 +2395,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/1-BHK-660-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835383335303437",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2429,7 +2432,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831363634363735",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2447,7 +2450,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/1-BHK-660-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833383630343439",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2484,10 +2487,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834363839",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "4ddbae11": {
     "hash": "4ddbae11",
@@ -2541,7 +2543,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835313532333839",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2578,10 +2580,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835323238353433",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-08-31",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-02"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "7ba5a8e2": {
     "hash": "7ba5a8e2",
@@ -2616,7 +2617,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731343131343835",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2634,9 +2635,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832373232303439",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "291a0ab4": {
     "hash": "291a0ab4",
@@ -2652,7 +2653,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423831373333303137",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2670,7 +2671,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1612-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834333631333431",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2688,7 +2689,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423737373731323737",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2706,7 +2707,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835383837363833",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2725,8 +2726,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373631323237",
     "first_seen": "2026-08-08",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "874f5aa2": {
     "hash": "874f5aa2",
@@ -2742,9 +2744,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834363530303031",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "93a2caf2": {
     "hash": "93a2caf2",
@@ -2760,7 +2762,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835323833343733",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2798,8 +2800,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834303837373631",
     "first_seen": "2026-08-08",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "5b46a36e": {
     "hash": "5b46a36e",
@@ -2815,9 +2818,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835313238323733",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a430514a": {
     "hash": "a430514a",
@@ -2834,8 +2837,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834383030353639",
     "first_seen": "2026-08-08",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "c6d439f7": {
     "hash": "c6d439f7",
@@ -2851,7 +2855,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834333332393731",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2888,10 +2892,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831303635373431",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "194dcc07": {
     "hash": "194dcc07",
@@ -2964,7 +2967,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835383830323931",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -2982,9 +2985,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373338343131",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "c6fb9a5a": {
     "hash": "c6fb9a5a",
@@ -3038,9 +3041,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423737353239383635",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "a4c38331": {
     "hash": "a4c38331",
@@ -3056,7 +3059,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834333132353135",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3074,7 +3077,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835363933383735",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3130,7 +3133,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831373936313735",
     "first_seen": "2026-08-08",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3148,7 +3151,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393134323733",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3166,7 +3169,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393238383339",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3203,7 +3206,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1600-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423738383133393535",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3221,7 +3224,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835363435303633",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3239,7 +3242,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a4c49fea9735019feb1e6afd6b7d/detail",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3295,7 +3298,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423831353531383633",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3332,7 +3335,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9abdf9fe494f3019fe55e8c641c4c/detail",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3370,8 +3373,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393134343837",
     "first_seen": "2026-08-10",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "f7c6a709": {
     "hash": "f7c6a709",
@@ -3388,8 +3392,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8369fe570e2019fe652ec324516/detail",
     "first_seen": "2026-08-10",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "91726504": {
     "hash": "91726504",
@@ -3405,7 +3410,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832393530353639",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3415,7 +3420,7 @@
     "title": "3 BHK Flat for Sale in Panathur, Bangalore",
     "floor": 9,
     "total_floors": 18,
-    "area": 1915,
+    "area": 2150,
     "facing": "N/A",
     "possession": "Oct 2026",
     "price": "\u20b92.70 Cr",
@@ -3423,10 +3428,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835363439313239",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-12",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-13"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "e3289c67": {
     "hash": "e3289c67",
@@ -3442,9 +3446,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832333530313731",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "2b362458": {
     "hash": "2b362458",
@@ -3460,7 +3464,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835393134353033",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3478,9 +3482,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393435373935",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "01c043db": {
     "hash": "01c043db",
@@ -3496,7 +3500,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423738383731333831",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3533,7 +3537,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834363330363531",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3551,7 +3555,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834393236343035",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3569,10 +3573,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423739393031303831",
     "first_seen": "2026-08-10",
-    "last_seen": "2026-08-25",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-26"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "d045dd55": {
     "hash": "d045dd55",
@@ -3588,7 +3591,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393330343735",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3607,8 +3610,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832333532353531",
     "first_seen": "2026-08-11",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "4373d280": {
     "hash": "4373d280",
@@ -3643,7 +3647,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/2-BHK-1002-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423733343032373835",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3661,7 +3665,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423830303338353039",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3679,7 +3683,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6949fefbf0f019fefcb349f061d/detail",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3716,10 +3720,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393136333833",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-08-12",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-08-13"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "a05f7613": {
     "hash": "a05f7613",
@@ -3735,9 +3738,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373038313231",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "869cdf30": {
     "hash": "869cdf30",
@@ -3754,8 +3757,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834313230303833",
     "first_seen": "2026-08-11",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "85f8cac5": {
     "hash": "85f8cac5",
@@ -3771,9 +3775,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373937323737",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "e8b84aa9": {
     "hash": "e8b84aa9",
@@ -3789,7 +3793,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b3159fefbefd019fefd17eab0b71/detail",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3826,7 +3830,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373836393239",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -3863,10 +3867,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835313637323439",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "20245896": {
     "hash": "20245896",
@@ -3902,8 +3905,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834383233",
     "first_seen": "2026-08-12",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "cb618d69": {
     "hash": "cb618d69",
@@ -4014,7 +4018,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a0f99d821c79019d82c0c3c02754/detail",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4032,7 +4036,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834343531333731",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4050,7 +4054,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835353632383635",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4068,7 +4072,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393738383137",
     "first_seen": "2026-08-12",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4105,7 +4109,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393939313837",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4124,8 +4128,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9ffa0ad2019ffb23203a5753/detail",
     "first_seen": "2026-08-13",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "ab8dbc98": {
     "hash": "ab8dbc98",
@@ -4161,8 +4166,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-2215-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393832373037",
     "first_seen": "2026-08-13",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "7489bea5": {
     "hash": "7489bea5",
@@ -4178,10 +4184,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6179ff92eb1019ff9a480af47e2/detail",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-04"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "d6dacb98": {
     "hash": "d6dacb98",
@@ -4197,7 +4202,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423735343535363537",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4253,7 +4258,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423734323936353131",
     "first_seen": "2026-08-13",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4271,7 +4276,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/1-BHK-661-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836303130333037",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4327,7 +4332,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c09d9fff30d5019fffdc637b77d3/detail",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4345,9 +4350,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393135343031",
     "first_seen": "2026-08-14",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "4df16768": {
     "hash": "4df16768",
@@ -4439,7 +4444,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836303234363835",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4457,7 +4462,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb83a0037b5c01a00427c53d7654/detail",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4475,9 +4480,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363831383833",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "25bb1f7e": {
     "hash": "25bb1f7e",
@@ -4493,9 +4498,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835303333363533",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 1
+    "consecutive_misses": 0
   },
   "17ba1090": {
     "hash": "17ba1090",
@@ -4511,7 +4516,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a9b6a0037b6801a003bf3e962250/detail",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4529,7 +4534,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836303631313137",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4547,7 +4552,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5b3a0154ac501a015b1adfd3438/detail",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4584,7 +4589,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a724a00dc88301a00e3544cd397d/detail",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4603,8 +4608,9 @@
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa985dea00ea39801a00f7a42b72490/detail",
     "first_seen": "2026-08-18",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "bd0780b1": {
     "hash": "bd0780b1",
@@ -4620,7 +4626,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb84a00dc82c01a00e9d78fc12eb/detail",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4714,7 +4720,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832373534323433",
     "first_seen": "2026-08-18",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4732,7 +4738,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bd02a018f39101a01948aa453edb/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4750,7 +4756,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bd02a018f39101a01a096f4a5013/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4768,7 +4774,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b71ea01d3ab401a01db53305484c/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4805,7 +4811,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b164a01e16c001a01f25540348c6/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4823,7 +4829,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423836303739363835",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4841,7 +4847,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b164a01e16c001a01f45739e606d/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4859,7 +4865,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c484a01e16dc01a01e7eebcb4c8f/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4877,7 +4883,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/1-BHK-660-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836303630383131",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4895,7 +4901,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b164a01e16c001a01f2c74184dd4/detail",
     "first_seen": "2026-08-20",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4951,7 +4957,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ae9ba022620501a023186ed872f8/detail",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -4969,7 +4975,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa98ae6a022621101a022d7721340b4/detail",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5044,9 +5050,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836313037353935",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "633ffebd": {
     "hash": "633ffebd",
@@ -5062,7 +5068,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ae72a028639601a0292dd1eb278b/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5118,7 +5124,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a684a02d89da01a02d8ed5a6022d/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5136,7 +5142,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99539a029320f01a0299d9e415408/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5154,7 +5160,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b092a028638001a02877c6b20f4a/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5172,7 +5178,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bcdfa028638d01a0291ff73d1de5/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5209,7 +5215,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835323038323039",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5227,7 +5233,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b2999bcc7b14019bccc327f21070/detail",
     "first_seen": "2026-08-23",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5264,10 +5270,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423739393234313631",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "b82b8fee": {
     "hash": "b82b8fee",
@@ -5283,7 +5288,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b73fa038acf501a038f87a183623/detail",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5301,7 +5306,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b948a031d42e01a0325880774d24/detail",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5319,7 +5324,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bd1ba033425401a033e39e297773/detail",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5337,7 +5342,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bc8ca033423d01a033a8dc824e36/detail",
     "first_seen": "2026-08-25",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5355,7 +5360,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bd12a03c247901a03c74c8b72941/detail",
     "first_seen": "2026-08-26",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5373,7 +5378,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836313839383137",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5410,7 +5415,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831313430373539",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5428,7 +5433,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7e5a03ddf2701a03e5c37af570e/detail",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5446,7 +5451,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb38a04147d101a04219aa030de5/detail",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5465,8 +5470,9 @@
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8dda042232801a043293f743baa/detail",
     "first_seen": "2026-08-28",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-05"
   },
   "233f1323": {
     "hash": "233f1323",
@@ -5501,7 +5507,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831313430383239",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5519,7 +5525,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834343134303435",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5537,7 +5543,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836313934353937",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5555,7 +5561,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b9b3a03ddf2401a03e2bb5943649/detail",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5573,7 +5579,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9882da03c33b801a03ca20cd44386/detail",
     "first_seen": "2026-08-28",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5591,7 +5597,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a60ca056ccfe01a056d8064605b2/detail",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5609,7 +5615,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b279a056cd2c01a056d52f6502f7/detail",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5627,10 +5633,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1657-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836323238363835",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-03",
-    "status": "delisted",
-    "consecutive_misses": 1,
-    "delisted_on": "2026-09-03"
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "9052b038": {
     "hash": "9052b038",
@@ -5646,7 +5651,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a839a056cd0c01a057e05840524c/detail",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5664,7 +5669,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b647a05316c101a0532c36ed09af/detail",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5682,7 +5687,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423833383439373031",
     "first_seen": "2026-08-31",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5757,7 +5762,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8a9f88869982b8c5019982ee50e80124/detail",
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5775,7 +5780,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8d839a1576a5019a159f01b20a97/detail",
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5793,7 +5798,7 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1730-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836323636353639",
     "first_seen": "2026-09-02",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5811,9 +5816,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1612-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731393732313833",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "ad7f656f": {
     "hash": "ad7f656f",
@@ -5829,9 +5834,9 @@
     "source": "MagicBricks",
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835323238323037",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "ec8006f8": {
     "hash": "ec8006f8",
@@ -5848,8 +5853,9 @@
     "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393736343335",
     "first_seen": "2026-09-03",
     "last_seen": "2026-09-04",
-    "status": "active",
-    "consecutive_misses": 1
+    "status": "delisted",
+    "consecutive_misses": 1,
+    "delisted_on": "2026-09-05"
   },
   "352a100d": {
     "hash": "352a100d",
@@ -5865,7 +5871,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a91fa0670b5e01a0678de0956174/detail",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5883,7 +5889,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a452a018f38001a01a4b3d097f65/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5901,7 +5907,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bc8ca06c38e901a06c9e18974af3/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5919,7 +5925,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9be5ba06babfc01a06bc451dc0f79/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5937,7 +5943,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6d0a06bc84601a06c0f76903641/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5955,7 +5961,7 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7aea06b563001a06b7f02951bb6/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   },
@@ -5973,7 +5979,43 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9976b9d8a0d00019d8ab335784ef1/detail",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-09-04",
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
+  },
+  "f308a5f7": {
+    "hash": "f308a5f7",
+    "project_key": "sobha-neopolis",
+    "title": "1 BHK Flat for Sale in Panathur, Bangalore",
+    "floor": 5,
+    "total_floors": 18,
+    "area": 660,
+    "facing": "N/A",
+    "possession": "Oct 2026",
+    "price": "\u20b993 Lac",
+    "price_raw": 9300000,
+    "source": "MagicBricks",
+    "link": "https://www.magicbricks.com/propertyDetails/1-BHK-660-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731393732303831",
+    "first_seen": "2026-09-05",
+    "last_seen": "2026-09-05",
+    "status": "active",
+    "consecutive_misses": 0
+  },
+  "5b3b5142": {
+    "hash": "5b3b5142",
+    "project_key": "sobha-neopolis",
+    "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+    "floor": 5,
+    "total_floors": 18,
+    "area": 1611,
+    "facing": "N/A",
+    "possession": "Oct 2026",
+    "price": "\u20b92.53 Cr",
+    "price_raw": 25299999,
+    "source": "MagicBricks",
+    "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423830333137393139",
+    "first_seen": "2026-09-05",
+    "last_seen": "2026-09-05",
     "status": "active",
     "consecutive_misses": 0
   }
