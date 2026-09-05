@@ -3,8 +3,8 @@
   "project_name": "Sobha Neopolis",
   "location": "Panathur, East Bangalore",
   "last_updated": "2026-09-05",
-  "active_count": 215,
-  "delisted_count": 127,
+  "active_count": 213,
+  "delisted_count": 131,
   "new_count": 15,
   "active": [
     {
@@ -47,6 +47,25 @@
     },
     {
       "id": 3,
+      "hash": "fc712431",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 0,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.80 Cr",
+      "price_raw": 28000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836333233323239",
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 4,
       "hash": "f57fb777",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -65,7 +84,7 @@
       "status": "active"
     },
     {
-      "id": 4,
+      "id": 5,
       "hash": "34539a37",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -84,7 +103,7 @@
       "status": "active"
     },
     {
-      "id": 5,
+      "id": 6,
       "hash": "8ec82375",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -103,7 +122,7 @@
       "status": "active"
     },
     {
-      "id": 6,
+      "id": 7,
       "hash": "d045dd55",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -122,7 +141,7 @@
       "status": "active"
     },
     {
-      "id": 7,
+      "id": 8,
       "hash": "7622f7ea",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -141,7 +160,7 @@
       "status": "active"
     },
     {
-      "id": 8,
+      "id": 9,
       "hash": "5af62369",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -160,7 +179,7 @@
       "status": "active"
     },
     {
-      "id": 9,
+      "id": 10,
       "hash": "160142bd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -179,7 +198,7 @@
       "status": "active"
     },
     {
-      "id": 10,
+      "id": 11,
       "hash": "82277eac",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -198,7 +217,7 @@
       "status": "active"
     },
     {
-      "id": 11,
+      "id": 12,
       "hash": "3f91bb95",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -217,7 +236,7 @@
       "status": "active"
     },
     {
-      "id": 12,
+      "id": 13,
       "hash": "fef5e497",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -236,7 +255,7 @@
       "status": "active"
     },
     {
-      "id": 13,
+      "id": 14,
       "hash": "8c0ce5ad",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -255,7 +274,7 @@
       "status": "active"
     },
     {
-      "id": 14,
+      "id": 15,
       "hash": "c7c1a978",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -269,25 +288,6 @@
       "price_raw": 27500000,
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9af849f707ed7019f70f048ab2d46/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 15,
-      "hash": "77edd425",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
-      "floor": 1,
-      "total_floors": 18,
-      "area": 2150,
-      "facing": "West",
-      "possession": "Jun 2025",
-      "price": "\u20b9 3.5 Crores",
-      "price_raw": 35000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fae8e977498db019774a9ed12054b/detail",
       "first_seen": "2026-07-21",
       "last_seen": "2026-09-05",
       "status": "active"
@@ -636,25 +636,6 @@
     },
     {
       "id": 34,
-      "hash": "d17ad0f5",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "2 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 3,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "East",
-      "possession": "Sep 2026",
-      "price": "\u20b9 3.15 Crores",
-      "price_raw": 31500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a452a018f38001a01a4b3d097f65/detail",
-      "first_seen": "2026-09-04",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 35,
       "hash": "0d985e20",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -669,6 +650,25 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7019e6f00ea019e7105dd4d5e37/detail",
       "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 35,
+      "hash": "d17ad0f5",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "2 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 3,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "\u20b9 3.15 Crores",
+      "price_raw": 31500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a452a018f38001a01a4b3d097f65/detail",
+      "first_seen": "2026-09-04",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -693,6 +693,25 @@
     },
     {
       "id": 37,
+      "hash": "20e5f9b3",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 4,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 1.05 Crores",
+      "price_raw": 10500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9db579e10d43f019e120da0fc16a3/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 38,
       "hash": "cb85e3ef",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -711,7 +730,7 @@
       "status": "active"
     },
     {
-      "id": 38,
+      "id": 39,
       "hash": "8cd8233e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -726,25 +745,6 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf8597ba22710197ba6c0b8224a9/detail",
       "first_seen": "2026-07-21",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 39,
-      "hash": "62c695a8",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 4,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "East",
-      "possession": "Jul 2026",
-      "price": "\u20b9 2.75 Crores",
-      "price_raw": 27500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6849fb1f0aa019fb32fa07f60d3/detail",
-      "first_seen": "2026-07-30",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -769,6 +769,25 @@
     },
     {
       "id": 41,
+      "hash": "312c8d14",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 4,
+      "total_floors": 10,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Aug 2026",
+      "price": "\u20b9 3 Crores",
+      "price_raw": 30000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9ffa0ad2019ffb23203a5753/detail",
+      "first_seen": "2026-08-13",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 42,
       "hash": "0919f622",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -787,7 +806,7 @@
       "status": "active"
     },
     {
-      "id": 42,
+      "id": 43,
       "hash": "53cd66f7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -806,7 +825,7 @@
       "status": "active"
     },
     {
-      "id": 43,
+      "id": 44,
       "hash": "5506e2c3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -825,7 +844,7 @@
       "status": "active"
     },
     {
-      "id": 44,
+      "id": 45,
       "hash": "091ffdb0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -844,7 +863,7 @@
       "status": "active"
     },
     {
-      "id": 45,
+      "id": 46,
       "hash": "b0a66335",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -863,7 +882,7 @@
       "status": "active"
     },
     {
-      "id": 46,
+      "id": 47,
       "hash": "f308a5f7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -882,7 +901,7 @@
       "status": "active"
     },
     {
-      "id": 47,
+      "id": 48,
       "hash": "58f335f3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -901,7 +920,7 @@
       "status": "active"
     },
     {
-      "id": 48,
+      "id": 49,
       "hash": "659a30e0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -920,7 +939,7 @@
       "status": "active"
     },
     {
-      "id": 49,
+      "id": 50,
       "hash": "77a44344",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -939,7 +958,7 @@
       "status": "active"
     },
     {
-      "id": 50,
+      "id": 51,
       "hash": "a372aac7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -958,7 +977,7 @@
       "status": "active"
     },
     {
-      "id": 51,
+      "id": 52,
       "hash": "bec2392b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -977,45 +996,7 @@
       "status": "active"
     },
     {
-      "id": 52,
-      "hash": "b567ace5",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 5,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.24 Cr",
-      "price_raw": 22400000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731343338393133",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
       "id": 53,
-      "hash": "26b10f82",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 5,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.30 Cr",
-      "price_raw": 23000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1612-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731393732313833",
-      "first_seen": "2026-09-03",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 54,
       "hash": "5b3b5142",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1034,7 +1015,7 @@
       "status": "active"
     },
     {
-      "id": 55,
+      "id": 54,
       "hash": "d02de479",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1049,6 +1030,25 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c3779d7fc03c019d8028996223cd/detail",
       "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 55,
+      "hash": "277716ac",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "North",
+      "possession": "Dec 2026",
+      "price": "\u20b9 2.7 Crores",
+      "price_raw": 27000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf869753208e0197533fc1e20b6f/detail",
+      "first_seen": "2026-07-22",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -1168,6 +1168,25 @@
     },
     {
       "id": 62,
+      "hash": "38813d42",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "2 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 5,
+      "total_floors": 20,
+      "area": 2480,
+      "facing": "North",
+      "possession": "Aug 2026",
+      "price": "\u20b9 4 Crores",
+      "price_raw": 40000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa985dea00ea39801a00f7a42b72490/detail",
+      "first_seen": "2026-08-18",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 63,
       "hash": "167bf03d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1186,7 +1205,7 @@
       "status": "active"
     },
     {
-      "id": 63,
+      "id": 64,
       "hash": "d3dbc15d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1205,7 +1224,7 @@
       "status": "active"
     },
     {
-      "id": 64,
+      "id": 65,
       "hash": "bd0780b1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1224,7 +1243,7 @@
       "status": "active"
     },
     {
-      "id": 65,
+      "id": 66,
       "hash": "b72108bd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1240,25 +1259,6 @@
       "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a684a02d89da01a02d8ed5a6022d/detail",
       "first_seen": "2026-08-23",
       "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 66,
-      "hash": "ad7f656f",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 6,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.46 Cr",
-      "price_raw": 24600000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835323238323037",
-      "first_seen": "2026-09-03",
-      "last_seen": "2026-09-04",
       "status": "active"
     },
     {
@@ -1339,6 +1339,25 @@
     },
     {
       "id": 71,
+      "hash": "8e490f8a",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 6,
+      "total_floors": 15,
+      "area": 1915,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "\u20b9 3.6 Crores",
+      "price_raw": 36000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f878597b717640197b733ec6708ce/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 72,
       "hash": "cc949be7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1352,25 +1371,6 @@
       "price_raw": 39600000,
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9afa29e489863019e4925861e4098/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 72,
-      "hash": "cef99b67",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "4 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 6,
-      "total_floors": 20,
-      "area": 2481,
-      "facing": "North",
-      "possession": "Sep 2026",
-      "price": "\u20b9 4.05 Crores",
-      "price_raw": 40500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6959bf31afd019bf3ff198f61dc/detail",
       "first_seen": "2026-07-21",
       "last_seen": "2026-09-05",
       "status": "active"
@@ -1472,25 +1472,6 @@
     },
     {
       "id": 78,
-      "hash": "4a76cf11",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 7,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "East",
-      "possession": "Aug 2026",
-      "price": "\u20b9 3.5 Crores",
-      "price_raw": 35000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7e5a03ddf2701a03e5c37af570e/detail",
-      "first_seen": "2026-08-28",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 79,
       "hash": "bb60fd21",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1505,6 +1486,25 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa98ae6a022621101a022d7721340b4/detail",
       "first_seen": "2026-08-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 79,
+      "hash": "4a76cf11",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 7,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "East",
+      "possession": "Aug 2026",
+      "price": "\u20b9 3.5 Crores",
+      "price_raw": 35000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b7e5a03ddf2701a03e5c37af570e/detail",
+      "first_seen": "2026-08-28",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -1567,25 +1567,6 @@
     },
     {
       "id": 83,
-      "hash": "4cc46de7",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 8,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.98 Cr",
-      "price_raw": 29800000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363831383833",
-      "first_seen": "2026-08-15",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 84,
       "hash": "9d95b63a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1600,6 +1581,25 @@
       "source": "MagicBricks",
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834363839",
       "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 84,
+      "hash": "f7c6a709",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 8,
+      "total_floors": 14,
+      "area": 1915,
+      "facing": "North",
+      "possession": "Mar 2027",
+      "price": "\u20b9 3.15 Crores",
+      "price_raw": 31500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8369fe570e2019fe652ec324516/detail",
+      "first_seen": "2026-08-10",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -1681,6 +1681,25 @@
     },
     {
       "id": 89,
+      "hash": "b24dbd9d",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 9,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 1.1 Crores",
+      "price_raw": 11000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9921ca0707c6c01a0709efd071a73/detail",
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 90,
       "hash": "91726504",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1699,7 +1718,7 @@
       "status": "active"
     },
     {
-      "id": 90,
+      "id": 91,
       "hash": "5e22522e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1718,7 +1737,7 @@
       "status": "active"
     },
     {
-      "id": 91,
+      "id": 92,
       "hash": "95a31a69",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1737,7 +1756,7 @@
       "status": "active"
     },
     {
-      "id": 92,
+      "id": 93,
       "hash": "371a56f5",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1756,7 +1775,7 @@
       "status": "active"
     },
     {
-      "id": 93,
+      "id": 94,
       "hash": "4b33b2ba",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1775,7 +1794,7 @@
       "status": "active"
     },
     {
-      "id": 94,
+      "id": 95,
       "hash": "5ee9415b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1794,7 +1813,7 @@
       "status": "active"
     },
     {
-      "id": 95,
+      "id": 96,
       "hash": "41d6871c",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1813,7 +1832,7 @@
       "status": "active"
     },
     {
-      "id": 96,
+      "id": 97,
       "hash": "ff3c6ffc",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1832,7 +1851,26 @@
       "status": "active"
     },
     {
-      "id": 97,
+      "id": 98,
+      "hash": "0da692f9",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 10,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "East",
+      "possession": "Nov 2026",
+      "price": "\u20b9 12 Lacs",
+      "price_raw": 1200000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b9b5a0707c9901a0710aad7775ec/detail",
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 99,
       "hash": "7489bea5",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1851,7 +1889,7 @@
       "status": "active"
     },
     {
-      "id": 98,
+      "id": 100,
       "hash": "d836ea9a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1870,7 +1908,7 @@
       "status": "active"
     },
     {
-      "id": 99,
+      "id": 101,
       "hash": "6d61bed1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1889,7 +1927,7 @@
       "status": "active"
     },
     {
-      "id": 100,
+      "id": 102,
       "hash": "e3289c67",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1908,7 +1946,7 @@
       "status": "active"
     },
     {
-      "id": 101,
+      "id": 103,
       "hash": "90b24110",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1927,7 +1965,7 @@
       "status": "active"
     },
     {
-      "id": 102,
+      "id": 104,
       "hash": "b82b8fee",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1946,7 +1984,7 @@
       "status": "active"
     },
     {
-      "id": 103,
+      "id": 105,
       "hash": "25bb1f7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1965,7 +2003,7 @@
       "status": "active"
     },
     {
-      "id": 104,
+      "id": 106,
       "hash": "d6dacb98",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1984,7 +2022,7 @@
       "status": "active"
     },
     {
-      "id": 105,
+      "id": 107,
       "hash": "b8da3aca",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2003,7 +2041,7 @@
       "status": "active"
     },
     {
-      "id": 106,
+      "id": 108,
       "hash": "2b362458",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2022,7 +2060,7 @@
       "status": "active"
     },
     {
-      "id": 107,
+      "id": 109,
       "hash": "57f6b162",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2041,7 +2079,7 @@
       "status": "active"
     },
     {
-      "id": 108,
+      "id": 110,
       "hash": "cb137f05",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2060,7 +2098,7 @@
       "status": "active"
     },
     {
-      "id": 109,
+      "id": 111,
       "hash": "17ba1090",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2079,7 +2117,7 @@
       "status": "active"
     },
     {
-      "id": 110,
+      "id": 112,
       "hash": "0eeb3377",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2098,7 +2136,7 @@
       "status": "active"
     },
     {
-      "id": 111,
+      "id": 113,
       "hash": "aff60b7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2117,7 +2155,7 @@
       "status": "active"
     },
     {
-      "id": 112,
+      "id": 114,
       "hash": "c06dce9f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2136,7 +2174,7 @@
       "status": "active"
     },
     {
-      "id": 113,
+      "id": 115,
       "hash": "94bf0da7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2155,7 +2193,7 @@
       "status": "active"
     },
     {
-      "id": 114,
+      "id": 116,
       "hash": "bdd66f65",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2174,7 +2212,7 @@
       "status": "active"
     },
     {
-      "id": 115,
+      "id": 117,
       "hash": "da8b8232",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2193,7 +2231,7 @@
       "status": "active"
     },
     {
-      "id": 116,
+      "id": 118,
       "hash": "5cb693e8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2212,7 +2250,7 @@
       "status": "active"
     },
     {
-      "id": 117,
+      "id": 119,
       "hash": "149a11d9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2231,7 +2269,7 @@
       "status": "active"
     },
     {
-      "id": 118,
+      "id": 120,
       "hash": "0cbfa734",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2250,7 +2288,7 @@
       "status": "active"
     },
     {
-      "id": 119,
+      "id": 121,
       "hash": "e77be8e2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2269,26 +2307,7 @@
       "status": "active"
     },
     {
-      "id": 120,
-      "hash": "a23629aa",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 11,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.55 Cr",
-      "price_raw": 25500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832373232303439",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 121,
+      "id": 122,
       "hash": "eba12cf9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2307,7 +2326,7 @@
       "status": "active"
     },
     {
-      "id": 122,
+      "id": 123,
       "hash": "2c0718c4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2326,7 +2345,7 @@
       "status": "active"
     },
     {
-      "id": 123,
+      "id": 124,
       "hash": "291a0ab4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2341,25 +2360,6 @@
       "source": "MagicBricks",
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423831373333303137",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 124,
-      "hash": "58a3d502",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 11,
-      "total_floors": 23,
-      "area": 1611,
-      "facing": "East",
-      "possession": "Sep 2026",
-      "price": "\u20b9 3.2 Crores",
-      "price_raw": 32000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c484a01e16dc01a01e7eebcb4c8f/detail",
-      "first_seen": "2026-08-20",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -2384,6 +2384,25 @@
     },
     {
       "id": 126,
+      "hash": "58a3d502",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 11,
+      "total_floors": 23,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "\u20b9 3.2 Crores",
+      "price_raw": 32000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9c484a01e16dc01a01e7eebcb4c8f/detail",
+      "first_seen": "2026-08-20",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 127,
       "hash": "2bcf3875",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2402,7 +2421,7 @@
       "status": "active"
     },
     {
-      "id": 127,
+      "id": 128,
       "hash": "8149cc7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2421,7 +2440,7 @@
       "status": "active"
     },
     {
-      "id": 128,
+      "id": 129,
       "hash": "328a2f7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2440,7 +2459,26 @@
       "status": "active"
     },
     {
-      "id": 129,
+      "id": 130,
+      "hash": "83a009dd",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 12,
+      "total_floors": 14,
+      "area": 660,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 1.15 Crores",
+      "price_raw": 11500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8dda042232801a043293f743baa/detail",
+      "first_seen": "2026-08-28",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 131,
       "hash": "06b70ffc",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2459,7 +2497,7 @@
       "status": "active"
     },
     {
-      "id": 130,
+      "id": 132,
       "hash": "93d8726d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2478,26 +2516,7 @@
       "status": "active"
     },
     {
-      "id": 131,
-      "hash": "253c31ea",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.45 Cr",
-      "price_raw": 24500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393135343031",
-      "first_seen": "2026-08-14",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 132,
+      "id": 133,
       "hash": "59dd09a7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2516,7 +2535,7 @@
       "status": "active"
     },
     {
-      "id": 133,
+      "id": 134,
       "hash": "45315f61",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2535,7 +2554,7 @@
       "status": "active"
     },
     {
-      "id": 134,
+      "id": 135,
       "hash": "fc4aec2a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2554,7 +2573,7 @@
       "status": "active"
     },
     {
-      "id": 135,
+      "id": 136,
       "hash": "73b80d02",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2573,7 +2592,7 @@
       "status": "active"
     },
     {
-      "id": 136,
+      "id": 137,
       "hash": "a23bbeb0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2592,7 +2611,7 @@
       "status": "active"
     },
     {
-      "id": 137,
+      "id": 138,
       "hash": "1e732f08",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2611,7 +2630,7 @@
       "status": "active"
     },
     {
-      "id": 138,
+      "id": 139,
       "hash": "38ca7735",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2630,7 +2649,7 @@
       "status": "active"
     },
     {
-      "id": 139,
+      "id": 140,
       "hash": "5e6276b3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2649,7 +2668,7 @@
       "status": "active"
     },
     {
-      "id": 140,
+      "id": 141,
       "hash": "56cb9b92",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2665,25 +2684,6 @@
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835383837363833",
       "first_seen": "2026-08-08",
       "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 141,
-      "hash": "a0a1ae31",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.97 Cr",
-      "price_raw": 29700000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393435373935",
-      "first_seen": "2026-08-10",
-      "last_seen": "2026-09-04",
       "status": "active"
     },
     {
@@ -2764,25 +2764,6 @@
     },
     {
       "id": 146,
-      "hash": "a05f7613",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93 Cr",
-      "price_raw": 30000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373038313231",
-      "first_seen": "2026-08-11",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 147,
       "hash": "85fca73d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2801,7 +2782,7 @@
       "status": "active"
     },
     {
-      "id": 148,
+      "id": 147,
       "hash": "563f77a2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2820,7 +2801,7 @@
       "status": "active"
     },
     {
-      "id": 149,
+      "id": 148,
       "hash": "1af705cf",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2835,6 +2816,25 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f9387976744930197676258d5052f/detail",
       "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 149,
+      "hash": "df63e8b1",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 12,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 3.45 Crores",
+      "price_raw": 34500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a232a0707c5a01a07123cb990812/detail",
+      "first_seen": "2026-09-05",
       "last_seen": "2026-09-05",
       "status": "active"
     },
@@ -2973,6 +2973,25 @@
     },
     {
       "id": 157,
+      "hash": "4f59a61f",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 13,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "East",
+      "possession": "Dec 2027",
+      "price": "\u20b9 3.5 Crores",
+      "price_raw": 35000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6ec9ccbd40c019ccc2376a12e2b/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 158,
       "hash": "e74630ff",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2991,7 +3010,7 @@
       "status": "active"
     },
     {
-      "id": 158,
+      "id": 159,
       "hash": "01c043db",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3010,7 +3029,7 @@
       "status": "active"
     },
     {
-      "id": 159,
+      "id": 160,
       "hash": "9052b038",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3029,7 +3048,7 @@
       "status": "active"
     },
     {
-      "id": 160,
+      "id": 161,
       "hash": "4a93a355",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3045,25 +3064,6 @@
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa99dac9d5c8fd2019d5de6c9aa2a6e/detail",
       "first_seen": "2026-07-21",
       "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 161,
-      "hash": "3d43f52d",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 14,
-      "total_floors": 18,
-      "area": 2150,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.60 Cr",
-      "price_raw": 26000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836313037353935",
-      "first_seen": "2026-08-21",
-      "last_seen": "2026-09-04",
       "status": "active"
     },
     {
@@ -3106,25 +3106,6 @@
     },
     {
       "id": 164,
-      "hash": "5b46a36e",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 14,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.75 Cr",
-      "price_raw": 27500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835313238323733",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 165,
       "hash": "f89fda5f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3143,7 +3124,7 @@
       "status": "active"
     },
     {
-      "id": 166,
+      "id": 165,
       "hash": "fc030972",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3162,7 +3143,7 @@
       "status": "active"
     },
     {
-      "id": 167,
+      "id": 166,
       "hash": "f165ab4f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3181,7 +3162,7 @@
       "status": "active"
     },
     {
-      "id": 168,
+      "id": 167,
       "hash": "b51a268f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3200,7 +3181,7 @@
       "status": "active"
     },
     {
-      "id": 169,
+      "id": 168,
       "hash": "dff09843",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3214,6 +3195,25 @@
       "price_raw": 32500000,
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa1839520e23801952106727e01a6/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 169,
+      "hash": "24221ed9",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 14,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "North",
+      "possession": "Jul 2027",
+      "price": "\u20b9 3.4 Crores",
+      "price_raw": 34000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6029f2c0ba2019f2c5a16602fc6/detail",
       "first_seen": "2026-07-21",
       "last_seen": "2026-09-05",
       "status": "active"
@@ -3410,6 +3410,25 @@
     },
     {
       "id": 180,
+      "hash": "99e63132",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
+      "floor": 16,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "North-East",
+      "possession": "Nov 2026",
+      "price": "\u20b9 2.98 Crores",
+      "price_raw": 29800000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b51b9f2767a2019f27a14d841ff9/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 181,
       "hash": "dc6f6ac2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3428,7 +3447,7 @@
       "status": "active"
     },
     {
-      "id": 181,
+      "id": 182,
       "hash": "f7a2801f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3447,7 +3466,7 @@
       "status": "active"
     },
     {
-      "id": 182,
+      "id": 183,
       "hash": "9e40426c",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3466,7 +3485,7 @@
       "status": "active"
     },
     {
-      "id": 183,
+      "id": 184,
       "hash": "56b4fbc3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3485,7 +3504,7 @@
       "status": "active"
     },
     {
-      "id": 184,
+      "id": 185,
       "hash": "b1b2a85d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3501,25 +3520,6 @@
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834393236343035",
       "first_seen": "2026-08-10",
       "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 185,
-      "hash": "85f8cac5",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 16,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.20 Cr",
-      "price_raw": 32000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373937323737",
-      "first_seen": "2026-08-11",
-      "last_seen": "2026-09-04",
       "status": "active"
     },
     {
@@ -3695,6 +3695,25 @@
     },
     {
       "id": 195,
+      "hash": "9053d227",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 17,
+      "total_floors": 17,
+      "area": 1611,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 2.7 Crores",
+      "price_raw": 27000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a044a0707c7601a0710f2fd576b0/detail",
+      "first_seen": "2026-09-05",
+      "last_seen": "2026-09-05",
+      "status": "active"
+    },
+    {
+      "id": 196,
       "hash": "3bbad066",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3710,25 +3729,6 @@
       "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835383830323931",
       "first_seen": "2026-08-08",
       "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 196,
-      "hash": "f2beaa9d",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 17,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.15 Cr",
-      "price_raw": 31500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373338343131",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
       "status": "active"
     },
     {
@@ -3752,25 +3752,6 @@
     },
     {
       "id": 198,
-      "hash": "3790ea32",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 17,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.25 Cr",
-      "price_raw": 32500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423737353239383635",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
-      "status": "active"
-    },
-    {
-      "id": 199,
       "hash": "e65e75f8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3789,7 +3770,7 @@
       "status": "active"
     },
     {
-      "id": 200,
+      "id": 199,
       "hash": "8cbad571",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3808,7 +3789,7 @@
       "status": "active"
     },
     {
-      "id": 201,
+      "id": 200,
       "hash": "a4c38331",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3827,7 +3808,7 @@
       "status": "active"
     },
     {
-      "id": 202,
+      "id": 201,
       "hash": "65b9315b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3846,7 +3827,7 @@
       "status": "active"
     },
     {
-      "id": 203,
+      "id": 202,
       "hash": "58be0e3c",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3865,7 +3846,7 @@
       "status": "active"
     },
     {
-      "id": 204,
+      "id": 203,
       "hash": "242bb44b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3884,7 +3865,7 @@
       "status": "active"
     },
     {
-      "id": 205,
+      "id": 204,
       "hash": "839af49a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3903,26 +3884,7 @@
       "status": "active"
     },
     {
-      "id": 206,
-      "hash": "4f436f6b",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 18,
-      "total_floors": 18,
-      "area": 660,
-      "facing": "South-West",
-      "possession": "Mar 2026",
-      "price": "\u20b9 1.15 Crores",
-      "price_raw": 11500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8b4391d4bcb70191d51d40de106c/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-05",
-      "status": "active"
-    },
-    {
-      "id": 207,
+      "id": 205,
       "hash": "f01515f8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3941,7 +3903,7 @@
       "status": "active"
     },
     {
-      "id": 208,
+      "id": 206,
       "hash": "d4a455eb",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3960,7 +3922,7 @@
       "status": "active"
     },
     {
-      "id": 209,
+      "id": 207,
       "hash": "89b7d9d3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3979,7 +3941,7 @@
       "status": "active"
     },
     {
-      "id": 210,
+      "id": 208,
       "hash": "1a4ffca2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3998,7 +3960,7 @@
       "status": "active"
     },
     {
-      "id": 211,
+      "id": 209,
       "hash": "b50a7745",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -4017,7 +3979,7 @@
       "status": "active"
     },
     {
-      "id": 212,
+      "id": 210,
       "hash": "9710fd08",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -4036,7 +3998,7 @@
       "status": "active"
     },
     {
-      "id": 213,
+      "id": 211,
       "hash": "2943d324",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -4055,7 +4017,7 @@
       "status": "active"
     },
     {
-      "id": 214,
+      "id": 212,
       "hash": "b98e6136",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -4074,7 +4036,7 @@
       "status": "active"
     },
     {
-      "id": 215,
+      "id": 213,
       "hash": "74c3fc73",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -4095,362 +4057,324 @@
   ],
   "delisted": [
     {
-      "hash": "a430514a",
+      "hash": "77edd425",
       "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 14,
+      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
+      "floor": 1,
       "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.85 Cr",
-      "price_raw": 28500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834383030353639",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
+      "area": 2150,
+      "facing": "West",
+      "possession": "Jun 2025",
+      "price": "\u20b9 3.5 Crores",
+      "price_raw": 35000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fae8e977498db019774a9ed12054b/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
     },
     {
-      "hash": "99e63132",
+      "hash": "a05f7613",
       "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 12,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b93 Cr",
+      "price_raw": 30000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373038313231",
+      "first_seen": "2026-08-11",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "b567ace5",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.24 Cr",
+      "price_raw": 22400000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731343338393133",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "85f8cac5",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
       "floor": 16,
       "total_floors": 18,
       "area": 1915,
-      "facing": "North-East",
-      "possession": "Nov 2026",
-      "price": "\u20b9 2.98 Crores",
-      "price_raw": 29800000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b51b9f2767a2019f27a14d841ff9/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-04",
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b93.20 Cr",
+      "price_raw": 32000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373937323737",
+      "first_seen": "2026-08-11",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
     },
     {
-      "hash": "fdedf91d",
+      "hash": "26b10f82",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 5,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.30 Cr",
+      "price_raw": 23000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1612-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423731393732313833",
+      "first_seen": "2026-09-03",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "4cc46de7",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 8,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.98 Cr",
+      "price_raw": 29800000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363831383833",
+      "first_seen": "2026-08-15",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "62c695a8",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
       "floor": 4,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Jul 2026",
+      "price": "\u20b9 2.75 Crores",
+      "price_raw": 27500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6849fb1f0aa019fb32fa07f60d3/detail",
+      "first_seen": "2026-07-30",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "4f436f6b",
+      "project_key": "sobha-neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 18,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "South-West",
+      "possession": "Mar 2026",
+      "price": "\u20b9 1.15 Crores",
+      "price_raw": 11500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f8b4391d4bcb70191d51d40de106c/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "253c31ea",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 12,
       "total_floors": 18,
       "area": 1611,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b92.80 Cr",
-      "price_raw": 28000000,
+      "price": "\u20b92.45 Cr",
+      "price_raw": 24500000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393035333531",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393135343031",
+      "first_seen": "2026-08-14",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
     },
     {
-      "hash": "38813d42",
-      "project_key": "sobha-neopolis",
-      "title": "2 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 5,
-      "total_floors": 20,
-      "area": 2480,
-      "facing": "North",
-      "possession": "Aug 2026",
-      "price": "\u20b9 4 Crores",
-      "price_raw": 40000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa985dea00ea39801a00f7a42b72490/detail",
-      "first_seen": "2026-08-18",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "313c9e74",
+      "hash": "5b46a36e",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
       "floor": 14,
       "total_floors": 18,
-      "area": 1611,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.75 Cr",
+      "price_raw": 27500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835313238323733",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "3790ea32",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 17,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b93.25 Cr",
+      "price_raw": 32500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423737353239383635",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "a0a1ae31",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 12,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.97 Cr",
+      "price_raw": 29700000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393435373935",
+      "first_seen": "2026-08-10",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "3d43f52d",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 14,
+      "total_floors": 18,
+      "area": 2150,
       "facing": "N/A",
       "possession": "Oct 2026",
       "price": "\u20b92.60 Cr",
       "price_raw": 26000000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834303837373631",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836313037353935",
+      "first_seen": "2026-08-21",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
     },
     {
-      "hash": "869cdf30",
-      "project_key": "sobha-neopolis",
-      "title": "4 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 15,
-      "total_floors": 18,
-      "area": 2481,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.90 Cr",
-      "price_raw": 39000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834313230303833",
-      "first_seen": "2026-08-11",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "0669c405",
+      "hash": "f2beaa9d",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 8,
+      "floor": 17,
       "total_floors": 18,
       "area": 1915,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b92.98 Cr",
-      "price_raw": 29800000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834383233",
-      "first_seen": "2026-08-12",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "4f59a61f",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 13,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "East",
-      "possession": "Dec 2027",
-      "price": "\u20b9 3.5 Crores",
-      "price_raw": 35000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6ec9ccbd40c019ccc2376a12e2b/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "f7c6a709",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 8,
-      "total_floors": 14,
-      "area": 1915,
-      "facing": "North",
-      "possession": "Mar 2027",
-      "price": "\u20b9 3.15 Crores",
+      "price": "\u20b93.15 Cr",
       "price_raw": 31500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8369fe570e2019fe652ec324516/detail",
-      "first_seen": "2026-08-10",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "8e490f8a",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 6,
-      "total_floors": 15,
-      "area": 1915,
-      "facing": "East",
-      "possession": "Sep 2026",
-      "price": "\u20b9 3.6 Crores",
-      "price_raw": 36000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f878597b717640197b733ec6708ce/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "269ddde3",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 8,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.50 Cr",
-      "price_raw": 25000000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393134343837",
-      "first_seen": "2026-08-10",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "f40904e0",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 3,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.52 Cr",
-      "price_raw": 25200000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832333532353531",
-      "first_seen": "2026-08-11",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "ec8006f8",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 9,
-      "total_floors": 18,
-      "area": 2150,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.65 Cr",
-      "price_raw": 26500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393736343335",
-      "first_seen": "2026-09-03",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "26e128f0",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.98 Cr",
-      "price_raw": 29800000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373631323237",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373338343131",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-09-04",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
     },
     {
-      "hash": "83a009dd",
-      "project_key": "sobha-neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 12,
-      "total_floors": 14,
-      "area": 660,
-      "facing": "West",
-      "possession": "Sep 2026",
-      "price": "\u20b9 1.15 Crores",
-      "price_raw": 11500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8dda042232801a043293f743baa/detail",
-      "first_seen": "2026-08-28",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "ec2cbd12",
+      "hash": "a23629aa",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 5,
+      "floor": 11,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.55 Cr",
+      "price_raw": 25500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832373232303439",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "cef99b67",
+      "project_key": "sobha-neopolis",
+      "title": "4 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 6,
+      "total_floors": 20,
+      "area": 2481,
+      "facing": "North",
+      "possession": "Sep 2026",
+      "price": "\u20b9 4.05 Crores",
+      "price_raw": 40500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6959bf31afd019bf3ff198f61dc/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-05",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "ad7f656f",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 6,
       "total_floors": 18,
       "area": 1915,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b93.35 Cr",
-      "price_raw": 33500000,
+      "price": "\u20b92.46 Cr",
+      "price_raw": 24600000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-2215-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393832373037",
-      "first_seen": "2026-08-13",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "20e5f9b3",
-      "project_key": "sobha-neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 4,
-      "total_floors": 18,
-      "area": 660,
-      "facing": "West",
-      "possession": "Sep 2026",
-      "price": "\u20b9 1.05 Crores",
-      "price_raw": 10500000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9db579e10d43f019e120da0fc16a3/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "24221ed9",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 14,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "North",
-      "possession": "Jul 2027",
-      "price": "\u20b9 3.4 Crores",
-      "price_raw": 34000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6029f2c0ba2019f2c5a16602fc6/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-04",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-05"
-    },
-    {
-      "hash": "312c8d14",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 4,
-      "total_floors": 10,
-      "area": 1611,
-      "facing": "East",
-      "possession": "Aug 2026",
-      "price": "\u20b9 3 Crores",
-      "price_raw": 30000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9ffa0ad2019ffb23203a5753/detail",
-      "first_seen": "2026-08-13",
-      "last_seen": "2026-09-04",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835323238323037",
+      "first_seen": "2026-09-03",
+      "last_seen": "2026-09-05",
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-05"
@@ -4564,6 +4488,25 @@
       "delisted_on": "2026-08-12"
     },
     {
+      "hash": "20e5f9b3",
+      "project_key": "sobha-neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 4,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 1.05 Crores",
+      "price_raw": 10500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9db579e10d43f019e120da0fc16a3/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
       "hash": "332d438d",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
@@ -4581,6 +4524,25 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-12"
+    },
+    {
+      "hash": "8e490f8a",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 6,
+      "total_floors": 15,
+      "area": 1915,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "\u20b9 3.6 Crores",
+      "price_raw": 36000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9f878597b717640197b733ec6708ce/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "09d7ef8c",
@@ -4638,25 +4600,6 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-12"
-    },
-    {
-      "hash": "bdd66f65",
-      "project_key": "sobha-neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 11,
-      "total_floors": 18,
-      "area": 660,
-      "facing": "East",
-      "possession": "Aug 2026",
-      "price": "\u20b9 1.1 Crores",
-      "price_raw": 11000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8a9f85c3915f940d01915fd30c9f1e89/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-04"
     },
     {
       "hash": "09b82561",
@@ -4752,6 +4695,44 @@
       "delisted_on": "2026-09-02"
     },
     {
+      "hash": "4f59a61f",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 13,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "East",
+      "possession": "Dec 2027",
+      "price": "\u20b9 3.5 Crores",
+      "price_raw": 35000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a6ec9ccbd40c019ccc2376a12e2b/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "24221ed9",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 14,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "North",
+      "possession": "Jul 2027",
+      "price": "\u20b9 3.4 Crores",
+      "price_raw": 34000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6029f2c0ba2019f2c5a16602fc6/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
       "hash": "8d545c72",
       "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Jcr Layout",
       "floor": 14,
@@ -4801,6 +4782,25 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-05"
+    },
+    {
+      "hash": "99e63132",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis, Panathur For Sale  In Panathur",
+      "floor": 16,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "North-East",
+      "possession": "Nov 2026",
+      "price": "\u20b9 2.98 Crores",
+      "price_raw": 29800000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b51b9f2767a2019f27a14d841ff9/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "7a4e4fb1",
@@ -4871,25 +4871,6 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9faf869753208e0197533fc1e20b6f/detail",
       "first_seen": "2026-07-22",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-04"
-    },
-    {
-      "hash": "dc6f6ac2",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 16,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "Don'T Know",
-      "possession": "Aug 2026",
-      "price": "\u20b9 3 Crores",
-      "price_raw": 30000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a30f9fdb2d21019fdbc9fde9717f/detail",
-      "first_seen": "2026-08-07",
       "last_seen": "2026-09-03",
       "status": "delisted",
       "consecutive_misses": 0,
@@ -5067,23 +5048,23 @@
       "delisted_on": "2026-08-21"
     },
     {
-      "hash": "5dce58a0",
+      "hash": "fdedf91d",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 3,
+      "floor": 4,
       "total_floors": 18,
-      "area": 1915,
+      "area": 1611,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b92.85 Cr",
-      "price_raw": 28500000,
+      "price": "\u20b92.80 Cr",
+      "price_raw": 28000000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834313139373739",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393035333531",
       "first_seen": "2026-08-08",
-      "last_seen": "2026-09-03",
+      "last_seen": "2026-09-04",
       "status": "delisted",
       "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "a3241181",
@@ -5181,25 +5162,6 @@
       "delisted_on": "2026-08-14"
     },
     {
-      "hash": "9d95b63a",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 8,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.03 Cr",
-      "price_raw": 30299999,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834363839",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
-    },
-    {
       "hash": "4ddbae11",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
@@ -5257,25 +5219,6 @@
       "delisted_on": "2026-08-21"
     },
     {
-      "hash": "c06dce9f",
-      "project_key": "sobha-neopolis",
-      "title": "4 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 10,
-      "total_floors": 18,
-      "area": 2481,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.80 Cr",
-      "price_raw": 38000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835323238353433",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-08-31",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-02"
-    },
-    {
       "hash": "7ba5a8e2",
       "project_key": "sobha-neopolis",
       "title": "4 BHK Flat for Sale in Panathur, Bangalore",
@@ -5293,6 +5236,25 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-08-13"
+    },
+    {
+      "hash": "26e128f0",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 12,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.98 Cr",
+      "price_raw": 29800000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835373631323237",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "59a0bc99",
@@ -5314,6 +5276,44 @@
       "delisted_on": "2026-08-13"
     },
     {
+      "hash": "313c9e74",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 14,
+      "total_floors": 18,
+      "area": 1611,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.60 Cr",
+      "price_raw": 26000000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834303837373631",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "a430514a",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 14,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.85 Cr",
+      "price_raw": 28500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423834383030353639",
+      "first_seen": "2026-08-08",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
+    },
+    {
       "hash": "4f01c5fc",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
@@ -5331,25 +5331,6 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-08-14"
-    },
-    {
-      "hash": "00946a53",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 15,
-      "total_floors": 18,
-      "area": 1915,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.20 Cr",
-      "price_raw": 32000000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423831303635373431",
-      "first_seen": "2026-08-08",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
     },
     {
       "hash": "194dcc07",
@@ -5580,23 +5561,42 @@
       "delisted_on": "2026-09-03"
     },
     {
-      "hash": "371a56f5",
+      "hash": "269ddde3",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 9,
+      "floor": 8,
       "total_floors": 18,
-      "area": 1915,
+      "area": 1611,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b92.70 Cr",
-      "price_raw": 27000000,
+      "price": "\u20b92.50 Cr",
+      "price_raw": 25000000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835363439313239",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393134343837",
       "first_seen": "2026-08-10",
-      "last_seen": "2026-08-12",
+      "last_seen": "2026-09-04",
       "status": "delisted",
       "consecutive_misses": 1,
-      "delisted_on": "2026-08-13"
+      "delisted_on": "2026-09-05"
+    },
+    {
+      "hash": "f7c6a709",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 8,
+      "total_floors": 14,
+      "area": 1915,
+      "facing": "North",
+      "possession": "Mar 2027",
+      "price": "\u20b9 3.15 Crores",
+      "price_raw": 31500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8369fe570e2019fe652ec324516/detail",
+      "first_seen": "2026-08-10",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "fbef0333",
@@ -5618,23 +5618,23 @@
       "delisted_on": "2026-08-13"
     },
     {
-      "hash": "cda67457",
+      "hash": "f40904e0",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 17,
+      "floor": 3,
       "total_floors": 18,
-      "area": 1915,
+      "area": 1611,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b93.25 Cr",
-      "price_raw": 32500000,
+      "price": "\u20b92.52 Cr",
+      "price_raw": 25200000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423739393031303831",
-      "first_seen": "2026-08-10",
-      "last_seen": "2026-08-25",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1611-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423832333532353531",
+      "first_seen": "2026-08-11",
+      "last_seen": "2026-09-04",
       "status": "delisted",
       "consecutive_misses": 1,
-      "delisted_on": "2026-08-26"
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "4373d280",
@@ -5675,23 +5675,23 @@
       "delisted_on": "2026-08-28"
     },
     {
-      "hash": "a488cae5",
+      "hash": "869cdf30",
       "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
+      "title": "4 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 15,
       "total_floors": 18,
-      "area": 1915,
+      "area": 2481,
       "facing": "N/A",
       "possession": "Oct 2026",
-      "price": "\u20b93 Cr",
-      "price_raw": 30000000,
+      "price": "\u20b93.90 Cr",
+      "price_raw": 39000000,
       "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393136333833",
+      "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423834313230303833",
       "first_seen": "2026-08-11",
-      "last_seen": "2026-08-12",
+      "last_seen": "2026-09-04",
       "status": "delisted",
       "consecutive_misses": 1,
-      "delisted_on": "2026-08-13"
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "70c8f527",
@@ -5732,25 +5732,6 @@
       "delisted_on": "2026-08-13"
     },
     {
-      "hash": "648a0be4",
-      "project_key": "sobha-neopolis",
-      "title": "4 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 5,
-      "total_floors": 18,
-      "area": 2481,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b93.67 Cr",
-      "price_raw": 36700000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/4-BHK-2481-Sq-ft-Multistorey-Apartment-FOR-Sale-JCR-Layout-in-Bangalore&id=4d423835313637323439",
-      "first_seen": "2026-08-12",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
-    },
-    {
       "hash": "20245896",
       "project_key": "sobha-neopolis",
       "title": "1 BHK Flat for Sale in Panathur, Bangalore",
@@ -5768,6 +5749,25 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-08-28"
+    },
+    {
+      "hash": "0669c405",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 8,
+      "total_floors": 18,
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.98 Cr",
+      "price_raw": 29800000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423833363834383233",
+      "first_seen": "2026-08-12",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "cb618d69",
@@ -5884,6 +5884,25 @@
       "delisted_on": "2026-08-14"
     },
     {
+      "hash": "312c8d14",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 4,
+      "total_floors": 10,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Aug 2026",
+      "price": "\u20b9 3 Crores",
+      "price_raw": 30000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5bc9ffa0ad2019ffb23203a5753/detail",
+      "first_seen": "2026-08-13",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
       "hash": "ab8dbc98",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
@@ -5903,23 +5922,23 @@
       "delisted_on": "2026-08-15"
     },
     {
-      "hash": "7489bea5",
+      "hash": "ec2cbd12",
       "project_key": "sobha-neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 10,
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 5,
       "total_floors": 18,
-      "area": 660,
-      "facing": "East",
-      "possession": "Nov 2026",
-      "price": "\u20b9 1.08 Crores",
-      "price_raw": 10800000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b6179ff92eb1019ff9a480af47e2/detail",
+      "area": 1915,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b93.35 Cr",
+      "price_raw": 33500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-2215-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393832373037",
       "first_seen": "2026-08-13",
-      "last_seen": "2026-09-03",
+      "last_seen": "2026-09-04",
       "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-04"
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "81717a15",
@@ -6091,6 +6110,25 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-08-23"
+    },
+    {
+      "hash": "38813d42",
+      "project_key": "sobha-neopolis",
+      "title": "2 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 5,
+      "total_floors": 20,
+      "area": 2480,
+      "facing": "North",
+      "possession": "Aug 2026",
+      "price": "\u20b9 4 Crores",
+      "price_raw": 40000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/2-bhk-apartment-for-sale-in-panathur-bangalore/8aa985dea00ea39801a00f7a42b72490/detail",
+      "first_seen": "2026-08-18",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
     },
     {
       "hash": "2a3e048f",
@@ -6359,25 +6397,6 @@
       "delisted_on": "2026-09-02"
     },
     {
-      "hash": "204c21e9",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 5,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.95 Cr",
-      "price_raw": 29500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1915-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423739393234313631",
-      "first_seen": "2026-08-25",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
-    },
-    {
       "hash": "83ad29d9",
       "project_key": "sobha-neopolis",
       "title": "3 BHK Flat for Sale in Panathur, Bangalore",
@@ -6397,6 +6416,25 @@
       "delisted_on": "2026-09-04"
     },
     {
+      "hash": "83a009dd",
+      "project_key": "sobha-neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 12,
+      "total_floors": 14,
+      "area": 660,
+      "facing": "West",
+      "possession": "Sep 2026",
+      "price": "\u20b9 1.15 Crores",
+      "price_raw": 11500000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a8dda042232801a043293f743baa/detail",
+      "first_seen": "2026-08-28",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 0,
+      "delisted_on": "2026-09-05"
+    },
+    {
       "hash": "233f1323",
       "project_key": "sobha-neopolis",
       "title": "1 BHK Flat for Sale in Panathur, Bangalore",
@@ -6414,25 +6452,6 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-09-02"
-    },
-    {
-      "hash": "38ca7735",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
-      "floor": 12,
-      "total_floors": 18,
-      "area": 1611,
-      "facing": "N/A",
-      "possession": "Oct 2026",
-      "price": "\u20b92.95 Cr",
-      "price_raw": 29500000,
-      "source": "MagicBricks",
-      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1657-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423836323238363835",
-      "first_seen": "2026-08-31",
-      "last_seen": "2026-09-03",
-      "status": "delisted",
-      "consecutive_misses": 1,
-      "delisted_on": "2026-09-03"
     },
     {
       "hash": "982ee0c0",
@@ -6490,6 +6509,25 @@
       "status": "delisted",
       "consecutive_misses": 1,
       "delisted_on": "2026-09-03"
+    },
+    {
+      "hash": "ec8006f8",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat for Sale in Panathur, Bangalore",
+      "floor": 9,
+      "total_floors": 18,
+      "area": 2150,
+      "facing": "N/A",
+      "possession": "Oct 2026",
+      "price": "\u20b92.65 Cr",
+      "price_raw": 26500000,
+      "source": "MagicBricks",
+      "link": "https://www.magicbricks.com/propertyDetails/3-BHK-1613-Sq-ft-Multistorey-Apartment-FOR-Sale-Panathur-in-Bangalore&id=4d423835393736343335",
+      "first_seen": "2026-09-03",
+      "last_seen": "2026-09-04",
+      "status": "delisted",
+      "consecutive_misses": 1,
+      "delisted_on": "2026-09-05"
     }
   ]
 }
