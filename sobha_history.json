@@ -1963,10 +1963,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a30f9fdb2d21019fdbc9fde9717f/detail",
     "first_seen": "2026-08-07",
-    "last_seen": "2026-09-08",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-09"
+    "last_seen": "2026-09-09",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "3809dff9": {
     "hash": "3809dff9",
@@ -4574,10 +4573,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a9b6a0037b6801a003bf3e962250/detail",
     "first_seen": "2026-08-15",
-    "last_seen": "2026-09-08",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-09"
+    "last_seen": "2026-09-09",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "160142bd": {
     "hash": "160142bd",
@@ -5019,10 +5017,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9ae9ba022620501a023186ed872f8/detail",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-08",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-09"
+    "last_seen": "2026-09-09",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "bb60fd21": {
     "hash": "bb60fd21",
@@ -5038,10 +5035,9 @@
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa98ae6a022621101a022d7721340b4/detail",
     "first_seen": "2026-08-21",
-    "last_seen": "2026-09-08",
-    "status": "delisted",
-    "consecutive_misses": 0,
-    "delisted_on": "2026-09-09"
+    "last_seen": "2026-09-09",
+    "status": "active",
+    "consecutive_misses": 0
   },
   "35d94134": {
     "hash": "35d94134",
@@ -6167,8 +6163,9 @@
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9a232a0707c5a01a07123cb990812/detail",
     "first_seen": "2026-09-05",
     "last_seen": "2026-09-09",
-    "status": "active",
-    "consecutive_misses": 0
+    "status": "delisted",
+    "consecutive_misses": 0,
+    "delisted_on": "2026-09-09"
   },
   "9053d227": {
     "hash": "9053d227",
