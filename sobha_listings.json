@@ -3,12 +3,31 @@
   "project_name": "Sobha Neopolis",
   "location": "Panathur, East Bangalore",
   "last_updated": "2026-09-18",
-  "active_count": 163,
-  "delisted_count": 20,
+  "active_count": 164,
+  "delisted_count": 19,
   "new_count": 4,
   "active": [
     {
       "id": 1,
+      "hash": "d3dbc15d",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 6,
+      "total_floors": 18,
+      "area": 660,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "₹ 98 Lacs",
+      "price_raw": 9800000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb299ae95628019ae9a869962053/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-18",
+      "status": "active"
+    },
+    {
+      "id": 2,
       "hash": "4c3503c8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -27,7 +46,7 @@
       "status": "active"
     },
     {
-      "id": 2,
+      "id": 3,
       "hash": "603a6c33",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -46,7 +65,7 @@
       "status": "active"
     },
     {
-      "id": 3,
+      "id": 4,
       "hash": "20e5f9b3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -65,7 +84,7 @@
       "status": "active"
     },
     {
-      "id": 4,
+      "id": 5,
       "hash": "659a30e0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -84,7 +103,7 @@
       "status": "active"
     },
     {
-      "id": 5,
+      "id": 6,
       "hash": "77a44344",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -103,7 +122,7 @@
       "status": "active"
     },
     {
-      "id": 6,
+      "id": 7,
       "hash": "7489bea5",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -122,7 +141,7 @@
       "status": "active"
     },
     {
-      "id": 7,
+      "id": 8,
       "hash": "a372aac7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -141,7 +160,7 @@
       "status": "active"
     },
     {
-      "id": 8,
+      "id": 9,
       "hash": "b24dbd9d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -160,7 +179,7 @@
       "status": "active"
     },
     {
-      "id": 9,
+      "id": 10,
       "hash": "d42d493b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -179,7 +198,7 @@
       "status": "active"
     },
     {
-      "id": 10,
+      "id": 11,
       "hash": "d836ea9a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -198,7 +217,7 @@
       "status": "active"
     },
     {
-      "id": 11,
+      "id": 12,
       "hash": "22c5c643",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -217,7 +236,7 @@
       "status": "active"
     },
     {
-      "id": 12,
+      "id": 13,
       "hash": "bdd66f65",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -236,7 +255,7 @@
       "status": "active"
     },
     {
-      "id": 13,
+      "id": 14,
       "hash": "da8b8232",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -255,7 +274,7 @@
       "status": "active"
     },
     {
-      "id": 14,
+      "id": 15,
       "hash": "83a009dd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -274,7 +293,7 @@
       "status": "active"
     },
     {
-      "id": 15,
+      "id": 16,
       "hash": "4f436f6b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -293,7 +312,7 @@
       "status": "active"
     },
     {
-      "id": 16,
+      "id": 17,
       "hash": "bd0780b1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -312,7 +331,7 @@
       "status": "active"
     },
     {
-      "id": 17,
+      "id": 18,
       "hash": "5cb693e8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -331,7 +350,7 @@
       "status": "active"
     },
     {
-      "id": 18,
+      "id": 19,
       "hash": "e74630ff",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -350,7 +369,7 @@
       "status": "active"
     },
     {
-      "id": 19,
+      "id": 20,
       "hash": "b72108bd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -369,7 +388,7 @@
       "status": "active"
     },
     {
-      "id": 20,
+      "id": 21,
       "hash": "27c6762a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -388,7 +407,7 @@
       "status": "active"
     },
     {
-      "id": 21,
+      "id": 22,
       "hash": "afe7f5f4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -407,7 +426,7 @@
       "status": "active"
     },
     {
-      "id": 22,
+      "id": 23,
       "hash": "633ffebd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -426,7 +445,7 @@
       "status": "active"
     },
     {
-      "id": 23,
+      "id": 24,
       "hash": "149a11d9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -462,10 +481,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-23",
-      "id": 24
+      "id": 25
     },
     {
-      "id": 25,
+      "id": 26,
       "hash": "9052b038",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -484,7 +503,7 @@
       "status": "active"
     },
     {
-      "id": 26,
+      "id": 27,
       "hash": "6d61bed1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -503,7 +522,7 @@
       "status": "active"
     },
     {
-      "id": 27,
+      "id": 28,
       "hash": "0cbfa734",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -522,7 +541,7 @@
       "status": "active"
     },
     {
-      "id": 28,
+      "id": 29,
       "hash": "fbc4a092",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -541,7 +560,7 @@
       "status": "active"
     },
     {
-      "id": 29,
+      "id": 30,
       "hash": "5e22522e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -560,7 +579,7 @@
       "status": "active"
     },
     {
-      "id": 30,
+      "id": 31,
       "hash": "59dd09a7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -577,6 +596,25 @@
       "first_seen": "2026-07-21",
       "last_seen": "2026-09-18",
       "status": "active"
+    },
+    {
+      "hash": "a0eea4bf",
+      "project_key": "sobha-neopolis",
+      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 3,
+      "total_floors": 19,
+      "area": 1611,
+      "facing": "East",
+      "possession": "Sep 2026",
+      "price": "₹ 2.5 Crores",
+      "price_raw": 25000000,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa18495a516120195a566235410f5/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-17",
+      "status": "active",
+      "consecutive_misses": 0,
+      "id": 32
     },
     {
       "hash": "332d438d",
@@ -596,7 +634,7 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-12",
-      "id": 31
+      "id": 33
     },
     {
       "hash": "5eab9038",
@@ -616,10 +654,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-29",
-      "id": 32
+      "id": 34
     },
     {
-      "id": 33,
+      "id": 35,
       "hash": "fef5e497",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -638,7 +676,7 @@
       "status": "active"
     },
     {
-      "id": 34,
+      "id": 36,
       "hash": "3844e819",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -657,7 +695,7 @@
       "status": "active"
     },
     {
-      "id": 35,
+      "id": 37,
       "hash": "73b80d02",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -676,7 +714,7 @@
       "status": "active"
     },
     {
-      "id": 36,
+      "id": 38,
       "hash": "fc4aec2a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -695,7 +733,7 @@
       "status": "active"
     },
     {
-      "id": 37,
+      "id": 39,
       "hash": "5eeb02db",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -714,7 +752,7 @@
       "status": "active"
     },
     {
-      "id": 38,
+      "id": 40,
       "hash": "4a93a355",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -733,7 +771,7 @@
       "status": "active"
     },
     {
-      "id": 39,
+      "id": 41,
       "hash": "cb85e3ef",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -752,7 +790,7 @@
       "status": "active"
     },
     {
-      "id": 40,
+      "id": 42,
       "hash": "d02de479",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -771,7 +809,7 @@
       "status": "active"
     },
     {
-      "id": 41,
+      "id": 43,
       "hash": "caadb55e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -790,7 +828,7 @@
       "status": "active"
     },
     {
-      "id": 42,
+      "id": 44,
       "hash": "8cd8233e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -809,7 +847,7 @@
       "status": "active"
     },
     {
-      "id": 43,
+      "id": 45,
       "hash": "95a31a69",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -845,7 +883,7 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-21",
-      "id": 44
+      "id": 46
     },
     {
       "hash": "102c13ee",
@@ -865,10 +903,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-31",
-      "id": 45
+      "id": 47
     },
     {
-      "id": 46,
+      "id": 48,
       "hash": "83c1ca94",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -887,7 +925,7 @@
       "status": "active"
     },
     {
-      "id": 47,
+      "id": 49,
       "hash": "70058f06",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -906,7 +944,7 @@
       "status": "active"
     },
     {
-      "id": 48,
+      "id": 50,
       "hash": "a9a9fd0e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -925,7 +963,7 @@
       "status": "active"
     },
     {
-      "id": 49,
+      "id": 51,
       "hash": "f34c726b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -944,7 +982,7 @@
       "status": "active"
     },
     {
-      "id": 50,
+      "id": 52,
       "hash": "277716ac",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -963,7 +1001,7 @@
       "status": "active"
     },
     {
-      "id": 51,
+      "id": 53,
       "hash": "e76ce1f3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -982,7 +1020,7 @@
       "status": "active"
     },
     {
-      "id": 52,
+      "id": 54,
       "hash": "4e14d7cd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1001,7 +1039,7 @@
       "status": "active"
     },
     {
-      "id": 53,
+      "id": 55,
       "hash": "eba12cf9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1020,7 +1058,7 @@
       "status": "active"
     },
     {
-      "id": 54,
+      "id": 56,
       "hash": "2c0718c4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1039,7 +1077,7 @@
       "status": "active"
     },
     {
-      "id": 55,
+      "id": 57,
       "hash": "d6109e63",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1058,7 +1096,7 @@
       "status": "active"
     },
     {
-      "id": 56,
+      "id": 58,
       "hash": "9053d227",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1077,7 +1115,7 @@
       "status": "active"
     },
     {
-      "id": 57,
+      "id": 59,
       "hash": "e8b84aa9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1096,7 +1134,7 @@
       "status": "active"
     },
     {
-      "id": 58,
+      "id": 60,
       "hash": "1e732f08",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1115,7 +1153,7 @@
       "status": "active"
     },
     {
-      "id": 59,
+      "id": 61,
       "hash": "c7c1a978",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1134,7 +1172,7 @@
       "status": "active"
     },
     {
-      "id": 60,
+      "id": 62,
       "hash": "62c695a8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1153,7 +1191,7 @@
       "status": "active"
     },
     {
-      "id": 61,
+      "id": 63,
       "hash": "90b24110",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1172,7 +1210,7 @@
       "status": "active"
     },
     {
-      "id": 62,
+      "id": 64,
       "hash": "a069e89d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1191,7 +1229,7 @@
       "status": "active"
     },
     {
-      "id": 63,
+      "id": 65,
       "hash": "4b33b2ba",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1210,7 +1248,7 @@
       "status": "active"
     },
     {
-      "id": 64,
+      "id": 66,
       "hash": "2a9ae053",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1229,7 +1267,7 @@
       "status": "active"
     },
     {
-      "id": 65,
+      "id": 67,
       "hash": "b82b8fee",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1248,7 +1286,7 @@
       "status": "active"
     },
     {
-      "id": 66,
+      "id": 68,
       "hash": "1d31c356",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1267,7 +1305,7 @@
       "status": "active"
     },
     {
-      "id": 67,
+      "id": 69,
       "hash": "b4330173",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1286,7 +1324,7 @@
       "status": "active"
     },
     {
-      "id": 68,
+      "id": 70,
       "hash": "f57fb777",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1305,7 +1343,7 @@
       "status": "active"
     },
     {
-      "id": 69,
+      "id": 71,
       "hash": "95da424d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1324,7 +1362,7 @@
       "status": "active"
     },
     {
-      "id": 70,
+      "id": 72,
       "hash": "b8da3aca",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1360,10 +1398,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-12",
-      "id": 71
+      "id": 73
     },
     {
-      "id": 72,
+      "id": 74,
       "hash": "f89fda5f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1382,7 +1420,7 @@
       "status": "active"
     },
     {
-      "id": 73,
+      "id": 75,
       "hash": "a38dc2ac",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1401,7 +1439,7 @@
       "status": "active"
     },
     {
-      "id": 74,
+      "id": 76,
       "hash": "d17ad0f5",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1420,7 +1458,7 @@
       "status": "active"
     },
     {
-      "id": 75,
+      "id": 77,
       "hash": "b50a7745",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1439,7 +1477,7 @@
       "status": "active"
     },
     {
-      "id": 76,
+      "id": 78,
       "hash": "5e6276b3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1458,7 +1496,7 @@
       "status": "active"
     },
     {
-      "id": 77,
+      "id": 79,
       "hash": "65957422",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1477,7 +1515,7 @@
       "status": "active"
     },
     {
-      "id": 78,
+      "id": 80,
       "hash": "fc030972",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1496,7 +1534,7 @@
       "status": "active"
     },
     {
-      "id": 79,
+      "id": 81,
       "hash": "99e63132",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1515,7 +1553,7 @@
       "status": "active"
     },
     {
-      "id": 80,
+      "id": 82,
       "hash": "0d985e20",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1534,7 +1572,7 @@
       "status": "active"
     },
     {
-      "id": 81,
+      "id": 83,
       "hash": "312c8d14",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1553,7 +1591,7 @@
       "status": "active"
     },
     {
-      "id": 82,
+      "id": 84,
       "hash": "0919f622",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1572,7 +1610,7 @@
       "status": "active"
     },
     {
-      "id": 83,
+      "id": 85,
       "hash": "dc6f6ac2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1591,7 +1629,7 @@
       "status": "active"
     },
     {
-      "id": 84,
+      "id": 86,
       "hash": "85fca73d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1610,7 +1648,7 @@
       "status": "active"
     },
     {
-      "id": 85,
+      "id": 87,
       "hash": "53cd66f7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1629,7 +1667,7 @@
       "status": "active"
     },
     {
-      "id": 86,
+      "id": 88,
       "hash": "59c3f7da",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1648,7 +1686,7 @@
       "status": "active"
     },
     {
-      "id": 87,
+      "id": 89,
       "hash": "acda8ca0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1667,7 +1705,7 @@
       "status": "active"
     },
     {
-      "id": 88,
+      "id": 90,
       "hash": "57f6b162",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1686,7 +1724,7 @@
       "status": "active"
     },
     {
-      "id": 89,
+      "id": 91,
       "hash": "0878f43b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1705,7 +1743,7 @@
       "status": "active"
     },
     {
-      "id": 90,
+      "id": 92,
       "hash": "56b4fbc3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1724,7 +1762,7 @@
       "status": "active"
     },
     {
-      "id": 91,
+      "id": 93,
       "hash": "f7c6a709",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1743,7 +1781,7 @@
       "status": "active"
     },
     {
-      "id": 92,
+      "id": 94,
       "hash": "9710fd08",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1762,7 +1800,7 @@
       "status": "active"
     },
     {
-      "id": 93,
+      "id": 95,
       "hash": "f165ab4f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1781,7 +1819,7 @@
       "status": "active"
     },
     {
-      "id": 94,
+      "id": 96,
       "hash": "5506e2c3",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1800,7 +1838,7 @@
       "status": "active"
     },
     {
-      "id": 95,
+      "id": 97,
       "hash": "98ca3349",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1819,7 +1857,7 @@
       "status": "active"
     },
     {
-      "id": 96,
+      "id": 98,
       "hash": "58a3d502",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1838,7 +1876,7 @@
       "status": "active"
     },
     {
-      "id": 97,
+      "id": 99,
       "hash": "8c7d4214",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1857,7 +1895,7 @@
       "status": "active"
     },
     {
-      "id": 98,
+      "id": 100,
       "hash": "563f77a2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1876,7 +1914,7 @@
       "status": "active"
     },
     {
-      "id": 99,
+      "id": 101,
       "hash": "93a88af4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1895,7 +1933,7 @@
       "status": "active"
     },
     {
-      "id": 100,
+      "id": 102,
       "hash": "2943d324",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1914,7 +1952,7 @@
       "status": "active"
     },
     {
-      "id": 101,
+      "id": 103,
       "hash": "c4cbb0eb",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1933,7 +1971,7 @@
       "status": "active"
     },
     {
-      "id": 102,
+      "id": 104,
       "hash": "a4830d4f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1952,7 +1990,7 @@
       "status": "active"
     },
     {
-      "id": 103,
+      "id": 105,
       "hash": "5ee9415b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1971,7 +2009,7 @@
       "status": "active"
     },
     {
-      "id": 104,
+      "id": 106,
       "hash": "2bcf3875",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -1990,7 +2028,7 @@
       "status": "active"
     },
     {
-      "id": 105,
+      "id": 107,
       "hash": "dff09843",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2009,7 +2047,7 @@
       "status": "active"
     },
     {
-      "id": 106,
+      "id": 108,
       "hash": "47a1ad67",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2028,7 +2066,7 @@
       "status": "active"
     },
     {
-      "id": 107,
+      "id": 109,
       "hash": "cb137f05",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2047,7 +2085,7 @@
       "status": "active"
     },
     {
-      "id": 108,
+      "id": 110,
       "hash": "17ba1090",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2066,7 +2104,7 @@
       "status": "active"
     },
     {
-      "id": 109,
+      "id": 111,
       "hash": "e6f5bab6",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2085,7 +2123,7 @@
       "status": "active"
     },
     {
-      "id": 110,
+      "id": 112,
       "hash": "5c9317a5",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2104,7 +2142,7 @@
       "status": "active"
     },
     {
-      "id": 111,
+      "id": 113,
       "hash": "e65e75f8",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2123,7 +2161,7 @@
       "status": "active"
     },
     {
-      "id": 112,
+      "id": 114,
       "hash": "59797781",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2142,7 +2180,7 @@
       "status": "active"
     },
     {
-      "id": 113,
+      "id": 115,
       "hash": "9cb4043d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2161,7 +2199,7 @@
       "status": "active"
     },
     {
-      "id": 114,
+      "id": 116,
       "hash": "51e444d1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2180,7 +2218,7 @@
       "status": "active"
     },
     {
-      "id": 115,
+      "id": 117,
       "hash": "44c6c4fb",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2199,7 +2237,7 @@
       "status": "active"
     },
     {
-      "id": 116,
+      "id": 118,
       "hash": "fbee80c9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2218,7 +2256,7 @@
       "status": "active"
     },
     {
-      "id": 117,
+      "id": 119,
       "hash": "091ffdb0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2237,7 +2275,7 @@
       "status": "active"
     },
     {
-      "id": 118,
+      "id": 120,
       "hash": "df63e8b1",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2256,7 +2294,7 @@
       "status": "active"
     },
     {
-      "id": 119,
+      "id": 121,
       "hash": "24221ed9",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2275,7 +2313,7 @@
       "status": "active"
     },
     {
-      "id": 120,
+      "id": 122,
       "hash": "2e5d84f7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2294,7 +2332,7 @@
       "status": "active"
     },
     {
-      "id": 121,
+      "id": 123,
       "hash": "8cbad571",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2330,10 +2368,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-23",
-      "id": 122
+      "id": 124
     },
     {
-      "id": 123,
+      "id": 125,
       "hash": "803b5356",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2352,7 +2390,7 @@
       "status": "active"
     },
     {
-      "id": 124,
+      "id": 126,
       "hash": "bb60fd21",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2371,7 +2409,7 @@
       "status": "active"
     },
     {
-      "id": 125,
+      "id": 127,
       "hash": "12161fd4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2390,7 +2428,7 @@
       "status": "active"
     },
     {
-      "id": 126,
+      "id": 128,
       "hash": "40c5b069",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2409,7 +2447,7 @@
       "status": "active"
     },
     {
-      "id": 127,
+      "id": 129,
       "hash": "8149cc7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2428,7 +2466,7 @@
       "status": "active"
     },
     {
-      "id": 128,
+      "id": 130,
       "hash": "4f59a61f",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2447,7 +2485,7 @@
       "status": "active"
     },
     {
-      "id": 129,
+      "id": 131,
       "hash": "352a100d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2466,7 +2504,7 @@
       "status": "active"
     },
     {
-      "id": 130,
+      "id": 132,
       "hash": "c4f9d13e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2485,7 +2523,7 @@
       "status": "active"
     },
     {
-      "id": 131,
+      "id": 133,
       "hash": "65b9315b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2521,10 +2559,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-23",
-      "id": 132
+      "id": 134
     },
     {
-      "id": 133,
+      "id": 135,
       "hash": "58be0e3c",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2560,29 +2598,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-02",
-      "id": 134
+      "id": 136
     },
     {
-      "id": 135,
-      "hash": "82277eac",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "4 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 0,
-      "total_floors": 18,
-      "area": 2481,
-      "facing": "East",
-      "possession": "Dec 2030",
-      "price": "₹ 3.58 Crores",
-      "price_raw": 35809524,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9990e9f45cc0d019f46c73091259e/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-18",
-      "status": "active"
-    },
-    {
-      "id": 136,
+      "id": 137,
       "hash": "39dcb153",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2601,7 +2620,26 @@
       "status": "active"
     },
     {
-      "id": 137,
+      "id": 138,
+      "hash": "82277eac",
+      "project_key": "sobha-neopolis",
+      "project_name": "Sobha Neopolis",
+      "title": "4 BHK Flat In Sobha Neopolis For Sale  In Panathur",
+      "floor": 0,
+      "total_floors": 18,
+      "area": 2481,
+      "facing": "East",
+      "possession": "Dec 2030",
+      "price": "₹ 3.58 Crores",
+      "price_raw": 35809524,
+      "source": "NoBroker",
+      "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9990e9f45cc0d019f46c73091259e/detail",
+      "first_seen": "2026-07-21",
+      "last_seen": "2026-09-18",
+      "status": "active"
+    },
+    {
+      "id": 139,
       "hash": "8e490f8a",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2620,7 +2658,7 @@
       "status": "active"
     },
     {
-      "id": 138,
+      "id": 140,
       "hash": "1249f731",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2639,7 +2677,7 @@
       "status": "active"
     },
     {
-      "id": 139,
+      "id": 141,
       "hash": "242bb44b",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2675,10 +2713,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-02",
-      "id": 140
+      "id": 142
     },
     {
-      "id": 141,
+      "id": 143,
       "hash": "aff60b7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2697,7 +2735,7 @@
       "status": "active"
     },
     {
-      "id": 142,
+      "id": 144,
       "hash": "116cdaa0",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2733,10 +2771,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-25",
-      "id": 143
+      "id": 145
     },
     {
-      "id": 144,
+      "id": 146,
       "hash": "cc949be7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2755,7 +2793,7 @@
       "status": "active"
     },
     {
-      "id": 145,
+      "id": 147,
       "hash": "38813d42",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2774,7 +2812,7 @@
       "status": "active"
     },
     {
-      "id": 146,
+      "id": 148,
       "hash": "94bf0da7",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2810,10 +2848,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-12",
-      "id": 147
+      "id": 149
     },
     {
-      "id": 148,
+      "id": 150,
       "hash": "cef99b67",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2832,7 +2870,7 @@
       "status": "active"
     },
     {
-      "id": 149,
+      "id": 151,
       "hash": "b98e6136",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2851,7 +2889,7 @@
       "status": "active"
     },
     {
-      "id": 150,
+      "id": 152,
       "hash": "328a2f7e",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2870,7 +2908,7 @@
       "status": "active"
     },
     {
-      "id": 151,
+      "id": 153,
       "hash": "f6215737",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2906,10 +2944,10 @@
       "status": "active",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-31",
-      "id": 152
+      "id": 154
     },
     {
-      "id": 153,
+      "id": 155,
       "hash": "41d6871c",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2928,7 +2966,7 @@
       "status": "active"
     },
     {
-      "id": 154,
+      "id": 156,
       "hash": "167bf03d",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2947,7 +2985,7 @@
       "status": "active"
     },
     {
-      "id": 155,
+      "id": 157,
       "hash": "024135c2",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2966,7 +3004,7 @@
       "status": "active"
     },
     {
-      "id": 156,
+      "id": 158,
       "hash": "205613da",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -2985,7 +3023,7 @@
       "status": "active"
     },
     {
-      "id": 157,
+      "id": 159,
       "hash": "52b21bf4",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3004,7 +3042,7 @@
       "status": "active"
     },
     {
-      "id": 158,
+      "id": 160,
       "hash": "26840301",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3023,7 +3061,7 @@
       "status": "active"
     },
     {
-      "id": 159,
+      "id": 161,
       "hash": "b0a66335",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3042,7 +3080,7 @@
       "status": "active"
     },
     {
-      "id": 160,
+      "id": 162,
       "hash": "634bc1dd",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3061,7 +3099,7 @@
       "status": "active"
     },
     {
-      "id": 161,
+      "id": 163,
       "hash": "4039a956",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3080,7 +3118,7 @@
       "status": "active"
     },
     {
-      "id": 162,
+      "id": 164,
       "hash": "9f4635cb",
       "project_key": "sobha-neopolis",
       "project_name": "Sobha Neopolis",
@@ -3095,25 +3133,6 @@
       "source": "NoBroker",
       "link": "https://www.nobroker.in/property/buy/4-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb38a04147d101a04219aa030de5/detail",
       "first_seen": "2026-08-28",
-      "last_seen": "2026-09-18",
-      "status": "active"
-    },
-    {
-      "id": 163,
-      "hash": "d3dbc15d",
-      "project_key": "sobha-neopolis",
-      "project_name": "Sobha Neopolis",
-      "title": "1 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 6,
-      "total_floors": 18,
-      "area": 660,
-      "facing": "East",
-      "possession": "Sep 2026",
-      "price": "₹ 98 Lacs",
-      "price_raw": 9800000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/1-bhk-apartment-for-sale-in-panathur-bangalore/8aa9bb299ae95628019ae9a869962053/detail",
-      "first_seen": "2026-07-21",
       "last_seen": "2026-09-18",
       "status": "active"
     }
@@ -3137,7 +3156,7 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-18",
-      "id": 164
+      "id": 165
     },
     {
       "hash": "93d8726d",
@@ -3157,7 +3176,7 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-18",
-      "id": 165
+      "id": 166
     },
     {
       "hash": "0da692f9",
@@ -3177,7 +3196,7 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-09-18",
-      "id": 166
+      "id": 167
     },
     {
       "hash": "a167829c",
@@ -3195,26 +3214,6 @@
       "status": "delisted",
       "consecutive_misses": 0,
       "delisted_on": "2026-08-07",
-      "id": 167
-    },
-    {
-      "hash": "a0eea4bf",
-      "project_key": "sobha-neopolis",
-      "title": "3 BHK Flat In Sobha Neopolis For Sale  In Panathur",
-      "floor": 3,
-      "total_floors": 19,
-      "area": 1611,
-      "facing": "East",
-      "possession": "Sep 2026",
-      "price": "₹ 2.5 Crores",
-      "price_raw": 25000000,
-      "source": "NoBroker",
-      "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa18495a516120195a566235410f5/detail",
-      "first_seen": "2026-07-21",
-      "last_seen": "2026-09-17",
-      "status": "delisted",
-      "consecutive_misses": 0,
-      "delisted_on": "2026-09-18",
       "id": 168
     },
     {

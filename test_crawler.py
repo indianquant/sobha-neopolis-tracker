@@ -128,8 +128,31 @@ class TestSobhaCrawler(unittest.TestCase):
 
     def test_verify_listing_alive_inactive_nobroker(self):
         """Verify that NoBroker inactive/sold listings (with -Inactive title or overlay-rented-out class) are detected as dead."""
-        # The user's provided inactive URL must return False (delisted/inactive)
-        self.assertFalse(verify_listing_alive("https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-sobha-neopolis-bangalore/8aa9b3249cf506e8019cf52284310a54/detail"))
+        from unittest.mock import patch, MagicMock
+        with patch("requests.get") as mock_get:
+            # 1. Inactive listing with overlay
+            mock_inactive = MagicMock()
+            mock_inactive.status_code = 200
+            mock_inactive.url = "https://www.nobroker.in/property/buy/sample/detail"
+            mock_inactive.text = "<html><title>Sample Flat</title><div class='overlay-rented-out'>Sold Out</div></html>"
+            mock_get.return_value = mock_inactive
+            self.assertFalse(verify_listing_alive("https://www.nobroker.in/property/buy/sample/detail"))
+
+            # 2. Inactive listing with title
+            mock_title_inactive = MagicMock()
+            mock_title_inactive.status_code = 200
+            mock_title_inactive.url = "https://www.nobroker.in/property/buy/sample/detail"
+            mock_title_inactive.text = "<html><title>Sample Flat - Inactive</title><div>Regular body</div></html>"
+            mock_get.return_value = mock_title_inactive
+            self.assertFalse(verify_listing_alive("https://www.nobroker.in/property/buy/sample/detail"))
+
+            # 3. Active listing that contains the user feedback report button (id='rentedOut') should be alive
+            mock_active = MagicMock()
+            mock_active.status_code = 200
+            mock_active.url = "https://www.nobroker.in/property/buy/sample/detail"
+            mock_active.text = "<html><title>Sample Flat For Sale</title><button id='rentedOut'>Sold Out</button></html>"
+            mock_get.return_value = mock_active
+            self.assertTrue(verify_listing_alive("https://www.nobroker.in/property/buy/sample/detail"))
 
     def test_all_multi_project_data_files(self):
         """Validate schema integrity & multi-source support for all 4 project JSON files."""

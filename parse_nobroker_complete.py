@@ -20,7 +20,8 @@ ENABLE_MAGICBRICKS = False
 USER_RELISTED_HASHES = {
     '5094bb29', '5eab9038', 'cbdfb277', '0919f622', '332d438d',
     '09d7ef8c', 'f803de48', '32003d8a', '09b82561', '102c13ee',
-    'd0c8cb6b', '7a4e4fb1', '7433fe0b', '0d985e20', '35d94134', '47a1ad67'
+    'd0c8cb6b', '7a4e4fb1', '7433fe0b', '0d985e20', '35d94134',
+    '47a1ad67', 'a0eea4bf'
 }
 
 PROJECTS = {
@@ -165,15 +166,19 @@ def verify_listing_alive(detail_url):
             html = r.text
             html_lower = html.lower()
 
-            if r.status_code == 404 or "page not found" in html_lower or "/detail" not in r.url:
+            if r.status_code != 200:
+                if r.status_code == 404 or "/detail" not in r.url:
+                    return False
+                # Do not delist on temporary rate limits, 403 forbidden, or server issues
+                return True
+
+            if "page not found" in html_lower or "/detail" not in r.url:
                 return False
 
             inactive_indicators = [
                 "overlay-rented-out",
                 "rented-out-text",
                 "rentedoutproperty",
-                'id="rentedout"',
-                "id='rentedout'",
                 "inactive-property-container",
                 "property inactive",
                 "this property is inactive",
@@ -189,8 +194,6 @@ def verify_listing_alive(detail_url):
             if page_title.endswith("-inactive") or page_title.endswith("inactive") or "-inactive" in page_title:
                 return False
 
-            if len(html) < 50000:
-                return False
             return True
         except requests.RequestException:
             return True
