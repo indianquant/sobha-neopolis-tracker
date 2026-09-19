@@ -306,22 +306,24 @@ def run_single_project_crawler(project_key, project_config):
             print(f"  Page {page}: batch={len(props)}, new match={added}, total={len(all_props)}")
             page += 1
 
-    # 2. MagicBricks Search
-    mb_listings = crawl_magicbricks_listings(project_key, project_config)
-    for mb_item in mb_listings:
-        mb_pid = mb_item["id"]
-        if mb_pid and mb_pid not in all_props:
-            all_props[mb_pid] = {
-                "propertyTitle": mb_item["title"],
-                "floor": mb_item["floor"],
-                "totalFloor": mb_item["total_floors"],
-                "propertySize": mb_item["area"],
-                "facing": mb_item["facing"],
-                "price": mb_item["price_raw"],
-                "formattedPrice": mb_item["price_text"],
-                "detailUrl": mb_item["link"],
-                "_source": "MagicBricks"
-            }
+    # 2. MagicBricks Search (Disabled if ENABLE_MAGICBRICKS is False)
+    ENABLE_MAGICBRICKS = False
+    if ENABLE_MAGICBRICKS:
+        mb_listings = crawl_magicbricks_listings(project_key, project_config)
+        for mb_item in mb_listings:
+            mb_pid = mb_item["id"]
+            if mb_pid and mb_pid not in all_props:
+                all_props[mb_pid] = {
+                    "propertyTitle": mb_item["title"],
+                    "floor": mb_item["floor"],
+                    "totalFloor": mb_item["total_floors"],
+                    "propertySize": mb_item["area"],
+                    "facing": mb_item["facing"],
+                    "price": mb_item["price_raw"],
+                    "formattedPrice": mb_item["price_text"],
+                    "detailUrl": mb_item["link"],
+                    "_source": "MagicBricks"
+                }
 
     current_hashes = set()
     hash_to_pid = {}

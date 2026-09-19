@@ -15,6 +15,13 @@ headers = {
 }
 
 MISS_THRESHOLD = 2
+ENABLE_MAGICBRICKS = False
+
+USER_RELISTED_HASHES = {
+    '5094bb29', '5eab9038', 'cbdfb277', '0919f622', '332d438d',
+    '09d7ef8c', 'f803de48', '32003d8a', '09b82561', '102c13ee',
+    'd0c8cb6b', '7a4e4fb1', '7433fe0b', '0d985e20', '35d94134', '47a1ad67'
+}
 
 PROJECTS = {
     "sobha-neopolis": {
@@ -377,22 +384,23 @@ def run_single_project_crawler(project_key, project_config):
             print(f"  Page {page}: batch={len(props)}, new match={added}, total={len(all_props)}")
             page += 1
 
-    # 2. MagicBricks Search
-    mb_listings = crawl_magicbricks_listings(project_key, project_config)
-    for mb_item in mb_listings:
-        mb_pid = mb_item["id"]
-        if mb_pid and mb_pid not in all_props:
-            all_props[mb_pid] = {
-                "propertyTitle": mb_item["title"],
-                "floor": mb_item["floor"],
-                "totalFloor": mb_item["total_floors"],
-                "propertySize": mb_item["area"],
-                "facing": mb_item["facing"],
-                "price": mb_item["price_raw"],
-                "formattedPrice": mb_item["price_text"],
-                "detailUrl": mb_item["link"],
-                "_source": "MagicBricks"
-            }
+    # 2. MagicBricks Search (Disabled if ENABLE_MAGICBRICKS is False)
+    if ENABLE_MAGICBRICKS:
+        mb_listings = crawl_magicbricks_listings(project_key, project_config)
+        for mb_item in mb_listings:
+            mb_pid = mb_item["id"]
+            if mb_pid and mb_pid not in all_props:
+                all_props[mb_pid] = {
+                    "propertyTitle": mb_item["title"],
+                    "floor": mb_item["floor"],
+                    "totalFloor": mb_item["total_floors"],
+                    "propertySize": mb_item["area"],
+                    "facing": mb_item["facing"],
+                    "price": mb_item["price_raw"],
+                    "formattedPrice": mb_item["price_text"],
+                    "detailUrl": mb_item["link"],
+                    "_source": "MagicBricks"
+                }
 
     current_hashes = set()
     hash_to_pid = {}
@@ -461,7 +469,10 @@ def run_single_project_crawler(project_key, project_config):
         item["id"] = idx + 1
 
     # Diff
-    prev_active_hashes = {h for h, v in history.items() if v.get("status") == "active"}
+    prev_active_hashes = {
+        h for h, v in history.items() 
+        if v.get("status") == "active" and (ENABLE_MAGICBRICKS or v.get("source") != "MagicBricks")
+    }
     new_hashes = current_hashes - prev_active_hashes
     potentially_missing = prev_active_hashes - current_hashes
 
@@ -469,6 +480,9 @@ def run_single_project_crawler(project_key, project_config):
     still_alive_but_missing = set()
 
     for uid in potentially_missing:
+        if uid in USER_RELISTED_HASHES:
+            still_alive_but_missing.add(uid)
+            continue
         entry = history.get(uid, {})
         link = entry.get("link", "")
 

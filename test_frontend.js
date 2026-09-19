@@ -64,11 +64,10 @@ test('Frontend Unit Tests — index.html contains required DOM containers', () =
 
 
 
-test('Frontend Unit Tests — Multi-Source Platform Filter buttons & Badges present', () => {
-  assert.ok(htmlContent.includes('data-filter="source_nobroker"'), 'NoBroker filter button must exist');
-  assert.ok(htmlContent.includes('data-filter="source_magicbricks"'), 'MagicBricks filter button must exist');
-  assert.ok(htmlContent.includes('source-badge magicbricks'), 'MagicBricks badge CSS style must exist');
+test('Frontend Unit Tests — MagicBricks hidden and NoBroker platform styling present', () => {
   assert.ok(htmlContent.includes('source-badge nobroker'), 'NoBroker badge CSS style must exist');
+  assert.ok(!htmlContent.includes('data-filter="source_magicbricks"'), 'MagicBricks filter button should be removed');
+  assert.ok(htmlContent.includes("item.source === 'MagicBricks'"), 'MagicBricks exclusion filter must exist in JS');
 });
 
 test('Frontend Unit Tests — Manual Category Reclassification UI & Persistence markup present', () => {
