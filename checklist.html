@@ -135,9 +135,10 @@
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.3px;
-      background: rgba(22, 163, 74, 0.15);
+      background: rgba(22, 163, 74, 0.2);
       color: #86EFAC;
-      border: 1px solid rgba(134, 239, 172, 0.3);
+      border: 1px solid rgba(134, 239, 172, 0.4);
+      transition: all 0.3s;
     }
     .sync-dot {
       width: 7px;
@@ -393,11 +394,13 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 9px 8px;
+      padding: 10px 8px;
       cursor: pointer;
       border-radius: 4px;
       transition: background 0.15s;
       position: relative;
+      user-select: none;
+      -webkit-user-select: none;
     }
     .item:hover { background: rgba(37,99,235,0.04); }
 
@@ -644,7 +647,7 @@
       <span class="label">Handover Inspection · 05 Nov 2026</span>
       <span class="sync-status-badge" id="sync-status">
         <span class="sync-dot"></span>
-        <span id="sync-text">Connecting Firebase...</span>
+        <span id="sync-text">Live Cloud Sync Connected</span>
       </span>
     </div>
     <h1>🔑 Handover Inspection Checklist</h1>
@@ -711,579 +714,642 @@
 
 </div><!-- /notebook -->
 
-<!-- Firebase Realtime Database Integration -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getDatabase, ref, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+<script>
+// ════════════════════════════════════════════════════════════════════
+// CONSTANTS & CONFIGURATION
+// ════════════════════════════════════════════════════════════════════
+const FIREBASE_BASE_URL = "https://eopolis-checklist-default-rtdb.firebaseio.com/shared_checklist_q1_17166";
+const LOCAL_STORAGE_KEY = "neopolis_shared_checklist_v2";
 
-  // Firebase Configuration (Provided by User)
-  const firebaseConfig = {
-    apiKey: "AIzaSyC8p6iheMLOXc13wNosPb77VmGfXr0r1FM",
-    authDomain: "eopolis-checklist.firebaseapp.com",
-    databaseURL: "https://eopolis-checklist-default-rtdb.firebaseio.com",
-    projectId: "eopolis-checklist",
-    storageBucket: "eopolis-checklist.firebasestorage.app",
-    messagingSenderId: "66733118396",
-    appId: "1:66733118396:web:e8c46dd1165377f36091b9",
-    measurementId: "G-F50S9WZR4K"
-  };
-
-  // Initialize Firebase App & Realtime Database
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
-  const checklistDbRef = ref(db, 'shared_checklist_q1_17166');
-
-  // Shared Checklist Data Structure
-  window.SECTIONS = [
-    {
-      id: 'A', letter: 'A',
-      title: '📋 Documents to Collect',
-      callout: '🚨 Do NOT sign the handover form until every document below is received.',
-      items: [
-        { id: 'A1', text: '<strong>Occupancy Certificate (OC)</strong> — Original or certified true copy from BBMP / BDA' },
-        { id: 'A2', text: '<strong>e-Khata</strong> — Confirm Sobha has applied and received it (required for Sale Deed registration)' },
-        { id: 'A3', text: '<strong>Property Tax Receipt</strong> — First year receipt (since you paid ₹10,773 in FPRL)' },
-        { id: 'A4', text: '<strong>BESCOM Meter Number</strong> — Get the pre-paid smart meter reference / assigned HT meter ID' },
-        { id: 'A5', text: '<strong>GAIL Gas Pipeline Completion Letter</strong> — Confirm gas inlet valve is active / pressure tested' },
-        { id: 'A6', text: '<strong>NOC from Bank (Sobha\'s Construction Loan)</strong> — Confirming the wing is free of builder mortgage' },
-        { id: 'A7', text: '<strong>Completion Certificate / Wing Completion Letter</strong> from Sobha' },
-        { id: 'A8', text: '<strong>Car Parking Allotment Letter</strong> — Confirm Basement/Ground Floor parking slot number' },
-        { id: 'A9', text: '<strong>Keys Set</strong> — Main Door: 3 sets minimum. Mailbox, terrace access, parking if any' },
-        { id: 'A10', text: '<strong>Society / Association details</strong> — Contact of Ad-hoc Committee formed (if any)' },
-      ]
-    },
-    {
-      id: 'B', letter: 'B',
-      title: '🧱 Structure & Civil Work',
-      subHeaders: [
-        { label: 'Walls & Ceiling', after: 'B1' },
-        { label: 'Flooring', after: 'B5' },
-        { label: 'Doors & Windows', after: 'B10' },
-      ],
-      items: [
-        { id: 'B1', text: 'Check all walls for <strong>cracks</strong> (hairline or structural) — use torch at an angle to see clearly' },
-        { id: 'B2', text: 'Check <strong>seepage / dampness stains</strong> on all external-facing walls (balcony wall, corridor wall)' },
-        { id: 'B3', text: 'Check <strong>ceiling</strong> for seepage patches, especially in bathrooms and near AC ducts' },
-        { id: 'B4', text: 'Check all <strong>corners</strong> (wall-to-wall, wall-to-ceiling joints) for plaster gaps or hollow sound (knock with knuckle)' },
-        { id: 'B5', text: 'Walk entire flat — listen for <strong>hollow / loose tiles</strong> (knock with knuckle — dull "thud" = hollow)' },
-        { id: 'B6', text: 'Check tile <strong>grout / joints</strong> for uniform width and no missing grout' },
-        { id: 'B7', text: 'Check <strong>level / flatness</strong> of flooring — no significant undulation' },
-        { id: 'B8', text: 'Check <strong>skirting tiles</strong> at base of walls — firmly fixed, no gaps' },
-        { id: 'B9', text: 'Check <strong>balcony / utility flooring</strong> for anti-skid texture and adequate slope towards drain' },
-        { id: 'B10', text: '<strong>Main door:</strong> Heavy-duty, flush smoothly, no gaps at frame, lock and deadbolt working' },
-        { id: 'B11', text: 'All <strong>bedroom doors:</strong> Open/close without dragging, latches working, door stopper fitted' },
-        { id: 'B12', text: 'All <strong>bathroom doors:</strong> WC locks working from inside, ventilation gap at bottom' },
-        { id: 'B13', text: 'All <strong>windows:</strong> Slide/open smoothly, rubber gasket intact, no broken glass' },
-        { id: 'B14', text: 'All <strong>window grills</strong> (if any): Welded securely, no sharp edges' },
-        { id: 'B15', text: '<strong>Balcony sliding door/railing:</strong> Slides smoothly, safety glass intact, railing firmly bolted — shake it hard!' },
-        { id: 'B16', text: 'Check <strong>door frames</strong> are plumb (use phone spirit level app)' },
-      ]
-    },
-    {
-      id: 'C', letter: 'C',
-      title: '⚡ Electrical',
-      callout: '⚡ Action: Carry a phone charger and plug into every socket to verify live power.',
-      subHeaders: [
-        { label: 'Switches & Sockets', after: 'C1' },
-        { label: 'Electrical Panel (MCB / RCCB Board)', after: 'C6' },
-        { label: 'Lighting', after: 'C10' },
-      ],
-      items: [
-        { id: 'C1', text: '<strong>Every electrical switch</strong> in every room — toggle on/off, verify corresponding light/fan works' },
-        { id: 'C2', text: '<strong>Every 5-pin power socket</strong> — plug charger and verify power is live' },
-        { id: 'C3', text: 'Check for <strong>loose sockets</strong> — push plate, it should not move' },
-        { id: 'C4', text: '<strong>Split AC provision points</strong> — 15A socket, copper pipe sleeve, and drain pipe sleeve in each bedroom' },
-        { id: 'C5', text: '<strong>Exhaust fan</strong> in each bathroom — switch on and verify it spins' },
-        { id: 'C6', text: '<strong>Modular switch panel</strong> labels — match them to actual circuits' },
-        { id: 'C7', text: 'Open the main electrical panel — photograph it' },
-        { id: 'C8', text: 'All <strong>MCBs labeled</strong> (lights, fan, AC, kitchen, etc.)' },
-        { id: 'C9', text: '<strong>RCCB / Earth Leakage protection</strong> present and trips when tested' },
-        { id: 'C10', text: 'No exposed wires visible' },
-        { id: 'C11', text: 'All <strong>light fittings</strong> provided as per specifications — count room by room' },
-        { id: 'C12', text: 'Check <strong>bathroom light</strong> (moist area rating)' },
-        { id: 'C13', text: 'Confirm <strong>DG power backup</strong> circuits — ask which circuits are on DG (usually lights + fans + 2 sockets)' },
-      ]
-    },
-    {
-      id: 'D', letter: 'D',
-      title: '🚿 Plumbing & Sanitation',
-      callout: '🚿 Action: Turn on every tap, flush every WC, check every drain.',
-      subHeaders: [
-        { label: 'Bathrooms (Master Bath + 2nd + 3rd Bathroom)', after: 'D1' },
-        { label: 'Kitchen', after: 'D10' },
-        { label: 'Utility / Service Area', after: 'D14' },
-        { label: 'Water Supply General', after: 'D17' },
-      ],
-      items: [
-        { id: 'D1', text: 'All taps: <strong>Hot &amp; cold supply</strong> working, no drip' },
-        { id: 'D2', text: '<strong>Shower head / rain shower</strong> — flow and pressure good' },
-        { id: 'D3', text: '<strong>WC flush</strong> — both full flush and half flush working (dual flush button)' },
-        { id: 'D4', text: 'WC pan firmly fixed to floor — no wobble' },
-        { id: 'D5', text: '<strong>WC flush tank</strong> — no continuous running water sound (faulty float valve). <em>Tip: flush tank is in the wall — listen carefully for 30 seconds after flush. It should stop refilling. Jiggle flush button too.</em>' },
-        { id: 'D6', text: '<strong>Wash basin drain</strong> — water drains freely without backing up' },
-        { id: 'D7', text: '<strong>Floor drain (grating)</strong> — firmly seated, water flows towards it' },
-        { id: 'D8', text: '<strong>Bathroom mirror</strong> — cracks or spots? Firmly mounted?' },
-        { id: 'D9', text: '<strong>Towel rail, toilet paper holder</strong> — fixed to wall, not wobbly' },
-        { id: 'D10', text: '<strong>Sink tap</strong> — hot and cold supply working in kitchen' },
-        { id: 'D11', text: 'Kitchen sink drain — no blockage' },
-        { id: 'D12', text: '<strong>GAIL Gas valve</strong> — bronze ball valve present, ask for gas pressure test' },
-        { id: 'D13', text: '<strong>Chimney provision</strong> — verify exhaust duct opening in wall' },
-        { id: 'D14', text: '<strong>Washing machine tap</strong> — inlet valve present and working' },
-        { id: 'D15', text: 'Drain outlet for washing machine present' },
-        { id: 'D16', text: 'Utility area floor drain — not blocked' },
-        { id: 'D17', text: 'Ask Sobha for <strong>water pressure demonstration</strong> at kitchen tap' },
-        { id: 'D18', text: '<strong>Hot water line</strong> — check geyser provision in each bathroom' },
-        { id: 'D19', text: 'Check all <strong>exposed pipes</strong> are insulated and clipped neatly' },
-      ]
-    },
-    {
-      id: 'E', letter: 'E',
-      title: '🎨 Finishing & Fittings',
-      subHeaders: [
-        { label: 'Painting', after: 'E1' },
-        { label: 'Wardrobes (If provided as per specification)', after: 'E5' },
-      ],
-      items: [
-        { id: 'E1', text: 'All walls — <strong>uniform paint finish</strong> (no streaks, roller marks, bare patches)' },
-        { id: 'E2', text: 'Check <strong>paint near plug points and switches</strong> — often rough or unpainted' },
-        { id: 'E3', text: 'Check <strong>ceiling paint</strong> — no brush marks or patchwork visible' },
-        { id: 'E4', text: 'Check paint in <strong>corners and behind doors</strong>' },
-        { id: 'E5', text: 'All wardrobe doors open/close without dragging' },
-        { id: 'E6', text: 'Laminates intact, no peeling' },
-        { id: 'E7', text: 'All latch/handle fittings secured' },
-      ]
-    },
-    {
-      id: 'F', letter: 'F',
-      title: '🌿 Balcony & External',
-      items: [
-        { id: 'F1', text: '<strong>Balcony railing height</strong> — must be minimum 1 meter (safety compliance)' },
-        { id: 'F2', text: 'Balcony railing — push hard against it. <strong>Zero movement allowed</strong>' },
-        { id: 'F3', text: 'Check <strong>balcony waterproofing</strong> — no pooling water on floor' },
-        { id: 'F4', text: 'Check balcony wall for <strong>efflorescence (white salt deposits)</strong> = indicates seepage' },
-        { id: 'F5', text: 'Verify <strong>safety grills</strong> on windows if facing external corridor' },
-        { id: 'F6', text: 'Check <strong>view from 16th floor</strong> — any unexpected obstruction?' },
-      ]
-    },
-    {
-      id: 'G', letter: 'G',
-      title: '🏢 Common Areas (Wing 17)',
-      items: [
-        { id: 'G1', text: '<strong>Lift lobby on 16th Floor</strong> — finish quality, lights working, floor tiles intact' },
-        { id: 'G2', text: '<strong>Corridor / common passage</strong> — adequately lit, painted, no debris' },
-        { id: 'G3', text: '<strong>Staircase</strong> — handrail firmly fixed, steps even' },
-        { id: 'G4', text: '<strong>Lift operation</strong> — take lift from 16th floor to Ground Floor and back, check smooth ride, no jerking' },
-        { id: 'G5', text: '<strong>Fire hose reel cabinet</strong> on your floor — present and cabinet not blocked' },
-        { id: 'G6', text: '<strong>Fire alarm panel</strong> — indicator lights on, not in fault/alarm state' },
-        { id: 'G7', text: 'Ask for <strong>terrace access</strong> — check waterproofing and parapet height' },
-      ]
-    },
-    {
-      id: 'H', letter: 'H',
-      title: '✍️ Demand in Writing from Sobha',
-      items: []
-    }
-  ];
-
-  window.TOTAL_ITEMS = window.SECTIONS.reduce((sum, s) => sum + s.items.length, 0);
-
-  // Inspector state (persisted per device in localStorage)
-  let currentInspector = localStorage.getItem('neopolis_inspector') || 'Priyanshu';
-  window.currentFilter = 'all';
-
-  // Global shared state
-  let sharedState = {};
-
-  // Formatter for timestamp
-  function getFormattedTimestamp() {
-    return new Date().toLocaleString('en-IN', {
-      day: '2-digit', month: 'short', year: 'numeric',
-      hour: '2-digit', minute: '2-digit', hour12: true
-    });
+const SECTIONS = [
+  {
+    id: 'A', letter: 'A',
+    title: '📋 Documents to Collect',
+    callout: '🚨 Do NOT sign the handover form until every document below is received.',
+    items: [
+      { id: 'A1', text: '<strong>Occupancy Certificate (OC)</strong> — Original or certified true copy from BBMP / BDA' },
+      { id: 'A2', text: '<strong>e-Khata</strong> — Confirm Sobha has applied and received it (required for Sale Deed registration)' },
+      { id: 'A3', text: '<strong>Property Tax Receipt</strong> — First year receipt (since you paid ₹10,773 in FPRL)' },
+      { id: 'A4', text: '<strong>BESCOM Meter Number</strong> — Get the pre-paid smart meter reference / assigned HT meter ID' },
+      { id: 'A5', text: '<strong>GAIL Gas Pipeline Completion Letter</strong> — Confirm gas inlet valve is active / pressure tested' },
+      { id: 'A6', text: '<strong>NOC from Bank (Sobha\'s Construction Loan)</strong> — Confirming the wing is free of builder mortgage' },
+      { id: 'A7', text: '<strong>Completion Certificate / Wing Completion Letter</strong> from Sobha' },
+      { id: 'A8', text: '<strong>Car Parking Allotment Letter</strong> — Confirm Basement/Ground Floor parking slot number' },
+      { id: 'A9', text: '<strong>Keys Set</strong> — Main Door: 3 sets minimum. Mailbox, terrace access, parking if any' },
+      { id: 'A10', text: '<strong>Society / Association details</strong> — Contact of Ad-hoc Committee formed (if any)' },
+    ]
+  },
+  {
+    id: 'B', letter: 'B',
+    title: '🧱 Structure & Civil Work',
+    subHeaders: [
+      { label: 'Walls & Ceiling', after: 'B1' },
+      { label: 'Flooring', after: 'B5' },
+      { label: 'Doors & Windows', after: 'B10' },
+    ],
+    items: [
+      { id: 'B1', text: 'Check all walls for <strong>cracks</strong> (hairline or structural) — use torch at an angle to see clearly' },
+      { id: 'B2', text: 'Check <strong>seepage / dampness stains</strong> on all external-facing walls (balcony wall, corridor wall)' },
+      { id: 'B3', text: 'Check <strong>ceiling</strong> for seepage patches, especially in bathrooms and near AC ducts' },
+      { id: 'B4', text: 'Check all <strong>corners</strong> (wall-to-wall, wall-to-ceiling joints) for plaster gaps or hollow sound (knock with knuckle)' },
+      { id: 'B5', text: 'Walk entire flat — listen for <strong>hollow / loose tiles</strong> (knock with knuckle — dull "thud" = hollow)' },
+      { id: 'B6', text: 'Check tile <strong>grout / joints</strong> for uniform width and no missing grout' },
+      { id: 'B7', text: 'Check <strong>level / flatness</strong> of flooring — no significant undulation' },
+      { id: 'B8', text: 'Check <strong>skirting tiles</strong> at base of walls — firmly fixed, no gaps' },
+      { id: 'B9', text: 'Check <strong>balcony / utility flooring</strong> for anti-skid texture and adequate slope towards drain' },
+      { id: 'B10', text: '<strong>Main door:</strong> Heavy-duty, flush smoothly, no gaps at frame, lock and deadbolt working' },
+      { id: 'B11', text: 'All <strong>bedroom doors:</strong> Open/close without dragging, latches working, door stopper fitted' },
+      { id: 'B12', text: 'All <strong>bathroom doors:</strong> WC locks working from inside, ventilation gap at bottom' },
+      { id: 'B13', text: 'All <strong>windows:</strong> Slide/open smoothly, rubber gasket intact, no broken glass' },
+      { id: 'B14', text: 'All <strong>window grills</strong> (if any): Welded securely, no sharp edges' },
+      { id: 'B15', text: '<strong>Balcony sliding door/railing:</strong> Slides smoothly, safety glass intact, railing firmly bolted — shake it hard!' },
+      { id: 'B16', text: 'Check <strong>door frames</strong> are plumb (use phone spirit level app)' },
+    ]
+  },
+  {
+    id: 'C', letter: 'C',
+    title: '⚡ Electrical',
+    callout: '⚡ Action: Carry a phone charger and plug into every socket to verify live power.',
+    subHeaders: [
+      { label: 'Switches & Sockets', after: 'C1' },
+      { label: 'Electrical Panel (MCB / RCCB Board)', after: 'C6' },
+      { label: 'Lighting', after: 'C10' },
+    ],
+    items: [
+      { id: 'C1', text: '<strong>Every electrical switch</strong> in every room — toggle on/off, verify corresponding light/fan works' },
+      { id: 'C2', text: '<strong>Every 5-pin power socket</strong> — plug charger and verify power is live' },
+      { id: 'C3', text: 'Check for <strong>loose sockets</strong> — push plate, it should not move' },
+      { id: 'C4', text: '<strong>Split AC provision points</strong> — 15A socket, copper pipe sleeve, and drain pipe sleeve in each bedroom' },
+      { id: 'C5', text: '<strong>Exhaust fan</strong> in each bathroom — switch on and verify it spins' },
+      { id: 'C6', text: '<strong>Modular switch panel</strong> labels — match them to actual circuits' },
+      { id: 'C7', text: 'Open the main electrical panel — photograph it' },
+      { id: 'C8', text: 'All <strong>MCBs labeled</strong> (lights, fan, AC, kitchen, etc.)' },
+      { id: 'C9', text: '<strong>RCCB / Earth Leakage protection</strong> present and trips when tested' },
+      { id: 'C10', text: 'No exposed wires visible' },
+      { id: 'C11', text: 'All <strong>light fittings</strong> provided as per specifications — count room by room' },
+      { id: 'C12', text: 'Check <strong>bathroom light</strong> (moist area rating)' },
+      { id: 'C13', text: 'Confirm <strong>DG power backup</strong> circuits — ask which circuits are on DG (usually lights + fans + 2 sockets)' },
+    ]
+  },
+  {
+    id: 'D', letter: 'D',
+    title: '🚿 Plumbing & Sanitation',
+    callout: '🚿 Action: Turn on every tap, flush every WC, check every drain.',
+    subHeaders: [
+      { label: 'Bathrooms (Master Bath + 2nd + 3rd Bathroom)', after: 'D1' },
+      { label: 'Kitchen', after: 'D10' },
+      { label: 'Utility / Service Area', after: 'D14' },
+      { label: 'Water Supply General', after: 'D17' },
+    ],
+    items: [
+      { id: 'D1', text: 'All taps: <strong>Hot &amp; cold supply</strong> working, no drip' },
+      { id: 'D2', text: '<strong>Shower head / rain shower</strong> — flow and pressure good' },
+      { id: 'D3', text: '<strong>WC flush</strong> — both full flush and half flush working (dual flush button)' },
+      { id: 'D4', text: 'WC pan firmly fixed to floor — no wobble' },
+      { id: 'D5', text: '<strong>WC flush tank</strong> — no continuous running water sound (faulty float valve). <em>Tip: flush tank is in the wall — listen carefully for 30 seconds after flush. It should stop refilling. Jiggle flush button too.</em>' },
+      { id: 'D6', text: '<strong>Wash basin drain</strong> — water drains freely without backing up' },
+      { id: 'D7', text: '<strong>Floor drain (grating)</strong> — firmly seated, water flows towards it' },
+      { id: 'D8', text: '<strong>Bathroom mirror</strong> — cracks or spots? Firmly mounted?' },
+      { id: 'D9', text: '<strong>Towel rail, toilet paper holder</strong> — fixed to wall, not wobbly' },
+      { id: 'D10', text: '<strong>Sink tap</strong> — hot and cold supply working in kitchen' },
+      { id: 'D11', text: 'Kitchen sink drain — no blockage' },
+      { id: 'D12', text: '<strong>GAIL Gas valve</strong> — bronze ball valve present, ask for gas pressure test' },
+      { id: 'D13', text: '<strong>Chimney provision</strong> — verify exhaust duct opening in wall' },
+      { id: 'D14', text: '<strong>Washing machine tap</strong> — inlet valve present and working' },
+      { id: 'D15', text: 'Drain outlet for washing machine present' },
+      { id: 'D16', text: 'Utility area floor drain — not blocked' },
+      { id: 'D17', text: 'Ask Sobha for <strong>water pressure demonstration</strong> at kitchen tap' },
+      { id: 'D18', text: '<strong>Hot water line</strong> — check geyser provision in each bathroom' },
+      { id: 'D19', text: 'Check all <strong>exposed pipes</strong> are insulated and clipped neatly' },
+    ]
+  },
+  {
+    id: 'E', letter: 'E',
+    title: '🎨 Finishing & Fittings',
+    subHeaders: [
+      { label: 'Painting', after: 'E1' },
+      { label: 'Wardrobes (If provided as per specification)', after: 'E5' },
+    ],
+    items: [
+      { id: 'E1', text: 'All walls — <strong>uniform paint finish</strong> (no streaks, roller marks, bare patches)' },
+      { id: 'E2', text: 'Check <strong>paint near plug points and switches</strong> — often rough or unpainted' },
+      { id: 'E3', text: 'Check <strong>ceiling paint</strong> — no brush marks or patchwork visible' },
+      { id: 'E4', text: 'Check paint in <strong>corners and behind doors</strong>' },
+      { id: 'E5', text: 'All wardrobe doors open/close without dragging' },
+      { id: 'E6', text: 'Laminates intact, no peeling' },
+      { id: 'E7', text: 'All latch/handle fittings secured' },
+    ]
+  },
+  {
+    id: 'F', letter: 'F',
+    title: '🌿 Balcony & External',
+    items: [
+      { id: 'F1', text: '<strong>Balcony railing height</strong> — must be minimum 1 meter (safety compliance)' },
+      { id: 'F2', text: 'Balcony railing — push hard against it. <strong>Zero movement allowed</strong>' },
+      { id: 'F3', text: 'Check <strong>balcony waterproofing</strong> — no pooling water on floor' },
+      { id: 'F4', text: 'Check balcony wall for <strong>efflorescence (white salt deposits)</strong> = indicates seepage' },
+      { id: 'F5', text: 'Verify <strong>safety grills</strong> on windows if facing external corridor' },
+      { id: 'F6', text: 'Check <strong>view from 16th floor</strong> — any unexpected obstruction?' },
+    ]
+  },
+  {
+    id: 'G', letter: 'G',
+    title: '🏢 Common Areas (Wing 17)',
+    items: [
+      { id: 'G1', text: '<strong>Lift lobby on 16th Floor</strong> — finish quality, lights working, floor tiles intact' },
+      { id: 'G2', text: '<strong>Corridor / common passage</strong> — adequately lit, painted, no debris' },
+      { id: 'G3', text: '<strong>Staircase</strong> — handrail firmly fixed, steps even' },
+      { id: 'G4', text: '<strong>Lift operation</strong> — take lift from 16th floor to Ground Floor and back, check smooth ride, no jerking' },
+      { id: 'G5', text: '<strong>Fire hose reel cabinet</strong> on your floor — present and cabinet not blocked' },
+      { id: 'G6', text: '<strong>Fire alarm panel</strong> — indicator lights on, not in fault/alarm state' },
+      { id: 'G7', text: 'Ask for <strong>terrace access</strong> — check waterproofing and parapet height' },
+    ]
+  },
+  {
+    id: 'H', letter: 'H',
+    title: '✍️ Demand in Writing from Sobha',
+    items: []
   }
+];
 
-  // Set Inspector on this device
-  window.setInspector = function(name) {
-    currentInspector = name;
-    localStorage.setItem('neopolis_inspector', name);
-    document.getElementById('btn-user-priyanshu').classList.toggle('active', name === 'Priyanshu');
-    document.getElementById('btn-user-yash').classList.toggle('active', name === 'Yash');
-  };
+const TOTAL_ITEMS = SECTIONS.reduce((sum, s) => sum + s.items.length, 0);
 
-  // Filter items
-  window.setFilter = function(filter, btn) {
-    window.currentFilter = filter;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    applyFilter();
-  };
+// ════════════════════════════════════════════════════════════════════
+// STATE MANAGEMENT (LOCAL-FIRST)
+// ════════════════════════════════════════════════════════════════════
+let currentInspector = localStorage.getItem('neopolis_inspector') || 'Priyanshu';
+let currentFilter = 'all';
+let sharedState = {};
 
-  function applyFilter() {
-    const items = document.querySelectorAll('.item');
-    items.forEach(el => {
-      const isChecked = el.classList.contains('checked');
-      if (window.currentFilter === 'all') {
-        el.style.display = 'flex';
-      } else if (window.currentFilter === 'pending') {
-        el.style.display = isChecked ? 'none' : 'flex';
-      } else if (window.currentFilter === 'checked') {
-        el.style.display = isChecked ? 'flex' : 'none';
-      }
-    });
+// Load local state initially
+function loadLocalState() {
+  try {
+    const raw = localStorage.getItem(LOCAL_STORAGE_KEY) || localStorage.getItem('neopolis_shared_checklist') || '{}';
+    return JSON.parse(raw);
+  } catch(e) {
+    return {};
   }
+}
 
-  // Toggle item status in Firebase
-  window.toggleItem = function(itemId, secId) {
-    const isCurrentlyChecked = !!(sharedState[itemId]?.checked);
-    const itemRef = ref(db, `shared_checklist_q1_17166/${itemId}`);
+function saveLocalState() {
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(sharedState));
+  localStorage.setItem('neopolis_shared_checklist', JSON.stringify(sharedState));
+}
 
-    if (isCurrentlyChecked) {
-      // Uncheck: remove from database
-      remove(itemRef).catch(err => {
-        console.error("Firebase write error:", err);
-        fallbackLocalToggle(itemId, false);
-      });
-    } else {
-      // Check: write with inspector name and timestamp
-      const data = {
-        checked: true,
-        checkedBy: currentInspector,
-        timestamp: getFormattedTimestamp(),
-        secId: secId
-      };
-      set(itemRef, data).catch(err => {
-        console.error("Firebase write error:", err);
-        fallbackLocalToggle(itemId, true, data);
-      });
+function getFormattedTimestamp() {
+  return new Date().toLocaleString('en-IN', {
+    day: '2-digit', month: 'short', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: true
+  });
+}
+
+// ════════════════════════════════════════════════════════════════════
+// UI RENDER & CONTROLS
+// ════════════════════════════════════════════════════════════════════
+window.setInspector = function(name) {
+  currentInspector = name;
+  localStorage.setItem('neopolis_inspector', name);
+  document.getElementById('btn-user-priyanshu').classList.toggle('active', name === 'Priyanshu');
+  document.getElementById('btn-user-yash').classList.toggle('active', name === 'Yash');
+};
+
+window.setFilter = function(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilter();
+};
+
+function applyFilter() {
+  const items = document.querySelectorAll('.item');
+  items.forEach(el => {
+    const isChecked = el.classList.contains('checked');
+    if (currentFilter === 'all') {
+      el.style.display = 'flex';
+    } else if (currentFilter === 'pending') {
+      el.style.display = isChecked ? 'none' : 'flex';
+    } else if (currentFilter === 'checked') {
+      el.style.display = isChecked ? 'flex' : 'none';
     }
-  };
+  });
+}
 
-  // Local fallback if offline
-  function fallbackLocalToggle(itemId, check, data) {
-    if (check) {
-      sharedState[itemId] = data;
-    } else {
-      delete sharedState[itemId];
+// Build static HTML layout
+function buildChecklistDOM() {
+  const container = document.getElementById('checklist-container');
+  container.innerHTML = '';
+
+  SECTIONS.forEach(sec => {
+    const secWrap = document.createElement('div');
+    secWrap.className = 'section-wrap';
+    secWrap.id = `sec-wrap-${sec.id}`;
+
+    // Header
+    const hdr = document.createElement('div');
+    hdr.className = 'section-header';
+    hdr.innerHTML = `
+      <div class="section-letter">${sec.letter}</div>
+      <div class="section-title">${sec.title}</div>
+      ${sec.items.length > 0 ? `<div class="section-counter" id="sec-counter-${sec.id}">0/${sec.items.length}</div>` : ''}
+    `;
+    secWrap.appendChild(hdr);
+
+    // Callout
+    if (sec.callout) {
+      const co = document.createElement('div');
+      co.className = 'callout';
+      co.innerHTML = `<span class="callout-icon">⚠️</span><span>${sec.callout}</span>`;
+      secWrap.appendChild(co);
     }
-    localStorage.setItem('neopolis_shared_checklist', JSON.stringify(sharedState));
-    updateUI();
-  }
 
-  // Initial DOM render of sections
-  function buildChecklistDOM() {
-    const container = document.getElementById('checklist-container');
-    container.innerHTML = '';
-
-    window.SECTIONS.forEach(sec => {
-      const secWrap = document.createElement('div');
-      secWrap.className = 'section-wrap';
-      secWrap.id = `sec-wrap-${sec.id}`;
-
-      // Section Header
-      const hdr = document.createElement('div');
-      hdr.className = 'section-header';
-      hdr.innerHTML = `
-        <div class="section-letter">${sec.letter}</div>
-        <div class="section-title">${sec.title}</div>
-        ${sec.items.length > 0 ? `<div class="section-counter" id="sec-counter-${sec.id}">0/${sec.items.length}</div>` : ''}
+    // Section H: Special Guidance
+    if (sec.id === 'H') {
+      secWrap.innerHTML += `
+        <ol style="padding-left:20px; font-size:13.5px; line-height:1.8; color:var(--ink2);">
+          <li><strong>Snag / Defect List (Signed by Sobha representative)</strong> — Any defect noted must be written on their official Snag Sheet, signed by Sobha's Site Engineer AND you. This creates a binding rectification obligation under RERA.</li>
+          <li><strong>Rectification Deadline:</strong> Demand written commitment that all snags will be rectified within <strong>30 days</strong>.</li>
+          <li><strong>DLP (Defect Liability Period) Reminder:</strong> Under RERA Section 14(3), Sobha has a <strong>5-year structural defect liability</strong> from date of possession. Confirm in writing.</li>
+          <li><strong>Car Parking Slot Allotment</strong> — written and signed.</li>
+          <li><strong>Maintenance Charges Start Date</strong> — confirm in writing.</li>
+        </ol>
+        <div style="margin-top:16px; font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink2); margin-bottom:8px;">💬 Script for Sobha's Rep On-Site</div>
+        <div class="script-box">
+          "We will take possession today only after completing our snag inspection. All defects observed will be recorded on your Defect Observation Sheet. We will sign the handover form AFTER the snag sheet is counter-signed by your site engineer."
+        </div>
+        <div class="dont-say">
+          <strong>❌ Do NOT say:</strong><br>
+          "It looks fine overall, we'll fix it later" ← you lose legal rights<br>
+          "We'll sign now and send the list by email" ← they can deny it later
+        </div>
+        <div style="margin-top:16px; font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink2); margin-bottom:8px;">👥 Division of Work</div>
+        <table class="division-table">
+          <thead>
+            <tr><th>Priyanshu</th><th>Yash</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Record continuous <strong>video walkthrough</strong> room by room</td><td>Take <strong>photographs</strong> of every defect</td></tr>
+            <tr><td>Test all <strong>electrical sockets</strong> with charger</td><td>Test all <strong>taps, flushes, and drains</strong></td></tr>
+            <tr><td>Knock walls for <strong>hollow tiles</strong></td><td>Check <strong>all doors and windows</strong></td></tr>
+            <tr><td>Read all <strong>documents</strong> received</td><td>Note down all <strong>meter numbers</strong> (electricity, gas)</td></tr>
+            <tr><td>Collect all <strong>keys</strong> and count</td><td>Check <strong>balcony railings</strong> and balcony view</td></tr>
+          </tbody>
+        </table>
       `;
-      secWrap.appendChild(hdr);
-
-      // Callout
-      if (sec.callout) {
-        const co = document.createElement('div');
-        co.className = 'callout';
-        co.innerHTML = `<span class="callout-icon">⚠️</span><span>${sec.callout}</span>`;
-        secWrap.appendChild(co);
-      }
-
-      // Section H: Special Guidance
-      if (sec.id === 'H') {
-        secWrap.innerHTML += `
-          <ol style="padding-left:20px; font-size:13.5px; line-height:1.8; color:var(--ink2);">
-            <li><strong>Snag / Defect List (Signed by Sobha representative)</strong> — Any defect noted must be written on their official Snag Sheet, signed by Sobha's Site Engineer AND you. This creates a binding rectification obligation under RERA.</li>
-            <li><strong>Rectification Deadline:</strong> Demand written commitment that all snags will be rectified within <strong>30 days</strong>.</li>
-            <li><strong>DLP (Defect Liability Period) Reminder:</strong> Under RERA Section 14(3), Sobha has a <strong>5-year structural defect liability</strong> from date of possession. Confirm in writing.</li>
-            <li><strong>Car Parking Slot Allotment</strong> — written and signed.</li>
-            <li><strong>Maintenance Charges Start Date</strong> — confirm in writing.</li>
-          </ol>
-          <div style="margin-top:16px; font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink2); margin-bottom:8px;">💬 Script for Sobha's Rep On-Site</div>
-          <div class="script-box">
-            "We will take possession today only after completing our snag inspection. All defects observed will be recorded on your Defect Observation Sheet. We will sign the handover form AFTER the snag sheet is counter-signed by your site engineer."
-          </div>
-          <div class="dont-say">
-            <strong>❌ Do NOT say:</strong><br>
-            "It looks fine overall, we'll fix it later" ← you lose legal rights<br>
-            "We'll sign now and send the list by email" ← they can deny it later
-          </div>
-          <div style="margin-top:16px; font-family:'Caveat',cursive; font-size:18px; font-weight:700; color:var(--ink2); margin-bottom:8px;">👥 Division of Work</div>
-          <table class="division-table">
-            <thead>
-              <tr><th>Priyanshu</th><th>Yash</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Record continuous <strong>video walkthrough</strong> room by room</td><td>Take <strong>photographs</strong> of every defect</td></tr>
-              <tr><td>Test all <strong>electrical sockets</strong> with charger</td><td>Test all <strong>taps, flushes, and drains</strong></td></tr>
-              <tr><td>Knock walls for <strong>hollow tiles</strong></td><td>Check <strong>all doors and windows</strong></td></tr>
-              <tr><td>Read all <strong>documents</strong> received</td><td>Note down all <strong>meter numbers</strong> (electricity, gas)</td></tr>
-              <tr><td>Collect all <strong>keys</strong> and count</td><td>Check <strong>balcony railings</strong> and balcony view</td></tr>
-            </tbody>
-          </table>
-        `;
-        container.appendChild(secWrap);
-        return;
-      }
-
-      // Checkable items
-      const itemsContainer = document.createElement('div');
-
-      sec.items.forEach(item => {
-        // Sub-header check
-        if (sec.subHeaders) {
-          const sh = sec.subHeaders.find(s => s.after === item.id);
-          if (sh) {
-            const shEl = document.createElement('div');
-            shEl.className = 'sub-header';
-            shEl.textContent = sh.label;
-            itemsContainer.appendChild(shEl);
-          }
-        }
-
-        const el = document.createElement('label');
-        el.className = 'item';
-        el.id = `item-${item.id}`;
-        el.onclick = (e) => {
-          e.preventDefault();
-          window.toggleItem(item.id, sec.id);
-        };
-
-        el.innerHTML = `
-          <input type="checkbox" id="chk-${item.id}">
-          <div class="check-box"></div>
-          <div class="item-body">
-            <div class="item-text">${item.text}</div>
-            <div class="item-meta" id="meta-${item.id}">
-              <span class="who-badge" id="who-${item.id}"></span>
-              <span class="item-ts" id="ts-${item.id}"></span>
-            </div>
-          </div>
-        `;
-        itemsContainer.appendChild(el);
-      });
-
-      secWrap.appendChild(itemsContainer);
       container.appendChild(secWrap);
-    });
-  }
-
-  // Update UI whenever Firebase state changes
-  function updateUI() {
-    let totalChecked = 0;
-    let pCount = 0;
-    let yCount = 0;
-
-    // Update individual items
-    window.SECTIONS.forEach(sec => {
-      let secChecked = 0;
-
-      sec.items.forEach(item => {
-        const itemData = sharedState[item.id];
-        const itemEl = document.getElementById(`item-${item.id}`);
-        const chkEl = document.getElementById(`chk-${item.id}`);
-        const whoEl = document.getElementById(`who-${item.id}`);
-        const tsEl = document.getElementById(`ts-${item.id}`);
-
-        if (itemData && itemData.checked) {
-          totalChecked++;
-          secChecked++;
-          const by = itemData.checkedBy || 'Priyanshu';
-          if (by.toLowerCase().includes('yash')) yCount++;
-          else pCount++;
-
-          if (itemEl) {
-            itemEl.classList.add('checked');
-            itemEl.classList.toggle('checked-by-priyanshu', by.toLowerCase().includes('priyanshu'));
-            itemEl.classList.toggle('checked-by-yash', by.toLowerCase().includes('yash'));
-          }
-          if (chkEl) chkEl.checked = true;
-          if (whoEl) {
-            whoEl.textContent = `✓ ${by}`;
-            whoEl.className = `who-badge ${by.toLowerCase().includes('yash') ? 'yash' : 'priyanshu'}`;
-          }
-          if (tsEl) tsEl.textContent = itemData.timestamp || '';
-        } else {
-          if (itemEl) {
-            itemEl.classList.remove('checked', 'checked-by-priyanshu', 'checked-by-yash');
-          }
-          if (chkEl) chkEl.checked = false;
-        }
-      });
-
-      // Update Section Counter
-      const secCounter = document.getElementById(`sec-counter-${sec.id}`);
-      if (secCounter && sec.items.length > 0) {
-        secCounter.textContent = `${secChecked}/${sec.items.length}`;
-        secCounter.classList.toggle('done', secChecked === sec.items.length);
-      }
-    });
-
-    // Update Progress Stats & Bar
-    const pct = window.TOTAL_ITEMS > 0 ? Math.round((totalChecked / window.TOTAL_ITEMS) * 100) : 0;
-    const pPct = window.TOTAL_ITEMS > 0 ? (pCount / window.TOTAL_ITEMS) * 100 : 0;
-    const yPct = window.TOTAL_ITEMS > 0 ? (yCount / window.TOTAL_ITEMS) * 100 : 0;
-
-    document.getElementById('stat-checked').textContent = totalChecked;
-    document.getElementById('stat-total').textContent = window.TOTAL_ITEMS;
-    document.getElementById('stat-pct').textContent = `(${pct}% completed)`;
-    document.getElementById('pill-priyanshu').textContent = `Priyanshu: ${pCount}`;
-    document.getElementById('pill-yash').textContent = `Yash: ${yCount}`;
-
-    document.getElementById('bar-priyanshu').style.width = pPct + '%';
-    document.getElementById('bar-yash').style.width = yPct + '%';
-
-    // Update Activity Log
-    updateActivityLog();
-    applyFilter();
-  }
-
-  // Update Activity Log
-  function updateActivityLog() {
-    const historyContainer = document.getElementById('history-container');
-    const checkedEntries = Object.entries(sharedState)
-      .filter(([, v]) => v && v.checked)
-      .sort((a, b) => (b[1].timestamp || '').localeCompare(a[1].timestamp || ''));
-
-    document.getElementById('history-count').textContent = `${checkedEntries.length} items logged`;
-
-    if (checkedEntries.length === 0) {
-      historyContainer.innerHTML = '<p class="history-empty">No items checked yet. Whenever either of you checks an item, it will show up here live.</p>';
       return;
     }
 
-    // Map item text
-    const textMap = {};
-    window.SECTIONS.forEach(s => s.items.forEach(it => {
-      textMap[it.id] = it.text.replace(/<[^>]+>/g, '');
-    }));
+    // Items
+    const itemsContainer = document.createElement('div');
 
-    const ul = document.createElement('ul');
-    ul.className = 'history-list';
+    sec.items.forEach(item => {
+      if (sec.subHeaders) {
+        const sh = sec.subHeaders.find(s => s.after === item.id);
+        if (sh) {
+          const shEl = document.createElement('div');
+          shEl.className = 'sub-header';
+          shEl.textContent = sh.label;
+          itemsContainer.appendChild(shEl);
+        }
+      }
 
-    checkedEntries.forEach(([id, data]) => {
-      const by = data.checkedBy || 'Priyanshu';
-      const isYash = by.toLowerCase().includes('yash');
-      const li = document.createElement('li');
-      li.className = 'history-entry';
-      li.innerHTML = `
-        <span class="h-tag ${isYash ? 'yash' : 'priyanshu'}">${by}</span>
-        <span class="h-time">${data.timestamp || ''}</span>
-        <span class="h-text">${textMap[id] || id}</span>
+      const el = document.createElement('div');
+      el.className = 'item';
+      el.id = `item-${item.id}`;
+      el.onclick = () => window.toggleItem(item.id, sec.id);
+
+      el.innerHTML = `
+        <div class="check-box"></div>
+        <div class="item-body">
+          <div class="item-text">${item.text}</div>
+          <div class="item-meta" id="meta-${item.id}">
+            <span class="who-badge" id="who-${item.id}"></span>
+            <span class="item-ts" id="ts-${item.id}"></span>
+          </div>
+        </div>
       `;
-      ul.appendChild(li);
+      itemsContainer.appendChild(el);
     });
 
-    historyContainer.innerHTML = '';
-    historyContainer.appendChild(ul);
+    secWrap.appendChild(itemsContainer);
+    container.appendChild(secWrap);
+  });
+}
+
+// Update DOM elements based on sharedState
+function updateUI() {
+  let totalChecked = 0;
+  let pCount = 0;
+  let yCount = 0;
+
+  SECTIONS.forEach(sec => {
+    let secChecked = 0;
+
+    sec.items.forEach(item => {
+      const itemData = sharedState[item.id];
+      const itemEl = document.getElementById(`item-${item.id}`);
+      const whoEl = document.getElementById(`who-${item.id}`);
+      const tsEl = document.getElementById(`ts-${item.id}`);
+
+      if (itemData && itemData.checked) {
+        totalChecked++;
+        secChecked++;
+        const by = itemData.checkedBy || 'Priyanshu';
+        if (by.toLowerCase().includes('yash')) yCount++;
+        else pCount++;
+
+        if (itemEl) {
+          itemEl.classList.add('checked');
+          itemEl.classList.toggle('checked-by-priyanshu', by.toLowerCase().includes('priyanshu'));
+          itemEl.classList.toggle('checked-by-yash', by.toLowerCase().includes('yash'));
+        }
+        if (whoEl) {
+          whoEl.textContent = `✓ ${by}`;
+          whoEl.className = `who-badge ${by.toLowerCase().includes('yash') ? 'yash' : 'priyanshu'}`;
+        }
+        if (tsEl) tsEl.textContent = itemData.timestamp || '';
+      } else {
+        if (itemEl) {
+          itemEl.classList.remove('checked', 'checked-by-priyanshu', 'checked-by-yash');
+        }
+      }
+    });
+
+    const secCounter = document.getElementById(`sec-counter-${sec.id}`);
+    if (secCounter && sec.items.length > 0) {
+      secCounter.textContent = `${secChecked}/${sec.items.length}`;
+      secCounter.classList.toggle('done', secChecked === sec.items.length);
+    }
+  });
+
+  const pct = TOTAL_ITEMS > 0 ? Math.round((totalChecked / TOTAL_ITEMS) * 100) : 0;
+  const pPct = TOTAL_ITEMS > 0 ? (pCount / TOTAL_ITEMS) * 100 : 0;
+  const yPct = TOTAL_ITEMS > 0 ? (yCount / TOTAL_ITEMS) * 100 : 0;
+
+  document.getElementById('stat-checked').textContent = totalChecked;
+  document.getElementById('stat-total').textContent = TOTAL_ITEMS;
+  document.getElementById('stat-pct').textContent = `(${pct}% completed)`;
+  document.getElementById('pill-priyanshu').textContent = `Priyanshu: ${pCount}`;
+  document.getElementById('pill-yash').textContent = `Yash: ${yCount}`;
+
+  document.getElementById('bar-priyanshu').style.width = pPct + '%';
+  document.getElementById('bar-yash').style.width = yPct + '%';
+
+  updateActivityLog();
+  applyFilter();
+}
+
+function updateActivityLog() {
+  const historyContainer = document.getElementById('history-container');
+  const checkedEntries = Object.entries(sharedState)
+    .filter(([, v]) => v && v.checked)
+    .sort((a, b) => (b[1].timestamp || '').localeCompare(a[1].timestamp || ''));
+
+  document.getElementById('history-count').textContent = `${checkedEntries.length} items logged`;
+
+  if (checkedEntries.length === 0) {
+    historyContainer.innerHTML = '<p class="history-empty">No items checked yet. Whenever either of you checks an item, it will show up here live.</p>';
+    return;
   }
 
-  // Reset all items in Firebase
-  window.confirmResetAll = function() {
-    if (!confirm("⚠️ Are you sure you want to RESET the entire checklist for BOTH of you?\n\nThis will clear all checked items from Firebase.")) return;
-    if (!confirm("Confirm one more time: Reset all checklist items?")) return;
-    remove(checklistDbRef).then(() => {
-      sharedState = {};
-      localStorage.removeItem('neopolis_shared_checklist');
-      updateUI();
-    }).catch(err => alert("Error resetting: " + err.message));
-  };
+  const textMap = {};
+  SECTIONS.forEach(s => s.items.forEach(it => {
+    textMap[it.id] = it.text.replace(/<[^>]+>/g, '');
+  }));
 
-  // Export Snag Report
-  window.exportSnagReport = function() {
-    let report = `SOBHA NEOPOLIS — UNIT Q1-17166 (WING 17, 16th FLOOR)\n`;
-    report += `HANDOVER SNAG INSPECTION REPORT\n`;
-    report += `Date of Inspection: 05 November 2026\n`;
-    report += `Inspectors: Priyanshu Varshney & Yash Varshney\n`;
-    report += `Generated at: ${getFormattedTimestamp()}\n`;
-    report += `=${'='.repeat(65)}\n\n`;
+  const ul = document.createElement('ul');
+  ul.className = 'history-list';
 
-    const textMap = {};
-    window.SECTIONS.forEach(s => s.items.forEach(it => {
-      textMap[it.id] = it.text.replace(/<[^>]+>/g, '');
-    }));
+  checkedEntries.forEach(([id, data]) => {
+    const by = data.checkedBy || 'Priyanshu';
+    const isYash = by.toLowerCase().includes('yash');
+    const li = document.createElement('li');
+    li.className = 'history-entry';
+    li.innerHTML = `
+      <span class="h-tag ${isYash ? 'yash' : 'priyanshu'}">${by}</span>
+      <span class="h-time">${data.timestamp || ''}</span>
+      <span class="h-text">${textMap[id] || id}</span>
+    `;
+    ul.appendChild(li);
+  });
 
-    let checkedCount = 0;
-    let pendingCount = 0;
+  historyContainer.innerHTML = '';
+  historyContainer.appendChild(ul);
+}
 
-    window.SECTIONS.forEach(sec => {
-      if (sec.id === 'H') return;
-      report += `\n[SECTION ${sec.letter}] ${sec.title.replace(/^[^\s]+\s/, '')}\n`;
-      report += `${'-'.repeat(50)}\n`;
+// ════════════════════════════════════════════════════════════════════
+// OPTIMISTIC ZERO-LATENCY TOGGLE + CLOUD SYNC
+// ════════════════════════════════════════════════════════════════════
+window.toggleItem = function(itemId, secId) {
+  const isCurrentlyChecked = !!(sharedState[itemId]?.checked);
 
-      sec.items.forEach(it => {
-        const itemData = sharedState[it.id];
-        if (itemData && itemData.checked) {
-          checkedCount++;
-          report += `[✓ CHECKED] ${textMap[it.id]}\n`;
-          report += `            Verified by: ${itemData.checkedBy || 'Priyanshu'} at ${itemData.timestamp || 'N/A'}\n`;
-        } else {
-          pendingCount++;
-          report += `[  PENDING] ${textMap[it.id]}\n`;
-        }
-      });
+  if (isCurrentlyChecked) {
+    // 1. Immediately delete locally (Zero Latency)
+    delete sharedState[itemId];
+    saveLocalState();
+    updateUI();
+
+    // 2. Sync deletion to Firebase
+    fetch(`${FIREBASE_BASE_URL}/${itemId}.json`, { method: 'DELETE' })
+      .catch(err => console.warn('Cloud sync offline (saved locally):', err));
+  } else {
+    // 1. Immediately mark checked locally (Zero Latency)
+    const itemData = {
+      checked: true,
+      checkedBy: currentInspector,
+      timestamp: getFormattedTimestamp(),
+      secId: secId
+    };
+    sharedState[itemId] = itemData;
+    saveLocalState();
+    updateUI();
+
+    // 2. Sync to Firebase
+    fetch(`${FIREBASE_BASE_URL}/${itemId}.json`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(itemData)
+    }).catch(err => console.warn('Cloud sync offline (saved locally):', err));
+  }
+};
+
+// Reset Entire Checklist
+window.confirmResetAll = function() {
+  if (!confirm("⚠️ Are you sure you want to RESET the entire checklist for BOTH of you?\n\nThis will clear all checked items.")) return;
+  if (!confirm("Confirm one more time: Reset all checklist items?")) return;
+
+  sharedState = {};
+  saveLocalState();
+  updateUI();
+
+  fetch(`${FIREBASE_BASE_URL}.json`, { method: 'DELETE' })
+    .catch(err => console.error('Error resetting Firebase:', err));
+};
+
+// Export Snag Report
+window.exportSnagReport = function() {
+  let report = `SOBHA NEOPOLIS — UNIT Q1-17166 (WING 17, 16th FLOOR)\n`;
+  report += `HANDOVER SNAG INSPECTION REPORT\n`;
+  report += `Date of Inspection: 05 November 2026\n`;
+  report += `Inspectors: Priyanshu Varshney & Yash Varshney\n`;
+  report += `Generated at: ${getFormattedTimestamp()}\n`;
+  report += `=${'='.repeat(65)}\n\n`;
+
+  const textMap = {};
+  SECTIONS.forEach(s => s.items.forEach(it => {
+    textMap[it.id] = it.text.replace(/<[^>]+>/g, '');
+  }));
+
+  let checkedCount = 0;
+  let pendingCount = 0;
+
+  SECTIONS.forEach(sec => {
+    if (sec.id === 'H') return;
+    report += `\n[SECTION ${sec.letter}] ${sec.title.replace(/^[^\s]+\s/, '')}\n`;
+    report += `${'-'.repeat(50)}\n`;
+
+    sec.items.forEach(it => {
+      const itemData = sharedState[it.id];
+      if (itemData && itemData.checked) {
+        checkedCount++;
+        report += `[✓ CHECKED] ${textMap[it.id]}\n`;
+        report += `            Verified by: ${itemData.checkedBy || 'Priyanshu'} at ${itemData.timestamp || 'N/A'}\n`;
+      } else {
+        pendingCount++;
+        report += `[  PENDING] ${textMap[it.id]}\n`;
+      }
     });
+  });
 
-    report += `\n${'='.repeat(65)}\n`;
-    report += `SUMMARY:\n`;
-    report += `Total Items Checked: ${checkedCount} / ${window.TOTAL_ITEMS}\n`;
-    report += `Total Items Pending/Snags: ${pendingCount}\n`;
-    report += `=${'='.repeat(65)}\n`;
+  report += `\n${'='.repeat(65)}\n`;
+  report += `SUMMARY:\n`;
+  report += `Total Items Checked: ${checkedCount} / ${TOTAL_ITEMS}\n`;
+  report += `Total Items Pending/Snags: ${pendingCount}\n`;
+  report += `=${'='.repeat(65)}\n`;
 
-    const blob = new Blob([report], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `sobha-q1-17166-snag-report-${new Date().toISOString().slice(0,10)}.txt`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+  const blob = new Blob([report], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `sobha-q1-17166-snag-report-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+};
 
-  // ── INIT ──
-  buildChecklistDOM();
-  window.setInspector(currentInspector);
-
-  // Load cached state first for instant display
-  try {
-    const cached = localStorage.getItem('neopolis_shared_checklist');
-    if (cached) {
-      sharedState = JSON.parse(cached);
-      updateUI();
-    }
-  } catch(e) {}
-
-  // Listen to live Firebase updates
-  onValue(checklistDbRef, (snapshot) => {
-    const data = snapshot.val();
-    sharedState = data || {};
-    localStorage.setItem('neopolis_shared_checklist', JSON.stringify(sharedState));
-
-    // Update status badge
-    const syncStatus = document.getElementById('sync-status');
-    const syncText = document.getElementById('sync-text');
+// ════════════════════════════════════════════════════════════════════
+// LIVE REAL-TIME SYNC (SSE STREAM + FETCH FALLBACK)
+// ════════════════════════════════════════════════════════════════════
+function setSyncStatus(isLive, label) {
+  const syncStatus = document.getElementById('sync-status');
+  const syncText = document.getElementById('sync-text');
+  if (isLive) {
     syncStatus.style.background = 'rgba(22, 163, 74, 0.2)';
     syncStatus.style.color = '#86EFAC';
     syncStatus.style.borderColor = 'rgba(134, 239, 172, 0.4)';
-    syncText.textContent = 'Live Cloud Sync Connected';
-
-    updateUI();
-  }, (error) => {
-    console.error("Firebase connection error:", error);
-    const syncStatus = document.getElementById('sync-status');
-    const syncText = document.getElementById('sync-text');
+    syncText.textContent = label || 'Live Cloud Sync Connected';
+  } else {
     syncStatus.style.background = 'rgba(217, 119, 6, 0.2)';
     syncStatus.style.color = '#FDE68A';
     syncStatus.style.borderColor = 'rgba(253, 230, 138, 0.4)';
-    syncText.textContent = 'Offline Mode (Local Save)';
-  });
+    syncText.textContent = label || 'Offline Mode (Saved Locally)';
+  }
+}
+
+// Fetch remote data and merge smartly without losing local checks
+async function fetchRemoteData() {
+  try {
+    const res = await fetch(`${FIREBASE_BASE_URL}.json`);
+    if (!res.ok) throw new Error('Network error');
+    const remoteData = await res.json();
+
+    if (remoteData) {
+      // Merge remote into local state
+      let updated = false;
+      Object.keys(remoteData).forEach(k => {
+        if (!sharedState[k] || JSON.stringify(sharedState[k]) !== JSON.stringify(remoteData[k])) {
+          sharedState[k] = remoteData[k];
+          updated = true;
+        }
+      });
+      if (updated) {
+        saveLocalState();
+        updateUI();
+      }
+    } else {
+      // Remote is empty, but local has checks? Push local checks up to remote!
+      if (Object.keys(sharedState).length > 0) {
+        fetch(`${FIREBASE_BASE_URL}.json`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(sharedState)
+        }).catch(() => {});
+      }
+    }
+    setSyncStatus(true, 'Live Cloud Sync Connected');
+  } catch(e) {
+    setSyncStatus(false, 'Offline Mode (Saved Locally)');
+  }
+}
+
+// Listen for live updates via Server-Sent Events (SSE)
+function setupLiveSync() {
+  if (typeof EventSource === 'undefined') {
+    setInterval(fetchRemoteData, 3000);
+    return;
+  }
+
+  try {
+    const sse = new EventSource(`${FIREBASE_BASE_URL}.json`);
+
+    sse.addEventListener('put', (e) => {
+      try {
+        const payload = JSON.parse(e.data);
+        if (payload.path === '/') {
+          if (payload.data) {
+            sharedState = payload.data;
+            saveLocalState();
+            updateUI();
+          }
+        } else if (payload.path) {
+          const itemId = payload.path.replace(/^\//, '');
+          if (payload.data) {
+            sharedState[itemId] = payload.data;
+          } else {
+            delete sharedState[itemId];
+          }
+          saveLocalState();
+          updateUI();
+        }
+        setSyncStatus(true, 'Live Cloud Sync Connected');
+      } catch(err) {
+        console.error('SSE parse error:', err);
+      }
+    });
+
+    sse.onerror = () => {
+      setSyncStatus(false, 'Reconnecting Sync...');
+    };
+  } catch(e) {
+    console.warn('SSE not available, falling back to polling.');
+  }
+
+  // Periodic polling safety net every 4 seconds
+  setInterval(fetchRemoteData, 4000);
+}
+
+// ════════════════════════════════════════════════════════════════════
+// INITIALIZATION
+// ════════════════════════════════════════════════════════════════════
+buildChecklistDOM();
+window.setInspector(currentInspector);
+
+// 1. Load from localStorage IMMEDIATELY (Checks will NEVER disappear on refresh)
+sharedState = loadLocalState();
+updateUI();
+
+// 2. Connect to cloud and sync
+fetchRemoteData();
+setupLiveSync();
 </script>
 
 </body>
