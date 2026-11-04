@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shared Handover Checklist — Q1-17166 | Sobha Neopolis</title>
+  <title>Handover Checklist — Q1-17166 | Sobha Neopolis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -36,6 +36,135 @@
       color: var(--ink);
       min-height: 100vh;
       padding: 18px 14px 60px;
+    }
+
+    /* ── Auth Modal / Lock Screen ── */
+    #auth-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .auth-card {
+      background: var(--paper);
+      max-width: 440px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      border: 1px solid #CBD5E1;
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .auth-card .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: #FEF3C7;
+      color: #92400E;
+      margin-bottom: 14px;
+    }
+    .auth-card h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .auth-card p {
+      font-size: 13.5px;
+      color: var(--ink2);
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .google-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1F2937;
+      background: #FFFFFF;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 28px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .google-btn:hover {
+      background: #F9FAFB;
+      border-color: #9CA3AF;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .google-icon { width: 20px; height: 20px; }
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--lines);
+    }
+    .auth-divider span { padding: 0 10px; }
+    .pin-input-group {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .pin-input {
+      width: 140px;
+      padding: 9px 12px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-align: center;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 6px;
+      background: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+    }
+    .pin-btn {
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--ink);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .auth-error {
+      display: none;
+      background: #FEE2E2;
+      border: 1px solid #FCA5A5;
+      color: #991B1B;
+      font-size: 12.5px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-top: 14px;
+      line-height: 1.4;
     }
 
     /* ── Top Nav ── */
@@ -156,7 +285,7 @@
     .inspector-bar {
       background: #FFFFFF;
       border-bottom: 2px solid var(--lines);
-      padding: 14px 20px 14px 72px;
+      padding: 12px 20px 12px 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -165,12 +294,24 @@
       position: relative;
       z-index: 1;
     }
-    .inspector-prompt {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
+    .user-info-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--ink2);
+    }
+    .user-info-chip strong {
+      color: var(--ink);
+    }
+    .logout-btn {
+      font-size: 11.5px;
+      color: #64748B;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 6px;
     }
     .inspector-toggles {
       display: inline-flex;
@@ -181,8 +322,8 @@
       gap: 4px;
     }
     .inspector-btn {
-      padding: 6px 16px;
-      font-size: 13px;
+      padding: 5px 14px;
+      font-size: 12.5px;
       font-weight: 600;
       border: none;
       background: transparent;
@@ -404,10 +545,6 @@
     }
     .item:hover { background: rgba(37,99,235,0.04); }
 
-    .item input[type="checkbox"] {
-      display: none;
-    }
-
     .check-box {
       width: 22px; height: 22px;
       border: 2px solid #CBD5E1;
@@ -452,7 +589,6 @@
     .item-text strong { font-weight: 600; color: var(--ink); }
     .item.checked .item-text strong { color: #94A3B8; }
 
-    /* Tag showing who checked it and timestamp */
     .item-meta {
       display: none;
       align-items: center;
@@ -632,6 +768,37 @@
 </head>
 <body>
 
+<!-- ── AUTHENTICATION MODAL (LOCKED BY DEFAULT) ── -->
+<div id="auth-overlay">
+  <div class="auth-card">
+    <div class="badge">🔒 Private &amp; Restricted</div>
+    <h2>Unit Q1-17166 Handover</h2>
+    <p>Sign in with your authorized Google account to access and record inspection snags.</p>
+
+    <!-- Google OAuth Button -->
+    <button class="google-btn" id="btn-google-login">
+      <svg class="google-icon" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.35 24 12 24z"/>
+        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+      </svg>
+      Sign in with Google
+    </button>
+
+    <div class="auth-divider"><span>OR FLAT PASSCODE</span></div>
+
+    <!-- Fallback Passcode for instant offline/on-site access -->
+    <div class="pin-input-group">
+      <input type="password" class="pin-input" id="pin-input" placeholder="Passcode" maxlength="5">
+      <button class="pin-btn" id="btn-pin-submit">Unlock</button>
+    </div>
+    <div style="font-size:11.5px; color:#94A3B8;">(Flat number: 17166)</div>
+
+    <div class="auth-error" id="auth-error"></div>
+  </div>
+</div>
+
 <!-- Top Navigation -->
 <div class="top-nav">
   <a href="index.html">← Back to Price Tracker</a>
@@ -656,7 +823,10 @@
 
   <!-- Inspector Bar: Who is using this device? -->
   <div class="inspector-bar">
-    <div class="inspector-prompt">👤 You are inspecting as:</div>
+    <div class="user-info-chip">
+      <span>👤 Logged in as: <strong id="logged-user-name">Priyanshu</strong></span>
+      <button class="logout-btn" id="btn-logout" title="Sign out / Switch user">(switch)</button>
+    </div>
     <div class="inspector-toggles">
       <button class="inspector-btn priyanshu" id="btn-user-priyanshu" onclick="setInspector('Priyanshu')">
         👤 Priyanshu
@@ -714,13 +884,43 @@
 
 </div><!-- /notebook -->
 
-<script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithPopup, signInWithRedirect, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 // ════════════════════════════════════════════════════════════════════
-// CONSTANTS & CONFIGURATION
+// CONFIGURATION & CONSTANTS
 // ════════════════════════════════════════════════════════════════════
+const firebaseConfig = {
+  apiKey: "AIzaSyC8p6iheMLOXc13wNosPb77VmGfXr0r1FM",
+  authDomain: "eopolis-checklist.firebaseapp.com",
+  databaseURL: "https://eopolis-checklist-default-rtdb.firebaseio.com",
+  projectId: "eopolis-checklist",
+  storageBucket: "eopolis-checklist.firebasestorage.app",
+  messagingSenderId: "66733118396",
+  appId: "1:66733118396:web:e8c46dd1165377f36091b9",
+  measurementId: "G-F50S9WZR4K"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
 const FIREBASE_BASE_URL = "https://eopolis-checklist-default-rtdb.firebaseio.com/shared_checklist_q1_17166";
 const LOCAL_STORAGE_KEY = "neopolis_shared_checklist_v2";
+const AUTH_STORAGE_KEY = "neopolis_auth_token_v2";
 
+// Whitelisted Google Accounts
+const WHITELISTED_USERS = {
+  "priyanshuvarshney6@gmail.com": "Priyanshu",
+  "varshneyyash60@gmail.com": "Yash"
+};
+
+const FALLBACK_PASSCODE = "17166";
+
+// ════════════════════════════════════════════════════════════════════
+// CHECKLIST DEFINITION
+// ════════════════════════════════════════════════════════════════════
 const SECTIONS = [
   {
     id: 'A', letter: 'A',
@@ -875,13 +1075,113 @@ const SECTIONS = [
 const TOTAL_ITEMS = SECTIONS.reduce((sum, s) => sum + s.items.length, 0);
 
 // ════════════════════════════════════════════════════════════════════
-// STATE MANAGEMENT (LOCAL-FIRST)
+// AUTHENTICATION & ACCESS CONTROL
 // ════════════════════════════════════════════════════════════════════
-let currentInspector = localStorage.getItem('neopolis_inspector') || 'Priyanshu';
+let currentInspector = 'Priyanshu';
 let currentFilter = 'all';
 let sharedState = {};
 
-// Load local state initially
+function showError(msg) {
+  const el = document.getElementById('auth-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function unlockApp(userDisplayName, email) {
+  document.getElementById('auth-overlay').style.display = 'none';
+  document.getElementById('logged-user-name').textContent = userDisplayName;
+
+  // Set default inspector based on signed-in user
+  setInspector(userDisplayName);
+
+  // Save session
+  localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({ name: userDisplayName, email: email, timestamp: Date.now() }));
+}
+
+function lockApp() {
+  localStorage.removeItem(AUTH_STORAGE_KEY);
+  document.getElementById('auth-overlay').style.display = 'flex';
+}
+
+// Google Sign-In handler
+document.getElementById('btn-google-login').onclick = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const email = result.user.email.toLowerCase();
+
+    if (WHITELISTED_USERS[email]) {
+      unlockApp(WHITELISTED_USERS[email], email);
+    } else {
+      await signOut(auth);
+      showError(`Access Denied (${email}): Only Priyanshu & Yash are authorized.`);
+    }
+  } catch(err) {
+    console.error("Popup failed, attempting redirect:", err);
+    try {
+      await signInWithRedirect(auth, provider);
+    } catch(redErr) {
+      showError("Authentication error: " + (err.message || "Please use the flat passcode."));
+    }
+  }
+};
+
+// Check redirect login result
+getRedirectResult(auth).then(result => {
+  if (result && result.user) {
+    const email = result.user.email.toLowerCase();
+    if (WHITELISTED_USERS[email]) {
+      unlockApp(WHITELISTED_USERS[email], email);
+    } else {
+      signOut(auth);
+      showError(`Access Denied (${email}): Only Priyanshu & Yash are authorized.`);
+    }
+  }
+}).catch(err => console.warn("Redirect result error:", err));
+
+// Fallback Passcode handler
+document.getElementById('btn-pin-submit').onclick = () => {
+  const val = document.getElementById('pin-input').value.trim();
+  if (val === FALLBACK_PASSCODE) {
+    const preferred = localStorage.getItem('neopolis_inspector') || 'Priyanshu';
+    unlockApp(preferred, 'passcode');
+  } else {
+    showError("Incorrect passcode. Hint: Flat number (17166)");
+  }
+};
+
+document.getElementById('pin-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('btn-pin-submit').click();
+});
+
+// Logout handler
+document.getElementById('btn-logout').onclick = async () => {
+  if (confirm("Sign out / switch inspector?")) {
+    await signOut(auth).catch(() => {});
+    lockApp();
+  }
+};
+
+// Auto-check existing session on page load
+onAuthStateChanged(auth, (user) => {
+  if (user && user.email) {
+    const email = user.email.toLowerCase();
+    if (WHITELISTED_USERS[email]) {
+      unlockApp(WHITELISTED_USERS[email], email);
+      return;
+    }
+  }
+  // Check local saved session fallback
+  try {
+    const session = JSON.parse(localStorage.getItem(AUTH_STORAGE_KEY));
+    if (session && session.name) {
+      unlockApp(session.name, session.email || 'passcode');
+    }
+  } catch(e) {}
+});
+
+// ════════════════════════════════════════════════════════════════════
+// STATE MANAGEMENT (LOCAL-FIRST)
+// ════════════════════════════════════════════════════════════════════
 function loadLocalState() {
   try {
     const raw = localStorage.getItem(LOCAL_STORAGE_KEY) || localStorage.getItem('neopolis_shared_checklist') || '{}';
@@ -934,7 +1234,6 @@ function applyFilter() {
   });
 }
 
-// Build static HTML layout
 function buildChecklistDOM() {
   const container = document.getElementById('checklist-container');
   container.innerHTML = '';
@@ -944,7 +1243,6 @@ function buildChecklistDOM() {
     secWrap.className = 'section-wrap';
     secWrap.id = `sec-wrap-${sec.id}`;
 
-    // Header
     const hdr = document.createElement('div');
     hdr.className = 'section-header';
     hdr.innerHTML = `
@@ -954,7 +1252,6 @@ function buildChecklistDOM() {
     `;
     secWrap.appendChild(hdr);
 
-    // Callout
     if (sec.callout) {
       const co = document.createElement('div');
       co.className = 'callout';
@@ -962,7 +1259,6 @@ function buildChecklistDOM() {
       secWrap.appendChild(co);
     }
 
-    // Section H: Special Guidance
     if (sec.id === 'H') {
       secWrap.innerHTML += `
         <ol style="padding-left:20px; font-size:13.5px; line-height:1.8; color:var(--ink2);">
@@ -999,7 +1295,6 @@ function buildChecklistDOM() {
       return;
     }
 
-    // Items
     const itemsContainer = document.createElement('div');
 
     sec.items.forEach(item => {
@@ -1036,7 +1331,6 @@ function buildChecklistDOM() {
   });
 }
 
-// Update DOM elements based on sharedState
 function updateUI() {
   let totalChecked = 0;
   let pCount = 0;
@@ -1144,16 +1438,13 @@ window.toggleItem = function(itemId, secId) {
   const isCurrentlyChecked = !!(sharedState[itemId]?.checked);
 
   if (isCurrentlyChecked) {
-    // 1. Immediately delete locally (Zero Latency)
     delete sharedState[itemId];
     saveLocalState();
     updateUI();
 
-    // 2. Sync deletion to Firebase
     fetch(`${FIREBASE_BASE_URL}/${itemId}.json`, { method: 'DELETE' })
       .catch(err => console.warn('Cloud sync offline (saved locally):', err));
   } else {
-    // 1. Immediately mark checked locally (Zero Latency)
     const itemData = {
       checked: true,
       checkedBy: currentInspector,
@@ -1164,7 +1455,6 @@ window.toggleItem = function(itemId, secId) {
     saveLocalState();
     updateUI();
 
-    // 2. Sync to Firebase
     fetch(`${FIREBASE_BASE_URL}/${itemId}.json`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
@@ -1173,7 +1463,6 @@ window.toggleItem = function(itemId, secId) {
   }
 };
 
-// Reset Entire Checklist
 window.confirmResetAll = function() {
   if (!confirm("⚠️ Are you sure you want to RESET the entire checklist for BOTH of you?\n\nThis will clear all checked items.")) return;
   if (!confirm("Confirm one more time: Reset all checklist items?")) return;
@@ -1186,7 +1475,6 @@ window.confirmResetAll = function() {
     .catch(err => console.error('Error resetting Firebase:', err));
 };
 
-// Export Snag Report
 window.exportSnagReport = function() {
   let report = `SOBHA NEOPOLIS — UNIT Q1-17166 (WING 17, 16th FLOOR)\n`;
   report += `HANDOVER SNAG INSPECTION REPORT\n`;
@@ -1255,7 +1543,6 @@ function setSyncStatus(isLive, label) {
   }
 }
 
-// Fetch remote data and merge smartly without losing local checks
 async function fetchRemoteData() {
   try {
     const res = await fetch(`${FIREBASE_BASE_URL}.json`);
@@ -1263,7 +1550,6 @@ async function fetchRemoteData() {
     const remoteData = await res.json();
 
     if (remoteData) {
-      // Merge remote into local state
       let updated = false;
       Object.keys(remoteData).forEach(k => {
         if (!sharedState[k] || JSON.stringify(sharedState[k]) !== JSON.stringify(remoteData[k])) {
@@ -1276,7 +1562,6 @@ async function fetchRemoteData() {
         updateUI();
       }
     } else {
-      // Remote is empty, but local has checks? Push local checks up to remote!
       if (Object.keys(sharedState).length > 0) {
         fetch(`${FIREBASE_BASE_URL}.json`, {
           method: 'PUT',
@@ -1291,7 +1576,6 @@ async function fetchRemoteData() {
   }
 }
 
-// Listen for live updates via Server-Sent Events (SSE)
 function setupLiveSync() {
   if (typeof EventSource === 'undefined') {
     setInterval(fetchRemoteData, 3000);
@@ -1333,7 +1617,6 @@ function setupLiveSync() {
     console.warn('SSE not available, falling back to polling.');
   }
 
-  // Periodic polling safety net every 4 seconds
   setInterval(fetchRemoteData, 4000);
 }
 
@@ -1341,13 +1624,9 @@ function setupLiveSync() {
 // INITIALIZATION
 // ════════════════════════════════════════════════════════════════════
 buildChecklistDOM();
-window.setInspector(currentInspector);
-
-// 1. Load from localStorage IMMEDIATELY (Checks will NEVER disappear on refresh)
 sharedState = loadLocalState();
 updateUI();
 
-// 2. Connect to cloud and sync
 fetchRemoteData();
 setupLiveSync();
 </script>
