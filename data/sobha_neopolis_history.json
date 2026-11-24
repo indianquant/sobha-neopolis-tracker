@@ -449,7 +449,7 @@
     "first_seen": "2026-07-21",
     "last_seen": "2026-11-24",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "77a44344": {
     "hash": "77a44344",
@@ -594,7 +594,7 @@
     "first_seen": "2026-07-21",
     "last_seen": "2026-11-24",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "cc949be7": {
     "hash": "cc949be7",
@@ -1850,8 +1850,8 @@
     "area": 1611,
     "facing": "South",
     "possession": "Jun 2026",
-    "price": "\u20b9 2.75 Crores",
-    "price_raw": 27500000,
+    "price": "\u20b9 2.85 Crores",
+    "price_raw": 28500000,
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8a9fa98496ee390b0196ee62ce4c0b6e/detail",
     "first_seen": "2026-07-30",
@@ -2191,9 +2191,9 @@
     "total_floors": 18,
     "area": 1611,
     "facing": "East",
-    "possession": "Aug 2027",
-    "price": "\u20b9 2.5 Crores",
-    "price_raw": 25000000,
+    "possession": "Nov 2026",
+    "price": "\u20b9 2.55 Crores",
+    "price_raw": 25500000,
     "source": "NoBroker",
     "link": "https://www.nobroker.in/property/buy/3-bhk-apartment-for-sale-in-panathur-bangalore/8aa9b5b3a0154ac501a015b1adfd3438/detail",
     "first_seen": "2026-08-18",
@@ -2227,7 +2227,7 @@
     "total_floors": 20,
     "area": 2480,
     "facing": "North",
-    "possession": "Nov 2026",
+    "possession": "Dec 2026",
     "price": "\u20b9 4 Crores",
     "price_raw": 40000000,
     "source": "NoBroker",
@@ -3247,7 +3247,7 @@
     "first_seen": "2026-09-20",
     "last_seen": "2026-11-24",
     "status": "active",
-    "consecutive_misses": 0
+    "consecutive_misses": 1
   },
   "b35e257d": {
     "hash": "b35e257d",
@@ -3659,7 +3659,7 @@
     "total_floors": 18,
     "area": 1915,
     "facing": "North",
-    "possession": "Nov 2026",
+    "possession": "Dec 2026",
     "price": "\u20b9 3.21 Crores",
     "price_raw": 32100000,
     "source": "NoBroker",
